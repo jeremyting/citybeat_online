@@ -35,6 +35,8 @@ def transferPhoto():
 		id_set.add(photo['id'])
 		photo['_id'] = photo['id']
 		pi2.saveDocument(photo)
+	
+	print len(id_set)
 
 if __name__=='__main__':
 	transferPhoto()
