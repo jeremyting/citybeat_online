@@ -1,3 +1,7 @@
+""" one and off script to check instagram server status
+
+"""
+
 from instagram import InstagramAPI
 import config
 import time
