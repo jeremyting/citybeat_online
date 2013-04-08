@@ -34,10 +34,9 @@ class EventFeature(Event):
 	def getDuration(self):
 		return self.getLatestPhotoTime() - self.getEarliestPhotoTime()
 	
-	
 	def preprocess(self):
 		self.selectOnePhotoForOneUser()
-		self.selectRelaventPhotos()
+		#self.selectRelaventPhotos()
 	
 	def selectRelaventPhotos(self, k=10):
 		assert self._representor is not None
@@ -151,12 +150,12 @@ class EventFeature(Event):
 		
 		tfidf_top3 = self.getTopWordByTFIDF(3)
 		res = self.countHashtagsFromPhotosContainingTopKeywords(3)
-		hashtag_cnt3 = res[0]
+		hashtage_cnt3 = res[0]
 		number_photos_associated_with_keywords3 = res[1]
 		
 		
 		
-#		historic_features = [0]*3  # for test only
+#		historic_features = [0]*3   for test only
 		historic_features = self.getHistoricFeatures(entropy_para)
 		diff_avg_photo_dis = avg_photo_dis - historic_features[0]
 		diff_top_word_pop = historic_features[1]
@@ -164,19 +163,26 @@ class EventFeature(Event):
 		
 		location_name_similarity = self.getTopPhotosLocationSimilarity()
 #		location_name_same = self.checkIfTopPhotoLocationSame()
+
+#		twitter_features = self.extractFeatureFromTweet()
 		
 		return [avg_cap_len,
-		        min_photo_dis, max_photo_dis, std_photo_dis, avg_photo_dis, median_photo_dis,
-		        min_photo_dis_cap, max_photo_dis_cap,	std_photo_dis_cap,
-		        mean_photo_dis_cap, median_photo_dis_cap,
+#		        min_photo_dis, max_photo_dis,
+						std_photo_dis, avg_photo_dis, 
+#						median_photo_dis,
+#		        min_photo_dis_cap, max_photo_dis_cap,	std_photo_dis_cap,
+		        mean_photo_dis_cap,
+#           median_photo_dis_cap,
 		        cap_per,
 		        std, top_word_pop, zscore, entropy, #ratio,
 		        diff_avg_photo_dis, diff_top_word_pop, diff_entropy,
 		        tfidf_top3[0], tfidf_top3[1], tfidf_top3[2], 
-		        hashtag_cnt3[0], hashtag_cnt3[1], hashtag_cnt3[2],
+		        hashtage_cnt3[0], hashtage_cnt3[1], hashtage_cnt3[2],
 		        number_photos_associated_with_keywords3[0], number_photos_associated_with_keywords3[1], number_photos_associated_with_keywords3[2],
 		        location_name_similarity, 
 #		        location_name_same,
+#						twitter_features,
+#						twitter_features[0], twitter_features[1], twitter_features[2], twitter_features[3],
 		        event_id,
 		        label]
 		        
