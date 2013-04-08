@@ -1,4 +1,4 @@
-citybeat_experiment
-===================
+CityBeat
+========
 
-experiment. date 2013.04.08
+A research project aiming on building a dashboard for cities using social media data
