@@ -37,7 +37,7 @@ def transferPhoto():
 		pi2.saveDocument(photo)
 
 if __name__=='__main__':
-	main()
+	transferPhoto()
 	
 	
 	
