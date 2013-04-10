@@ -30,10 +30,6 @@ from utility.event_interface import EventInterface
 from utility.event import Event
 
 
-
-
-
-
 class Alarm():
     def __init__(self, region, start_time, end_of_time, prediction_collection, candidate_collection):
         self.cur_time = int(start_time)
