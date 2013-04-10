@@ -40,14 +40,19 @@ class Corpus(object):
 			
 	def chooseTopWordWithHighestTDIDF(self, word_list, k=10):
 		# word_list is a list of (word, freq)
+		
+		# TODO: temporally add this sentence to avoid error when query the df of new word
+		self._addDocument(word_list)
+		
 		new_word_list = []
 		for i in xrange(0, len(word_list)):
 			word = word_list[i][0]
 			tf = word_list[i][1]
 			# note that the corpus must be consistent with the events
 			# that means, we cannot use the corpus built from 15by15 for 10by10
-			if self._corpus_df[word] >= self._leastDF:
-				tfidf = tf * math.log(self._corpus_n * 1.0 / self._corpus_df[word])
+			df = self._corpus_df.get(word, 1)
+			if df >= self._leastDF:
+				tfidf = tf * math.log(self._corpus_n * 1.0 / df)
 				new_word_list.append((word, tfidf))
 		new_word_list.sort(key=operator.itemgetter(1), reverse=True)
 		return new_word_list[0:min(k, len(new_word_list))]
