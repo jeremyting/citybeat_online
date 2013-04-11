@@ -85,6 +85,7 @@ def transferTweets():
 		if id in ids:
 			continue
 		ids.add(id)
+		tweet['_id'] = ObjectId(id)
 		ti2.saveDocument(tweet)
 	
 	  

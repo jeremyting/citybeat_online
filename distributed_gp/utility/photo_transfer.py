@@ -34,7 +34,7 @@ def transferPhoto():
 	for photo in photo_cur:
 		if photo['id'] not in id_set:
 			id_set.add(photo['id'])
-			photo['_id'] = photo['id']
+			photo['_id'] = ObjectId(photo['id'])
 			pi2.saveDocument(photo)
 	
 	print len(id_set)
