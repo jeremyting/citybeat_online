@@ -34,4 +34,4 @@ class TimeSeries(object):
             print 'in twitter!'
             pi = tweet_interface.TweetInterface('citybeat_production', 'tweets' )
             region.display()
-            self.cursor = pi.rangeQuery(region, (str(start_timestamp), str(end_timestamp)))
+            self.cursor = pi.rangeQuery(region, [str(start_timestamp), str(end_timestamp)])
