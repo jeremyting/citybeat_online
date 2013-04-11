@@ -6,7 +6,6 @@
 #Edited by: (Please write your name here)#
 
 from mongodb_interface import MongoDBInterface
-from event import Event
 from tweet import Tweet
 from config import TwitterConfig
 from datetime import datetime
