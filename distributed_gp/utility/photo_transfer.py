@@ -22,7 +22,7 @@ import sys
 def transferPhoto():
 	# remove duplicate
 	pi = PhotoInterface()
-	pi.setDB('citybeat')
+	pi.setDB('tmp_citybeat')
 	pi.setCollection('photos')
 	
 	pi2 = PhotoInterface()
