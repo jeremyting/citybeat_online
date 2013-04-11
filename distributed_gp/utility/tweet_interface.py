@@ -86,12 +86,12 @@ def getTweetStatistics():
 		lats.append(lat)
 		lons.append(lon)
 		
-	print [numpy.min(lats), numpy.max(lats), numpy.std(lats), 
+	print [numpy.min(lats), numpy.max(lats), numpy.std(lats),
 				 numpy.mean(lats), numpy.median(lats)]
 	
 	print '*********************************'
 	
-  print [numpy.min(lons), numpy.max(lons), numpy.std(lons), 
+	print [numpy.min(lons), numpy.max(lons), numpy.std(lons),
 				 numpy.mean(lons), numpy.median(lons)]	
 	
 	
