@@ -61,8 +61,8 @@ class Region:
 				region_list.append(r)
 		return region_list
 	
-	def filterRegions(self, region_list, percentage=InstagramConfig.region_percentage,test=False, n=10, m=10, documentType='photo'):
-		assert documentType in ['photo', 'tweet']
+	def filterRegions(self, region_list, percentage=InstagramConfig.region_percentage,test=False, n=10, m=10, document_type='photo'):
+		assert document_type in ['photo', 'tweet']
 		if test:
 			#n and m should be set if test is true
 			#this is only for test
@@ -86,11 +86,11 @@ class Region:
 		begin_time = 1299704845
 #		end_time = 1359704845 - 7*3600*24
 #		begin_time = end_time - 14*3600*24
-		if documentType == 'photo':
-			documentInterface = PhotoInterface()
+		if document_type == 'photo':
+			di = PhotoInterface()
 		else:
-			documentInterface = TweetInterface()
-		document_cur = documentInterface.rangeQuery(period=[str(begin_time), str(end_time)])
+			di = TweetInterface()
+		document_cur = di.rangeQuery(period=[str(begin_time), str(end_time)])
 		region_number = len(region_list)
 		number_document_in_region = [0]*region_number
 		bad_documents = 0
@@ -137,7 +137,7 @@ if __name__=="__main__":
 	               InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
 	nyc = Region(coordinates)
 	region_list = nyc.divideRegions(25, 25)
-	region_list = nyc.filterRegions(region_list, test=False, n=25, m=25, documentType='tweet')
+	region_list = nyc.filterRegions(region_list, test=False, n=25, m=25, document_type='tweet')
 	for region in region_list:
 		region = region.toDict()
 		print region['min_lat'], region['min_lng'], region['max_lat'], region['max_lng']
