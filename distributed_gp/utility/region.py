@@ -84,8 +84,8 @@ class Region:
 		
 #		end_time = 1359704845
 #		begin_time = 1299704845
-		end_time = 1359704845 - 7*3600*24
-		begin_time = end_time - 14*3600*24
+		end_time = 1962096000
+		begin_time = 1362096000
 		if document_type == 'photo':
 			di = PhotoInterface()
 		else:
