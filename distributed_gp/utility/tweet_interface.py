@@ -118,6 +118,7 @@ def transferTweets():
 
 
 def checkTweetInRegion():
+	region = {}
 	region['min_lat'] = InstagramConfig.photo_min_lat
 	region['max_lat'] = InstagramConfig.photo_max_lat
 	region['min_lon'] = InstagramConfig.photo_min_lon
