@@ -117,7 +117,7 @@ def transferTweets():
 		ti2.saveDocument(tweet)
 
 
-def checkTweetInRegion(self):
+def checkTweetInRegion():
 	region['min_lat'] = photo_min_lat
 	region['max_lat'] = photo_max_lat
 	region['min_lon'] = photo_min_lon
