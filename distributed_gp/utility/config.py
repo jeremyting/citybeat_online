@@ -52,7 +52,7 @@ instagram_API_pause = 0.1
 mongodb_address = 'grande.rutgers.edu'
 mongodb_port = 27017
 
-class TwitterConfig(BaseCofig):
+class TwitterConfig(BaseConfig):
 	# we have not yet moved tweets from citybeat to production
 	tweet_db = 'citybeat'
 	tweet_collection = 'tweets'
