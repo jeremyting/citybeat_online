@@ -88,10 +88,10 @@ class Region:
 			documentInterface = PhotoInterface()
 		else:
 			documentInterface = TweetInterface()
-		document = documentInterface.rangeQuery(period=[str(begin_time), str(end_time)])
+		document_cur = documentInterface.rangeQuery(period=[str(begin_time), str(end_time)])
 		region_number = len(region_list)
 		number_photo_in_region = [0]*region_number
-		for document in documents:
+		for document in document_cur:
 			lat = float(document['location']['latitude'])
 			lng = float(document['location']['longitude'])
 			flag = 0
