@@ -77,7 +77,7 @@ def transferTweets():
 	cur = ti.getAllDocuments()
 	
 	ti2 = TweetInterface()
-	ti2.setDB('citbeat_production')
+	ti2.setDB('citybeat_production')
 	ti2.setCollection('tweets')
 	ids = set()
 	for tweet in cur:
