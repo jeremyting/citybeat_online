@@ -107,7 +107,7 @@ class Region:
 					break
 			if flag == 0:
 				bad_documents += 1
-		C
+				
 		print str(bad_documents) + ' out of ' + str(total_documents) + ' documents are bad(not in NY)'
 		
 		region_tuples = []
