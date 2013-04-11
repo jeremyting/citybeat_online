@@ -29,7 +29,7 @@ class InstagramTimeSeries(TimeSeries):
 
     def __init__(self, region, start_timestamp, end_timestamp, freq = '1h'):
         super(InstagramTimeSeries, self).__init__(region,
-                start_timestamp, end_timestamp, freq)
+                start_timestamp, end_timestamp, freq, data_source = 'instagram')
         self.start_timestamp = start_timestamp
         self.end_timestamp = end_timestamp
     def buildTimeSeries(self, count_people = True, avoid_flooding = True):
@@ -105,9 +105,15 @@ def test():
     for i in range(25):
         test_region = regions[i]
         test_region.display()
-        ts = InstagramTimeSeries(test_region, 1355765315, 1355765315+30*24*3600)
-        print ts.buildTimeSeries()
-
+        test_region._region['min_lat'] = 40.7329
+        test_region._region['min_lng'] = -73.9957
+        test_region._region['max_lat'] = 40.7383
+        test_region._region['max_lng'] = -73.9844
+        ts = InstagramTimeSeries(test_region, str(1360519908), str(1365519908))
+        ts =  ts.buildTimeSeries()
+        for t in ts:
+            print t
+        break
 
 if __name__ == "__main__":
     test()

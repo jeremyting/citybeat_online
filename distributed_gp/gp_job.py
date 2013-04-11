@@ -9,6 +9,7 @@ from uuid import uuid4
 
 
 from utility.instagram_time_series import InstagramTimeSeries
+from utility.twitter_time_series import TwitterTimeSeries
 from utility.region import Region
 from utility.config import InstagramConfig
 
@@ -47,7 +48,7 @@ class GaussianProcessJob():
         if self.data_source == 'instagram':
             its = InstagramTimeSeries(self.region, self.data_backward, self.current_time)
         elif self.data_source == 'twitter':
-            pass
+            its = TwitterTimeSeries(self.region, self.data_backward, self.current_time)
         ts = its.buildTimeSeries()
         return ts
 

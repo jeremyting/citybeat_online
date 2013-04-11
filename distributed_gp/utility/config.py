@@ -58,3 +58,4 @@ class TwitterConfig(BaseConfig):
 	tweet_collection = 'tweets'
 	tweet_db = 'citybeat_production'
 	tweet_collection = 'tweets'
+

@@ -28,7 +28,7 @@ class TwitterTimeSeries(TimeSeries):
 
     def __init__(self, region, start_timestamp, end_timestamp, freq = '1h'):
         super(TwitterTimeSeries, self).__init__(region,
-                start_timestamp, end_timestamp, freq, data_source = 'twitter')
+                start_timestamp, end_timestamp, data_source = 'twitter')
         self.start_timestamp = start_timestamp
         self.end_timestamp = end_timestamp
     def buildTimeSeries(self, count_people = True, avoid_flooding = True):
@@ -91,7 +91,6 @@ class TwitterTimeSeries(TimeSeries):
 
 from region import Region
 from config import InstagramConfig
-import photo_interface
 def test():
     coordinates = [InstagramConfig.photo_min_lat,
             InstagramConfig.photo_min_lng,

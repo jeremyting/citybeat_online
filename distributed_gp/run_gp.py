@@ -1,5 +1,6 @@
 import time
 import math
+import sys
 
 from utility.region import Region
 from utility.config import InstagramConfig
@@ -13,7 +14,7 @@ from utility.prediction import Prediction
 from utility.tool import getCurrentStampUTC
 
 
-def save_to_mongo(_results, _saved, model_update_time):
+def save_to_mongo(_results, _saved, model_update_time, data_source):
     done = True
     for key in _results.keys():
         result_pair = _results[key]
@@ -37,17 +38,22 @@ def save_to_mongo(_results, _saved, model_update_time):
     return done
 
 
-def run():
+def run(data_source):
     coordinates = [InstagramConfig.photo_min_lat,
             InstagramConfig.photo_min_lng,
             InstagramConfig.photo_max_lat,
             InstagramConfig.photo_max_lng
                  ]
-    huge_region = Region(coordinates)
-    
-    regions = huge_region.divideRegions(25,25)
-    filtered_regions = huge_region.filterRegions( regions )
-    regions = filtered_regions
+    nyc_region = Region(coordinates)
+    regions = nyc_region.divideRegions(25, 25)
+    if data_source == 'twitter':
+        regions = nyc_region.filterRegions(regions, test=False, n=25, m=25, document_type='tweet')
+    elif data_source == 'instagram':
+        regions = nyc_region.filterRegions(regions, test=False, n=25, m=25, document_type='photo')
+
+    #regions = huge_region.divideRegions(25,25)
+    #filtered_regions = huge_region.filterRegions( regions )
+    #regions = filtered_regions
 
     for r in regions:
         r.display()
@@ -72,12 +78,17 @@ def run():
         _results[gp.getID()] = (test_region, res, pred_time)
         _saved[ gp.getID() ] = False
 
-    save_to_mongo(_results, _saved, cur_utc_timestamp) 
+    save_to_mongo(_results, _saved, cur_utc_timestamp, data_source) 
     done = False
     while not done:
-        done = save_to_mongo(_results, _saved, cur_utc_timestamp)
+        break
+        done = save_to_mongo(_results, _saved, cur_utc_timestamp, data_source)
         time.sleep(10)
 
     print 'finish work' 
 if __name__ == "__main__":
-    run()                            
+    assert( sys.argv[1] in ['twitter', 'instagram'])
+    if sys.argv[1] == 'twitter':
+        run(data_source = 'twitter')
+    elif argv[1] == 'instagram':
+        run(data_source = 'instagram')                            
