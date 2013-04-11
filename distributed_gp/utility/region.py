@@ -82,8 +82,10 @@ class Region:
 		# this method should not be a member of this class
 		# TODO: change the period to one week
 		
-		end_time = 1359704845 - 7*3600*24
-		begin_time = end_time - 14*3600*24
+		end_time = 1499704845
+		begin_time = 1299704845
+#		end_time = 1359704845 - 7*3600*24
+#		begin_time = end_time - 14*3600*24
 		if documentType == 'photo':
 			documentInterface = PhotoInterface()
 		else:
