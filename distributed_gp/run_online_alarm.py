@@ -40,14 +40,14 @@ class Alarm():
 
     def getNearestPrediction(self):
         pi = PredictionInterface()
-        pi.setDB()
-        pi.setCollection()
+        pi.setDB('citybeat_production')
+        pi.setCollection('online_prediction')
         self.region.display()
         print str(self.cur_time)
         return pi.getNearestPrediction(self.region, str(self.cur_time))
 
     def _getFiftenMiniutesPhotos(self):
-        pi = PhotoInterface('tmp_citybeat', 'photos')
+        pi = PhotoInterface( )
         _fifteen_minutes_ago = 15*60
         cursor  = pi.rangeQuery( self.region , (str( self.cur_time - _fifteen_minutes_ago), str(self.cur_time)) )
         _photos = []
@@ -77,6 +77,7 @@ class Alarm():
             #print 'None data for this region: details as follow'
             #self.region.display()
             #print 'time:' ,self.cur_time
+            print 'No prediction'
             return 
         else:
             print 'Data!'
@@ -86,8 +87,9 @@ class Alarm():
 
         zscore = (self.current_value - mu)*1.0/std
 
-
-        if zscore > 3:
+        print 'trying'
+        if zscore > 0:
+            print 'in alarm!'
             e = Event()
             e.setPredictedValues(mu, std)
             e.setZscore(zscore)

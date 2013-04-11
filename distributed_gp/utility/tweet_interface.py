@@ -92,7 +92,7 @@ def transferTweets():
 def main():
 	
 	ti = TweetInterface()
-	period = ['1354910879', '1354918838']
+	period = ['1354110879', '1354918838']
 	region = {'min_lat':40.73297324, 'max_lat':40.73827852, 'min_lng':-73.99410076, 'max_lng':-73.98609447999999}
 	print ti.rangeQuery(region=region, period=period).count()
 
@@ -116,4 +116,5 @@ def main():
 
 			
 if __name__ == '__main__':
-	transferTweets()
+	#transferTweets()
+    main()

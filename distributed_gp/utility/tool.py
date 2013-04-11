@@ -1,9 +1,15 @@
 import calendar
 from datetime import datetime
+from email.utils import parsedate_tz, mktime_tz
+from calendar import timegm
 
 def getCurrentStampUTC():
     cur_utc_timestamp = calendar.timegm(datetime.utcnow().utctimetuple())
     return cur_utc_timestamp
+
+def convertTwitterDateToTimestamp(time_string):
+    dt = int(mktime_tz(parsedate_tz(ts.strip())))
+    return dt
 
 
 def processAsPeopleCount(data):
@@ -26,3 +32,5 @@ def processAsPeopleCount(data):
 
 if __name__ == "__main__":
     print getCurrentStampUTC()
+
+    print convertTwitterDateToTimestamp("Fri Dec 07 16:12:48 +0001 2012")

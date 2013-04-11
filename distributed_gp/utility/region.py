@@ -65,7 +65,8 @@ class Region:
 			#n and m should be set if test is true
 			#this is only for test
 			new_region_list = []
-			folder = '/res/users/kx19/Citybeat/CityBeat/distributed_gp/utility/region_cache/'
+			#folder = '/res/users/kx19/Citybeat/CityBeat/distributed_gp/utility/region_cache/'
+			folder = '/grad/users/kx19/citybeat_online/distributed_gp/utility/region_cache/'
 			file_name = str(n)+'_'+str(m)+'.txt'
 			fid = open(folder + file_name)
 			for line in fid:

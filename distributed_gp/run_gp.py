@@ -71,7 +71,6 @@ def run():
             continue
         _results[gp.getID()] = (test_region, res, pred_time)
         _saved[ gp.getID() ] = False
-        break       #uncomment this
 
     save_to_mongo(_results, _saved, cur_utc_timestamp) 
     done = False

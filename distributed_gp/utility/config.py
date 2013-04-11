@@ -50,3 +50,5 @@ class TwitterConfig:
 	# we have not yet moved tweets from citybeat to production
 	tweet_db = 'citybeat'
 	tweet_collection = 'tweets'
+	tweet_db = 'citybeat_production'
+	tweet_collection = 'tweets'
