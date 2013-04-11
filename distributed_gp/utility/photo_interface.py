@@ -87,5 +87,5 @@ if __name__=="__main__":
 	pi = PhotoInterface()
 	pi.setDB('citybeat')
 	pi.setCollection('photos')
-	print pi.findTimeInterval()
+	print pi.getDocument()['created_time']
 #	a = 1

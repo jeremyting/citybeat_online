@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from email.utils import parsedate_tz, mktime_tz
 
 
@@ -17,7 +15,6 @@ class Tweet(object):
 			if type(tweet) is types.DictType:
 				self._tweet = tweet
 			else:
-				print tweet
 				self._tweet = tweet.toDict() 
 	
 	def getCreatedUTCTimestamp(self):
@@ -49,7 +46,7 @@ class Tweet(object):
 		return int(self._tweet['retweet_count'])
 		
 def main():
-	ts = 'Fri Dec 07 16:12:48 +0800 2012'
+	ts = 'Fri Dec 07 16:12:48 +0100 2012'
 	dt = int(mktime_tz(parsedate_tz(ts.strip())))
 	print dt
 	ts = 'Fri Dec 07 16:12:48 +0000 2012'
