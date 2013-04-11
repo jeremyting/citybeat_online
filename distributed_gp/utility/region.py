@@ -4,6 +4,7 @@ import types
 from config import InstagramConfig
 from photo_interface import PhotoInterface
 from mongodb_interface import MongoDBInterface
+from tweet_interface import TweetInterface
 
 class Region:
 	
