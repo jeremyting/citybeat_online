@@ -34,11 +34,13 @@ class TweetInterface(MongoDBInterface):
 		if not type(tweet) is types.DictType:
 			tweet = tweet.toDict()
 		if 'location' not in tweet.keys():
-			if 'geo' not in tweet.keys():
+			if 'coordinates' not in tweet.keys():
+				return
+			if 'coordinates' not in tweet['coordinates'].keys():
 				return
 			location = {}
-			location['latitude'] = tweet['geo']['coordinates'][0]
-			location['longitude'] = tweet['geo']['coordinates'][1]
+			location['latitude'] = tweet['coordinates']['coordinates'][1]
+			location['longitude'] = tweet['coordinates']['coordinates'][0]
 			tweet['location'] = location
 		
 		tweet['created_time'] = Tweet(tweet).getCreatedUTCTimestamp()
@@ -142,4 +144,5 @@ def main():
 
 			
 if __name__ == '__main__':
+	transferTweets()
 	getTweetStatistics()
