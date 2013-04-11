@@ -69,6 +69,24 @@ class TweetInterface(MongoDBInterface):
 		#returns a cursor
 		#sort the tweet in chronologically decreasing order
 		return self.getAllDocuments(conditions).sort('created_time', -1)
+
+def transferTweets():
+	ti = TweetInterface()
+	ti.setDB('tweets')
+	ti.setCollection('tweets')
+	cur = ti.getAllDocuments()
+	
+	ti2 = TweetInterface()
+	ti2.setDB('citbeat_production')
+	ti2.setCollection('tweets')
+	ids = set()
+	for tweet in cur:
+		id = tweet['id_str']
+		if id in ids:
+			continue
+		ids.add(id)
+		ti2.saveDocument(tweet)
+	
 	  
 def main():
 	
@@ -76,7 +94,7 @@ def main():
 	period = ['1354910879', '1354918838']
 	region = {'min_lat':40.73297324, 'max_lat':40.73827852, 'min_lng':-73.99410076, 'max_lng':-73.98609447999999}
 	print ti.rangeQuery(region=region, period=period).count()
-		
+
 #	fid = open('nyc_tweets.txt')
 #	for line in fid:
 #		tweet = json.loads(line.strip())
@@ -97,5 +115,4 @@ def main():
 
 			
 if __name__ == '__main__':
-	ti = TweetInterface()
-	print type(ti.getDocument()['created_time'])
+	transferTweets()

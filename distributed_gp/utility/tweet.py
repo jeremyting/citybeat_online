@@ -32,7 +32,8 @@ class Tweet(object):
 		return [lat, lon]
 		
 	def getRawText(self):
-		return self._tweet['text'].strip().lower()
+		# need to consider if use lower()
+		return self._tweet['text'].strip()
 		
 	def findKeywords(self, keywords):
 		text = self.getRawText()
