@@ -152,7 +152,7 @@ def checkTweetInRegion():
 	for tweet in cur:
 		cor = [0, 0]
 		cor[0] = tweet['location']['latitude']
-		cor[1] = tweet['location']['latitude']
+		cor[1] = tweet['location']['longitude']
 		tot += 1
 		if r.insideRegion(cor):
 			tweet_in_region += 1
