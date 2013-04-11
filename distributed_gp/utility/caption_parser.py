@@ -39,24 +39,18 @@ class CaptionParser:
 				self._word_dict[word] = 1
 	
 	def _preprocessCaption(self, cap):
+		
 		def removeAt(cap):
 			# remove @eddie
-			end_at = [' ', '\t', '#']
 			new_cap = ''
-			pre_is_at = False
-			for c in cap:
-				if c =='@':
-					pre_is_at = True
+			for word in cap.split(' '):
+				word = word.strip()
+				if word == '':
 					continue
-				
-				if pre_is_at == True:
-					if c in end_at:
-						pre_is_at = False
-				
-				if pre_is_at == False:
-					new_cap += c
-			
-			return new_cap
+				if word.startswith('@'):
+					continue
+				new_cap += word + ' '
+			return new_cap.strip()
 			
 		cap = removeAt(cap)
 			
