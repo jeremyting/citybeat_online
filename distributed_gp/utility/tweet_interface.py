@@ -121,8 +121,8 @@ def checkTweetInRegion():
 	region = {}
 	region['min_lat'] = InstagramConfig.photo_min_lat
 	region['max_lat'] = InstagramConfig.photo_max_lat
-	region['min_lon'] = InstagramConfig.photo_min_lon
-	region['max_lon'] = InstagramConfig.photo_max_lon
+	region['min_lon'] = InstagramConfig.photo_min_lng
+	region['max_lon'] = InstagramConfig.photo_max_lng
 	
 	r = Region(region)
 	
