@@ -18,6 +18,8 @@ import logging
 import string
 import types
 import json
+import numpy
+
 
 class TweetInterface(MongoDBInterface):
 	
@@ -68,6 +70,31 @@ class TweetInterface(MongoDBInterface):
 		#returns a cursor
 		#sort the tweet in chronologically decreasing order
 		return self.getAllDocuments(conditions).sort('created_time', -1)
+
+
+def getTweetStatistics():
+	ti = TweetInterface()
+	ti.setDB('citybeat_production')
+	ti.setCollection('tweets')
+	cur = ti.getAllDocuments()
+	
+	lats = []
+	lons = []
+	for tweet in cur:
+		lat = tweet['location']['latitude']
+		lon = tweet['location']['longitude']
+		lats.append(lat)
+		lons.append(lon)
+		
+	print [numpy.min(lats), numpy.max(lats), numpy.std(lats), 
+				 numpy.mean(lats), numpy.median(lats)]
+	
+	print '*********************************'
+	
+  print [numpy.min(lons), numpy.max(lons), numpy.std(lons), 
+				 numpy.mean(lons), numpy.median(lons)]	
+	
+	
 
 def transferTweets():
 	ti = TweetInterface()
