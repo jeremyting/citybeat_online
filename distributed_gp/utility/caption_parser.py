@@ -33,10 +33,7 @@ class CaptionParser:
 		self._document_number = self._document_number + 1
 		tmp_dict = self._preprocessCaption(cap)
 		for word in tmp_dict.keys():
-			if word in self._word_dict.keys():
-				self._word_dict[word] = self._word_dict[word] + 1
-			else:
-				self._word_dict[word] = 1
+			self._word_dict[word] = self._word_dict.get(word, 0) + 1
 	
 	def _preprocessCaption(self, cap):
 		
@@ -53,7 +50,8 @@ class CaptionParser:
 			return new_cap.strip()
 			
 		cap = removeAt(cap)
-			
+		
+		# change the word YouLoveMe into you love me seperately
 		new_cap = ''
 		pre_is_cap = False
 		for c in cap:
@@ -89,4 +87,5 @@ class CaptionParser:
 if __name__ == '__main__':
 	cp = CaptionParser(True)
 	cap1 = 'gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb'
-	print cp._preprocessCaption(cap1)
+	cap2 = 'YousbLoveMesb'
+	print cp._preprocessCaption(cap2)
