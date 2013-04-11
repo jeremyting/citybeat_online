@@ -129,11 +129,18 @@ def checkTweetInRegion(self):
 	ti.setDB('citybeat')
 	ti.setCollection('tweets')
 	cur = ti.getAllDocuments()
-	tweetInRegion = 0
+	tot = 0
+	tweet_in_region = 0
 	for tweet in cur:
 		cor = [0, 0]
 		cor[0] = tweet['location']['latitude']
 		cor[1] = tweet['location']['latitude']
+		tot += 1
+		if r.insideRegion(cor):
+			tweet_in_region += 1
+	
+	print tweet_in_region
+	print tot
 	 
 def main():
 	
@@ -162,5 +169,6 @@ def main():
 
 			
 if __name__ == '__main__':
-	transferTweets()
-	getTweetStatistics()
+	checkTweetInRegion()
+	#transferTweets()
+	#getTweetStatistics()
