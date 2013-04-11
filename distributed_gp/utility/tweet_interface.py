@@ -100,6 +100,16 @@ def getTweetStatistics():
 				 numpy.mean(lons), numpy.median(lons)]	
 	
 	
+def findEarliestTweet():
+	ti = TweetInterface()
+	ti.setDB('citybeat_production')
+	ti.setCollection('tweets')
+	cur = ti.getAllDocuments()
+	created_time = '2364829908'
+	for tweet in cur:
+		if tweet['created_time'] < created_time:
+			created_time = tweet['created_time']
+	print created_time
 
 def transferTweets():
 	ti = TweetInterface()
@@ -120,31 +130,12 @@ def transferTweets():
 		ti2.saveDocument(tweet)
 	 
 def main():
-	
 	ti = TweetInterface()
 	period = ['1364829908', '1365693908']
 	region = {'min_lat':40.73297324, 'max_lat':40.73827852, 'min_lng':-73.99410076, 'max_lng':-73.98609447999999}
 	print ti.rangeQuery(region=region, period=period).count()
-
-#	fid = open('nyc_tweets.txt')
-#	for line in fid:
-#		tweet = json.loads(line.strip())
-#		ti.saveDocument(tweet)
-#	fid.close()
-	
-#	ti = TweetInterface()
-#	tweet = ti.getDocument()
-#	for tweet in tweets:
-#		tweet = Tweet(tweet)
-##		retweet = tweet.getRetweetFreq()
-##		if retweet > 0:
-##			print retweet
-#		keywords = ['game', 'knicks']
-#		if tweet.findKeywords(keywords) == len(keywords):
-#			print tweet.getRawText().
-#			print 
-
-			
+		
 if __name__ == '__main__':
 	transferTweets()
+	findEarliestTweet()
 	#getTweetStatistics()
