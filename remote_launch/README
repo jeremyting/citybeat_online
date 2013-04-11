@@ -1,0 +1,5 @@
+Usage: python remote_launch.py launch/kill gp/api host_list_file 
+
+to launch or kill the gp workers / api workers. 
+
+YOU HAVE TO MODIFY THE PATH IN THE SCRIPT MANUALLY
