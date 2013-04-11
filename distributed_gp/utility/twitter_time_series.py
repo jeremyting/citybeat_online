@@ -31,7 +31,6 @@ class TwitterTimeSeries(TimeSeries):
                 start_timestamp, end_timestamp, freq, data_source = 'twitter')
         self.start_timestamp = start_timestamp
         self.end_timestamp = end_timestamp
-        print type(start_timestamp), end_timestamp
     def buildTimeSeries(self, count_people = True, avoid_flooding = True):
         """Return a pandas Series object
         
@@ -48,12 +47,11 @@ class TwitterTimeSeries(TimeSeries):
         data  = []
         tweets_cnt = 0
         for tweet in self.cursor:
-            print tweet
             t = {'user':tweet['user']['screen_name'], 'created_time':tweet['created_time']} 
             data.append(t)
-            tweet_cnt += 1
-            if tweet_cnt%10000==0:
-                print tweet_cnt
+            tweets_cnt += 1
+            if tweets_cnt%10000==0:
+                print tweets_cnt
         data = sorted(data, key = lambda x:x['created_time'])
         
         user_last_upload = {}   #for a single user, when is his last upload
@@ -64,7 +62,7 @@ class TwitterTimeSeries(TimeSeries):
         dates.append( datetime.utcfromtimestamp(float(self.start_timestamp)) )  
 
         for tweet_json in data:
-            user = tweet_json['user']['screen_name']
+            user = tweet_json['user']
             utc_date = datetime.utcfromtimestamp(float(tweet_json['created_time']))
             if count_people:
                 if user not in user_last_upload:
@@ -101,18 +99,22 @@ def test():
             InstagramConfig.photo_max_lng
             ]
     huge_region = Region(coordinates)
-    alarm_region_size = 15
-    regions = huge_region.divideRegions(15,15)
+    alarm_region_size = 25
+    regions = huge_region.divideRegions(25, 25)
     filtered_regions = huge_region.filterRegions( region_list = regions, test=True, n=alarm_region_size, m = alarm_region_size)
 
 
-    for i in range(225):
-        if i<20:
-            continue
+    for i in range(1):
         test_region = regions[i]
+        test_region._region['min_lat'] = 40.7329
+        test_region._region['min_lng'] = -73.9957
+        test_region._region['max_lat'] = 40.7383
+        test_region._region['max_lng'] = -73.9844
         test_region.display()
-        ts = TwitterTimeSeries(test_region, str(1364998778), str(1364998778+5*24*3600))
-        print ts.buildTimeSeries()
+        ts = TwitterTimeSeries(test_region, '1364829908', '1365693908')
+        ts =  ts.buildTimeSeries()
+        for d in ts:
+            print d
 
 
 if __name__ == "__main__":
