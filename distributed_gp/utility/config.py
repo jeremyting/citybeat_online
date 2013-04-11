@@ -7,7 +7,7 @@ instagram_API_pause = 0.1
 mongodb_address = 'grande.rutgers.edu'
 mongodb_port = 27017
 
-class BaseConfig(Object):
+class BaseConfig(object):
 	min_lat = 40.690531
 	max_lat = 40.823163
 	min_lng = -74.058151
