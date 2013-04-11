@@ -40,10 +40,8 @@ class Alarm():
 
     def getNearestPrediction(self):
         pi = PredictionInterface()
-        pi.setDB('citybeat')
-        pi.setCollection('online_prediction')
-        print 'set collection as ',self.prediction_collection
-        print 'search for '
+        pi.setDB()
+        pi.setCollection()
         self.region.display()
         print str(self.cur_time)
         return pi.getNearestPrediction(self.region, str(self.cur_time))

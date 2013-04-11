@@ -1,20 +1,11 @@
 import time
 import math
-import sys
 
-from datetime import datetime
-from datetime import timedelta
-import calendar
-from uuid import uuid4
-
-
-from utility.instagram_time_series import InstagramTimeSeries
 from utility.region import Region
 from utility.config import InstagramConfig
 from rq import Queue, Connection
 from redis import Redis
 from do_gp import Predict
-
 
 from gp_job import GaussianProcessJob
 from utility.prediction_interface import PredictionInterface
@@ -41,7 +32,7 @@ def save_to_mongo(_results, _saved, model_update_time):
                     p.setPredictedValues( float(single_hour_prediction[0][1]), math.sqrt(float(single_hour_prediction[0][2])))
                     p.setTime( str(single_hour_prediction[1]) )
                     p_json = p.toJSON()
-                    save_interface = PredictionInterface('citybeat','online_prediction')
+                    save_interface = PredictionInterface( ) #if not specify should use /utility/config.py default setting
                     save_interface.saveDocument( p_json )
     return done
 
@@ -80,6 +71,8 @@ def run():
             continue
         _results[gp.getID()] = (test_region, res, pred_time)
         _saved[ gp.getID() ] = False
+        break       #uncomment this
+
     save_to_mongo(_results, _saved, cur_utc_timestamp) 
     done = False
     while not done:
