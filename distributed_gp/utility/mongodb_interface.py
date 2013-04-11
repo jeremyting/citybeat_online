@@ -28,7 +28,7 @@ class MongoDBInterface(object):
 	def saveDocument(self, document):
 		# document must be a json or a class from {event, photo, prediction}
 		if not type(document) is types.DictType:
-			document = document.toJSON()
+			document = document.toDict()
 		self._collection.save(document)
 	
 	def getDocument(self, condition=None):
@@ -42,7 +42,7 @@ class MongoDBInterface(object):
 		
 	def updateDocument(self, document):
 		if not type(document) is types.DictType:
-			document = document.toJSON()
+			document = document.toDict()
 		self._collection.update({'_id':document['_id']}, document, True)
 			
 	def getAllDocumentIDs(self):

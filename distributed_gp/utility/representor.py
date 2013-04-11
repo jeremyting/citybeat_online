@@ -26,7 +26,7 @@ class Representor():
         for e in self.ei.getAllDocuments():
             event = Event(e)
             event.selectOnePhotoForOneUser()
-            e = event.toJSON()
+            e = event.toDict()
             self.events.append(e)
         #self.events = [e for e in self.ei.getAllDocuments()]
         self._captions = self._getAllCaptions()

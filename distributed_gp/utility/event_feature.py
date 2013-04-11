@@ -40,7 +40,7 @@ class EventFeature(Event):
 	
 	def selectRelaventPhotos(self, k=10):
 		assert self._representor is not None
-		photos = self._representor.getRepresentivePhotos(self.toJSON())
+		photos = self._representor.getRepresentivePhotos(self.toDict())
 		# choose first 30%
 #		k = max(k, 0.3*len(photos))
 #		k = int(k + 0.5)
@@ -507,7 +507,7 @@ class EventFeature(Event):
 		if type(event) is types.DictType:
 			pass
 		else:
-			event = event.toJSON()
+			event = event.toDict()
 			
 		for photo in event['photos']:
 			p = Photo(photo)

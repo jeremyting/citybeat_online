@@ -9,7 +9,7 @@ class Prediction:
 			if type(prediction) is types.DictType:
 				self._prediction = prediction
 			else:
-				self._prediction = prediction.toJSON()
+				self._prediction = prediction.toDict()
 	
 	def getFileName(self):
 		return self._prediction['file_name']
@@ -21,7 +21,7 @@ class Prediction:
 		# region must be a json, see region.py
 		# or an instance of class defined in prediction.py
 		if not type(region) is types.DictType:
-			region = region.toJSON()
+			region = region.toDict()
 		self._prediction['region'] = region
 		
 	def setModelUpdateTime(self, model_time):
@@ -37,5 +37,5 @@ class Prediction:
 		self._prediction['mu'] = float(mu)
 		self._prediction['std'] = float(std)
 		
-	def toJSON(self):
+	def toDict(self):
 		return self._prediction

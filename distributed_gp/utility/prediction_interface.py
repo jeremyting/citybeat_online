@@ -19,7 +19,7 @@ class PredictionInterface(MongoDBInterface):
 		# TODO: within one hour
 		# region should an instance of the class Region defined in region.py
 		if not type(region) is types.DictType:
-			region = region.toJSON()
+			region = region.toDict()
 		predictions = self.getAllDocuments({'region':region}).sort('time', -1)
 		for prediction in predictions:
 			return prediction
@@ -29,7 +29,7 @@ class PredictionInterface(MongoDBInterface):
 		# given t, find the most nearest prediction whose time is greater than or equal to t.
 		# utc_time should a string (or unicode)
 		if not type(region) is types.DictType:
-			region = region.toJSON()
+			region = region.toDict()
 		utc_time = str(utc_time)
 		condition = ({'region.min_lat':region['min_lat'],
 			            'region.min_lng':region['min_lng'],

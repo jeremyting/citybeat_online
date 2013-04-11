@@ -3,14 +3,14 @@ import types
 
 class Photo:
 	# before you save an instance of Photo, convert it to JSON first
-	# by photo.toJSON()
+	# by photo.toDict()
 	
 	def __init__(self, photo):
 		# One must input a photo as an instance of json or class Photo
 		if type(photo) is types.DictType:
 			self._photo = photo
 		else:
-			self._photo = photo.toJSON()
+			self._photo = photo.toDict()
 	
 	def getLocationName(self):
 		mod_location = ''
@@ -38,7 +38,7 @@ class Photo:
 			return ''
 		return self._photo['caption']['text'].strip()
 	
-	def toJSON(self):
+	def toDict(self):
 		return self._photo
 	
 	def equalWith(self, photo):
@@ -46,7 +46,7 @@ class Photo:
 	
 	def compare(self, photo):
 		if not type(photo) is types.DictType:
-			photo = photo.toJSON()
+			photo = photo.toDict()
 		t1 = int(self._photo['created_time'])
 		t2 = int(photo['created_time'])
 		id1 = str(self._photo['id'])

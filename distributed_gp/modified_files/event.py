@@ -14,7 +14,7 @@ class Event(object):
 			if type(event) is types.DictType:
 				self._event = event
 			else:
-				self._event = event.toJSON()
+				self._event = event.toDict()
 		else:
 			# create a new event
 			self._event = {'photos':[], 'label':'unlabeled'}
@@ -22,7 +22,7 @@ class Event(object):
 	def addPhoto(self, photo):
 		# when use this method, please keep adding photo in chronologically increasing order
 		if not type(photo) is types.DictType:
-			photo = photo.toJSON()
+			photo = photo.toDict()
 		self._event['photos'].append(photo)
 		
 	def getPhotoNumber(self):
@@ -51,7 +51,7 @@ class Event(object):
 	def mergeWith(self, event):
 		if type(event) is types.DictType:
 			event = Event(event)
-		event = event.toJSON()
+		event = event.toDict()
 		photo_list1 = self._event['photos'] 
 		photo_list2 = event['photos']
 		new_photo_list = []
@@ -91,7 +91,7 @@ class Event(object):
 				
 	def setRegion(self, region):
 		if not type(region) is types.DictType:
-			region = region.toJSON()
+			region = region.toDict()
 		self._event['region'] = region
 	
 	def setPhotos(self, photos):
@@ -114,7 +114,7 @@ class Event(object):
 	def setLabel(self, label='unlabeled'):
 		self._event['label'] = label
 	
-	def toJSON(self):
+	def toDict(self):
 		return self._event
 		
 	def _test_print(self):

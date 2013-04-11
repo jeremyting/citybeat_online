@@ -29,7 +29,7 @@ class PhotoInterface(MongoDBInterface):
 		if not region is None:
 		#region should be specified as the class defined in region.py
 			if not type(region) is types.DictType:
-				region = region.toJSON() 
+				region = region.toDict() 
 			region_conditions = {'location.latitude':{'$gte':region['min_lat'], '$lte':region['max_lat']},
 				                   'location.longitude':{'$gte':region['min_lng'], '$lte':region['max_lng']}
 				                   	}

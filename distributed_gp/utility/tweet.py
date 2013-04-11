@@ -20,14 +20,14 @@ class Tweet(object):
 				self._tweet = tweet
 			else:
 				print tweet
-				self._tweet = tweet.toJSON() 
+				self._tweet = tweet.toDict() 
 	
 	def getCreatedUTCTimestamp(self):
 		ts = self._tweet['created_at']
 		dt = calendar.timegm(parsedate_tz(ts.strip()))
 		return str(dt)
 	
-	def toJSON(self):
+	def toDict(self):
 		# return a dict, not json
 		return self._tweet
 		

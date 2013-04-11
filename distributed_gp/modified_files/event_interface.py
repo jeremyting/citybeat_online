@@ -32,12 +32,12 @@ class EventInterface(MongoDBInterface):
 		# do not call the method saveDocument, instead, call this method
 		# add an event to the db. raw_event can either be a json or an instance of Event 
 		if not type(raw_event) is types.DictType:
-			new_event = raw_event.toJSON()
+			new_event = raw_event.toDict()
 		else:
 			new_event = raw_event
 		new_event = Event(new_event)
 		new_event.sortPhotos()
-		new_event = new_event.toJSON()
+		new_event = new_event.toDict()
 		# before adding, find if any event can be merged
 		condition = {'region':new_event['region']}
 #		condition = {'lat':new_event['lat'], 'lng':new_event['lng']}

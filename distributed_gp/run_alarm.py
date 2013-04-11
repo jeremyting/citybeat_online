@@ -101,7 +101,7 @@ class Alarm():
             ei = EventInterface( )
             ei.setCollection(self.candidate_collection)
             print e.getEarliestPhotoTime(),e.getLatestPhotoTime()
-            #print e.toJSON()['region']
+            #print e.toDict()['region']
             #ei.addEvent(e)
             ei.addEventWithoutMerge(e)
             # modified by xia

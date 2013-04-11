@@ -31,7 +31,7 @@ def save_to_mongo(_results, _saved, model_update_time):
                     p.setModelUpdateTime(model_update_time)
                     p.setPredictedValues( float(single_hour_prediction[0][1]), math.sqrt(float(single_hour_prediction[0][2])))
                     p.setTime( str(single_hour_prediction[1]) )
-                    p_json = p.toJSON()
+                    p_json = p.toDict()
                     save_interface = PredictionInterface( ) #if not specify should use /utility/config.py default setting
                     save_interface.saveDocument( p_json )
     return done

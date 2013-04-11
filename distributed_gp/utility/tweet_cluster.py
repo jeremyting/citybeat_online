@@ -91,7 +91,7 @@ class TweetCluster(object):
 		event['photos'] = photos
 		return event
 
-	def toJSON(self):
+	def toDict(self):
 		return self._tweet_cluster	
 		
 def main():

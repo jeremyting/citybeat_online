@@ -102,7 +102,7 @@ class Alarm():
             ei.setCollection(self.candidate_collection)
             #print datetime.utcfromtimestamp(float(e.getEarliestPhotoTime())), datetime.utcfromtimestamp(float(e.getLatestPhotoTime()))
             #print e.getEarliestPhotoTime(),e.getLatestPhotoTime()
-            #print e.toJSON()['region']
+            #print e.toDict()['region']
             ei.addEvent(e)
             #ei.addEventWithoutMerge(e)
             # modified by xia

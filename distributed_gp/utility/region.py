@@ -19,7 +19,7 @@ class Region:
 				self._region['max_lat'] = region[2]
 				self._region['max_lng'] = region[3]
 			else:
-				self._region = region.toJSON()
+				self._region = region.toDict()
 			
 	def insideRegion(self, coordinate):
 		# coordinates must be formatted as [lat, lng]
@@ -31,7 +31,7 @@ class Region:
 			return False
 		return True
 	
-	def toJSON(self):
+	def toDict(self):
 		return self._region
 	
 	def toTuple(self):
@@ -130,5 +130,5 @@ if __name__=="__main__":
 	region_list = nyc.divideRegions(20, 20)
 	region_list = nyc.filterRegions(region_list, test=True, n=10, m=10)
 	for region in region_list:
-		region = region.toJSON()
+		region = region.toDict()
 		print region['min_lat'], region['min_lng'], region['max_lat'], region['max_lng']
