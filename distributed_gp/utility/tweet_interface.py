@@ -97,4 +97,5 @@ def main():
 
 			
 if __name__ == '__main__':
-	main()
+	ti = TweetInterface()
+	print type(ti.getDocument()['created_time'])
