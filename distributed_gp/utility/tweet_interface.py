@@ -10,7 +10,6 @@ from tweet import Tweet
 from config import TwitterConfig
 from datetime import datetime
 from bson.objectid import ObjectId
-from config import InstagramConfig
 
 import config
 import time
@@ -115,33 +114,6 @@ def transferTweets():
 		ids.add(id)
 		tweet['_id'] = id
 		ti2.saveDocument(tweet)
-
-
-def checkTweetInRegion():
-	region = {}
-	region['min_lat'] = InstagramConfig.photo_min_lat
-	region['max_lat'] = InstagramConfig.photo_max_lat
-	region['min_lon'] = InstagramConfig.photo_min_lng
-	region['max_lon'] = InstagramConfig.photo_max_lng
-	
-	r = Region(region)
-	
-	ti = TweetInterface()
-	ti.setDB('citybeat')
-	ti.setCollection('tweets')
-	cur = ti.getAllDocuments()
-	tot = 0
-	tweet_in_region = 0
-	for tweet in cur:
-		cor = [0, 0]
-		cor[0] = tweet['location']['latitude']
-		cor[1] = tweet['location']['latitude']
-		tot += 1
-		if r.insideRegion(cor):
-			tweet_in_region += 1
-	
-	print tweet_in_region
-	print tot
 	 
 def main():
 	
@@ -170,6 +142,6 @@ def main():
 
 			
 if __name__ == '__main__':
-	checkTweetInRegion()
+	pass
 	#transferTweets()
 	#getTweetStatistics()

@@ -132,7 +132,37 @@ class Region:
 		
 		return valid_regions
 
+
+
+def checkTweetInRegion():
+	region = {}
+	region['min_lat'] = InstagramConfig.photo_min_lat
+	region['max_lat'] = InstagramConfig.photo_max_lat
+	region['min_lon'] = InstagramConfig.photo_min_lng
+	region['max_lon'] = InstagramConfig.photo_max_lng
+	
+	r = Region(region)
+	
+	ti = TweetInterface()
+	ti.setDB('citybeat')
+	ti.setCollection('tweets')
+	cur = ti.getAllDocuments()
+	tot = 0
+	tweet_in_region = 0
+	for tweet in cur:
+		cor = [0, 0]
+		cor[0] = tweet['location']['latitude']
+		cor[1] = tweet['location']['latitude']
+		tot += 1
+		if r.insideRegion(cor):
+			tweet_in_region += 1
+	
+	print tweet_in_region
+	print tot
+
 if __name__=="__main__":
+	checkTweetInRegion()
+	return
 	coordinates = [InstagramConfig.photo_min_lat, InstagramConfig.photo_min_lng,
 	               InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
 	nyc = Region(coordinates)
