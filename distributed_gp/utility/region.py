@@ -93,7 +93,10 @@ class Region:
 		document_cur = documentInterface.rangeQuery(period=[str(begin_time), str(end_time)])
 		region_number = len(region_list)
 		number_document_in_region = [0]*region_number
+		bad_documents = 0
+		total_documents = 0
 		for document in document_cur:
+			total_documents += 1
 			lat = float(document['location']['latitude'])
 			lng = float(document['location']['longitude'])
 			flag = 0
@@ -103,7 +106,9 @@ class Region:
 					flag = 1
 					break
 			if flag == 0:
-				print 'bad document:',document['location']
+				bad_documents += 1
+		C
+		print str(bad_documents) + ' out of ' + str(total_documents) + ' documents are bad(not in NY)'
 		
 		region_tuples = []
 		for i in xrange(0, region_number):
