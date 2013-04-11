@@ -54,8 +54,11 @@ mongodb_port = 27017
 
 class TwitterConfig(BaseConfig):
 	# we have not yet moved tweets from citybeat to production
-	tweet_db = 'citybeat'
-	tweet_collection = 'tweets'
 	tweet_db = 'citybeat_production'
 	tweet_collection = 'tweets'
+<<<<<<< HEAD
+	prediction_db = 'citybeat_production'
+	prediction_collection = 'online_prediction_twitter'
+=======
 
+>>>>>>> bca47c1131927cfd9569c1d8551db6562e8491ae
