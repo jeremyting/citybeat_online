@@ -4,6 +4,7 @@ import sys
 
 from utility.region import Region
 from utility.config import InstagramConfig
+from utility.config import TwitterConfig
 from rq import Queue, Connection
 from redis import Redis
 from do_gp import Predict
@@ -33,8 +34,17 @@ def save_to_mongo(_results, _saved, model_update_time, data_source):
                     p.setPredictedValues( float(single_hour_prediction[0][1]), math.sqrt(float(single_hour_prediction[0][2])))
                     p.setTime( str(single_hour_prediction[1]) )
                     p_json = p.toDict()
-                    save_interface = PredictionInterface( ) #if not specify should use /utility/config.py default setting
-                    save_interface.saveDocument( p_json )
+                    if data_source == 'twitter':
+                        save_interface = PredictionInterface(   ) 
+                        save_interface.setDB(TwitterConfig.prediction_db)
+                        save_interface.setCollection(TwitterConfig.prediction_collection)
+                        save_interface.saveDocument( p_json )
+                    elif data_source == 'instagram':
+                        save_interface = PredictionInterface(   ) 
+                        save_interface.setDB(InstagramConfig.prediction_db)
+                        save_interface.setCollection(InstagramConfig.prediction_collection)
+                        save_interface.saveDocument( p_json )
+
     return done
 
 
