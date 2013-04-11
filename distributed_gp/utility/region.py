@@ -90,7 +90,7 @@ class Region:
 			documentInterface = TweetInterface()
 		document_cur = documentInterface.rangeQuery(period=[str(begin_time), str(end_time)])
 		region_number = len(region_list)
-		number_photo_in_region = [0]*region_number
+		number_document_in_region = [0]*region_number
 		for document in document_cur:
 			lat = float(document['location']['latitude'])
 			lng = float(document['location']['longitude'])
