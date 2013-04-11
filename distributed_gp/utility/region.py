@@ -60,7 +60,8 @@ class Region:
 				region_list.append(r)
 		return region_list
 	
-	def filterRegions(self, region_list, percentage=InstagramConfig.region_percentage,test=False, n=10, m=10):
+	def filterRegions(self, region_list, percentage=InstagramConfig.region_percentage,test=False, n=10, m=10, documentType='photo'):
+		assert documentType in ['photo', 'tweet']
 		if test:
 			#n and m should be set if test is true
 			#this is only for test
@@ -77,32 +78,33 @@ class Region:
 				new_region_list.append(region)
 			return new_region_list
 			
-			
-			
 		# this method should not be a member of this class
 		# TODO: change the period to one week
-#		print 'Begin to filter sparse regions with less photos than the threshold'
+		
 		end_time = 1359704845 - 7*3600*24
 		begin_time = end_time - 14*3600*24
-		pi = PhotoInterface()
-		photos = pi.rangeQuery(period=[str(begin_time), str(end_time)])
+		if documentType == 'photo':
+			documentInterface = PhotoInterface()
+		else:
+			documentInterface = TweetInterface()
+		document = documentInterface.rangeQuery(period=[str(begin_time), str(end_time)])
 		region_number = len(region_list)
 		number_photo_in_region = [0]*region_number
-		for photo in photos:
-			lat = float(photo['location']['latitude'])
-			lng = float(photo['location']['longitude'])
+		for document in documents:
+			lat = float(document['location']['latitude'])
+			lng = float(document['location']['longitude'])
 			flag = 0
 			for i in xrange(region_number):
 				if region_list[i].insideRegion([lat, lng]):
-					number_photo_in_region[i] += 1
+					number_document_in_region[i] += 1
 					flag = 1
 					break
 			if flag == 0:
-				print 'bad photo:',photo
+				print 'bad document:',document
 		
 		region_tuples = []
 		for i in xrange(0, region_number):
-			region_tuples.append((region_list[i], number_photo_in_region[i]))
+			region_tuples.append((region_list[i], number_document_in_region[i]))
 		
 		region_tuples.sort(key=operator.itemgetter(1), reverse=True)
 
@@ -126,10 +128,8 @@ if __name__=="__main__":
 	coordinates = [InstagramConfig.photo_min_lat, InstagramConfig.photo_min_lng,
 	               InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
 	nyc = Region(coordinates)
-	pi = PhotoInterface()
-	pi.rangeQuery(nyc)
-	region_list = nyc.divideRegions(20, 20)
-	region_list = nyc.filterRegions(region_list, test=True, n=10, m=10)
+	region_list = nyc.divideRegions(25, 25)
+	region_list = nyc.filterRegions(region_list, test=False, n=25, m=25, documentType='tweet')
 	for region in region_list:
 		region = region.toDict()
 		print region['min_lat'], region['min_lng'], region['max_lat'], region['max_lng']
