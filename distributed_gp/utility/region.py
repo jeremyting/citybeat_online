@@ -160,9 +160,7 @@ def checkTweetInRegion():
 	print tweet_in_region
 	print tot
 
-if __name__=="__main__":
-	checkTweetInRegion()
-	return
+def doFiltering():
 	coordinates = [InstagramConfig.photo_min_lat, InstagramConfig.photo_min_lng,
 	               InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
 	nyc = Region(coordinates)
@@ -171,3 +169,6 @@ if __name__=="__main__":
 	for region in region_list:
 		region = region.toDict()
 		print region['min_lat'], region['min_lng'], region['max_lat'], region['max_lng']
+
+if __name__=="__main__":
+	checkTweetInRegion()
