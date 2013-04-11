@@ -7,7 +7,13 @@ instagram_API_pause = 0.1
 mongodb_address = 'grande.rutgers.edu'
 mongodb_port = 27017
 
-class InstagramConfig:
+class BaseConfig(Object):
+	min_lat = 40.690531
+	max_lat = 40.823163
+	min_lng = -74.058151
+	max_lng = -73.857994
+
+class InstagramConfig(BaseConfig):
     photo_db = 'citybeat_production'
     #notice. seperate online setting and experiment setting
     event_db = 'citybeat_production'
@@ -46,7 +52,7 @@ instagram_API_pause = 0.1
 mongodb_address = 'grande.rutgers.edu'
 mongodb_port = 27017
 
-class TwitterConfig:
+class TwitterConfig(BaseCofig):
 	# we have not yet moved tweets from citybeat to production
 	tweet_db = 'citybeat'
 	tweet_collection = 'tweets'

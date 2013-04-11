@@ -41,6 +41,10 @@ class TweetInterface(MongoDBInterface):
 			location['latitude'] = tweet['coordinates']['coordinates'][1]
 			location['longitude'] = tweet['coordinates']['coordinates'][0]
 			tweet['location'] = location
+			
+			if (location['latitude'] < TwitterConfig.min_lat or location['latitude'] > TwitterConfig.max_lat
+					or location['longitude'] < TwitterConfig.min_lng or location['longitude'] > TwitterConfig.max_lng):
+				return
 		
 		tweet['created_time'] = Tweet(tweet).getCreatedUTCTimestamp()
 		
