@@ -1,15 +1,13 @@
 from datetime import datetime
 
-from datetime import datetime, timedelta, date
-from email.utils import parsedate_tz
-
-import calendar
+from email.utils import parsedate_tz, mktime_tz
 
 
 import operator
 import string
 import types
 import time
+
 
 class Tweet(object):
 	
@@ -24,7 +22,7 @@ class Tweet(object):
 	
 	def getCreatedUTCTimestamp(self):
 		ts = self._tweet['created_at']
-		dt = calendar.timegm(parsedate_tz(ts.strip()))
+		dt = int(mktime_tz(parsedate_tz(ts.strip())))
 		return str(dt)
 	
 	def toDict(self):
@@ -51,7 +49,12 @@ class Tweet(object):
 		return int(self._tweet['retweet_count'])
 		
 def main():
-	pass
+	ts = 'Fri Dec 07 16:12:48 +0800 2012'
+	dt = int(mktime_tz(parsedate_tz(ts.strip())))
+	print dt
+	ts = 'Fri Dec 07 16:12:48 +0000 2012'
+	dt = int(mktime_tz(parsedate_tz(ts.strip())))
+	print dt
 	
 if __name__ == '__main__':
 	main()
