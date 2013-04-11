@@ -140,4 +140,4 @@ if __name__=="__main__":
 	region_list = nyc.filterRegions(region_list, test=False, n=25, m=25, documentType='tweet')
 	for region in region_list:
 		region = region.toDict()
-		#print region['min_lat'], region['min_lng'], region['max_lat'], region['max_lng']
+		print region['min_lat'], region['min_lng'], region['max_lat'], region['max_lng']
