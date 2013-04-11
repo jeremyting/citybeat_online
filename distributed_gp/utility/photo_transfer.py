@@ -7,7 +7,6 @@ from region import Region
 from event import Event
 from caption_parser import CaptionParser
 from stopwords import Stopwords
-from bson.objectid import ObjectId
 from corpus import Corpus
 from representor import Representor
 
