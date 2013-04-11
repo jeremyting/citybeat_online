@@ -103,7 +103,7 @@ class Region:
 					flag = 1
 					break
 			if flag == 0:
-				print 'bad document:',document
+				print 'bad document:',document['location']
 		
 		region_tuples = []
 		for i in xrange(0, region_number):
