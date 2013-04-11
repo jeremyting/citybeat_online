@@ -144,7 +144,7 @@ def checkTweetInRegion():
 	r = Region(region)
 	
 	ti = TweetInterface()
-	ti.setDB('citybeat')
+	ti.setDB('citybeat_production')
 	ti.setCollection('tweets')
 	cur = ti.getAllDocuments()
 	tot = 0
