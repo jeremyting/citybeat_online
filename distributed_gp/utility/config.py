@@ -38,11 +38,10 @@ class InstagramConfig(BaseConfig):
     region_percentage = 0.3
 
 class TwitterConfig(BaseConfig):
-	# we have not yet moved tweets from citybeat to production
-	tweet_db = 'citybeat_production'
-	event_db = 'citybeat_production'
+    # we have not yet moved tweets from citybeat to production
+    tweet_db = 'citybeat_production'
+    event_db = 'citybeat_production'
     prediction_db = 'citybeat_production'
-
-	tweet_collection = 'tweets'
-	prediction_collection = 'online_prediction_twitter'
+    tweet_collection = 'tweets'
+    prediction_collection = 'online_prediction_twitter'
     event_collection = 'online_candidate_twitter' 
