@@ -208,7 +208,6 @@ class BaseEvent(object):
 			if t > lt:
 				lt = t
 		return lt
-		
 	   
 	def getEarliestElementTime(self):
 		et = int(self._event[self._element_type][-1]['created_time'])
