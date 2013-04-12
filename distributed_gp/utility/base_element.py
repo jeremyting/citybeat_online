@@ -15,8 +15,8 @@ class BaseElement(object):
 		pass
 	
 	def getLocations(self):
-		lat = float(self._photo['location']['latitude'])
-		lon = float(self._photo['location']['longitude'])
+		lat = float(self._element['location']['latitude'])
+		lon = float(self._element['location']['longitude'])
 		return [lat, lon]
 	
 	def toDict(self):

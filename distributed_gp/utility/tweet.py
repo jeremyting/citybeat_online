@@ -1,5 +1,5 @@
 from email.utils import parsedate_tz, mktime_tz
-
+from base_element import BaseElement
 
 import operator
 import string
