@@ -2,6 +2,7 @@ import operator
 import types
 
 from config import InstagramConfig
+from config import BaseConfig
 from photo_interface import PhotoInterface
 from mongodb_interface import MongoDBInterface
 from tweet_interface import TweetInterface
@@ -69,7 +70,7 @@ class Region:
 			new_region_list = []
 			#folder = '/res/users/kx19/Citybeat/CityBeat/distributed_gp/utility/region_cache/'
 			# grand : res ; joust : grad 
-			folder = '/grad/users/kx19/citybeat_online/distributed_gp/utility/region_cache/'
+			folder = BaseConfig.regionCacheFilePath
 			file_name = document_type + '_'
 			file_name += str(n)+'_'+str(m)+'.txt'
 			fid = open(folder + file_name)
