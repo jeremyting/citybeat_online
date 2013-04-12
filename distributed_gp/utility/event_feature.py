@@ -84,7 +84,7 @@ class EventFeature(Event):
 		# k specifies the number of photos to show
 		res = []
 		for (word, fre) in top_keywords:
-			photos = self.getPhotosbyKeyword(word)
+			photos = self.getPhotosByKeyword(word)
 			# this has the shuffling process
 			random.shuffle(photos)
 			k = min(len(photos), k)

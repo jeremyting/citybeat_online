@@ -30,12 +30,12 @@ class Event(BaseEvent):
 		
 	def containKeywords(self, words, freq=1):
 		for word in words:
-			res = self.getPhotosbyKeyword(word.lower())
+			res = self.getPhotosByKeyword(word.lower())
 			if len(res) >= freq:
 				return True
 		return False
 	
-	def getPhotosbyKeyword(self, word):
+	def getPhotosByKeyword(self, word):
 		return self.getElementsByKeyword(word)
 
 	def sortPhotos(self):

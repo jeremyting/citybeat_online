@@ -30,7 +30,7 @@ class EventFrontend(EventFeature):
 		# k specifies the number of photos to show
 		res = []
 		for (word, fre) in top_keywords:
-			photos = self.getPhotosbyKeyword(word)
+			photos = self.getPhotosByKeyword(word)
 			random.shuffle(photos)
 			k = min(len(photos), k)
 			# discard the keywords with only one photo
