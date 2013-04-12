@@ -50,7 +50,7 @@ class BaseEvent(object):
 	def leaveOneElementForOneUser(self):
 		# a strong filter
 		user_ids = set()
-		photos = self._event[self._element_type]
+		elements = self._event[self._element_type]
 		new_elements = []
 		for element in elements:
 			user_id = element['user']['id']
@@ -145,5 +145,5 @@ class BaseEvent(object):
 		return et
 
 if __name__ == 'main':
-	be = BaseEvent('photo')
+	be = BaseEvent('photos')
 	
