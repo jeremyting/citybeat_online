@@ -86,7 +86,7 @@ class BaseEvent(object):
 				text = Photo(element).getText()
 			else:
 				text = Tweet(element).getText()
-			if word.lower() in cap.lower():
+			if word.lower() in text.lower():
 				res_element.append(element)
 		return res_element
 	
