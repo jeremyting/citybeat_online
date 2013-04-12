@@ -21,7 +21,6 @@ class Event(BaseEvent):
 		
 	def getPhotoNumber(self):
 		return self.getElementNumber()
-	
 		
 	def selectOnePhotoForOneUser(self):
 		self.leaveOneElementForOneUser()

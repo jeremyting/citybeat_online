@@ -28,7 +28,7 @@ class BaseEvent(object):
 			element = element.toDict()
 		self._event[self._element_type].append(element)
 		
-	def getElementsNumber(self):
+	def getElementNumber(self):
 		return len(self._event[self._element_type])
 	
 	def getLabel(self):
