@@ -7,33 +7,19 @@ import types
 import time
 
 
-class Tweet(object):
+class Tweet(BaseElement):
 	
-	def __init__(self, tweet=None):
-		# the input argument event should be a json, dictionary
-		if not tweet is None:
-			if type(tweet) is types.DictType:
-				self._tweet = tweet
-			else:
-				self._tweet = tweet.toDict() 
+	def __init__(self, tweet):
+		super(Tweet).__init__(tweet)
 	
 	def getCreatedUTCTimestamp(self):
-		ts = self._tweet['created_at']
+		ts = self._element['created_at']
 		dt = int(mktime_tz(parsedate_tz(ts.strip())))
 		return str(dt)
-	
-	def toDict(self):
-		# return a dict, not json
-		return self._tweet
-		
-	def getLocations(self):
-		lat = float(self._tweet['location']['latitude'])
-		lon = float(self._tweet['location']['longitude'])
-		return [lat, lon]
 		
 	def getRawText(self):
 		# need to consider if use lower()
-		return self._tweet['text'].strip()
+		return self._element['text'].strip()
 		
 	def findKeywords(self, keywords):
 		text = self.getRawText()
@@ -44,7 +30,7 @@ class Tweet(object):
 		return occur
 	
 	def getRetweetFreq(self):
-		return int(self._tweet['retweet_count'])
+		return int(self._element['retweet_count'])
 		
 def main():
 	ts = 'Fri Dec 07 16:12:48 +0100 2012'

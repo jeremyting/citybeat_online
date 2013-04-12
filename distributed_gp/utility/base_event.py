@@ -16,6 +16,7 @@ class BaseEvent(object):
 				self._event = event
 			else:
 				self._event = event.toDict()
+			self.setActualValue(self._getActualValueByCounting())
 		else:
 			self._event = {}
 			self._event[self._element_type] = []	
@@ -37,26 +38,41 @@ class BaseEvent(object):
 		return self._event['actual_value']
 	
 	def _getActualValueByCounting(self):
-		# virtual function
-		pass
+		# tweet and instagram photos are both ok
+		user_ids = set()
+		for element in self._event[self._element_type]:
+			user_ids.add(int(element['user']['id']))
+		return len(user_ids)
 	
 	def getRegion(self):
 		return self._event['region']
 		
-	def selectOneElementForOneUser(self):
-		# virtual function
-		pass
+	def leaveOneElementForOneUser(self):
+		# a strong filter
+		user_ids = set()
+		photos = self._event[self._element_type]
+		new_elements = []
+		for element in elements:
+			user_id = element['user']['id']
+			if user_id in user_ids:
+				continue
+			user_ids.add(user_id)
+			new_elements.append(element)
+		self._event[self._element_type] = new_elements
 	
 	def removeDuplicateElements(self):
 		# virtual function
+		assert 1 == 2
 		pass
 		
 	def containKeywords(self, words, freq=1):
 		# virtual function
+		assert 1 == 2
 		pass
 	
 	def getElementsbyKeyword(self, word):
 		# virtual function
+		assert 1 == 2
 		pass
 	
 	def getZscore(self):
@@ -74,64 +90,9 @@ class BaseEvent(object):
 		self._event[self._element_type] = [row[0] for row in element_list]
 	
 	def mergeWith(self, event):
-		if type(event) is types.DictType:
-			event = Event(event)
-		event = event.toDict()
-		
-		element_list1 = self._event[self._element_type] 
-		element_list2 = event[self._element_type]
-		
-		new_element_list = []
-		l1 = 0
-		l2 = 0
-		merged = 0
-		while l1 < len(element_list1) and l2 < len(element_list2):
-			p1 = Element(element_list1[l1])
-			p2 = Element(element_list2[l2])
-			compare = p1.compare(p2)
-			if compare == 1:
-				new_element_list.append(element_list1[l1])
-				l1 += 1
-				continue
-			
-			if compare == -1:
-				new_element_list.append(element_list2[l2])
-				l2 += 1
-				merged += 1
-				continue
-			
-			# compare == 0
-			new_element_list.append(element_list1[l1])
-			l1 += 1
-			l2 += 1
-		
-		while l1 < len(element_list1):
-			new_element_list.append(element_list1[l1])
-			l1 += 1
-		
-		while l2 < len(element_list2):
-			new_element_list.append(element_list2[l2])
-			l2 += 1
-			merged += 1
-		
-		self._event[self._element_type] = new_element_list
-		# update actual value
-		self.setActualValue(self._getActualValueByCounting())
-		
-		# do not change the order of the following code
-		actual_value_1 = self._event['actual_value']
-		actual_value_2  = event['actual_value']
-		zscore1 = float(self._event['zscore'])
-		zscore2 = float(event['zscore'])
-		std1 = float(self._event['predicted_std'])
-		std2 = float(event['predicted_std'])
-		new_std = (std1 * actual_value_1 + std2 * actual_value_2) / (actual_value_1 + actual_value_2)
-		new_zscore = (zscore1 * actual_value_1 + zscore2 * actual_value_2) / (actual_value_1 + actual_value_2)
-		self.setZscore(new_zscore)
-		new_mu = actual_value_1 - new_zscore * new_std
-		self.setPredictedValues(new_mu, new_std)
-		
-		return merged
+		# virtual function
+		assert 1 == 2
+		pass
 				
 	def setRegion(self, region):
 		if not type(region) is types.DictType:

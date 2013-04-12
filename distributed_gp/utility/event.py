@@ -1,63 +1,30 @@
 from mongodb_interface import MongoDBInterface
 from photo import Photo
 from region import Region
+from base_event import BaseEvent
 
 import operator
 import string
 import types
 
-class Event(object):
+class Event(BaseEvent):
+	# Event is for Instagram
 	
 	def __init__(self, event=None):
-		# the input argument event should be a json, dictionary
-		if not event is None:
-			if type(event) is types.DictType:
-				self._event = event
-			else:
-				self._event = event.toDict()
-			# preprocess, to correct the data
-			self.setActualValue(self._getActualValueByCounting())
-		else:
-			# create a new event
-			self._event = {'photos':[], 'label':'unlabeled'}
+		# the input argument event should be a dictionary or python object
+		super(Event, self).__init__('photo', event)
+
 				
 	def addPhoto(self, photo):
 		# when use this method, please keep adding photo in chronologically increasing order
-		if not type(photo) is types.DictType:
-			photo = photo.toDict()
-		self._event['photos'].append(photo)
+		self.addElement(photo)
 		
 	def getPhotoNumber(self):
-		return len(self._event['photos'])
+		return self.getElementNumber()
 	
-	def getLabel(self):
-		return self._event['label']
-		
-	def getActualValue(self):
-		return self._event['actual_value']
-	
-	def _getActualValueByCounting(self):
-		user_ids = set()
-		for photo in self._event['photos']:
-			user_ids.add(int(photo['user']['id']))
-		self.setActualValue(len(user_ids))
-		return len(user_ids)
-	
-	def getRegion(self):
-		return self._event['region']
 		
 	def selectOnePhotoForOneUser(self):
-		# a strong filter
-		user_ids = set()
-		photos = self._event['photos']
-		new_photos = []
-		for photo in photos:
-			user_id = photo['user']['id']
-			if user_id in user_ids:
-				continue
-			user_ids.add(user_id)
-			new_photos.append(photo)
-		self._event['photos'] = new_photos
+		self.leaveOnePhotoForOneUser()
 	
 	def removeDuplicatePhotos(self):
 		# this method is not good, just for tempory use
@@ -103,20 +70,9 @@ class Event(object):
 			if word in cap:
 				res_photo.append(photo)
 		return res_photo
-	
-	def getZscore(self):
-		if 'zscore' in self._event.keys():
-			return self._event['zscore']
-		else:
-			return (float(self._event['actual_value']) - float(self._event['predicted_mu'])) / float(self._event['predicted_std'])
-	
+
 	def sortPhotos(self):
-		# this sorting can prevent bugs when merging
-		photo_list = []
-		for photo in self._event['photos']:
-			photo_list.append([photo, int(photo['created_time']), str(photo['id'])])
-		photo_list.sort(key=operator.itemgetter(1, 2), reverse=True)
-		self._event['photos'] = [row[0] for row in photo_list]
+		self.sortElements()
 	
 	def mergeWith(self, event):
 		if type(event) is types.DictType:
