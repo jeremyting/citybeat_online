@@ -2,12 +2,15 @@ import operator
 import string
 import types
 
+from element import Photo
+from tweet import Tweet
+
 class BaseEvent(object):
 	
 	def __init__(self, element_type, event=None):
-		assert element_type in ['photos', 'tweets']
-		if element_type == 'photos':
-			self._element_type = 'photos'
+		assert element_type in ['elements', 'tweets']
+		if element_type == 'elements':
+			self._element_type = 'elements'
 		else:
 			self._element_type = 'tweets'
 			
@@ -38,7 +41,7 @@ class BaseEvent(object):
 		return self._event['actual_value']
 	
 	def _getActualValueByCounting(self):
-		# tweet and instagram photos are both ok
+		# tweet and instagram elements are both ok
 		user_ids = set()
 		for element in self._event[self._element_type]:
 			user_ids.add(int(element['user']['id']))
@@ -61,9 +64,19 @@ class BaseEvent(object):
 		self._event[self._element_type] = new_elements
 	
 	def removeDuplicateElements(self):
-		# virtual function
-		assert 1 == 2
-		pass
+		new_elements = {}
+		for element in self._event[self._document_type]:
+			if self._document_type == 'elements':
+				d = Photo(element)
+			else:
+				d = Tweet(element)
+			key = d.getText() + '|' + d.getUserId()
+			new_elements[key] = d
+		self._event[self._document_type] = []
+		for key, d in new_elements.items():
+			self._event[self._document_type].append(d)
+		# need to sort the elements elements or tweets
+		self.sortElements()
 		
 	def containKeywords(self, words, freq=1):
 		# virtual function
@@ -90,9 +103,67 @@ class BaseEvent(object):
 		self._event[self._element_type] = [row[0] for row in element_list]
 	
 	def mergeWith(self, event):
-		# virtual function
-		assert 1 == 2
-		pass
+		if type(event) is types.DictType:
+			event = Event(event)
+		event = event.toDict()
+		
+		element_list1 = self._event[self._document_type] 
+		element_list2 = event[event._document_type]
+		
+		new_element_list = []
+		l1 = 0
+		l2 = 0
+		merged = 0
+		while l1 < len(element_list1) and l2 < len(element_list2):
+			if self._document_type == 'photos':
+				d1 = Photo(element_list1[l1])
+				d2 = Photo(element_list2[l2])
+			else:
+				d1 = Tweet(element_list1[l1])
+				d2 = Tweet(element_list2[l2])
+			compare = d1.compare(d2)
+			if compare == 1:
+				new_element_list.append(element_list1[l1])
+				l1 += 1
+				continue
+			
+			if compare == -1:
+				new_element_list.append(element_list2[l2])
+				l2 += 1
+				merged += 1
+				continue
+			
+			# compare == 0
+			new_element_list.append(element_list1[l1])
+			l1 += 1
+			l2 += 1
+		
+		while l1 < len(element_list1):
+			new_element_list.append(element_list1[l1])
+			l1 += 1
+		
+		while l2 < len(element_list2):
+			new_element_list.append(element_list2[l2])
+			l2 += 1
+			merged += 1
+		
+		self._event[self._document_type] = new_element_list
+		# update actual value
+		self.setActualValue(self._getActualValueByCounting())
+		
+		# do not change the order of the following code
+		actual_value_1 = self._event['actual_value']
+		actual_value_2  = event['actual_value']
+		zscore1 = float(self._event['zscore'])
+		zscore2 = float(event['zscore'])
+		std1 = float(self._event['predicted_std'])
+		std2 = float(event['predicted_std'])
+		new_std = (std1 * actual_value_1 + std2 * actual_value_2) / (actual_value_1 + actual_value_2)
+		new_zscore = (zscore1 * actual_value_1 + zscore2 * actual_value_2) / (actual_value_1 + actual_value_2)
+		self.setZscore(new_zscore)
+		new_mu = actual_value_1 - new_zscore * new_std
+		self.setPredictedValues(new_mu, new_std)
+		return merged
 				
 	def setRegion(self, region):
 		if not type(region) is types.DictType:
@@ -145,5 +216,5 @@ class BaseEvent(object):
 		return et
 
 if __name__ == 'main':
-	be = BaseEvent('photos')
+	be = BaseEvent('elements')
 	

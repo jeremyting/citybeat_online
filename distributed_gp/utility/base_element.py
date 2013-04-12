@@ -13,6 +13,9 @@ class BaseElement(object):
 		# virtual function
 		assert 1 == 2
 		pass
+		
+	def getUserId(self):
+		return str(self._element['user']['id'])
 	
 	def getLocations(self):
 		lat = float(self._element['location']['latitude'])

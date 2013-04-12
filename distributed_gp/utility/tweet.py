@@ -19,8 +19,14 @@ class Tweet(BaseElement):
 		
 	def getRawText(self):
 		# need to consider if use lower()
+		if 'text' not in self._element.keys():
+			return ''
 		return self._element['text'].strip()
 		
+	def getText(sefl):
+		# # new interface
+		return self.getRawText()
+	
 	def findKeywords(self, keywords):
 		text = self.getRawText()
 		occur = 0
