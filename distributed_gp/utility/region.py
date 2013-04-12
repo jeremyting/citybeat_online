@@ -69,7 +69,11 @@ class Region:
 			new_region_list = []
 			#folder = '/res/users/kx19/Citybeat/CityBeat/distributed_gp/utility/region_cache/'
 			folder = '/grad/users/kx19/citybeat_online/distributed_gp/utility/region_cache/'
-			file_name = str(n)+'_'+str(m)+'.txt'
+			if document_type == 'tweet':
+				file_name = 'tweet_'
+			else:
+				file_name = ''
+			file_name.append(str(n)+'_'+str(m)+'.txt')
 			fid = open(folder + file_name)
 			for line in fid:
 				region = line.split()
@@ -163,7 +167,7 @@ def doFiltering():
 	               InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
 	nyc = Region(coordinates)
 	region_list = nyc.divideRegions(25, 25)
-	region_list = nyc.filterRegions(region_list, test=False, n=25, m=25, document_type='tweet')
+	region_list = nyc.filterRegions(region_list, test=True, n=25, m=25, document_type='tweet')
 	for region in region_list:
 		region = region.toDict()
 		print region['min_lat'], region['min_lng'], region['max_lat'], region['max_lng']
