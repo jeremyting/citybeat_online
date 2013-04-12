@@ -24,9 +24,9 @@ class Photo(BaseElement):
 		return self._element['user']['username']
 		
 	def getCaption(self):
-		if 'caption' is not in self._element.keys():
+		if 'caption' not in self._element.keys():
 			return ''
-		if 'text' is not in self._element['caption'].keys():
+		if 'text' not in self._element['caption'].keys():
 			return ''
 		return self._element['caption']['text'].strip()
 	
