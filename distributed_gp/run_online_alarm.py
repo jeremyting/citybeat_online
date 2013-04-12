@@ -88,7 +88,7 @@ class Alarm():
         zscore = (self.current_value - mu)*1.0/std
 
         print 'trying'
-        if zscore > 0:
+        if zscore > 3:
             print 'in alarm!'
             e = Event()
             e.setPredictedValues(mu, std)
@@ -110,30 +110,35 @@ class Alarm():
             # modified by xia
 
 
-def run():
+def run(data_source):
     coordinates = [InstagramConfig.photo_min_lat,
             InstagramConfig.photo_min_lng,
             InstagramConfig.photo_max_lat,
             InstagramConfig.photo_max_lng
                  ]
-    huge_region = Region(coordinates)
     
     alarm_region_size = 25
-
-    regions = huge_region.divideRegions(alarm_region_size,alarm_region_size)
-    filtered_regions = huge_region.filterRegions( region_list = regions, test=True, n=alarm_region_size, m = alarm_region_size)
+    nyc_region = Region(coordinates)
+    regions = nyc_region.divideRegions(alarm_region_size,alarm_region_size)
+    regions = nyc_region.filterRegions( region_list = regions, test=False, n=alarm_region_size, m = alarm_region_size, data_source)
 
     cur_utc_time = getCurrentStampUTC() 
 
-    regions = filtered_regions
     print 'all regions',len(regions)
     for region in regions:
         start_of_time =  cur_utc_time
         end_of_time = cur_utc_time
-        alarm = Alarm(region, start_of_time, end_of_time, 'online_prediction', 'online_candidate')
+        if data_source == 'twitter':
+            alarm = Alarm(region, start_of_time, end_of_time, TwitterConfig.prediction_collection, TwitterConfig.event_collection)
+        elif data_source == 'instagram':
+            alarm = Alarm(region, start_of_time, end_of_time, InstagramConfig.prediction_collection, InstagramConfig.event_collection)
         region.display()
         alarm.fireAlarm()
 
-
 if __name__ == "__main__":
-    run()                            
+    assert( sys.argv[1] in ['twitter', 'instagram'])
+    if sys.argv[1] == 'twitter':
+        run(data_source = 'twitter')
+    elif argv[1] == 'instagram':
+        run(data_source = 'instagram')
+

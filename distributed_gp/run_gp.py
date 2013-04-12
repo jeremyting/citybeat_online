@@ -14,7 +14,6 @@ from utility.prediction_interface import PredictionInterface
 from utility.prediction import Prediction
 from utility.tool import getCurrentStampUTC
 
-
 def save_to_mongo(_results, _saved, model_update_time, data_source):
     done = True
     for key in _results.keys():
@@ -35,12 +34,12 @@ def save_to_mongo(_results, _saved, model_update_time, data_source):
                     p.setTime( str(single_hour_prediction[1]) )
                     p_json = p.toDict()
                     if data_source == 'twitter':
-                        save_interface = PredictionInterface(   ) 
+                        save_interface = PredictionInterface( ) 
                         save_interface.setDB(TwitterConfig.prediction_db)
                         save_interface.setCollection(TwitterConfig.prediction_collection)
                         save_interface.saveDocument( p_json )
                     elif data_source == 'instagram':
-                        save_interface = PredictionInterface(   ) 
+                        save_interface = PredictionInterface( ) 
                         save_interface.setDB(InstagramConfig.prediction_db)
                         save_interface.setCollection(InstagramConfig.prediction_collection)
                         save_interface.saveDocument( p_json )
@@ -91,7 +90,6 @@ def run(data_source):
     save_to_mongo(_results, _saved, cur_utc_timestamp, data_source) 
     done = False
     while not done:
-        break
         done = save_to_mongo(_results, _saved, cur_utc_timestamp, data_source)
         time.sleep(10)
 

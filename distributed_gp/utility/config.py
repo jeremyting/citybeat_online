@@ -15,18 +15,12 @@ class BaseConfig(object):
 
 class InstagramConfig(BaseConfig):
     photo_db = 'citybeat_production'
-    #notice. seperate online setting and experiment setting
     event_db = 'citybeat_production'
-
-    #experiment setting as follow (uncomment them)
-    #photo_collection = 'photos_no_duplicate'
-    #event_collection = 'next_week_candidate_event_25by25'
+    prediction_db = 'citybeat_production'
     #online setting
     photo_collection = 'photos'
-    event_collection = 'online_candidate'
-    prediction_db = 'citybeat_production'
-    #prediction_collection = 'next_week_prediction_25by25'
-    prediction_collection = 'online_prediction'
+    event_collection = 'online_candidate_twitter'
+    prediction_collection = 'online_prediction_instagram'
     # in seconds
     merge_time_interval = 1
     zscore = 3
@@ -46,6 +40,9 @@ class InstagramConfig(BaseConfig):
 class TwitterConfig(BaseConfig):
 	# we have not yet moved tweets from citybeat to production
 	tweet_db = 'citybeat_production'
+	event_db = 'citybeat_production'
+    prediction_db = 'citybeat_production'
+
 	tweet_collection = 'tweets'
-	prediction_db = 'citybeat_production'
 	prediction_collection = 'online_prediction_twitter'
+    event_collection = 'online_candidate_twitter' 
