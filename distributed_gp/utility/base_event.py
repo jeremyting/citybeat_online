@@ -2,7 +2,7 @@ import operator
 import string
 import types
 
-from element import Photo
+from photo import Photo
 from tweet import Tweet
 
 class BaseEvent(object):
