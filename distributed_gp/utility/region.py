@@ -73,7 +73,7 @@ class Region:
 				file_name = 'tweet_'
 			else:
 				file_name = ''
-			file_name.append(str(n)+'_'+str(m)+'.txt')
+			file_name += str(n)+'_'+str(m)+'.txt'
 			fid = open(folder + file_name)
 			for line in fid:
 				region = line.split()
