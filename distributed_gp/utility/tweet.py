@@ -28,7 +28,7 @@ class Tweet(BaseElement):
 		return self.getRawText()
 	
 	def findKeywords(self, keywords):
-		text = self.getRawText()
+		text = self.getText()
 		occur = 0
 		for word in keywords:
 			if word in text:
