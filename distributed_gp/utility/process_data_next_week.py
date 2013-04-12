@@ -57,10 +57,10 @@ def generateData():
 	corpus = Corpus()
 	corpus.buildCorpusOnDB('citybeat', 'next_week_candidate_event_25by25_merged')
 	true_event_list, false_event_list = loadNextWeekData()
-	EventFeatureTwitter(None).GenerateArffFileHeader()
+	EventFeature(None).GenerateArffFileHeader()
 		
 	for event in true_event_list + false_event_list:
-		EventFeatureTwitter(event, corpus, rep).printFeatures()
+		EventFeature(event, corpus, rep).printFeatures()
 
 		
 def main():

@@ -10,7 +10,7 @@ import time
 class Tweet(BaseElement):
 	
 	def __init__(self, tweet):
-		super(Tweet).__init__('tweets', tweet)
+		super(Tweet, self).__init__(tweet)
 	
 	def getCreatedUTCTimestamp(self):
 		ts = self._element['created_at']
@@ -19,8 +19,14 @@ class Tweet(BaseElement):
 		
 	def getRawText(self):
 		# need to consider if use lower()
+		if 'text' not in self._element.keys():
+			return ''
 		return self._element['text'].strip()
 		
+	def getText(sefl):
+		# # new interface
+		return self.getRawText()
+	
 	def findKeywords(self, keywords):
 		text = self.getRawText()
 		occur = 0
