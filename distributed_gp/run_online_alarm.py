@@ -7,7 +7,6 @@ from datetime import timedelta
 import calendar
 from uuid import uuid4
 
-
 from utility.instagram_time_series import InstagramTimeSeries
 from utility.region import Region
 from utility.config import InstagramConfig
@@ -88,7 +87,7 @@ class Alarm():
         zscore = (self.current_value - mu)*1.0/std
 
         print 'trying'
-        if zscore > 3:
+        if zscore > 0:
             print 'in alarm!'
             e = Event()
             e.setPredictedValues(mu, std)
@@ -111,6 +110,7 @@ class Alarm():
 
 
 def run(data_source):
+    assert(sys.argv[1] in ['twitter', 'instagram'])
     coordinates = [InstagramConfig.photo_min_lat,
             InstagramConfig.photo_min_lng,
             InstagramConfig.photo_max_lat,
@@ -120,7 +120,12 @@ def run(data_source):
     alarm_region_size = 25
     nyc_region = Region(coordinates)
     regions = nyc_region.divideRegions(alarm_region_size,alarm_region_size)
-    regions = nyc_region.filterRegions( region_list = regions, test=False, n=alarm_region_size, m = alarm_region_size, data_source)
+    
+    if data_source == 'twitter':
+        regions = nyc_region.filterRegions( region_list = regions, test=True, n=alarm_region_size, m = alarm_region_size, document_type='tweet')
+    elif data_source == 'instagram':
+        regions = nyc_region.filterRegions( region_list = regions, test=True, n=alarm_region_size, m = alarm_region_size, document_type = 'photo')
+        
 
     cur_utc_time = getCurrentStampUTC() 
 
