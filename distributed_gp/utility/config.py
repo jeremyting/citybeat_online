@@ -19,7 +19,7 @@ class InstagramConfig(BaseConfig):
     prediction_db = 'citybeat_production'
     #online setting
     photo_collection = 'photos'
-    event_collection = 'online_candidate_twitter'
+    event_collection = 'online_candidate_instagram'
     prediction_collection = 'online_prediction_instagram'
     # in seconds
     merge_time_interval = 1

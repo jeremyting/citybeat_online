@@ -43,7 +43,6 @@ def save_to_mongo(_results, _saved, model_update_time, data_source):
                         save_interface.setDB(InstagramConfig.prediction_db)
                         save_interface.setCollection(InstagramConfig.prediction_collection)
                         save_interface.saveDocument( p_json )
-
     return done
 
 
@@ -56,9 +55,9 @@ def run(data_source):
     nyc_region = Region(coordinates)
     regions = nyc_region.divideRegions(25, 25)
     if data_source == 'twitter':
-        regions = nyc_region.filterRegions(regions, test=False, n=25, m=25, document_type='tweet')
+        regions = nyc_region.filterRegions(regions, test=True, n=25, m=25, document_type='tweet')
     elif data_source == 'instagram':
-        regions = nyc_region.filterRegions(regions, test=False, n=25, m=25, document_type='photo')
+        regions = nyc_region.filterRegions(regions, test=True, n=25, m=25, document_type='photo')
 
     #regions = huge_region.divideRegions(25,25)
     #filtered_regions = huge_region.filterRegions( regions )
@@ -86,6 +85,7 @@ def run(data_source):
             continue
         _results[gp.getID()] = (test_region, res, pred_time)
         _saved[ gp.getID() ] = False
+        break #comment this
 
     save_to_mongo(_results, _saved, cur_utc_timestamp, data_source) 
     done = False
@@ -98,5 +98,5 @@ if __name__ == "__main__":
     assert( sys.argv[1] in ['twitter', 'instagram'])
     if sys.argv[1] == 'twitter':
         run(data_source = 'twitter')
-    elif argv[1] == 'instagram':
+    elif sys.argv[1] == 'instagram':
         run(data_source = 'instagram')                            
