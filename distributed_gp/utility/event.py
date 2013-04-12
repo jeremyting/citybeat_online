@@ -12,7 +12,7 @@ class Event(BaseEvent):
 	
 	def __init__(self, event=None):
 		# the input argument event should be a dictionary or python object
-		super(Event, self).__init__('photo', event)
+		super(Event, self).__init__('photos', event)
 
 				
 	def addPhoto(self, photo):

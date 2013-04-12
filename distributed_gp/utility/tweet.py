@@ -10,7 +10,7 @@ import time
 class Tweet(BaseElement):
 	
 	def __init__(self, tweet):
-		super(Tweet).__init__(tweet)
+		super(Tweet).__init__('tweets', tweet)
 	
 	def getCreatedUTCTimestamp(self):
 		ts = self._element['created_at']

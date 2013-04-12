@@ -6,7 +6,7 @@ class BaseEvent(object):
 	
 	def __init__(self, element_type, event=None):
 		assert element_type in ['photos', 'tweets']
-		if element_type == 'photo':
+		if element_type == 'photos':
 			self._element_type = 'photos'
 		else:
 			self._element_type = 'tweets'

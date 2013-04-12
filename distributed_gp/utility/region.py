@@ -169,4 +169,4 @@ def doFiltering():
 		print region['min_lat'], region['min_lng'], region['max_lat'], region['max_lng']
 
 if __name__=="__main__":
-	checkTweetInRegion()
+	doFiltering()
