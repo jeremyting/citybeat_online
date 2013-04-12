@@ -27,14 +27,6 @@ class Tweet(BaseElement):
 		# # new interface
 		return self.getRawText()
 	
-	def findKeywords(self, keywords):
-		text = self.getText()
-		occur = 0
-		for word in keywords:
-			if word in text:
-				occur += 1
-		return occur
-	
 	def getRetweetFreq(self):
 		return int(self._element['retweet_count'])
 		

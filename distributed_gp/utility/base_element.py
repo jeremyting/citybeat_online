@@ -2,17 +2,13 @@ import types
 
 
 class BaseElement(object):
+	# abstract class, not allowable to be initialized
 	
 	def __init__(self, element):
 		if type(element) is types.DictType:
 			self._element = element
 		else:
 			self._element = element.toDict()
-	
-	def getLocationName(self):
-		# virtual function
-		assert 1 == 2
-		pass
 		
 	def getUserId(self):
 		return str(self._element['user']['id'])
@@ -45,3 +41,11 @@ class BaseElement(object):
 		if id1 < id2:
 			return -1
 		return 0
+		
+	def findKeywords(self, keywords):
+		text = self.getText()
+		occur = 0
+		for word in keywords:
+			if word in text:
+				occur += 1
+		return occur
