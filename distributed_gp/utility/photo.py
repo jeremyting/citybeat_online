@@ -7,7 +7,7 @@ class Photo(BaseElement):
 	# by photo.toDict()
 	
 	def __init__(self, photo):
-		super(Photo).__init__('photos', photo)
+		super(Photo).__init__(photo)
 		
 	def getLocationName(self):
 		mod_location = ''
