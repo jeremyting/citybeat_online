@@ -24,7 +24,7 @@ class Event(BaseEvent):
 	
 		
 	def selectOnePhotoForOneUser(self):
-		self.leaveOnePhotoForOneUser()
+		self.leaveOneElementForOneUser()
 	
 	def removeDuplicatePhotos(self):
 		# this method is not good, just for tempory use
