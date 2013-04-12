@@ -70,10 +70,7 @@ class Region:
 			#folder = '/res/users/kx19/Citybeat/CityBeat/distributed_gp/utility/region_cache/'
 			# grand : res ; joust : grad 
 			folder = '/grad/users/kx19/citybeat_online/distributed_gp/utility/region_cache/'
-			if document_type == 'tweet':
-				file_name = 'tweet_'
-			else:
-				file_name = ''
+			file_name = document_type
 			file_name += str(n)+'_'+str(m)+'.txt'
 			fid = open(folder + file_name)
 			for line in fid:
