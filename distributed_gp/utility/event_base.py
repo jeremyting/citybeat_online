@@ -1,35 +1,34 @@
-from mongodb_interface import MongoDBInterface
-from element import Element
-from region import Region
-
 import operator
 import string
 import types
 
 class BaseEvent(object):
 	
-	def __init__(self, event=None, element_type='photo'):
-		# the input argument event should be a json, dictionary
+	def __init__(self, element_type, event=None):
+		assert element_type in ['photos', 'tweets']
+		if element_type == 'photo':
+			self._element_type = 'photos'
+		else:
+			self._element_type = 'tweets'
+			
 		if not event is None:
 			if type(event) is types.DictType:
 				self._event = event
 			else:
 				self._event = event.toDict()
-				
-		if element_type == 'photo':
-			self._element_type = 'photos'
 		else:
-			self._element_type = 'tweets'
+			self._event = {}
+			self._event[self._element_type] = []	
 				
 	def addElement(self, element):
 		# element could be a element or tweet
 		# when use this method, please keep adding element in chronologically increasing order
 		if not type(element) is types.DictType:
 			element = element.toDict()
-		self._event['elements'].append(element)
+		self._event[self._element_type].append(element)
 		
 	def getElementsNumber(self):
-		return len(self._event['elements'])
+		return len(self._event[self._element_type])
 	
 	def getLabel(self):
 		return self._event['label']
@@ -69,18 +68,18 @@ class BaseEvent(object):
 	def sortElements(self):
 		# this sorting can prevent bugs when merging
 		element_list = []
-		for element in self._event['elements']:
+		for element in self._event[self._element_type]:
 			element_list.append([element, int(element['created_time']), str(element['id'])])
 		element_list.sort(key=operator.itemgetter(1, 2), reverse=True)
-		self._event['elements'] = [row[0] for row in element_list]
+		self._event[self._element_type] = [row[0] for row in element_list]
 	
 	def mergeWith(self, event):
 		if type(event) is types.DictType:
 			event = Event(event)
 		event = event.toDict()
 		
-		element_list1 = self._event['elements'] 
-		element_list2 = event['elements']
+		element_list1 = self._event[self._element_type] 
+		element_list2 = event[self._element_type]
 		
 		new_element_list = []
 		l1 = 0
@@ -115,7 +114,7 @@ class BaseEvent(object):
 			l2 += 1
 			merged += 1
 		
-		self._event['elements'] = new_element_list
+		self._event[self._element_type] = new_element_list
 		# update actual value
 		self.setActualValue(self._getActualValueByCounting())
 		
@@ -141,7 +140,7 @@ class BaseEvent(object):
 	
 	def setElements(self, elements):
 		# a set of json objects
-		self._event['elements'] = elements
+		self._event[self._element_type] = elements
 		
 	def setCreatedTime(self, utc_time):
 		self._event['created_time'] = str(utc_time)
@@ -164,12 +163,12 @@ class BaseEvent(object):
 		
 	def _test_print(self):
 		print self._event['created_time'], 'elements:'
-		for element in self._event['elements']:
+		for element in self._event[self._element_type]:
 			print element['created_time']
 			
 	def getLatestElementTime(self):
-		lt = int(self._event['elements'][0]['created_time'])
-		for element in self._event['elements']:
+		lt = int(self._event[self._element_type][0]['created_time'])
+		for element in self._event[self._element_type]:
 			t = int(element['created_time'])
 			if t > lt:
 				lt = t
@@ -177,12 +176,13 @@ class BaseEvent(object):
 		
 	   
 	def getEarliestElementTime(self):
-		et = int(self._event['elements'][-1]['created_time'])
-		for element in self._event['elements']:
+		et = int(self._event[self._element_type][-1]['created_time'])
+		for element in self._event[self._element_type]:
 			t = int(element['created_time'])
 			if t < et:
 				et = t
 		return et
-		
-def main():
-	pass
+
+if __name__ == 'main':
+	be = BaseEvent('photo')
+	
