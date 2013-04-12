@@ -36,16 +36,7 @@ class Event(BaseEvent):
 		return False
 	
 	def getPhotosbyKeyword(self, word):
-		# return a list of photos containg the word
-		res_photo = []
-		for photo in self._event['photos']:
-			cap = Photo(photo).getCaption()
-			if cap is None:
-				continue
-			cap = cap.lower()
-			if word in cap:
-				res_photo.append(photo)
-		return res_photo
+		return self.getElementsByKeyword(word)
 
 	def sortPhotos(self):
 		self.sortElements()

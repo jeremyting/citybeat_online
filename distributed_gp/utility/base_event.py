@@ -65,16 +65,16 @@ class BaseEvent(object):
 	
 	def removeDuplicateElements(self):
 		new_elements = {}
-		for element in self._event[self._document_type]:
-			if self._document_type == 'elements':
+		for element in self._event[self._element_type]:
+			if self._element_type == 'elements':
 				d = Photo(element)
 			else:
 				d = Tweet(element)
 			key = d.getText() + '|' + d.getUserId()
 			new_elements[key] = d
-		self._event[self._document_type] = []
+		self._event[self._element_type] = []
 		for key, d in new_elements.items():
-			self._event[self._document_type].append(d)
+			self._event[self._element_type].append(d)
 		# need to sort the elements elements or tweets
 		self.sortElements()
 		
@@ -82,11 +82,19 @@ class BaseEvent(object):
 		# virtual function
 		assert 1 == 2
 		pass
-	
+		
 	def getElementsbyKeyword(self, word):
-		# virtual function
-		assert 1 == 2
-		pass
+		# return a list of elements containg the word
+		res_element = []
+		for element in self._event[self._element_type]:
+			if self._element_type == 'photos':
+				text = Photo(element).getText()
+			else:
+				text = Tweet(element).getText()
+			if word.lower() in cap.lower():
+				res_element.append(element)
+		return res_element
+	
 	
 	def getZscore(self):
 		if 'zscore' in self._event.keys():
@@ -107,15 +115,15 @@ class BaseEvent(object):
 			event = Event(event)
 		event = event.toDict()
 		
-		element_list1 = self._event[self._document_type] 
-		element_list2 = event[event._document_type]
+		element_list1 = self._event[self._element_type] 
+		element_list2 = event[event._element_type]
 		
 		new_element_list = []
 		l1 = 0
 		l2 = 0
 		merged = 0
 		while l1 < len(element_list1) and l2 < len(element_list2):
-			if self._document_type == 'photos':
+			if self._element_type == 'elements':
 				d1 = Photo(element_list1[l1])
 				d2 = Photo(element_list2[l2])
 			else:
@@ -147,7 +155,7 @@ class BaseEvent(object):
 			l2 += 1
 			merged += 1
 		
-		self._event[self._document_type] = new_element_list
+		self._event[self._element_type] = new_element_list
 		# update actual value
 		self.setActualValue(self._getActualValueByCounting())
 		
