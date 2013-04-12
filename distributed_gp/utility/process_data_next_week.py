@@ -1,6 +1,7 @@
 from event_interface import EventInterface
 from event_feature_twitter import EventFeatureTwitter
 from event_feature import EventFeature
+from event_feature_production import EventFeatureProduction
 from event_feature_sparse import EventFeatureSparse
 from photo_interface import PhotoInterface
 from photo import Photo
@@ -60,7 +61,7 @@ def generateData():
 	EventFeature(None).GenerateArffFileHeader()
 		
 	for event in true_event_list + false_event_list:
-		EventFeature(event, corpus, rep).printFeatures()
+		EventFeatureProduction(event, corpus, rep).printFeatures()
 
 		
 def main():
