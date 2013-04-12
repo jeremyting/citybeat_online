@@ -27,13 +27,6 @@ class Event(BaseEvent):
 	
 	def removeDuplicatePhotos(self):
 		self.removeDuplicateElements()
-		
-	def containKeywords(self, words, freq=1):
-		for word in words:
-			res = self.getPhotosByKeyword(word.lower())
-			if len(res) >= freq:
-				return True
-		return False
 	
 	def getPhotosByKeyword(self, word):
 		return self.getElementsByKeyword(word)

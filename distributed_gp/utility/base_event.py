@@ -78,12 +78,7 @@ class BaseEvent(object):
 		# need to sort the elements elements or tweets
 		self.sortElements()
 		
-	def containKeywords(self, words, freq=1):
-		# virtual function
-		assert 1 == 2
-		pass
-		
-	def getElementsbyKeyword(self, word):
+	def getElementsByKeyword(self, word):
 		# return a list of elements containg the word
 		res_element = []
 		for element in self._event[self._element_type]:
@@ -94,7 +89,6 @@ class BaseEvent(object):
 			if word.lower() in cap.lower():
 				res_element.append(element)
 		return res_element
-	
 	
 	def getZscore(self):
 		if 'zscore' in self._event.keys():
@@ -179,7 +173,8 @@ class BaseEvent(object):
 		self._event['region'] = region
 	
 	def setElements(self, elements):
-		# a set of json objects
+		# a set of dictionaries
+		assert type(elements[0]) is types.DictType
 		self._event[self._element_type] = elements
 		
 	def setCreatedTime(self, utc_time):
