@@ -2,51 +2,51 @@ from stopwords import Stopwords
 
 import operator
 
-
-class ElementParser:
+class TextParser(object):
+	
+	def parse2(self, text):
+		print text
 	
 	@staticmethod
-	def parseText(cap):
+	def parse(text):
 		
-		def removeAt(cap):
-			# remove @eddie
-			new_cap = ''
-			for word in cap.split(' '):
+		def removeAt(text):
+			# remove @xxx
+			new_text = ''
+			for word in text.split(' '):
 				word = word.strip()
 				if word == '':
 					continue
 				if word.startswith('@'):
 					continue
-				new_cap += word + ' '
-			return new_cap.strip()
+				new_text += word + ' '
+			return new_text.strip()
 			
-		cap = removeAt(cap)
+		text = removeAt(text)
 		
 		# change the word YouLoveMe into you love me seperately
-		new_cap = ''
-		pre_is_cap = False
-		for c in cap:
+		new_text = ''
+		pre_is_text = False
+		for c in text:
 			if c.isupper():
-				if not pre_is_cap:
-					new_cap += ' '
-				new_cap += c.lower()
-				pre_is_cap = True
+				if not pre_is_text:
+					new_text += ' '
+				new_text += c.lower()
+				pre_is_text = True
 				continue
 
 			if c.islower():
-				new_cap += c
+				new_text += c
 			else:
-				new_cap += ' '
-			pre_is_cap = False
+				new_text += ' '
+			pre_is_text = False
 			 
-		words = new_cap.split()
+		words = new_text.split()
 		stopword_list = Stopwords.stopwords()
 		tmp_dict = {} 
 		
 		for word in words:
 			word = word.strip()
-			if self._stopword_removal and word in stopword_list:
-				continue
 			if len(word) < 3:
 				continue
 			if word in tmp_dict.keys():
@@ -56,7 +56,8 @@ class ElementParser:
 		return tmp_dict
 		
 if __name__ == '__main__':
-	cp = CaptionParser(True)
-	cap1 = 'gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb'
-	cap2 = 'YousbLoveMesb'
-	print CaptionParser.parse(cap2)
+	tp = TextParser()
+	text1 = 'gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb'
+	text2 = 'YousbLoveMesb'
+	a = tp.parse2
+	a(text2)
