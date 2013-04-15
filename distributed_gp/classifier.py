@@ -65,7 +65,7 @@ class Classifier:
         testing_label = testing[:, n-1]
     
 
-        svc =     SVC(kernel="linear", C=0.15)
+        svc = SVC(kernel="linear", C=0.15)
         svc.fit(training_matrix, training_label)
         Z = svc.predict(testing_matrix)
 
@@ -92,8 +92,6 @@ class Classifier:
 
         print cm
 
-
-        
 
 def test():
     Classifier()
