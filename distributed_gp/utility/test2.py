@@ -29,7 +29,14 @@ def insertEvents():
 	for id in ids:
 		event = ei.getDocument({'_id':ObjectId(id)})
 		ei2.addEvent(event)	
+
+def findPhotos():
+	pi = PhotoInterface()
+	pi.setDB('')
+	pi.setCollection('')
+	
 	
 if __name__=='__main__':
-	insertEvents()
+	pass
+#	insertEvents()
 

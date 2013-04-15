@@ -1,6 +1,6 @@
 from event_feature import EventFeature
 
-class EventFeatureProduction(EventFeature):
+class EventFeatureInstagram(EventFeature):
 	
 	def __init__(self, event, corpus=None, representor=None):
 		super(EventFeature, self).__init__(event)
