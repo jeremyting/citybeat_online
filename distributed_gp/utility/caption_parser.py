@@ -84,6 +84,7 @@ class CaptionParser:
 				tmp_dict[word] = 1
 		return tmp_dict
 		
+		
 if __name__ == '__main__':
 	cp = CaptionParser(True)
 	cap1 = 'gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb'
