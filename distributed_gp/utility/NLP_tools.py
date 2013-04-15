@@ -3,39 +3,10 @@ from stopwords import Stopwords
 import operator
 
 
-class CaptionParser:
+class ElementParser:
 	
-	def __init__(self, stopword_removal):
-		self._word_dict = {}
-		self._document_number = 0  # number of documents accumulated
-		self._stopword_removal = stopword_removal
-	
-	def getTopWords(self, k, percentage=True):
-		# if not percentage, it returns the number of photos containing that word.
-		if len(self._word_dict) == 0:
-			return []
-		new_top_words = []
-		top_words = sorted(self._word_dict.iteritems(), key=operator.itemgetter(1), reverse=True)
-		for i in xrange(0, len(top_words)):
-			if percentage:
-				value = 1.0*top_words[i][1] / self._document_number
-			else:
-				value = top_words[i][1]
-			tmp_tuple = (top_words[i][0], value)
-			new_top_words.append(tmp_tuple)
-		if k == -1:
-			return new_top_words
-		return new_top_words[0:min(k, len(new_top_words))]
-	
-	def insertCaption(self, cap):
-		if cap is None or len(cap) == 0:
-			return
-		self._document_number = self._document_number + 1
-		tmp_dict = self._preprocessCaption(cap)
-		for word in tmp_dict.keys():
-			self._word_dict[word] = self._word_dict.get(word, 0) + 1
-	
-	def _preprocessCaption(self, cap):
+	@staticmethod
+	def parseText(cap):
 		
 		def removeAt(cap):
 			# remove @eddie
