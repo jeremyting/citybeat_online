@@ -3,8 +3,11 @@ Given training data, training the model, and then return a classifier to classif
 future candidate event.
 
 """
-
+from sklearn import preprocessing
 from sklearn import linear_model, decomposition, datasets
+from sklearn.metrics import classification_report
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
 from sklearn.metrics import confusion_matrix
 from numpy import genfromtxt
 
@@ -45,6 +48,8 @@ class Classifier:
         my_data = genfromtxt('181.csv', delimiter=',')
         m, n = my_data.shape
         
+        my_data[:,0:n-2] = preprocessing.scale(my_data[:,0:n-2])
+        
         for i in range(m):
             if my_data[i,n-1]<0.0:
                 my_data[i,n-1] = 0
@@ -60,14 +65,22 @@ class Classifier:
         testing_label = testing[:, n-1]
     
 
+        svc =     SVC(kernel="linear", C=0.15)
+        svc.fit(training_matrix, training_label)
+        Z = svc.predict(testing_matrix)
+
+        #logistic = linear_model.LogisticRegression()
+        #logistic.fit(training_matrix, training_label)
         
-        logistic = linear_model.LogisticRegression()
-        logistic.fit(training_matrix, training_label)
-        
-        
-        Z = logistic.predict(testing_matrix)
+        #knn = KNeighborsClassifier(5)
+        #knn.fit(training_matrix, training_label)
+        #Z = knn.predict(testing_matrix)
+
+        #Z = logistic.predict(testing_matrix)
         cm = confusion_matrix(Z, testing_label)
-        
+
+        report = classification_report(testing_label, Z) 
+        print report
         #Z = logistic.predict(training_matrix)
         #cm = confusion_matrix(Z, training_label)
 
