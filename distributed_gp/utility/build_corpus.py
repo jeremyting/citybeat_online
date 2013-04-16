@@ -67,6 +67,7 @@ def buildCorpus(region, time_interval, document_type='photos'):
 	else:
 		di = TweetInterface()
 	cur = di.rangeQuery(region, time_interval)
+	assert cur.count() > 0
 	text = []
 	for document in cur:
 		if document_type == 'photos':
@@ -103,7 +104,7 @@ def buildAllCorpus(document_type='photo'):
 		r = Region(region)
 		cor = buildCorpus(r, [now - 24 *3600, now], document_type)
 		all_corpus[r.toJSON()] = cor
-		
+
 	return all_corpus
 		
 
