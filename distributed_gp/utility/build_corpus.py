@@ -104,7 +104,7 @@ def buildAllCorpus(document_type='photo'):
 	
 	for region in region_list:
 		r = Region(region)
-		cor = buildCorpus(r, [now - 34 * 24 *3600, now - 33 * 24 *3600], document_type)
+		cor = buildCorpus(r, [now - 14 *3600 *24, now], document_type)
 		all_corpus[r.toJSON()] = cor
 
 	return all_corpus
