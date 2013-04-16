@@ -15,7 +15,7 @@ class BaseConfig(object):
 		
 		region_percentage = 0.3
 		# grand : res ; joust : grad
-		regionCacheFilePath = '/grad/users/kx19/citybeat_online/distributed_gp/utility/region_cache/'
+		regionCacheFilePath = 'region_cache/'
 
 class InstagramConfig(BaseConfig):
     photo_db = 'citybeat_production'

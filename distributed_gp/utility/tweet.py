@@ -23,7 +23,7 @@ class Tweet(BaseElement):
 			return ''
 		return self._element['text'].strip()
 		
-	def getText(sefl):
+	def getText(self):
 		# # new interface
 		return self.getRawText()
 	
