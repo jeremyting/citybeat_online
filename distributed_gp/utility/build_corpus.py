@@ -107,9 +107,6 @@ def buildAllCorpus(document_type='photo'):
 		all_corpus[r.toJSON()] = cor
 
 	return all_corpus
-		
-
-
 
 if __name__ == '__main__':
 	buildAllCorpus('photo')
