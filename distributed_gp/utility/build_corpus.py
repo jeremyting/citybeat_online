@@ -68,6 +68,7 @@ def buildCorpus(region, time_interval, document_type='photos'):
 		di = TweetInterface()
 	cur = di.rangeQuery(region, time_interval)
 	assert cur.count() > 0
+	print cur.count()
 	text = []
 	for document in cur:
 		if document_type == 'photos':
@@ -111,8 +112,4 @@ def buildAllCorpus(document_type='photo'):
 
 
 if __name__ == '__main__':
-	coordinates = [InstagramConfig.photo_min_lat, InstagramConfig.photo_min_lng,
-	               InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
-	r = Region(coordinates)
-	now = int(tool.getCurrentStampUTC())
-	buildCorpus(r, [now - 24 *3600, now])
+	buildAllCorpus('photo')
