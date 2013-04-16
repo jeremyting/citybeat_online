@@ -1,28 +1,47 @@
 from photo_interface import PhotoInterface
-from caption_parser import CaptionParser
-from mongodb_interface import MongoDBInterface
+from tweet_interface import TweetInterface
 from photo import Photo
+from tweet import Tweet
+from region import Region
+from config import InstagramConfig
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
+import numpy as np
 
 import random
+import time
+from datetime import datetime
+
+
+def buildCorpus(region, time_interval, document_type='photos'):
+	# time_interval should be [start, end]
+	if document_type == 'photos':
+		di = PhotoInterface()
+	else:
+		di = TweetInterface()
+	cur = di.rangeQuery(region, time_interval)
+	text = []
+	for document in cur:
+		if document_type == 'photos':
+			doc = Photo(document)
+		else:
+			doc = Tweet(document)
+		text.append(doc.getText())
+	
+	vectorizer = TfidfVectorizer(max_df=0.99, min_df=0, strip_accents='ascii',
+	                             smooth_idf=True, sublinear_tf=True, norm='l2', 
+															 analyzer='word', ngram_range=(1,1), stop_words = 'english')
+	vectorizer.fit_transform(documents)
+	return vectorizer
+
 
 
 if __name__ == '__main__':
-	mi = MongoDBInterface()
-	mi.setDB('test_caption')
-	mi.setCollection('captions')
-	
-	cp = CaptionParser(True)
-	
-	i = 0
-	captions = mi.getAllDocuments()
-	for caption in captions:
-		i += 1
-		if i % 1000 == 0:
-#			print cp.getTopWords(200)
-			print i
-			print len(cp._)
-		cp.insertCaption(caption['caption'])
-
-	for word, value in cp.getTopWords(300):
-		print '\''+word+'\',',
-	print
+	coordinates = [InstagramConfig.photo_min_lat, InstagramConfig.photo_min_lng,
+	               InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
+	nyc = Region(coordinates)
+	region_list = nyc.divideRegions(25, 25)
+	region_list = nyc.filterRegions(region_list, test=True, n=25, m=25, document_type='tweet')
+	r = Region(region_list[0])
+	now = int(time.utctime())
+	buildCorpus(r, [now - 24 *3600, now])

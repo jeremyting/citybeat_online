@@ -69,6 +69,8 @@ class CaptionParser:
 			pre_is_cap = False
 			 
 		words = new_cap.split()
+		print new_cap
+		print words
 		stopword_list = Stopwords.stopwords()
 		tmp_dict = {} 
 		
@@ -89,4 +91,4 @@ if __name__ == '__main__':
 	cp = CaptionParser(True)
 	cap1 = 'gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb'
 	cap2 = 'YousbLoveMesb'
-	print CaptionParser.parse(cap2)
+	print cp._preprocessCaption(cap2)
