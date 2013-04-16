@@ -9,7 +9,6 @@ import time
 
 
 from utility.event_interface import EventInterface
-from utility.event_frontend import EventFrontend 
 from utility.event import Event
 
 from utility.representor import Representor
@@ -96,7 +95,6 @@ class Root:
 
     def getPhotosByID(self, event_id):
         event = json.loads(self.getEventByID(event_id))
-        #event = EventFrontend(event, self.c)
             
         #top_words_list = event.getTopKeywordsAndPhotos(20,5)
         #words_pics_list = event.getTopKeywordsAndPhotosByTFIDF(20, 5)

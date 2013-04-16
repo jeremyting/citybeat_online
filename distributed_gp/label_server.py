@@ -8,7 +8,6 @@ import time
 
 
 from utility.event_interface import EventInterface
-from utility.event_frontend import EventFrontend 
 from utility.event import Event
 
 from utility.event_feature import EventFeature
@@ -127,7 +126,6 @@ class Root:
             #return self.cache_photos[event_id]
             #return self.cache_photos[event_id]
         event = self.ei.getEventByID(event_id)
-        #event = EventFrontend(event, self.c)
             
         #words_pics_list = event.getTopKeywordsAndPhotos(10, 6)
         top_words_list = event.getTopKeywordsAndPhotos(20,5)
