@@ -1,5 +1,6 @@
 import operator
 import types
+import json
 
 from config import InstagramConfig
 from config import BaseConfig
@@ -35,6 +36,9 @@ class Region:
 	
 	def toDict(self):
 		return self._region
+	
+	def toJSON(self):
+		return json.dumps(self._region)
 	
 	def toTuple(self):
 		return (self._region['min_lat'], self._region['min_lng'], self._region['max_lat'], self._region['max_lng'])

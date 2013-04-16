@@ -20,8 +20,25 @@ def textProprocessor(text):
 		return new_text.strip()
 		
 	text = removeAt(text)
-	
-	return text.strip()
+	# change the word YouLoveMe into you love me seperately
+	new_text = ''
+	pre_is_text = False
+	for c in text:
+		if c.isupper():
+			if not pre_is_text:
+				new_text += ' '
+			new_text += c.lower()
+			pre_is_text = True
+			continue
+			
+		if c.islower():
+			new_text += c
+		else:
+			new_text += ' '
+		pre_is_text = False
+		
+	new_text = removeAt(new_text)
+	return new_text.strip()
 		
 if __name__ == '__main__':
 	text1 = 'gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb'
@@ -40,4 +57,4 @@ if __name__ == '__main__':
 	tf_vec = vectorizer.transform([text1]).mean(axis=0)
 	nonzeros = np.nonzero(tf_vec)[1]
 	res_list = nonzeros.ravel().tolist()[0] 
-	print res_list
+	print tf_vec
