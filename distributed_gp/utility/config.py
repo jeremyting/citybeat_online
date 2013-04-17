@@ -20,13 +20,13 @@ class BaseConfig(object):
 		@staticmethod
 		def getRegionListPath():
 				cp = os.getcwd()
-				path = '/*/users/kx19/citybeat_online/distributed_gp/utility/region_cache' 
+				path = '/*/users/kx19/citybeat_online/distributed_gp/utility/region_cache/' 
 				if '/res/' in cp:
 						return path.replace('*', 'res')
 				if '/grad/' in cp:
 						return path.replace('*', 'grad')
 			  # in my pc
-				return cp + '\region_cache'
+				return cp + '\\region_cache\\'
 
 class InstagramConfig(BaseConfig):
     photo_db = 'citybeat_production'
