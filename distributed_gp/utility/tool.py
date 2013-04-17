@@ -10,54 +10,7 @@ def getCurrentStampUTC():
 def convertTwitterDateToTimestamp(time_string):
     dt = int(mktime_tz(parsedate_tz(ts.strip())))
     return dt
-
-def getTfidfVector(vectorizer, text):
-	voc = vectorizer.get_feature_names()
-	tf_vec = vectorizer.transform([text]).mean(axis=0)
-	nonzeros = np.nonzero(tf_vec)[1]
-	res_list = nonzeros.ravel().tolist()[0] 
-	values = []
-	words = []
-	for n in res_list:
-		words.append( voc[n] )
-		values.append( tf_vec[0,n] )
-	return res_list, words, values
-
-def textProprocessor(text):
-		
-	def removeAt(text):
-		# remove @xxx
-		new_text = ''
-		for word in text.split(' '):
-			word = word.strip()
-			if word == '':
-				continue
-			if word.startswith('@'):
-				continue
-			new_text += word + ' '
-		return new_text.strip()
-		
-	text = removeAt(text)
-	# change the word YouLoveMe into you love me seperately
-	new_text = ''
-	pre_is_text = False
-	for c in text:
-		if c.isupper():
-			if not pre_is_text:
-				new_text += ' '
-			new_text += c.lower()
-			pre_is_text = True
-			continue
-			
-		if c.islower():
-			new_text += c
-		else:
-			new_text += ' '
-		pre_is_text = False
-		
-	new_text = removeAt(new_text)
-	return new_text.strip()
-
+    
 def processAsPeopleCount(data):
     # process the data and delete those that are "floodingly" upload photos
     # eliminate photos that are within a time window
@@ -75,7 +28,39 @@ def processAsPeopleCount(data):
             else:
                 return_data.append(photo_json)
     return return_data
-
+    
+def textProprocessor(text):
+		
+		def removeAt(text):
+			# remove @xxx
+			new_text = ''
+			for word in text.split(' '):
+				word = word.strip()
+				if word == '' or word.startswith('@'):
+					continue
+				new_text += word + ' '
+			return new_text.strip()
+		
+		text = removeAt(text)
+		# change the word YouLoveMe into you love me seperately
+		new_text = ''
+		pre_is_text = False
+		for c in text:
+			if c.isupper():
+				if not pre_is_text:
+					new_text += ' '
+				new_text += c.lower()
+				pre_is_text = True
+				continue
+			if c.islower():
+				new_text += c
+			else:
+				new_text += ' '
+			pre_is_text = False
+		new_text = removeAt(new_text)
+		return new_text.strip()
+		
+		
 if __name__ == "__main__":
     print getCurrentStampUTC()
 

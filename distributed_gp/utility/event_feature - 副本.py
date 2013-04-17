@@ -68,10 +68,12 @@ class EventFeature(Event):
 	
 	def getTopWordByTFIDF(self, k=3):
 		# rank and get the top k words by tfidf
-		all_cap = self._getAllCap()
-		tfidf = self._corpus.chooseTopWordWithHighestTDIDF(all_cap, k=3)[1]
-		tfidf.sort(reverse=True)
-		return tfidf
+		word_list = self._getTopWords(-1, True)
+		word_list_tfidf = self._corpus.chooseTopWordWithHighestTDIDF(word_list, k=3)
+		freq = [0]*k
+		for i in xrange(0, len(word_list_tfidf)):
+			freq[i] = word_list_tfidf[i][1]
+		return freq
 	
 	def _getTopKeywordsWithoutStopwords(self, k):
 		# this method will return topwords without stopwords
@@ -355,13 +357,7 @@ class EventFeature(Event):
 			if cap_len > 0:
 				cap_number += 1
 		return cap_number * 1.0 / len(photos)
-	
-	def _getAllCaptions(self):
-		cap = ''
-		for photo in self._event['photos']:
-			cap += Photo(photo).getText() + ' '
-		return cap.strip()
-	
+		
 	def getTopWordPopularity(self, k=1):
 		# compute the average popularity of k-top words
 		top_words = self._getTopWords(k, True)

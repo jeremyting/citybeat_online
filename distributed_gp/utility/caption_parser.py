@@ -1,5 +1,5 @@
 from stopwords import Stopwords
-
+import tool
 import operator
 
 
@@ -37,40 +37,9 @@ class CaptionParser:
 	
 	def _preprocessCaption(self, cap):
 		
-		def removeAt(cap):
-			# remove @eddie
-			new_cap = ''
-			for word in cap.split(' '):
-				word = word.strip()
-				if word == '':
-					continue
-				if word.startswith('@'):
-					continue
-				new_cap += word + ' '
-			return new_cap.strip()
-			
-		cap = removeAt(cap)
-		
-		# change the word YouLoveMe into you love me seperately
-		new_cap = ''
-		pre_is_cap = False
-		for c in cap:
-			if c.isupper():
-				if not pre_is_cap:
-					new_cap += ' '
-				new_cap += c.lower()
-				pre_is_cap = True
-				continue
-
-			if c.islower():
-				new_cap += c
-			else:
-				new_cap += ' '
-			pre_is_cap = False
+		new_cap = tool.textPreprocessor(cap)
 			 
 		words = new_cap.split()
-		print new_cap
-		print words
 		stopword_list = Stopwords.stopwords()
 		tmp_dict = {} 
 		

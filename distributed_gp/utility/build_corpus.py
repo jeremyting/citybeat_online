@@ -45,7 +45,7 @@ def buildCorpus(region, time_interval, document_type='photos'):
 		if len(t) > 1:
 			text.append(t)
 	
-	vectorizer = TfidfVectorizer(max_df=100, min_df=0, strip_accents='ascii', preprocessor=textProprocessor,
+	vectorizer = TfidfVectorizer(max_df=100, min_df=0, strip_accents='ascii',
 	                             smooth_idf=True, sublinear_tf=True, norm='l2', 
 															 analyzer='word', ngram_range=(1,1), stop_words = 'english')
 	vectorizer.fit_transform(text)
@@ -72,6 +72,7 @@ def buildAllCorpus(document_type='photo'):
 		r = Region(region)
 		cor = buildCorpus(r, [now - 14 *3600 *24, now], document_type)
 		all_corpus[r.toJSON()] = cor
+		print getTfidfVector(cor, 'i love ny nyc park')
 
 	return all_corpus
 
