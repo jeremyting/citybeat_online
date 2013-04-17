@@ -1,3 +1,5 @@
+import os
+
 instagram_client_id = '4d9231b411eb4ef69435b40eb83999d6'
 instagram_client_secret = '204c565fa1244437b9034921e034bdd6'
 
@@ -49,3 +51,11 @@ class TwitterConfig(BaseConfig):
     prediction_collection = 'online_prediction_twitter'
     event_collection = 'online_candidate_twitter'
     # grand : res ; joust : grad 
+
+
+def getCurrentPath():
+	print os.getcwd()
+	
+
+if __name__ == '__main__':
+	getCurrentPath()
