@@ -90,9 +90,6 @@ def buildAllCorpus(document_type='photo'):
 		cor = Corpus()
 		cor.buildCorpus(r, [now - 14 *3600 *24, now], document_type)
 		all_corpus[cor.getKey()] = cor
-		print cor.chooseTopWordWithHighestTDIDF('i love ny nyc park')
-		break
-
 	return all_corpus
 
 if __name__ == '__main__':

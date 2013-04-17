@@ -1,7 +1,7 @@
 from event_interface import EventInterface
 from event_feature_twitter import EventFeatureTwitter
 from event_feature import EventFeature
-from event_feature_production import EventFeatureProduction
+from event_feature_production import EventFeatureInstagram
 from event_feature_sparse import EventFeatureSparse
 from photo_interface import PhotoInterface
 from photo import Photo
@@ -11,6 +11,7 @@ from caption_parser import CaptionParser
 from stopwords import Stopwords
 from bson.objectid import ObjectId
 from corpus import Corpus
+from corpus import buildAllCorpus
 from representor import Representor
 
 import operator
@@ -54,14 +55,15 @@ def loadNextWeekData():
 	return true_events, false_events
 
 def generateData():
-	rep = Representor(None, 'citybeat', 'next_week_candidate_event_25by25_merged')
-	corpus = Corpus()
-	corpus.buildCorpusOnDB('citybeat', 'next_week_candidate_event_25by25_merged')
+	#rep = Representor(None, 'citybeat', 'next_week_candidate_event_25by25_merged')
+	all_corpus = buildAllCorpus()
 	true_event_list, false_event_list = loadNextWeekData()
-	EventFeature(None).GenerateArffFileHeader()
+	#EventFeature(None).GenerateArffFileHeader()
 		
 	for event in true_event_list + false_event_list:
-		EventFeatureProduction(event, corpus, rep).printFeatures()
+		r = Region(event['region'])
+		corpus = all_corpus[r.toJSON()]
+		EventFeatureInstagram(event, corpus, None).printFeatures()
 
 		
 def main():
