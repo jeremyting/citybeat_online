@@ -77,12 +77,14 @@ def buildAllCorpus(document_type='photo'):
 	nyc = Region(coordinates)
 	region_list = nyc.divideRegions(25, 25)
 	region_list = nyc.filterRegions(region_list, test=True, n=25, m=25, document_type=document_type)
-	now = int(tool.getCurrentStampUTC())
+	
+	# 14 days ago
+	now = int(tool.getCurrentStampUTC()) - 14 *3600 *24
 	
 	for region in region_list:
 		r = Region(region)
 		cor = Corpus()
-		cor.buildCorpus(r, [now - 1 *3600 *24, now], document_type)
+		cor.buildCorpus(r, [now - 14 *3600 *24, now], document_type)
 		all_corpus[r.toJSON()] = cor
 	return all_corpus
 
