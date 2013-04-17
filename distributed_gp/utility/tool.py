@@ -29,7 +29,7 @@ def processAsPeopleCount(data):
                 return_data.append(photo_json)
     return return_data
     
-def textProprocessor(text):
+def textPreprocessor(text):
 		
 		def removeAt(text):
 			# remove @xxx

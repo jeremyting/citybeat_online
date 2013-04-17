@@ -43,7 +43,7 @@ class Corpus(object):
 				text.append(t)
 		# it is not proper here to set up stopwords
 		self._vectorizer = TfidfVectorizer(max_df=10000, min_df=0, strip_accents='ascii',
-		                                   preprocessor=tool.textProprocessor,
+		                                   preprocessor=tool.textPreprocessor,
 		                             			 smooth_idf=True, sublinear_tf=True, norm='l2', 
 																       analyzer='word', ngram_range=(1,1), stop_words = 'english')
 		self._vectorizer.fit_transform(text)
