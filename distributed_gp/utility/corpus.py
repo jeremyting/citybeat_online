@@ -23,11 +23,6 @@ import math
 import operator
 
 class Corpus(object):
-	
-	def getKey(self):
-		assert self._region is not None
-		r = Region(self._region)
-		return r.toJSON()
 
 	def buildCorpus(self, region, time_interval, document_type='photo'):
 		# time_interval should be [start, end]
@@ -46,7 +41,6 @@ class Corpus(object):
 			#at least 5 length
 			if len(t) > 4:
 				text.append(t)
-		self._region = region
 		# it is not proper here to set up stopwords
 		self._vectorizer = TfidfVectorizer(max_df=10000, min_df=0, strip_accents='ascii',
 		                                   preprocessor=tool.textProprocessor,
@@ -89,7 +83,7 @@ def buildAllCorpus(document_type='photo'):
 		r = Region(region)
 		cor = Corpus()
 		cor.buildCorpus(r, [now - 1 *3600 *24, now], document_type)
-		all_corpus[cor.getKey()] = cor
+		all_corpus[r.toJSON()] = cor
 	return all_corpus
 
 if __name__ == '__main__':
