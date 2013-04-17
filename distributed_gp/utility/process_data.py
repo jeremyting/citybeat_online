@@ -1,5 +1,6 @@
 from event_interface import EventInterface
 from event_feature import EventFeature
+from event_feature_instagram import EventFeatureInstagram
 from event_feature_sparse import EventFeatureSparse
 from photo_interface import PhotoInterface
 from photo import Photo
@@ -9,8 +10,8 @@ from caption_parser import CaptionParser
 from stopwords import Stopwords
 from bson.objectid import ObjectId
 from corpus import Corpus
+from corpus import buildAllCorpus
 from representor import Representor
-from event_feature_twitter import EventFeatureTwitter
 
 import operator
 import string
@@ -20,7 +21,7 @@ import math
 
 import sys
 
-def loadUnbalancedData(_182):
+def loadUnbalancedData():
 	
 	# load modified 
 	
@@ -30,10 +31,7 @@ def loadUnbalancedData(_182):
 	
 	true_events = []
 	false_events = []
-	if _182:
-		fid2 = open('labeled_data_cf/182_positive.txt', 'r')
-	else:
-		fid2 = open('labeled_data_cf/181_positive.txt', 'r')
+	fid2 = open('labeled_data_cf/181_positive.txt', 'r')
 		
 	modified_events = {}
 	
@@ -77,49 +75,29 @@ def loadUnbalancedData(_182):
 	fid.close()
 	return true_events, false_events
 
-
-def getCorpusWordList(rep, event_list):
-	word_index={}
-	word_list=[]
-	ind = 0
-	for event in event_list:
-		e = EventFeatureSparse(event, representor=rep)
-		wl = e.getAllWordTFIDF()
-		for i in xrange(0, len(wl)):
-			word = wl[i][1]
-			if word not in word_index:
-				word_index[word] = ind
-				ind += 1
-				word_list.append(word)
-	return word_index, word_list
-
-def generateData2(_182, sparse=False):
+def generateData2(sparse=False):
 #	if sparse:
-	rep = Representor()
-	corpus = Corpus()
-	corpus.buildCorpusOnDB('citybeat', 'candidate_event_25by25_merged')
-	
-	true_event_list, false_event_list = loadUnbalancedData(_182)
+	#rep = Representor()
+
+	all_corpus = buildAllCorpus()
+	true_event_list, false_event_list = loadUnbalancedData()
 
 	if sparse:
 		word_index, word_list = getCorpusWordList(rep, true_event_list + false_event_list)
 		EventFeatureSparse(None).GenerateArffFileHeader(word_list)
 	else:
-		EventFeatureTwitter(None).GenerateArffFileHeader()
+		EventFeature(None).GenerateArffFileHeader()
 		
 	for event in true_event_list + false_event_list:
+		r = Region(event['region'])
+		corpus = all_corpus[r.getKey()]
 		if not sparse:
-			EventFeatureTwitter(event, corpus, rep).printFeatures()
+			EventFeature(event, corpus, None).printFeatures()
 		else:
 			EventFeatureSparse(event, corpus, rep).printFeatures(word_index)
 
 def main():
-	assert len(sys.argv) == 2
-	assert sys.argv[1] == '181' or sys.argv[1] == '182'
-	if sys.argv[1] == '182':
-		generateData2(_182=True)
-	else:
-		generateData2(_182=False)
+	generateData2()
 
 if __name__=='__main__':
 	main()

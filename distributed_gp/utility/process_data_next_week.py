@@ -1,5 +1,4 @@
 from event_interface import EventInterface
-from event_feature_twitter import EventFeatureTwitter
 from event_feature import EventFeature
 from event_feature_instagram import EventFeatureInstagram
 from event_feature_sparse import EventFeatureSparse

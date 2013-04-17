@@ -151,8 +151,6 @@ class EventFeature(Event):
 		hashtage_cnt3 = res[0]
 		number_photos_associated_with_keywords3 = res[1]
 		
-		
-		
 #		historic_features = [0]*3   for test only
 		historic_features = self.getHistoricFeatures(entropy_para)
 		diff_avg_photo_dis = avg_photo_dis - historic_features[0]
@@ -196,16 +194,16 @@ class EventFeature(Event):
 	def GenerateArffFileHeader(self):
 		print '@relation CityBeatEvents'
 		print '@attribute AvgCaptionLen real'
-		print '@attribute stat_MinPhotoDis real'
-		print '@attribute stat_MaxPhotoDis real'
+#		print '@attribute stat_MinPhotoDis real'
+#		print '@attribute stat_MaxPhotoDis real'
 		print '@attribute stat_StdPhotoDis real'
 		print '@attribute AvgPhotoDis real'
-		print '@attribute stat_MedianPhotoDis real'
-		print '@attribute stat_MinPhotoDisbyCap real'
-		print '@attribute stat_MaxPhotoDisbyCap real'
-		print '@attribute stat_StdPhotoDisbyCap real'
+#		print '@attribute stat_MedianPhotoDis real'
+#		print '@attribute stat_MinPhotoDisbyCap real'
+#		print '@attribute stat_MaxPhotoDisbyCap real'
+#		print '@attribute stat_StdPhotoDisbyCap real'
 		print '@attribute MeanPhotoDisbyCap real'
-		print '@attribute stat_MedianPhotoDisbyCap real'
+#		print '@attribute stat_MedianPhotoDisbyCap real'
 		print '@attribute CaptionPercentage real'
 		print '@attribute PredictedStd real'
 		print '@attribute TopWordPopularity real'
