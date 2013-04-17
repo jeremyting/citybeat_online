@@ -88,7 +88,7 @@ def buildAllCorpus(document_type='photo'):
 	for region in region_list:
 		r = Region(region)
 		cor = Corpus()
-		cor.buildCorpus(r, [now - 14 *3600 *24, now], document_type)
+		cor.buildCorpus(r, [now - 1 *3600 *24, now], document_type)
 		all_corpus[cor.getKey()] = cor
 	return all_corpus
 
