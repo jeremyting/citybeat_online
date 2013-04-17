@@ -9,7 +9,7 @@
 
 from utility.event_interface import EventInterface
 from utility.event_feature_instagram import EventFeatureInstagram
-from corpus import buildAllCorpus
+from utility.corpus import buildAllCorpus
 
 class EventMonitor():
     def __init__(self, db, collection):
@@ -22,12 +22,10 @@ class EventMonitor():
         ei = EventInterface(self.db, self.collection)
         
         for e in ei.getAllDocuments():
-            ef = EventFeatureInstagram(e)
-            print ef.extractFeatures()
             region = e['region']
             corpus = all_corpus[region.getKey()]
-
-
+            ef = EventFeatureInstagram(e, corpus)
+            print ef.extractFeatures()
 
 
 
