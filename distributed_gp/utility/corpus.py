@@ -82,9 +82,10 @@ def buildAllCorpus(document_type='photo'):
 	now = int(tool.getCurrentStampUTC()) - 14 *3600 *24
 	
 	for region in region_list:
+		print region
 		r = Region(region)
 		cor = Corpus()
-		cor.buildCorpus(r, [now - 14 *3600 *24, now], document_type)
+		cor.buildCorpus(r, [now - 1 *3600 *24, now], document_type)
 		all_corpus[r.toJSON()] = cor
 	return all_corpus
 
