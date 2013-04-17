@@ -79,7 +79,7 @@ def buildAllCorpus(document_type='photo'):
 	region_list = nyc.filterRegions(region_list, test=True, n=25, m=25, document_type=document_type)
 	
 	# 14 days ago
-	now = int(tool.getCurrentStampUTC()) - 14 *3600 *24
+	now = int(tool.getCurrentStampUTC()) - 30 *3600 *24
 	
 	for region in region_list:
 		print region
