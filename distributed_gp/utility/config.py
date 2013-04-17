@@ -17,7 +17,7 @@ class BaseConfig(object):
 		
 		region_percentage = 0.3
 		# grand : res ; joust : grad
-		regionCacheFilePath = 'region_cache/'
+		regionCacheFilePath = os.getcwd() + '/region_cache/'
 
 class InstagramConfig(BaseConfig):
     photo_db = 'citybeat_production'
@@ -51,11 +51,3 @@ class TwitterConfig(BaseConfig):
     prediction_collection = 'online_prediction_twitter'
     event_collection = 'online_candidate_twitter'
     # grand : res ; joust : grad 
-
-
-def getCurrentPath():
-	print os.getcwd()
-	
-
-if __name__ == '__main__':
-	getCurrentPath()
