@@ -68,7 +68,7 @@ class EventFeature(Event):
 	
 	def getTopWordByTFIDF(self, k=3):
 		# rank and get the top k words by tfidf
-		all_cap = self._getAllCap()
+		all_cap = self._getAllCaps()
 		tfidf = self._corpus.chooseTopWordWithHighestTDIDF(all_cap, k=3)[1]
 		tfidf.sort(reverse=True)
 		return tfidf
