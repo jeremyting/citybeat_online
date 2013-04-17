@@ -17,7 +17,16 @@ class BaseConfig(object):
 		
 		region_percentage = 0.3
 		# grand : res ; joust : grad
-		regionCacheFilePath = os.getcwd() + '/region_cache/'
+		@staticmethod
+		def getRegionListPath():
+				cp = os.getcwd()
+				path = '/*/users/kx19/citybeat_online/distributed_gp/utility/region_cache' 
+				if '/res/' in cp:
+						return path.replace('*', 'res')
+				if '/grad/' in cp:
+						return path.replace('*', 'grad')
+			  # in my pc
+				return cp + '\region_cache'
 
 class InstagramConfig(BaseConfig):
     photo_db = 'citybeat_production'
@@ -50,4 +59,7 @@ class TwitterConfig(BaseConfig):
     tweet_collection = 'tweets'
     prediction_collection = 'online_prediction_twitter'
     event_collection = 'online_candidate_twitter'
-    # grand : res ; joust : grad 
+    # grand : res ; joust : grad
+    
+if __name__ == '__main__':
+	print BaseConfig.getRegionListPath()

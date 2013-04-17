@@ -89,7 +89,6 @@ class Region:
 			folder = BaseConfig.regionCacheFilePath
 			file_name = document_type + '_'
 			file_name += str(n)+'_'+str(m)+'.txt'
-			print folder + file_name
 			fid = open(folder + file_name)
 			for line in fid:
 				region = line.split()
