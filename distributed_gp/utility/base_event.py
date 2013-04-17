@@ -2,6 +2,7 @@ import operator
 import string
 import types
 
+from region import Region
 from photo import Photo
 from tweet import Tweet
 
@@ -19,6 +20,11 @@ class BaseEvent(object):
 				self._event = event
 			else:
 				self._event = event.toDict()
+				
+			r = Region(self._event['region'])
+			r._roundTo8Digits()
+			self._event['region'] = r.toDict()
+			
 			self.setActualValue(self._getActualValueByCounting())
 		else:
 			self._event = {}

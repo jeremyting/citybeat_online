@@ -62,7 +62,7 @@ def generateData():
 		
 	for event in true_event_list + false_event_list:
 		r = Region(event['region'])
-		corpus = all_corpus[r.toJSON()]
+		corpus = all_corpus[r.getKey()]
 		EventFeatureInstagram(event, corpus, None).printFeatures()
 
 		

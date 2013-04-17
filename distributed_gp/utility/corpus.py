@@ -1,6 +1,7 @@
 from event_interface import EventInterface
 from caption_parser import CaptionParser
 from photo import Photo
+from stopwords import Stopwords
 
 from photo_interface import PhotoInterface
 from tweet_interface import TweetInterface
@@ -42,7 +43,7 @@ class Corpus(object):
 			if len(t) > 4:
 				text.append(t)
 		# it is not proper here to set up stopwords
-		self._vectorizer = TfidfVectorizer(max_df=10000, min_df=0, strip_accents='ascii',
+		self._vectorizer = TfidfVectorizer(max_df=0.20, min_df=0, strip_accents='ascii',
 		                                   preprocessor=tool.textPreprocessor,
 		                             			 smooth_idf=True, sublinear_tf=True, norm='l2', 
 																       analyzer='word', ngram_range=(1,1), stop_words = 'english')
@@ -58,8 +59,10 @@ class Corpus(object):
 		for n in res_list:
 			words.append( voc[n] )
 			values.append( tf_vec[0,n] )
+		while len(values) < k:
+			values.append(0)
 		#return res_list, words, values
-		return words, values
+		return values
 
 
 def buildAllCorpus(document_type='photo'):
@@ -83,8 +86,8 @@ def buildAllCorpus(document_type='photo'):
 	
 	for region in region_list:
 		cor = Corpus()
-		cor.buildCorpus(region, [now - 2 *3600 *24, now], document_type)
-		all_corpus[region.toJSON()] = cor
+		cor.buildCorpus(region, [now - 1 *3600 *24, now], document_type)
+		all_corpus[region.getKey()] = cor
 		print region.toJSON()
 	return all_corpus
 

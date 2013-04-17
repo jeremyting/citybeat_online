@@ -37,6 +37,18 @@ class Region:
 	def toDict(self):
 		return self._region
 	
+	def _roundTo8Digits(self):
+		# this is a stricky operation but neccessary
+		for key, value in self._region.items():
+			self._region[key] = float('%.8f' % value)
+	
+	def getKey(self):
+		key = ''
+		key += str(self._region['min_lat']) + ';'
+		key += str(self._region['min_lng']) + ';'
+		key += str(self._region['max_lat']) + ';'
+		key += str(self._region['max_lng'])
+	
 	def toJSON(self):
 		return json.dumps(self._region)
 	
