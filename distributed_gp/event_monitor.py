@@ -10,7 +10,7 @@
 from utility.event_interface import EventInterface
 from utility.event_feature_instagram import EventFeatureInstagram
 from utility.corpus import buildAllCorpus
-
+from utility.region import Region
 
 class EventMonitor():
     def __init__(self, db, collection):
