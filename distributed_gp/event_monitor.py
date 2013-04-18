@@ -27,7 +27,7 @@ class EventMonitor():
         for e in ei.getAllDocuments():
             print 'working on ',cnt
             cnt+=1
-            region = e['region']
+            region = Region(e['region'])
             corpus = self.all_corpus[region.getKey()]
             ef = EventFeatureInstagram(e, corpus)
             print ef.extractFeatures()
