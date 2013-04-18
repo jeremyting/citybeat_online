@@ -8,7 +8,7 @@ import string
 import types
 
 class Event(BaseEvent):
-	# Event is for Instagram
+	# Event is for Instagram photo, a little trick of the naming machanism here
 	
 	def __init__(self, event=None):
 		# the input argument event should be a dictionary or python object

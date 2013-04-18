@@ -14,8 +14,9 @@ class BaseConfig(object):
 		max_lat = 40.823163
 		min_lng = -74.058151
 		max_lng = -73.857994
-		
 		region_percentage = 0.3
+		min_elements = 8
+		
 		# grand : res ; joust : grad
 		@staticmethod
 		def getRegionListPath():
