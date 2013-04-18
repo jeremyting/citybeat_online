@@ -84,10 +84,13 @@ def buildAllCorpus(document_type='photo', time_interval_length=14):
 	# 14 days ago
 	now = int(tool.getCurrentStampUTC()) - 40 *3600 *24
 	
+	num = 0
 	for region in region_list:
 		cor = Corpus()
 		cor.buildCorpus(region, [now - time_interval_length *3600 *24, now], document_type)
 		all_corpus[region.getKey()] = cor
+		num += 1
+		print 'build corpus %d' % (num)  
 	return all_corpus
 
 if __name__ == '__main__':
