@@ -11,13 +11,14 @@ from utility.event_interface import EventInterface
 from utility.event_feature_instagram import EventFeatureInstagram
 from utility.corpus import buildAllCorpus
 from utility.region import Region
+import classifier
 
 class EventMonitor():
     def __init__(self, db, collection):
         self.db = db
         self.collection = collection
-        self.all_corpus = buildAllCorpus( time_interval_length = 2)
-                
+        self.all_corpus = buildAllCorpus( time_interval_length = 14)
+        self.clf = classifier.Classifier() 
 
     def goThroughCandidateDB(self):
         """Go through candidate event db and classify whatever is left"""
@@ -31,10 +32,12 @@ class EventMonitor():
             corpus = self.all_corpus[region.getKey()]
             # note that ef[-1] is the id of that event
             ef = EventFeatureInstagram(e, corpus)
-            print ef.extractFeatures()
+            
+            self.clf.classify(ef.extractFeatures())
+            #print ef.extractFeatures()
 
 
 
-em = EventMonitor('citybeat', 'candidate_event_25by25_merged')
+em = EventMonitor('citybeat', 'next_week_candidate_event_25by25_merged')
 em.goThroughCandidateDB()
 
