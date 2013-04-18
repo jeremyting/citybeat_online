@@ -477,6 +477,7 @@ class EventFeature(Event):
 		photos = photos[0:min(len(self._event['photos']), len(photos))]
 		
 		if len(photos) == 0:
+			# TODO: refine
 			return [1, 10, 10]
 			
 		# fake a historic event
