@@ -65,7 +65,7 @@ class Corpus(object):
 		return values
 
 
-def buildAllCorpus(document_type='photo'):
+def buildAllCorpus(document_type='photo', time_interval_length=14):
 	# return a dict = {region : its local corpus}
 	assert document_type in ['photo', 'tweet']
 	
@@ -86,7 +86,7 @@ def buildAllCorpus(document_type='photo'):
 	
 	for region in region_list:
 		cor = Corpus()
-		cor.buildCorpus(region, [now - 14 *3600 *24, now], document_type)
+		cor.buildCorpus(region, [now - time_interval_length *3600 *24, now], document_type)
 		all_corpus[region.getKey()] = cor
 	return all_corpus
 
