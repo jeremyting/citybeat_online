@@ -29,6 +29,7 @@ class EventMonitor():
             cnt+=1
             region = Region(e['region'])
             corpus = self.all_corpus[region.getKey()]
+            # note that ef[-1] is the id of that event
             ef = EventFeatureInstagram(e, corpus)
             print ef.extractFeatures()
 

@@ -476,6 +476,9 @@ class EventFeature(Event):
 		random.shuffle(photos)
 		photos = photos[0:min(len(self._event['photos']), len(photos))]
 		
+		if len(photos) == 0:
+			return [1, 10, 10]
+			
 		# fake a historic event
 		historic_event = Event()
 		historic_event.setPhotos(photos)
