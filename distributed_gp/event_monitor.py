@@ -20,7 +20,7 @@ class EventMonitor():
         self.classified_event_db = classified_event_db
         self.classified_event_collection = classified_event_collection
         
-        self.all_corpus = buildAllCorpus( time_interval_length = 1)
+        self.all_corpus = buildAllCorpus( time_interval_length = 5)
         self.clf = classifier.Classifier() 
 
     def goThroughCandidateDB(self):
