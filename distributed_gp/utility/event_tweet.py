@@ -45,7 +45,7 @@ class TweetEvent(BaseEvent):
     
     # will not be used for feature extraction
     def mergeWith(self, event):
-        self._mergeWith(TweetEvent(event))
+        return self._mergeWith(TweetEvent(event))
         
 def main():
     pass

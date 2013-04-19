@@ -47,7 +47,7 @@ class Event(BaseEvent):
         
     # will not be used for feature extraction
     def mergeWith(self, event):
-        self._mergeWith(Event(event))
+        return self._mergeWith(Event(event))
         
 def main():
     pass

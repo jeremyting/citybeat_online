@@ -70,8 +70,6 @@ class EventInterface(MongoDBInterface):
 #       for oe in old_events:
 #           print '**************'
         
-        print old_events.count()
-        
         for old_event in old_events:
             end_time1 = int(new_event['photos'][0]['created_time'])
             begin_time1 = int(new_event['photos'][-1]['created_time'])
@@ -82,9 +80,8 @@ class EventInterface(MongoDBInterface):
 #           print 'old: ',end_time2,begin_time2
             if end_time1 + time_interval >= begin_time2 and end_time2 + time_interval >= begin_time1:
                 # if can merge
-                print 'can merge'
                 merged_event = Event(old_event)
-                merged = merged_event.mergeWith(new_event)
+                merged = merged_event.mergeWith(new_event)        
                 if merged >= 0:
                     print '%d out of %d photos are merged into an old event' % (merged, len(new_event['photos']))
 #                   print old_event['_id'], new_event['_id']
