@@ -102,16 +102,31 @@ class EventInterface(MongoDBInterface):
 
 
 def testDeleteEventByID():
+    
     ei = EventInterface()
     ei.setDB('test')
     ei.setCollection('test_xia')
+    
+    ei2 = EventInterface()
+    ei2.setDB('citybeat')
+    ei2.setCollection('candidate_event_25by25_merged')
+    cur = ei2.getAllDocuments()
+    n = 2
+    for event in cur:
+        print event
+        ei.addEvent(event)
+        n -= 1
+        if n == 0:
+            break
+    return 
+            
     e = {}
-    e['_id'] = ObjectId('123436545')
+    e['_id'] = ObjectId('51107404c2a37567c1587361')
     ei.addEvent(e)
-    e['_id'] = ObjectId('112')
+    e['_id'] = ObjectId('51107404c2a37567c1587362')
     ei.addEvent(e)
     print ei.getAllDocument().count()
-    ei.deleteEventByID('112')
+    ei.deleteEventByID('51107404c2a37567c1587361')
     cur = ei.getAllDocument().count()
     print cur.count()
     for event in cur:
