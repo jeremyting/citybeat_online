@@ -10,24 +10,24 @@ mongodb_address = 'grande.rutgers.edu'
 mongodb_port = 27017
 
 class BaseConfig(object):
-		min_lat = 40.690531
-		max_lat = 40.823163
-		min_lng = -74.058151
-		max_lng = -73.857994
-		region_percentage = 0.3
-		min_elements = 8
-		
-		# grand : res ; joust : grad
-		@staticmethod
-		def getRegionListPath():
-				cp = os.getcwd()
-				path = '/*/users/kx19/citybeat_online/distributed_gp/utility/region_cache/' 
-				if '/res/' in cp:
-						return path.replace('*', 'res')
-				if '/grad/' in cp:
-						return path.replace('*', 'grad')
-			  # in my pc
-				return cp + '\\region_cache\\'
+        min_lat = 40.690531
+        max_lat = 40.823163
+        min_lng = -74.058151
+        max_lng = -73.857994
+        region_percentage = 0.3
+        min_elements = 8
+        
+        # grand : res ; joust : grad
+        @staticmethod
+        def getRegionListPath():
+                cp = os.getcwd()
+                path = '/*/users/kx19/citybeat_online/distributed_gp/utility/region_cache/' 
+                if '/res/' in cp:
+                        return path.replace('*', 'res')
+                if '/grad/' in cp:
+                        return path.replace('*', 'grad')
+              # in my pc
+                return cp + '\\region_cache\\'
 
 class InstagramConfig(BaseConfig):
     photo_db = 'citybeat_production'
@@ -63,4 +63,4 @@ class TwitterConfig(BaseConfig):
     # grand : res ; joust : grad
     
 if __name__ == '__main__':
-	print BaseConfig.getRegionListPath()
+    print BaseConfig.getRegionListPath()

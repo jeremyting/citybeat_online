@@ -11,4 +11,4 @@ ei2.setCollection('candidate_event_25by25_merged')
 
 events = ei.getAllDocuments()
 for event in events:
-	ei2.saveDocument(event)
+    ei2.saveDocument(event)

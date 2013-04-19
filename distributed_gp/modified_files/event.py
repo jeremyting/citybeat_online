@@ -7,131 +7,131 @@ import string
 import types
 
 class Event(object):
-	
-	def __init__(self, event=None):
-		# the input argument event should be a json, dictionary
-		if not event is None:
-			if type(event) is types.DictType:
-				self._event = event
-			else:
-				self._event = event.toDict()
-		else:
-			# create a new event
-			self._event = {'photos':[], 'label':'unlabeled'}
-				
-	def addPhoto(self, photo):
-		# when use this method, please keep adding photo in chronologically increasing order
-		if not type(photo) is types.DictType:
-			photo = photo.toDict()
-		self._event['photos'].append(photo)
-		
-	def getPhotoNumber(self):
-		return len(self._event['photos'])
-	
-	def getLabel(self):
-		return self._event['label']
-	
-	def getRegion(self):
-		return self._event['region']
-	
-	def getZscore(self):
-		if 'zscore' in self._event.keys():
-			return self._event['zscore']
-		else:
-			return (float(self._event['predicted_mu']) - float(self._event['actual_value'])) / float(self._event['predicted_std'])
-	
-	def sortPhotos(self):
-		# this sorting can prevent bugs when merging
-		photo_list = []
-		for photo in self._event['photos']:
-			photo_list.append([photo, int(photo['created_time']), str(photo['id'])])
-		photo_list.sort(key=operator.itemgetter(1, 2), reverse=True)
-		self._event['photos'] = [row[0] for row in photo_list]
-	
-	def mergeWith(self, event):
-		if type(event) is types.DictType:
-			event = Event(event)
-		event = event.toDict()
-		photo_list1 = self._event['photos'] 
-		photo_list2 = event['photos']
-		new_photo_list = []
-		l1 = 0
-		l2 = 0
-		merged = 0
-		while l1 < len(photo_list1) and l2 < len(photo_list2):
-			p1 = Photo(photo_list1[l1])
-			p2 = Photo(photo_list2[l2])
-			compare = p1.compare(p2)
-			if compare == 1:
-				new_photo_list.append(photo_list1[l1])
-				l1 += 1
-				continue
-			
-			if compare == -1:
-				new_photo_list.append(photo_list2[l2])
-				l2 += 1
-				merged += 1
-				continue
-			
-			# compare == 0
-			new_photo_list.append(photo_list1[l1])
-			l1 += 1
-			l2 += 1
-		
-		while l1 < len(photo_list1):
-			new_photo_list.append(photo_list1[l1])
-			l1 += 1
-		
-		while l2 < len(photo_list2):
-			new_photo_list.append(photo_list2[l2])
-			l2 += 1
-			merged += 1
-			
-		return merged
-				
-	def setRegion(self, region):
-		if not type(region) is types.DictType:
-			region = region.toDict()
-		self._event['region'] = region
-	
-	def setPhotos(self, photos):
-		# a set of json objects
-		self._event['photos'] = photos
-		
-	def setCreatedTime(self, utc_time):
-		self._event['created_time'] = str(utc_time)
-		
-	def setPredictedValues(self, mu, std):
-		self._event['predicted_mu'] = float(mu)
-		self._event['predicted_std'] = float(std)
-		
-	def setZscore(self, zscore):
-		self._event['zscore'] = float(zscore)
-		
-	def setActualValue(self, actual_value):
-		self._event['actual_value'] = int(actual_value)
-	
-	def setLabel(self, label='unlabeled'):
-		self._event['label'] = label
-	
-	def toDict(self):
-		return self._event
-		
-	def _test_print(self):
-		print self._event['created_time'], 'photos:'
-		for photo in self._event['photos']:
-			print photo['created_time']
-			
-	def getLatestPhotoTime(self):
-		return int(self._event['photos'][-1]['created_time'])
-	   
-	def getEarliestPhotoTime(self):
-		return int(self._event['photos'][0]['created_time'])
-		
+    
+    def __init__(self, event=None):
+        # the input argument event should be a json, dictionary
+        if not event is None:
+            if type(event) is types.DictType:
+                self._event = event
+            else:
+                self._event = event.toDict()
+        else:
+            # create a new event
+            self._event = {'photos':[], 'label':'unlabeled'}
+                
+    def addPhoto(self, photo):
+        # when use this method, please keep adding photo in chronologically increasing order
+        if not type(photo) is types.DictType:
+            photo = photo.toDict()
+        self._event['photos'].append(photo)
+        
+    def getPhotoNumber(self):
+        return len(self._event['photos'])
+    
+    def getLabel(self):
+        return self._event['label']
+    
+    def getRegion(self):
+        return self._event['region']
+    
+    def getZscore(self):
+        if 'zscore' in self._event.keys():
+            return self._event['zscore']
+        else:
+            return (float(self._event['predicted_mu']) - float(self._event['actual_value'])) / float(self._event['predicted_std'])
+    
+    def sortPhotos(self):
+        # this sorting can prevent bugs when merging
+        photo_list = []
+        for photo in self._event['photos']:
+            photo_list.append([photo, int(photo['created_time']), str(photo['id'])])
+        photo_list.sort(key=operator.itemgetter(1, 2), reverse=True)
+        self._event['photos'] = [row[0] for row in photo_list]
+    
+    def mergeWith(self, event):
+        if type(event) is types.DictType:
+            event = Event(event)
+        event = event.toDict()
+        photo_list1 = self._event['photos'] 
+        photo_list2 = event['photos']
+        new_photo_list = []
+        l1 = 0
+        l2 = 0
+        merged = 0
+        while l1 < len(photo_list1) and l2 < len(photo_list2):
+            p1 = Photo(photo_list1[l1])
+            p2 = Photo(photo_list2[l2])
+            compare = p1.compare(p2)
+            if compare == 1:
+                new_photo_list.append(photo_list1[l1])
+                l1 += 1
+                continue
+            
+            if compare == -1:
+                new_photo_list.append(photo_list2[l2])
+                l2 += 1
+                merged += 1
+                continue
+            
+            # compare == 0
+            new_photo_list.append(photo_list1[l1])
+            l1 += 1
+            l2 += 1
+        
+        while l1 < len(photo_list1):
+            new_photo_list.append(photo_list1[l1])
+            l1 += 1
+        
+        while l2 < len(photo_list2):
+            new_photo_list.append(photo_list2[l2])
+            l2 += 1
+            merged += 1
+            
+        return merged
+                
+    def setRegion(self, region):
+        if not type(region) is types.DictType:
+            region = region.toDict()
+        self._event['region'] = region
+    
+    def setPhotos(self, photos):
+        # a set of json objects
+        self._event['photos'] = photos
+        
+    def setCreatedTime(self, utc_time):
+        self._event['created_time'] = str(utc_time)
+        
+    def setPredictedValues(self, mu, std):
+        self._event['predicted_mu'] = float(mu)
+        self._event['predicted_std'] = float(std)
+        
+    def setZscore(self, zscore):
+        self._event['zscore'] = float(zscore)
+        
+    def setActualValue(self, actual_value):
+        self._event['actual_value'] = int(actual_value)
+    
+    def setLabel(self, label='unlabeled'):
+        self._event['label'] = label
+    
+    def toDict(self):
+        return self._event
+        
+    def _test_print(self):
+        print self._event['created_time'], 'photos:'
+        for photo in self._event['photos']:
+            print photo['created_time']
+            
+    def getLatestPhotoTime(self):
+        return int(self._event['photos'][-1]['created_time'])
+       
+    def getEarliestPhotoTime(self):
+        return int(self._event['photos'][0]['created_time'])
+        
 def main():
-	pass
-	
-	
+    pass
+    
+    
 
 # http://www.nba.com/games/20130107/BOSNYK/gameinfo.html   basketball event
 # even we can know when start

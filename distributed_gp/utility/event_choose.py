@@ -17,7 +17,7 @@ events = ei.getAllDocuments()
 event_list = []
 
 for event in events:
-	event_list.append(event)
+    event_list.append(event)
 
 random.shuffle(event_list)
 
@@ -28,7 +28,7 @@ ei2.setCollection('label_10by10')
 
 i = 0
 for event in event_list:
-	ei2.saveDocument(event)
-	i += 1
-	if i == 300:
-		break
+    ei2.saveDocument(event)
+    i += 1
+    if i == 300:
+        break

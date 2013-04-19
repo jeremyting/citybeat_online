@@ -21,8 +21,8 @@ events = ei.getAllDocuments()
 
 duplicates = 0
 for event in events:
-	e = Event(event)
-	flag = e.removeDuplicatePhotos()
-	if flag > 0:
-		print e.getPhotoNumber(), e.getActualValue()
-		ei.updateDocument(e)
+    e = Event(event)
+    flag = e.removeDuplicatePhotos()
+    if flag > 0:
+        print e.getPhotoNumber(), e.getActualValue()
+        ei.updateDocument(e)

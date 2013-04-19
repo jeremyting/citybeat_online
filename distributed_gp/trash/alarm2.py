@@ -59,8 +59,8 @@ def save_to_mongo(to_save):
     """
 
 def main():
-	
-	  # inintialize the database for storing the alarms
+    
+      # inintialize the database for storing the alarms
     myDB = MongoDBInterface('grande', 27017)
     myDB.SetDB('alarm_filter')
     myDB.SetCollection('photos')
@@ -119,8 +119,8 @@ def main():
         for photo in photos:
             delta = total_seconds( cur_time - datetime.utcfromtimestamp( float(photo['created_time'])) )
             if delta>=0 and delta<=900:
-            	photo['label'] = 'unlabeled'
-            	photos_to_save.append(photo)
+                photo['label'] = 'unlabeled'
+                photos_to_save.append(photo)
 
         to_save['photos'] = photos_to_save
         to_save['real_count'] = cur_value
@@ -142,14 +142,14 @@ def main():
             predicted_mu = float(predict['mu'])/4.0
             predicted_std = sqrt(float(predict['var']))/4.0
             newEvent = {'created_time':datetime.utcnow(), 'mid_lat':region[0], 'mid_lng':region[1], 'predicted_mu':predicted_mu, 'predicted_std':predicted_std, 'actual_value':cur_value, 'zscore':zscore, 'photos':photos_to_save, 'label':'unlabeled'}
-            	
+                
             if not adi.MergeEvent(newEvent):
-            	print 'created an event'
-            	myDB.SaveItem(newEvent)
+                print 'created an event'
+                myDB.SaveItem(newEvent)
             else:
-            	print 'merged an event'
+                print 'merged an event'
             print '\n'
-            	
+                
             
             
 

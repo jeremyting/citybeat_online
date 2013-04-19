@@ -57,8 +57,8 @@ def save_to_mongo(to_save):
     """
 
 def main():
-	
-	  # inintialize the database for storing the alarms
+    
+      # inintialize the database for storing the alarms
     myDB = MongoDBInterface('grande', 27017)
     myDB.SetDB('alarm_filter')
     myDB.SetCollection('photos')

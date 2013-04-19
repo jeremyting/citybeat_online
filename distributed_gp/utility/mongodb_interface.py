@@ -13,58 +13,58 @@ import config
 import types
 
 class MongoDBInterface(object):
-	#A basic interface#
-	
-	def __init__(self):
-		self._connection = pymongo.Connection(config.mongodb_address,
-																					config.mongodb_port)
-														
-	def setDB(self,  name):
-		self._db = self._connection[name]
-		
-	def setCollection(self, name):
-		self._collection = self._db[name]
-	
-	def saveDocument(self, document):
-		# document must be a json or a class from {event, photo, prediction}
-		if not type(document) is types.DictType:
-			document = document.toDict()
-		self._collection.save(document)
-	
+    #A basic interface#
+    
+    def __init__(self):
+        self._connection = pymongo.Connection(config.mongodb_address,
+                                                                                    config.mongodb_port)
+                                                        
+    def setDB(self,  name):
+        self._db = self._connection[name]
+        
+    def setCollection(self, name):
+        self._collection = self._db[name]
+    
+    def saveDocument(self, document):
+        # document must be a json or a class from {event, photo, prediction}
+        if not type(document) is types.DictType:
+            document = document.toDict()
+        self._collection.save(document)
+    
     def _deleteDocument(self, condition):
         assert condition is not None
         self._collection.remove(condition)
     
     def getDocument(self, condition=None):
-		if not condition is None:
-			return self._collection.find_one(condition)
-		else:
-			return self._collection.find_one()
-		
-	def getAllDocuments(self, condition={}, limit=0):
-		return self._collection.find(condition, timeout=False, limit=limit)
-		
-	def updateDocument(self, document):
-		if not type(document) is types.DictType:
-			document = document.toDict()
-		self._collection.update({'_id':document['_id']}, document, True)
-			
-	def getAllDocumentIDs(self):
-		# return a list of _id which is ObjectId
-		IDs = []
-		query_res = self._collection.find({},{'_id':1})
-		for ID in query_res:
-			IDs.append(ID['_id'])
-		return IDs
+        if not condition is None:
+            return self._collection.find_one(condition)
+        else:
+            return self._collection.find_one()
+        
+    def getAllDocuments(self, condition={}, limit=0):
+        return self._collection.find(condition, timeout=False, limit=limit)
+        
+    def updateDocument(self, document):
+        if not type(document) is types.DictType:
+            document = document.toDict()
+        self._collection.update({'_id':document['_id']}, document, True)
+            
+    def getAllDocumentIDs(self):
+        # return a list of _id which is ObjectId
+        IDs = []
+        query_res = self._collection.find({},{'_id':1})
+        for ID in query_res:
+            IDs.append(ID['_id'])
+        return IDs
 
 
 if __name__=='__main__':
-	mi = MongoDBInterface()
-	mi.setDB('historic_alarm')
-	mi.setCollection('labeled_event')
-	events = mi.getAllDocuments(limit=0)
-	i = 0
-	for event in events:
-		i += 1
-		print i
-	
+    mi = MongoDBInterface()
+    mi.setDB('historic_alarm')
+    mi.setCollection('labeled_event')
+    events = mi.getAllDocuments(limit=0)
+    i = 0
+    for event in events:
+        i += 1
+        print i
+    
