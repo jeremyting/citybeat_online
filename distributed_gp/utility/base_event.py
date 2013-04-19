@@ -42,7 +42,10 @@ class BaseEvent(object):
     
     def getLabel(self):
         return self._event['label']
-        
+    
+    def getID(self):
+        return self._event['_id']
+    
     def getActualValue(self):
         return self._event['actual_value']
     

@@ -35,7 +35,7 @@ class EventInterface(MongoDBInterface):
     
     def deleteEventByID(self, ID):
         assert type(ID) is types.StringType
-        self._deleteDocument({'_id:':ObjectId(strID)})
+        self._deleteDocument({'_id':ObjectId(ID)})
 
     def addEventWithoutMerge(self, raw_event):
         super(EventInterface, self).saveDocument(raw_event)
@@ -106,31 +106,11 @@ def testDeleteEventByID():
     ei = EventInterface()
     ei.setDB('test')
     ei.setCollection('test_xia')
-    
-    ei2 = EventInterface()
-    ei2.setDB('citybeat')
-    ei2.setCollection('candidate_event_25by25_merged')
-    cur = ei2.getAllDocuments()
-    n = 2
-    for event in cur:
-        print event
-        ei.addEvent(event)
-        n -= 1
-        if n == 0:
-            break
-    return 
-            
-    e = {}
-    e['_id'] = ObjectId('51107404c2a37567c1587361')
-    ei.addEvent(e)
-    e['_id'] = ObjectId('51107404c2a37567c1587362')
-    ei.addEvent(e)
-    print ei.getAllDocument().count()
-    ei.deleteEventByID('51107404c2a37567c1587361')
-    cur = ei.getAllDocument().count()
+    ei.deleteEventByID('51147e8cc2a3754cfe668a86')
+    cur = ei.getAllDocuments()
     print cur.count()
     for event in cur:
-        print event
+        print event['_id']
 
 if __name__=='__main__':
     
