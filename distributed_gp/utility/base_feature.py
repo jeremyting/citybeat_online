@@ -18,7 +18,7 @@ import random
 import math
 import numpy
 
-class EventFeature(object):
+class EventFeature(BaseEvent):
     # this class is the extension of class Event, especially for feature extraction
     # to prevent the class Event from being too long to read
     

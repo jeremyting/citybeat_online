@@ -14,11 +14,10 @@ class Event(BaseEvent):
         # the input argument event should be a dictionary or python object
         super(Event, self).__init__('photos', event)
 
-                
     def addPhoto(self, photo):
         # when use this method, please keep adding photo in chronologically increasing order
         self.addElement(photo)
-        
+    
     def getPhotoNumber(self):
         return self.getElementNumber()
     
@@ -45,6 +44,10 @@ class Event(BaseEvent):
        
     def getEarliestPhotoTime(self):
         return self.getEarliestElementTime()
+        
+    # will not be used for feature extraction
+    def mergeWith(self, event):
+        self._mergeWith(Event(event))
         
 def main():
     pass

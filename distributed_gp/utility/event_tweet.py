@@ -7,7 +7,7 @@ import operator
 import string
 import types
 
-class Event(BaseEvent):
+class TweetEvent(BaseEvent):
     # Event is for Instagram
     
     def __init__(self, event=None):
@@ -42,6 +42,10 @@ class Event(BaseEvent):
         
     def getEarliestTweetTime(self):
         return self.getEarliestElementTime()
+    
+    # will not be used for feature extraction
+    def mergeWith(self, event):
+        self._mergeWith(TweetEvent(event))
         
 def main():
     pass

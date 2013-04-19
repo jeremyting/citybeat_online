@@ -114,13 +114,13 @@ class BaseEvent(object):
         element_list.sort(key=operator.itemgetter(1, 2), reverse=True)
         self._event[self._element_type] = [row[0] for row in element_list]
     
-    def mergeWith(self, event):
-        if type(event) is types.DictType:
-            event = BaseEvent(event)
-        event = event.toDict()
+    def _mergeWith(self, event):
+        
+        if type(event) is not types.DictType:
+            event = event.toDict()
         
         element_list1 = self._event[self._element_type] 
-        element_list2 = event[event._element_type]
+        element_list2 = event[BaseEvent(self._element_type, event)._element_type]
         
         new_element_list = []
         l1 = 0
