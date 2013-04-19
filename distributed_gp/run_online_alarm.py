@@ -145,6 +145,6 @@ if __name__ == "__main__":
     assert( sys.argv[1] in ['twitter', 'instagram'])
     if sys.argv[1] == 'twitter':
         run(data_source = 'twitter')
-    elif argv[1] == 'instagram':
+    elif sys.argv[1] == 'instagram':
         run(data_source = 'instagram')
 
