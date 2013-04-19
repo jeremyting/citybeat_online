@@ -100,9 +100,11 @@ class Classifier:
         #given a feature vector, return it's label
         fv = self.scaler.transform(np.asarray(feature_vector[:-1]))
         Z = self.clf.predict( fv) 
+        Z_prob = self.clf.predict_proba(fv)
         #print 'classify as ',Z
-        print feature_vector[-1],Z[0]
-
+        #print feature_vector[-1],Z[0]
+        if Z_prob[1]>0.9:
+            print 'prob = ',Z_prob
 
 def test():
     clf = Classifier()

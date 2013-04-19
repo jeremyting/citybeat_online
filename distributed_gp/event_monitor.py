@@ -37,7 +37,6 @@ class EventMonitor():
             #print ef.extractFeatures()
 
 
-
 em = EventMonitor('citybeat', 'next_week_candidate_event_25by25_merged')
 em.goThroughCandidateDB()
 
