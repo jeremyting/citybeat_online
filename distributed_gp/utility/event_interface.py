@@ -115,7 +115,7 @@ def testDeleteEventByID():
 def TransferEvent():
     ei = EventInterface()
     ei.setDB('citybeat')
-    ei.setCollection('candidate_event_25by25_merged')
+    ei.setCollection('candidate_event_25by25')
     
     ei2 = EventInterface()
     ei2.setDB('test')
@@ -127,9 +127,9 @@ def TransferEvent():
 
 if __name__=='__main__':
     TransferEvent()
+
     #testDeleteEventByID()
-    
-    
+
     #ei = EventInterface()
     #ei.setDB('citybeat')
     #ei.setCollection('candidate_event_25by25_merged')
