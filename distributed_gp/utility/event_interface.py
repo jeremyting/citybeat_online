@@ -111,10 +111,25 @@ def testDeleteEventByID():
     print cur.count()
     for event in cur:
         print event['_id']
+        
+def TransferEvent():
+    ei = EventInterface()
+    ei.setDB('citybeat')
+    ei.setCollection('candidate_event_25by25_merged')
+    
+    ei2 = EventInterface()
+    ei2.setDB('test')
+    ei2.setCollection('candidate_event_25by25_merged')
+    
+    cur = ei.getAllDocuments()
+    for event in cur:
+        ei2.addEvent(event)
 
 if __name__=='__main__':
+    TransferEvent()
+    #testDeleteEventByID()
     
-    testDeleteEventByID()
+    
     #ei = EventInterface()
     #ei.setDB('citybeat')
     #ei.setCollection('candidate_event_25by25_merged')
