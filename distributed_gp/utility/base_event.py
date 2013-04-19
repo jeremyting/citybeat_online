@@ -72,7 +72,7 @@ class BaseEvent(object):
 	def removeDuplicateElements(self):
 		new_elements = {}
 		for element in self._event[self._element_type]:
-			if self._element_type == 'elements':
+			if self._element_type == 'photos':
 				d = Photo(element)
 			else:
 				d = Tweet(element)
@@ -123,7 +123,7 @@ class BaseEvent(object):
 		l2 = 0
 		merged = 0
 		while l1 < len(element_list1) and l2 < len(element_list2):
-			if self._element_type == 'elements':
+			if self._element_type == 'photos':
 				d1 = Photo(element_list1[l1])
 				d2 = Photo(element_list2[l2])
 			else:
@@ -203,7 +203,6 @@ class BaseEvent(object):
 		return self._event
 		
 	def _test_print(self):
-		print self._event['created_time'], 'elements:'
 		for element in self._event[self._element_type]:
 			print element['created_time']
 			
@@ -224,5 +223,5 @@ class BaseEvent(object):
 		return et
 
 if __name__ == 'main':
-	be = BaseEvent('elements')
+	be = BaseEvent('photos')
 	
