@@ -11,6 +11,7 @@ from utility.event_interface import EventInterface
 from utility.event_feature_instagram import EventFeatureInstagram
 from utility.corpus import buildAllCorpus
 from utility.region import Region
+from utility.event import Event
 import classifier
 
 class EventMonitor():
@@ -20,7 +21,7 @@ class EventMonitor():
         self.classified_event_db = classified_event_db
         self.classified_event_collection = classified_event_collection
         
-        self.all_corpus = buildAllCorpus( time_interval_length = 5)
+        self.all_corpus = buildAllCorpus( time_interval_length = 2)
         self.clf = classifier.Classifier() 
 
     def goThroughCandidateDB(self):
@@ -40,6 +41,7 @@ class EventMonitor():
             prob = self.clf.classify(ef.extractFeatures())
             if prob > 0.7:
                 print 'ready to insert'
+                e = Event(e)
                 e.setLabel( prob )
                 ei_classified.addEvent(e)
             

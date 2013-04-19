@@ -107,7 +107,7 @@ class Classifier:
         if Z_prob[0][1]>0.9:
             print feature_vector[-1]
             print 'prob = ',Z_prob
-
+        return Z_prob[0][1]
 def test():
     clf = Classifier()
     clf.classify([67.684211,0.048597,0.340716,7.645089,0.95,2.300865,0.087719,4.043987,2.969329,-0.028381,20.056143,0.275494,0.300945,0.275448,0.25635,0.5,0,0,2,2,1,0.1, 'kjdsfsdkjf'])
