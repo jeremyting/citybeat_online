@@ -116,7 +116,7 @@ class BaseEvent(object):
     
     def mergeWith(self, event):
         if type(event) is types.DictType:
-            event = Event(event)
+            event = BaseEvent(event)
         event = event.toDict()
         
         element_list1 = self._event[self._element_type] 
