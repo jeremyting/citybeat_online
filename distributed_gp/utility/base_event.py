@@ -57,6 +57,7 @@ class BaseEvent(object):
         return len(user_ids)
     
     def getRegion(self):
+        # returned is a dictionary
         return self._event['region']
         
     def leaveOneElementForOneUser(self):
