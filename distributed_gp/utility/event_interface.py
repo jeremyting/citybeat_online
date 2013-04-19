@@ -32,6 +32,10 @@ class EventInterface(MongoDBInterface):
 	def getEventByID(self, ID):
 		return self.getDocument({'_id':ObjectId(str(ID))})
 	
+    def deleteEventByID(self, ID):
+        assert type(ID) is types.StringType
+        self._deleteDocument({'_id:':ObjectId(strID))})
+
 	def addEventWithoutMerge(self, raw_event):
 		super(EventInterface, self).saveDocument(raw_event)
 	

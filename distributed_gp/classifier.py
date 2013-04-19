@@ -102,8 +102,10 @@ class Classifier:
         Z = self.clf.predict( fv) 
         Z_prob = self.clf.predict_proba(fv)
         #print 'classify as ',Z
-        #print feature_vector[-1],Z[0]
-        if Z_prob[1]>0.9:
+        #print Z_prob
+
+        if Z_prob[0][1]>0.9:
+            print feature_vector[-1]
             print 'prob = ',Z_prob
 
 def test():

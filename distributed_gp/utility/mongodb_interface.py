@@ -31,7 +31,11 @@ class MongoDBInterface(object):
 			document = document.toDict()
 		self._collection.save(document)
 	
-	def getDocument(self, condition=None):
+    def _deleteDocument(self, condition):
+        assert condition is not None
+        self._collection.remove(condition)
+    
+    def getDocument(self, condition=None):
 		if not condition is None:
 			return self._collection.find_one(condition)
 		else:
