@@ -18,6 +18,7 @@ import string
 import types
 
 class EventInterface(MongoDBInterface):
+	
 	def __init__(self, db=InstagramConfig.event_db,  
 	             collection=InstagramConfig.event_collection):
 	  # initialize an interface for accessing event from mongodb
@@ -32,9 +33,9 @@ class EventInterface(MongoDBInterface):
 	def getEventByID(self, ID):
 		return self.getDocument({'_id':ObjectId(str(ID))})
 	
-    def deleteEventByID(self, ID):
-        assert type(ID) is types.StringType
-        self._deleteDocument({'_id:':ObjectId(strID))})
+  def deleteEventByID(self, ID):
+    assert type(ID) is types.StringType
+    self._deleteDocument({'_id:':ObjectId(strID))})
 
 	def addEventWithoutMerge(self, raw_event):
 		super(EventInterface, self).saveDocument(raw_event)
