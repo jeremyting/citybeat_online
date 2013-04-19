@@ -39,6 +39,7 @@ class EventMonitor():
             ef = EventFeatureInstagram(e, corpus)     
             prob = self.clf.classify(ef.extractFeatures())
             if prob > 0.7:
+                print 'ready to insert'
                 e.setLabel( prob )
                 ei_classified.addEvent(e)
             
