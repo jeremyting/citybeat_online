@@ -37,13 +37,12 @@ class EventMonitor():
             corpus = self.all_corpus[region.getKey()]
             # note that ef[-1] is the id of that event
             ef = EventFeatureInstagram(e, corpus)     
-            self.clf.classify(ef.extractFeatures())
-            is_event = 1.0
-            if is_event :
-                ei_classified
-                pass
+            prob = self.clf.classify(ef.extractFeatures())
+            if prob > 0.7:
+                e.setLabel( prob )
+                ei_classified.addEvent(e)
             
 
-em = EventMonitor('citybeat', 'next_week_candidate_event_25by25_merged')
+em = EventMonitor('citybeat', 'next_week_candidate_event_25by25_merged',  'citybeat', 'instagram_front_end_events')
 em.goThroughCandidateDB()
 
