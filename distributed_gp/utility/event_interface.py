@@ -97,14 +97,32 @@ class EventInterface(MongoDBInterface):
 		for event in events:
 			photoNumbers.append(len(event['photos']))
 		return photoNumbers
-		
-			
+
+
+
+def testDeleteEventByID():
+    ei = EventInterface()
+    ei.setDB('test')
+    ei.setCollection('test_xia')
+    e = {}
+    e['_id'] = ObjectId('123')]
+    ei.addEvent(e)
+    e['_id'] = ObjectId('112')]
+    ei.addEvent(e)
+    print ei.getAllDocument().count()
+    ei.deleteEventByID('112')
+	cur = ei.getAllDocument().count()
+    print cur.count()
+    for event in cur:
+        print event
+
 if __name__=='__main__':
 	
-	ei = EventInterface()
-	ei.setDB('citybeat')
-	ei.setCollection('candidate_event_25by25_merged')
-	print ei.getPhotoDistributionArray()
+    testDeleteEventByID()
+	#ei = EventInterface()
+	#ei.setDB('citybeat')
+	#ei.setCollection('candidate_event_25by25_merged')
+	#print ei.getPhotoDistributionArray()
 	
 			
 #def getPhotoFromInstagram(cnt):
