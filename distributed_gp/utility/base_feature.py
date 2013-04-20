@@ -32,7 +32,7 @@ class BaseFeature(BaseEvent):
         return self.getLatestElementTime() - self.getEarliestElementTime()
     
     def preprocess(self):
-        self.selectOneElementForOneUser()
+        self.leaveOneElementForOneUser()
         #self.selectRelaventElements()
     
     def selectRelaventElements(self, k=10):
