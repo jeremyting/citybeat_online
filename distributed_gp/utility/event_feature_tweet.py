@@ -3,7 +3,7 @@ from photo_interface import PhotoInterface
 from photo import Photo
 from region import Region
 from event import Event
-from caption_parser import CaptionParser
+from text_parser import TextParser
 from stopwords import Stopwords
 from corpus import Corpus
 from _kl_divergence import kldiv
@@ -113,13 +113,13 @@ class EventFeature(Event):
         
     def _getTopWords(self, k, stopword_removal=False):
         # get top words by counting the frequecy
-        caption_parser = CaptionParser(stopword_removal=stopword_removal)
+        text_parser = TextParser(stopword_removal=stopword_removal)
         for photo in self._event['photos']:
             p = Photo(photo)
             caption = p.getCaption()
             if not caption is None:
-                caption_parser.insertCaption(caption)
-        return caption_parser.getTopWords(k)
+                text_parser.insertCaption(caption)
+        return text_parser.getTopWords(k)
     
     def extractFeatures(self, entropy_para=3, k_topwords=3):
         # it outputs the feature vector
@@ -241,9 +241,9 @@ class EventFeature(Event):
             p2 = Photo(photo2)
             cap1 = p1.getCaption()
             cap2 = p2.getCaption()
-            cp1 = CaptionParser(True)
+            cp1 = TextParser(True)
             cp1.insertCaption(cap1)
-            cp2 = CaptionParser(True)
+            cp2 = TextParser(True)
             cp2.insertCaption(cap2)
             word_list1 = cp1.getTopWords(-1)
             word_list2 = cp2.getTopWords(-1)

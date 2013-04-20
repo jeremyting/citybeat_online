@@ -1,5 +1,5 @@
 from event_interface import EventInterface
-from caption_parser import CaptionParser
+from text_parser import TextParser
 from photo import Photo
 from stopwords import Stopwords
 
