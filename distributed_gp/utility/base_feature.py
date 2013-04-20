@@ -2,6 +2,7 @@ from event_interface import EventInterface
 from base_event import BaseEvent
 from region import Region
 from event import Event
+from base_element import BaseElement
 from text_parser import TextParser
 from stopwords import Stopwords
 from corpus import Corpus
@@ -124,7 +125,7 @@ class BaseFeature(BaseEvent):
         dis_feautures = self.getElementDisFeatures()
         std_element_dis = dis_feautures[0]
         avg_element_dis = dis_feautures[1]
-        mean_element_dis_cap = self.getElementTextDisFeatures()
+        avg_element_dis_cap = self.getElementTextDisFeatures()[1]
         cap_per = self.getTextPercentage()
         std = self.getPredictedStd()
         top_word_pop = self.getTopWordPopularity(k_topwords)
@@ -149,7 +150,7 @@ class BaseFeature(BaseEvent):
         
         return [avg_cap_len,
 				std_element_dis, avg_element_dis, 
-                mean_element_dis_cap,
+                avg_element_dis_cap,
                 cap_per,
                 std, top_word_pop, zscore, entropy, #ratio,
                 diff_avg_element_dis, diff_top_word_pop, diff_entropy,
@@ -180,7 +181,7 @@ class BaseFeature(BaseEvent):
 #       print '@attribute stat_MinElementDisbyCap real'
 #       print '@attribute stat_MaxElementDisbyCap real'
 #       print '@attribute stat_StdElementDisbyCap real'
-        print '@attribute MeanElementDisbyCap real'
+        print '@attribute AvgElementDisbyCap real'
 #       print '@attribute stat_MedianElementDisbyCap real'
         print '@attribute TextPercentage real'
         print '@attribute PredictedStd real'
@@ -215,12 +216,8 @@ class BaseFeature(BaseEvent):
         
         def ElementDistanceByText(element1, element2):
             
-            if self._element_type == 'photos':
-                p1 = Photo(self._element_type, element1)
-                p2 = Photo(self._element_type, element2)
-            else:
-                p1 = Tweet(self._element_type, element1)
-                p2 = Tweet(self._element_type, element2)
+            p1 = BaseElement(self._element_type, element1)
+            p2 = BaseElement(self._element_type, element2)
             cap1 = p1.getText()
             cap2 = p2.getText()
             cp1 = TextParser(True)
@@ -269,8 +266,7 @@ class BaseFeature(BaseEvent):
         return lat/len(self._event[self._element_type]), lon/len(self._event[self._element_type])
     
     def _computeSimpleStatistic(self, my_values):
-        return [numpy.min(my_values), numpy.max(my_values), numpy.std(my_values),
-                numpy.mean(my_values), numpy.median(my_values)] 
+        return [numpy.std(my_values), numpy.mean(my_values)] 
     
     def getElementDisFeatures(self):
         #average element-to-element geolocation distance
@@ -314,7 +310,7 @@ class BaseFeature(BaseEvent):
         cap_lens = 0
         elements = self._event[self._element_type]
         for element in elements:
-            element = BaseEvent(self._element_type, element)
+            element = BaseElement(self._element_type, element)
             cap_len = len(element.getText())
             if cap_len > 0:
                 cap_lens += cap_len
@@ -329,7 +325,7 @@ class BaseFeature(BaseEvent):
         cap_number = 0
         elements = self._event[self._element_type]
         for element in elements:
-            element = BaseEvent(self._element_type, element)
+            element = BaseElement(self._element_type, element)
             cap_len = len(element.getText())
             if cap_len > 0:
                 cap_number += 1
