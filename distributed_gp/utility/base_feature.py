@@ -2,6 +2,8 @@ from event_interface import EventInterface
 from base_event import BaseEvent
 from region import Region
 from event import Event
+from photo import Photo
+from tweet import Tweet
 from text_parser import TextParser
 from stopwords import Stopwords
 from corpus import Corpus
