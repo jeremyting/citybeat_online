@@ -76,7 +76,7 @@ def generateData2():
 
     all_corpus = buildAllCorpus(time_interval_length=3)
     true_event_list, false_event_list = loadUnbalancedData()
-    BaseFeature().GenerateArffFileHeader()
+    BaseFeature.GenerateArffFileHeader()
         
     for event in true_event_list + false_event_list:
         r = Region(event['region'])
