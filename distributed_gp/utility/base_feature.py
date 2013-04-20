@@ -1,15 +1,15 @@
 from event_interface import EventInterface
-from photo_interface import PhotoInterface
-from photo import Photo
+from base_event import BaseEvent
 from region import Region
 from event import Event
-from caption_parser import CaptionParser
+from text_parser import TextParser
 from stopwords import Stopwords
 from corpus import Corpus
 from _kl_divergence import kldiv
 from _kl_divergence import tokenize
 
 import kl_divergence as KLDivergence
+import tool
 
 import operator
 import string
@@ -18,57 +18,54 @@ import random
 import math
 import numpy
 
-class EventFeature(BaseEvent):
+class BaseFeature(BaseEvent):
     # this class is the extension of class Event, especially for feature extraction
     # to prevent the class Event from being too long to read
     
     def __init__(self, event, corpus=None, representor=None):
-        super(EventFeature, self).__init__(event)
-        # note that, if you want to use any feature related with tfidf, corpus must be set
-        # the the definition of Corpus class in corpus.py
-        if corpus is not None:
-            self._corpus = corpus
-        if representor is not None:
-            self._representor = representor
-                
+        self._type = tool.getEventType(event)
+        self._event = BaseEvent(self._type, event).toDict()
+        self._representor = representor
+        self._corpus = corpus
+    
     def getDuration(self):
-        return self.getLatestPhotoTime() - self.getEarliestPhotoTime()
+        return self.getLatestElementTime() - self.getEarliestElementTime()
     
     def preprocess(self):
-        self.selectOnePhotoForOneUser()
-        #self.selectRelaventPhotos()
+        self.selectOneElementForOneUser()
+        #self.selectRelaventElements()
     
-    def selectRelaventPhotos(self, k=10):
+    def selectRelaventElements(self, k=10):
         assert self._representor is not None
-        photos = self._representor.getRepresentivePhotos(self.toDict())
+        elements = self._representor.getRepresentiveElements(self.toDict())
         # choose first 30%
-#       k = max(k, 0.3*len(photos))
+#       k = max(k, 0.3*len(elements))
 #       k = int(k + 0.5)
-        self.setPhotos(photos[0:min(k, len(photos))])
+        self.setElements(elements[0:min(k, len(elements))])
     
-    def countHashtagsFromPhotosContainingTopKeywords(self, k=3):
-        # count the number of hashtags of photos that associated with topwords
+    def countHashtagFromElementContainingTopKeyword(self, k=3):
+        # count the number of hashtags of elements that associated with topwords
         # k is the number of top keywords
         # rank top keywords by counting their frequency
-        word_photo_list = self.getTopKeywordsAndPhotos(k, 10000)
+        word_element_list = self.getTopKeywordsAndElements(k, 10000)
         cnt = [0]*k
         cnt2 = [0]*k
-        for i in xrange(0, len(word_photo_list)):
+        for i in xrange(0, len(word_element_list)):
             j = 0
-            for photo in word_photo_list[i][2]:
-                p = Photo(photo)
-                cap = p.getCaption()
+            for element in word_element_list[i][2]:
+                p = BaseEvent(self._type, element)
+                cap = p.getText()
                 j += 1
                 cnt[i] += cap.count('#')
             # return the number of hashtags
             cnt[i] = cnt[i] * 1.0 / j
-            # reteurn the number of photos
-            cnt2[i] = len(word_photo_list[i][2])
+            # reteurn the number of elements
+            cnt2[i] = len(word_element_list[i][2])
         return [cnt, cnt2]              
     
     def getTopWordByTFIDF(self, k=3):
         # rank and get the top k words by tfidf
-        all_cap = self._getAllCaptions()
+        all_cap = self._getAllTexts()
         tfidf = self._corpus.chooseTopWordWithHighestTDIDF(all_cap, k=3)
         tfidf.sort(reverse=True)
         return tfidf
@@ -77,35 +74,35 @@ class EventFeature(BaseEvent):
         # this method will return topwords without stopwords
         return self._getTopWords(k, stopword_removal=True)
         
-    def _getRandomPhotosAssociatedWithKeywords(self, top_keywords, k=10):
-        # get photos associated with the top_keywords
-        # k specifies the number of photos to show
+    def _getRandomElementsAssociatedWithKeywords(self, top_keywords, k=10):
+        # get elements associated with the top_keywords
+        # k specifies the number of elements to show
         res = []
         for (word, fre) in top_keywords:
-            photos = self.getPhotosByKeyword(word)
+            elements = self.getElementsByKeyword(word)
             # this has the shuffling process
-            random.shuffle(photos)
-            k = min(len(photos), k)
-            # discard the keywords with only one photo
+            random.shuffle(elements)
+            k = min(len(elements), k)
+            # discard the keywords with only one element
 #           if k == 1:
 #               break
-            res.append([word, fre, photos[0:k]])
+            res.append([word, fre, elements[0:k]])
         return res
     
-    def getTopKeywordsAndPhotos(self, num_keywords, num_photos):
-        # get top words and its related photos
+    def getTopKeywordsAndElements(self, num_keywords, num_elements):
+        # get top words and its related elements
         keywords = self._getTopKeywordsWithoutStopwords(num_keywords)
-        return self._getRandomPhotosAssociatedWithKeywords(keywords, num_photos)
+        return self._getRandomElementsAssociatedWithKeywords(keywords, num_elements)
     
-    def _getPhotoAvgLocation(self):
+    def _getElementAvgLocation(self):
         # no use
-        photos = self._event['photos']
+        elements = self._event[self._element_type]
         lat = 0
         lng = 0
         n = 0
-        for photo in photos:
-            pLat = float(photo['location']['latitude'])
-            pLon = float(photo['location']['longitude'])
+        for element in elements:
+            pLat = float(element['location']['latitude'])
+            pLon = float(element['location']['longitude'])
             lat += pLat
             lng += pLon
             n += 1      
@@ -113,31 +110,23 @@ class EventFeature(BaseEvent):
         
     def _getTopWords(self, k, stopword_removal=False):
         # get top words by counting the frequecy
-        caption_parser = CaptionParser(stopword_removal=stopword_removal)
-        for photo in self._event['photos']:
-            p = Photo(photo)
-            caption = p.getCaption()
-            if not caption is None:
-                caption_parser.insertCaption(caption)
-        return caption_parser.getTopWords(k)
+        text_parser = TextParser(stopword_removal=stopword_removal)
+        for element in self._event[self._element_type]:
+            p = BaseEvent(self._type, element)
+            text = p.getText()
+            if not text is None:
+                text_parser.insertText(text)
+        return text_parser.getTopWords(k)
     
     def extractFeatures(self, entropy_para=3, k_topwords=3):
         # it outputs the feature vector
         self.preprocess()
-        avg_cap_len = self.getAvgCaptionLen()
-        dis_feautures = self.getPhotoDisFeatures()
-        min_photo_dis = dis_feautures[0]
-        max_photo_dis = dis_feautures[1]
-        std_photo_dis = dis_feautures[2]
-        avg_photo_dis = dis_feautures[3]
-        median_photo_dis = dis_feautures[4]
-        cap_dis_features = self.getPhotoCaptionDisFeatures()
-        min_photo_dis_cap = cap_dis_features[0]
-        max_photo_dis_cap = cap_dis_features[1]
-        std_photo_dis_cap = cap_dis_features[2]
-        mean_photo_dis_cap = cap_dis_features[3]
-        median_photo_dis_cap = cap_dis_features[4]
-        cap_per = self.getCaptionPercentage()
+        avg_cap_len = self.getAvgTextLen()
+        dis_feautures = self.getElementDisFeatures()
+        std_element_dis = dis_feautures[0]
+        avg_element_dis = dis_feautures[1]
+        mean_element_dis_cap = self.getElementTextDisFeatures()
+        cap_per = self.getTextPercentage()
         std = self.getPredictedStd()
         top_word_pop = self.getTopWordPopularity(k_topwords)
         zscore = self.getZscore()
@@ -147,38 +136,28 @@ class EventFeature(BaseEvent):
         event_id = str(self._event['_id'])
         
         tfidf_top3 = self.getTopWordByTFIDF(3)
-        res = self.countHashtagsFromPhotosContainingTopKeywords(3)
+        res = self.countHashtagFromElementContainingTopKeywords(3)
         hashtage_cnt3 = res[0]
-        number_photos_associated_with_keywords3 = res[1]
+        number_elements_associated_with_keywords3 = res[1]
         
 #       historic_features = [0]*3   for test only
         historic_features = self.getHistoricFeatures(entropy_para)
-        diff_avg_photo_dis = avg_photo_dis - historic_features[0]
+        diff_avg_element_dis = avg_element_dis - historic_features[0]
         diff_top_word_pop = historic_features[1]
         diff_entropy = historic_features[2]
         
-        location_name_similarity = self.getTopPhotosLocationSimilarity()
-#       location_name_same = self.checkIfTopPhotoLocationSame()
-
-#       twitter_features = self.extractFeatureFromTweet()
+        location_name_similarity = self.getTopElementsLocationSimilarity()
         
         return [avg_cap_len,
-#               min_photo_dis, max_photo_dis,
-                        std_photo_dis, avg_photo_dis, 
-#                       median_photo_dis,
-#               min_photo_dis_cap, max_photo_dis_cap,   std_photo_dis_cap,
-                mean_photo_dis_cap,
-#           median_photo_dis_cap,
+				std_element_dis, avg_element_dis, 
+                mean_element_dis_cap,
                 cap_per,
                 std, top_word_pop, zscore, entropy, #ratio,
-                diff_avg_photo_dis, diff_top_word_pop, diff_entropy,
+                diff_avg_element_dis, diff_top_word_pop, diff_entropy,
                 tfidf_top3[0], tfidf_top3[1], tfidf_top3[2], 
                 hashtage_cnt3[0], hashtage_cnt3[1], hashtage_cnt3[2],
-                number_photos_associated_with_keywords3[0], number_photos_associated_with_keywords3[1], number_photos_associated_with_keywords3[2],
+                number_elements_associated_with_keywords3[0], number_elements_associated_with_keywords3[1], number_elements_associated_with_keywords3[2],
                 location_name_similarity, 
-#               location_name_same,
-#                       twitter_features,
-#                       twitter_features[0], twitter_features[1], twitter_features[2], twitter_features[3],
                 event_id,
                 label]
                 
@@ -193,23 +172,23 @@ class EventFeature(BaseEvent):
 #   @staticmethod
     def GenerateArffFileHeader(self):
         print '@relation CityBeatEvents'
-        print '@attribute AvgCaptionLen real'
-#       print '@attribute stat_MinPhotoDis real'
-#       print '@attribute stat_MaxPhotoDis real'
-        print '@attribute stat_StdPhotoDis real'
-        print '@attribute AvgPhotoDis real'
-#       print '@attribute stat_MedianPhotoDis real'
-#       print '@attribute stat_MinPhotoDisbyCap real'
-#       print '@attribute stat_MaxPhotoDisbyCap real'
-#       print '@attribute stat_StdPhotoDisbyCap real'
-        print '@attribute MeanPhotoDisbyCap real'
-#       print '@attribute stat_MedianPhotoDisbyCap real'
-        print '@attribute CaptionPercentage real'
+        print '@attribute AvgTextLen real'
+#       print '@attribute stat_MinElementDis real'
+#       print '@attribute stat_MaxElementDis real'
+        print '@attribute stat_StdElementDis real'
+        print '@attribute AvgElementDis real'
+#       print '@attribute stat_MedianElementDis real'
+#       print '@attribute stat_MinElementDisbyCap real'
+#       print '@attribute stat_MaxElementDisbyCap real'
+#       print '@attribute stat_StdElementDisbyCap real'
+        print '@attribute MeanElementDisbyCap real'
+#       print '@attribute stat_MedianElementDisbyCap real'
+        print '@attribute TextPercentage real'
         print '@attribute PredictedStd real'
         print '@attribute TopWordPopularity real'
         print '@attribute Zscore real'
         print '@attribute Entropy real'
-        print '@attribute diff_AvgPhotoDis real'
+        print '@attribute diff_AvgElementDis real'
         print '@attribute diff_TopWordPopularity real'
         print '@attribute diff_Entropy real'
 
@@ -225,26 +204,26 @@ class EventFeature(BaseEvent):
         print '@attribute NumberOfPhotsoContaingTopWord2 real'
         print '@attribute NumberOfPhotsoContaingTopWord3 real'
         
-        print '@attribute Top10PhotoLocationNameFreq real'
-#       print '@attribute Top3PhotoLocationNameSame real'
+        print '@attribute Top10ElementLocationNameFreq real'
+#       print '@attribute Top3ElementLocationNameSame real'
                                 
         print '@attribute ID string'
         print '@attribute label {1,-1}'
         print '@data'
         
-    def getPhotoCaptionDisFeatures(self):
-        # one feauture, compute the average photo-to-photo textual distance (similarity, KL divergence) 
+    def getElementTextDisFeatures(self):
+        # one feauture, compute the average element-to-element textual distance (similarity, KL divergence) 
         
-        def PhotoDistanceByCaption(photo1, photo2):
+        def ElementDistanceByText(element1, element2):
             
-            p1 = Photo(photo1)
-            p2 = Photo(photo2)
-            cap1 = p1.getCaption()
-            cap2 = p2.getCaption()
-            cp1 = CaptionParser(True)
-            cp1.insertCaption(cap1)
-            cp2 = CaptionParser(True)
-            cp2.insertCaption(cap2)
+            p1 = BaseEvent(self._type, element1)
+            p2 = BaseEvent(self._type, element2)
+            cap1 = p1.getText()
+            cap2 = p2.getText()
+            cp1 = TextParser(True)
+            cp1.insertText(cap1)
+            cp2 = TextParser(True)
+            cp2.insertText(cap2)
             word_list1 = cp1.getTopWords(-1)
             word_list2 = cp2.getTopWords(-1)
             if len(word_list1) == 0 or len(word_list2) == 0:
@@ -258,15 +237,15 @@ class EventFeature(BaseEvent):
                 word_dict2[word] = freq
             return kldiv(word_dict1, word_dict2)
             
-        photos = self._event['photos']
+        elements = self._event[self._element_type]
         diss = []
-        for i in xrange(0, len(photos)):
+        for i in xrange(0, len(elements)):
             avgDis = 0
             avail = 0
-            for j in xrange(0, len(photos)):
+            for j in xrange(0, len(elements)):
                 if i == j:
                     continue
-                val = PhotoDistanceByCaption(photos[i], photos[j])
+                val = ElementDistanceByText(elements[i], elements[j])
                 if val is None:
                     continue
                 avail += 1
@@ -281,60 +260,59 @@ class EventFeature(BaseEvent):
     def _computeGeolocationCenter(self):
         lat = 0
         lon = 0
-        for photo in self._event['photos']:
-            lat += float(photo['location']['latitude'])
-            lon += float(photo['location']['longitude'])
-        return lat/len(self._event['photos']), lon/len(self._event['photos'])
+        for element in self._event[self._element_type]:
+            lat += float(element['location']['latitude'])
+            lon += float(element['location']['longitude'])
+        return lat/len(self._event[self._element_type]), lon/len(self._event[self._element_type])
     
     def _computeSimpleStatistic(self, my_values):
         return [numpy.min(my_values), numpy.max(my_values), numpy.std(my_values),
                 numpy.mean(my_values), numpy.median(my_values)] 
     
-    def getPhotoDisFeatures(self):
-        #average photo-to-photo geolocation distance
+    def getElementDisFeatures(self):
+        #average element-to-element geolocation distance
         
-        def photoDistance(photo1, photo2):
+        def elementDistance(element1, element2):
             # inside method, do not call
-            lat1 = float(photo1['location']['latitude'])
-            lon1 = float(photo1['location']['longitude'])
-            lat2 = float(photo2['location']['latitude'])
-            lon2 = float(photo2['location']['longitude'])
+            lat1 = float(element1['location']['latitude'])
+            lon1 = float(element1['location']['longitude'])
+            lat2 = float(element2['location']['latitude'])
+            lon2 = float(element2['location']['longitude'])
             return math.sqrt(10000*(lat1-lat2)*(lat1-lat2) + 10000*(lon1-lon2)*(lon1-lon2))
             
-        photos = self._event['photos']
-        n = len(photos)
+        elements = self._event[self._element_type]
+        n = len(elements)
         # n would be very small when we compute the historical features
         if n < 2:
             return [2.0, 2.0, 0, 2.0, 2.0]
         
         # add three features
-        # how much percentage of photos in one sigma
-        # how much percentage of photos in two sigma
-        # how much percentage of photos in 3 sigma 
-        # 3 closest photos are within how many sigma, maybe a good feature
-        
+        # how much percentage of elements in one sigma
+        # how much percentage of elements in two sigma
+        # how much percentage of elements in 3 sigma 
+        # 3 closest elements are within how many sigma, maybe a good feature
         
         diss = []
         
         for i in xrange(0, n):
-            dis_to_other_photo = 0
+            dis_to_other_element = 0
             for j in xrange(0, n):
                 if not i == j:
-                    pairwiseDis = photoDistance(photos[i], photos[j])
-                    dis_to_other_photo += pairwiseDis
-            dis_to_other_photo = dis_to_other_photo / (n-1)
-            diss.append(dis_to_other_photo)
+                    pairwiseDis = elementDistance(elements[i], elements[j])
+                    dis_to_other_element += pairwiseDis
+            dis_to_other_element = dis_to_other_element / (n-1)
+            diss.append(dis_to_other_element)
         
         return self._computeSimpleStatistic(diss)
     
-    def getAvgCaptionLen(self):
+    def getAvgTextLen(self):
         # not a good feature
         cap_number = 0
         cap_lens = 0
-        photos = self._event['photos']
-        for photo in photos:
-            photo = Photo(photo)
-            cap_len = len(photo.getCaption())
+        elements = self._event[self._element_type]
+        for element in elements:
+            element = BaseEvent(self._type, element)
+            cap_len = len(element.getText())
             if cap_len > 0:
                 cap_lens += cap_len
                 cap_number += 1
@@ -343,21 +321,21 @@ class EventFeature(BaseEvent):
         else:
             return 1.0 * cap_lens / cap_number
     
-    def getCaptionPercentage(self):
+    def getTextPercentage(self):
         # not a good feature
         cap_number = 0
-        photos = self._event['photos']
-        for photo in photos:
-            photo = Photo(photo)
-            cap_len = len(photo.getCaption())
+        elements = self._event[self._element_type]
+        for element in elements:
+            element = BaseEvent(self._type, element)
+            cap_len = len(element.getText())
             if cap_len > 0:
                 cap_number += 1
-        return cap_number * 1.0 / len(photos)
+        return cap_number * 1.0 / len(elements)
     
-    def _getAllCaptions(self):
+    def _getAllTexts(self):
         cap = ''
-        for photo in self._event['photos']:
-            cap += Photo(photo).getText() + ' '
+        for element in self._event[self._element_type]:
+            cap += BaseEvent(self._type, element).getText() + ' '
         return cap.strip()
     
     def getTopWordPopularity(self, k=1):
@@ -378,19 +356,19 @@ class EventFeature(BaseEvent):
         
     def _divideAndCount(self, n):
         # devide the region into n*n grids to compute the entropy
-        # p(i) = # of photos in that grid, to the total number of grids
-        # it returns the list of subregions associated with the number photos falling into that region
-        photo_number = self.getPhotoNumber()
+        # p(i) = # of elements in that grid, to the total number of grids
+        # it returns the list of subregions associated with the number elements falling into that region
+        element_number = self.getElementNumber()
         region = Region(self._event['region'])
         subregions = region.divideRegions(n, n)
         
         # Laplacian smoothed
         pro = [1.0]*n*n
         s = n*n
-        photos = self._event['photos']
-        for photo in photos:
-            lat = photo['location']['latitude']
-            lng = photo['location']['longitude']
+        elements = self._event[self._element_type]
+        for element in elements:
+            lat = element['location']['latitude']
+            lng = element['location']['longitude']
             flag = False
             i = 0
             for subregion in subregions:
@@ -408,27 +386,27 @@ class EventFeature(BaseEvent):
         
     def getEntropy(self, n):
         # devide the region into n*m grids to compute the entropy
-        # p(i) = # of photos in that grid, to the total number of grids
+        # p(i) = # of elements in that grid, to the total number of grids
         pro = self._divideAndCount(n)
         # h(x) = sum(p(x)*log(p(x))
         # Laplacian smoothed
-        photo_number = self.getPhotoNumber() + n * n
+        element_number = self.getElementNumber() + n * n
         h = 0
         for pr in pro:
             h += - math.log(pr)/math.log(2)*pr
         return h
             
-    def getRatioOfPeopleToPhoto(self):
+    def getRatioOfPeopleToBaseEvent(self._type, self):
         # not a good feature
-        return 1.0 * self.getActualValue() / len(self._event['photos'])
+        return 1.0 * self.getActualValue() / len(self._event[self._element_type])
         
     
-    def getTopPhotosLocationSimilarity(self, k=10):
+    def getTopElementsLocationSimilarity(self, k=10):
         freq = {}
         most_freq = 0
-        k = min(k, len(self._event['photos']))
-        for photo in self._event['photos']:
-            p = Photo(photo)
+        k = min(k, len(self._event[self._element_type]))
+        for element in self._event[self._element_type]:
+            p = BaseEvent(self._type, element)
             location_name = p.getLocationName()
             if location_name == '':
                     continue
@@ -438,14 +416,14 @@ class EventFeature(BaseEvent):
                 most_freq = cur_freq
         return most_freq*1.0 / k
         
-    def checkIfTopPhotoLocationSame(self, k=3):
-        k = min(k, len(self._event['photos']))
-        photos = self._event['photos']
-        location_name = Photo(photos[0]).getLocationName()
+    def checkIfTopElementLocationSame(self, k=3):
+        k = min(k, len(self._event[self._element_type]))
+        elements = self._event[self._element_type]
+        location_name = BaseEvent(self._type, elements[0]).getLocationName()
         if location_name == '':
             return 0
         for i in xrange(1, k):
-            if not Photo(photos[i]).getLocationName() == location_name:
+            if not BaseEvent(self._type, elements[i]).getLocationName() == location_name:
                 return 0
         return 1
             
@@ -453,37 +431,40 @@ class EventFeature(BaseEvent):
         # this method computes the features that capture the difference between current
         # event and background knowledge
         
-        end_time = self.getLatestPhotoTime()
-        begin_time = self.getEarliestPhotoTime()
+        end_time = self.getLatestElementTime()
+        begin_time = self.getEarliestElementTime()
         
-        pi = PhotoInterface()
+		if self._element_type == 'photos':
+			pi = PhotoInterface()
+		else:
+			pi = TweetInterface()
         
-        photos = []
+        elements = []
         dt = 0
         for day in xrange(1,15):
             # here 15 is hard coded because we use 14 days' data as the training
             et = end_time - day * 24 * 3600 + dt / 2
             bt = begin_time - day * 24 * 3600 - dt / 2
-            day_photos = pi.rangeQuery(self._event['region'], [str(bt), str(et)])
-            for photo in day_photos:
-                # since rangeQuery sorts the photos from the most current to the most early
-                # thus all the photos in the List "photos" are sorted by their created time from 
+            day_elements = pi.rangeQuery(self._event['region'], [str(bt), str(et)])
+            for element in day_elements:
+                # since rangeQuery sorts the elements from the most current to the most early
+                # thus all the elements in the List "elements" are sorted by their created time from 
                 # the most current to the most early
-                photos.append(photo)
+                elements.append(element)
                 
-        random.shuffle(photos)
-        photos = photos[0:min(len(self._event['photos']), len(photos))]
+        random.shuffle(elements)
+        elements = elements[0:min(len(self._event[self._element_type]), len(elements))]
         
-        if len(photos) == 0:
+        if len(elements) == 0:
             # TODO: refine
             return [1, 10, 10]
             
         # fake a historic event
-        historic_event = Event()
-        historic_event.setPhotos(photos)
+        historic_event = BaseEvent(self._element_type)
+        historic_event.setElements(elements)
         historic_event.setRegion(self._event['region'])
         historic_event.setActualValue(historic_event._getActualValueByCounting())
-        historic_event = EventFeature(historic_event)
+        historic_event = BaseFeature(historic_event)
         
         # compute the difference between entropy
         # this has been smoothed
@@ -495,7 +476,7 @@ class EventFeature(BaseEvent):
         
         topic_divergence = self.computeWordKLDivergenceWith(historic_event)
         
-        return [historic_event.getPhotoDisFeatures()[3], topic_divergence,
+        return [historic_event.getElementDisFeatures()[3], topic_divergence,
 #               historic_event.getEntropy(entropy_para),
                 entropy_divergence]
     
@@ -503,25 +484,23 @@ class EventFeature(BaseEvent):
         # this method calls the kl divergence computation by eddie's methods
         text1 = ''
         text2 = ''
-        for photo in self._event['photos']:
-            p = Photo(photo)
+        for element in self._event[self._element_type]:
+            p = BaseEvent(self._type, element)
             text1 += ' '
-            text1 += p.getCaption()
+            text1 += p.getText()
         
-        if type(event) is types.DictType:
-            pass
-        else:
+        if type(event) is not types.DictType:
             event = event.toDict()
             
-        for photo in event['photos']:
-            p = Photo(photo)
+        for element in event[self._element_type]:
+            p = BaseEvent(self._type, element)
             text2 += ' '
-            text2 += p.getCaption()
+            text2 += p.getText()
         return kldiv(tokenize(text1), tokenize(text2))
     
     def computeWordKLDivergenceWith(self, event):
         if type(event) is types.DictType:
-            fake_event = EventFeature(event)
+            fake_event = BaseFeature(event)
         else:
             fake_event = event
         event_topword_list = self._getTopWords(-1, True)
@@ -545,9 +524,3 @@ class EventFeature(BaseEvent):
             
 if __name__=='__main__':
     generateData()
-#   ei = EventInterface()
-#   ei.setDB('historic_alarm')
-#   ei.setCollection('labeled_event')
-#   event = ei.getDocument()
-#   e = EventFeature(event)
-#   e.getHistoricFeatures()
