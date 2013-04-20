@@ -169,8 +169,8 @@ class BaseFeature(BaseEvent):
         print feature_list[-1]
             
             
-#   @staticmethod
-    def GenerateArffFileHeader(self):
+    @staticmethod
+    def GenerateArffFileHeader():
         print '@relation CityBeatEvents'
         print '@attribute AvgTextLen real'
 #       print '@attribute stat_MinElementDis real'

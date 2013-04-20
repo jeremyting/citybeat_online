@@ -74,9 +74,9 @@ def generateData2():
 #   if sparse:
     #rep = Representor()
 
-    all_corpus = buildAllCorpus(time_interval_length=2)
+    all_corpus = buildAllCorpus(time_interval_length=3)
     true_event_list, false_event_list = loadUnbalancedData()
-    BaseFeature(None).GenerateArffFileHeader()
+    BaseFeature().GenerateArffFileHeader()
         
     for event in true_event_list + false_event_list:
         r = Region(event['region'])
