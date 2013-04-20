@@ -52,7 +52,7 @@ class BaseFeature(BaseEvent):
         for i in xrange(0, len(word_element_list)):
             j = 0
             for element in word_element_list[i][2]:
-                p = BaseEvent(self._type, element)
+                p = BaseEvent(self._element_type, element)
                 cap = p.getText()
                 j += 1
                 cnt[i] += cap.count('#')
@@ -111,7 +111,7 @@ class BaseFeature(BaseEvent):
         # get top words by counting the frequecy
         text_parser = TextParser(stopword_removal=stopword_removal)
         for element in self._event[self._element_type]:
-            p = BaseEvent(self._type, element)
+            p = BaseEvent(self._element_type, element)
             text = p.getText()
             if not text is None:
                 text_parser.insertText(text)
@@ -215,8 +215,12 @@ class BaseFeature(BaseEvent):
         
         def ElementDistanceByText(element1, element2):
             
-            p1 = BaseEvent(self._type, element1)
-            p2 = BaseEvent(self._type, element2)
+            if self._element_type == 'photos':
+                p1 = Photo(self._element_type, element1)
+                p2 = Photo(self._element_type, element2)
+            else:
+                p1 = Tweet(self._element_type, element1)
+                p2 = Tweet(self._element_type, element2)
             cap1 = p1.getText()
             cap2 = p2.getText()
             cp1 = TextParser(True)
@@ -310,7 +314,7 @@ class BaseFeature(BaseEvent):
         cap_lens = 0
         elements = self._event[self._element_type]
         for element in elements:
-            element = BaseEvent(self._type, element)
+            element = BaseEvent(self._element_type, element)
             cap_len = len(element.getText())
             if cap_len > 0:
                 cap_lens += cap_len
@@ -325,7 +329,7 @@ class BaseFeature(BaseEvent):
         cap_number = 0
         elements = self._event[self._element_type]
         for element in elements:
-            element = BaseEvent(self._type, element)
+            element = BaseEvent(self._element_type, element)
             cap_len = len(element.getText())
             if cap_len > 0:
                 cap_number += 1
@@ -334,7 +338,7 @@ class BaseFeature(BaseEvent):
     def _getAllTexts(self):
         cap = ''
         for element in self._event[self._element_type]:
-            cap += BaseEvent(self._type, element).getText() + ' '
+            cap += BaseEvent(self._element_type, element).getText() + ' '
         return cap.strip()
     
     def getTopWordPopularity(self, k=1):
@@ -405,7 +409,7 @@ class BaseFeature(BaseEvent):
         most_freq = 0
         k = min(k, len(self._event[self._element_type]))
         for element in self._event[self._element_type]:
-            p = BaseEvent(self._type, element)
+            p = BaseEvent(self._element_type, element)
             location_name = p.getLocationName()
             if location_name == '':
                     continue
@@ -418,11 +422,11 @@ class BaseFeature(BaseEvent):
     def checkIfTopElementLocationSame(self, k=3):
         k = min(k, len(self._event[self._element_type]))
         elements = self._event[self._element_type]
-        location_name = BaseEvent(self._type, elements[0]).getLocationName()
+        location_name = BaseEvent(self._element_type, elements[0]).getLocationName()
         if location_name == '':
             return 0
         for i in xrange(1, k):
-            if not BaseEvent(self._type, elements[i]).getLocationName() == location_name:
+            if not BaseEvent(self._element_type, elements[i]).getLocationName() == location_name:
                 return 0
         return 1
             
@@ -483,7 +487,7 @@ class BaseFeature(BaseEvent):
         text1 = ''
         text2 = ''
         for element in self._event[self._element_type]:
-            p = BaseEvent(self._type, element)
+            p = BaseEvent(self._element_type, element)
             text1 += ' '
             text1 += p.getText()
         
@@ -491,7 +495,7 @@ class BaseFeature(BaseEvent):
             event = event.toDict()
             
         for element in event[self._element_type]:
-            p = BaseEvent(self._type, element)
+            p = BaseEvent(self._element_type, element)
             text2 += ' '
             text2 += p.getText()
         return kldiv(tokenize(text1), tokenize(text2))
