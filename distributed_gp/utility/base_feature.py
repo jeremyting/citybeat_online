@@ -2,7 +2,6 @@ from event_interface import EventInterface
 from base_event import BaseEvent
 from region import Region
 from event import Event
-from base_element import BaseElement
 from text_parser import TextParser
 from stopwords import Stopwords
 from corpus import Corpus
@@ -216,8 +215,12 @@ class BaseFeature(BaseEvent):
         
         def ElementDistanceByText(element1, element2):
             
-            p1 = BaseElement(self._element_type, element1)
-            p2 = BaseElement(self._element_type, element2)
+            if self._element_type == 'photos':
+                p1 = Photo(element1)
+                p2 = Photo(element2)
+            else:
+                p1 = Tweet(element1)
+                p2 = Tweet(element2)
             cap1 = p1.getText()
             cap2 = p2.getText()
             cp1 = TextParser(True)
@@ -310,7 +313,10 @@ class BaseFeature(BaseEvent):
         cap_lens = 0
         elements = self._event[self._element_type]
         for element in elements:
-            element = BaseElement(self._element_type, element)
+            if self._element_type == 'photos':
+                element = Photo(element)
+            else:
+                element = Tweet(element)
             cap_len = len(element.getText())
             if cap_len > 0:
                 cap_lens += cap_len
@@ -325,7 +331,10 @@ class BaseFeature(BaseEvent):
         cap_number = 0
         elements = self._event[self._element_type]
         for element in elements:
-            element = BaseElement(self._element_type, element)
+            if self._element_type == 'photos':
+                element = Photo(element)
+            else:
+                element = Tweet(element)
             cap_len = len(element.getText())
             if cap_len > 0:
                 cap_number += 1
