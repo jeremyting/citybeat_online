@@ -79,7 +79,7 @@ class Region:
         return region_list
     
     def filterRegions(self, region_list, percentage=InstagramConfig.region_percentage,test=False, n=10, m=10, document_type='photo'):
-        assert document_type in ['photo', 'tweet']
+        assert document_type in ['photos', 'tweets']
         if test:
             #n and m should be set if test is true
             #this is only for test
@@ -105,7 +105,7 @@ class Region:
 #       begin_time = 1299704845
         end_time = 1962096000
         begin_time = 1362096000
-        if document_type == 'photo':
+        if document_type == 'photos':
             di = PhotoInterface()
         else:
             di = TweetInterface()

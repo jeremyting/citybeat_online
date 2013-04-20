@@ -9,6 +9,7 @@ from photo import Photo
 from tweet import Tweet
 from region import Region
 from config import InstagramConfig
+from config import TwitterConfig
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
@@ -65,17 +66,17 @@ class Corpus(object):
         return values
 
 
-def buildAllCorpus(document_type='photo', time_interval_length=14):
+def buildAllCorpus(element_type='photos', time_interval_length=14):
     # return a dict = {region : its local corpus}
-    assert document_type in ['photo', 'tweet']
+    assert element_type in ['photos', 'tweets']
     
     all_corpus = {}
-    if document_type == 'photo':
+    if element_type == 'photos':
         coordinates = [InstagramConfig.photo_min_lat, InstagramConfig.photo_min_lng,
-                                     InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
+                       InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
     else:
-      coordinates = [TwitterConfig.photo_min_lat, TwitterConfig.photo_min_lng,
-                                     TwitterConfig.photo_max_lat, TwitterConfig.photo_max_lng]
+        coordinates = [TwitterConfig.min_lat, TwitterConfig.min_lng,
+                       TwitterConfig.max_lat, TwitterConfig.max_lng]
                                      
     nyc = Region(coordinates)
     region_list = nyc.divideRegions(25, 25)
