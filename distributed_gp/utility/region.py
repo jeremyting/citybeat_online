@@ -78,8 +78,8 @@ class Region:
                 region_list.append(r)
         return region_list
     
-    def filterRegions(self, region_list, percentage=InstagramConfig.region_percentage,test=False, n=10, m=10, document_type='photo'):
-        assert document_type in ['photos', 'tweets']
+    def filterRegions(self, region_list, percentage=InstagramConfig.region_percentage,test=False, n=10, m=10, element_type='photo'):
+        assert element_type in ['photos', 'tweets']
         if test:
             #n and m should be set if test is true
             #this is only for test
@@ -87,7 +87,7 @@ class Region:
             #folder = '/res/users/kx19/Citybeat/CityBeat/distributed_gp/utility/region_cache/'
             # grand : res ; joust : grad 
             folder = BaseConfig.getRegionListPath()
-            file_name = document_type + '_'
+            file_name = element_type + '_'
             file_name += str(n)+'_'+str(m)+'.txt'
             fid = open(folder + file_name)
             for line in fid:
@@ -105,7 +105,7 @@ class Region:
 #       begin_time = 1299704845
         end_time = 1962096000
         begin_time = 1362096000
-        if document_type == 'photos':
+        if element_type == 'photos':
             di = PhotoInterface()
         else:
             di = TweetInterface()
@@ -182,7 +182,7 @@ def doFiltering():
                    InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
     nyc = Region(coordinates)
     region_list = nyc.divideRegions(25, 25)
-    region_list = nyc.filterRegions(region_list, test=True, n=25, m=25, document_type='tweet')
+    region_list = nyc.filterRegions(region_list, test=True, n=25, m=25, element_type='tweet')
     for region in region_list:
         region = region.toDict()
         print region['min_lat'], region['min_lng'], region['max_lat'], region['max_lng']

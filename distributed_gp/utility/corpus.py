@@ -26,16 +26,16 @@ import operator
 
 class Corpus(object):
 
-    def buildCorpus(self, region, time_interval, document_type='photo'):
+    def buildCorpus(self, region, time_interval, element_type='photo'):
         # time_interval should be [start, end]
-        if document_type == 'photo':
+        if element_type == 'photo':
             di = PhotoInterface()
         else:
             di = TweetInterface()
         cur = di.rangeQuery(region, time_interval)
         text = []
         for document in cur:
-            if document_type == 'photo':
+            if element_type == 'photo':
                 doc = Photo(document)
             else:
                 doc = Tweet(document)
@@ -80,7 +80,7 @@ def buildAllCorpus(element_type='photos', time_interval_length=14):
                                      
     nyc = Region(coordinates)
     region_list = nyc.divideRegions(25, 25)
-    region_list = nyc.filterRegions(region_list, test=True, n=25, m=25, document_type=document_type)
+    region_list = nyc.filterRegions(region_list, test=True, n=25, m=25, element_type=element_type)
     
     # 14 days ago
     now = int(tool.getCurrentStampUTC()) - 40 *3600 *24
@@ -88,7 +88,7 @@ def buildAllCorpus(element_type='photos', time_interval_length=14):
     num = 0
     for region in region_list:
         cor = Corpus()
-        cor.buildCorpus(region, [now - time_interval_length *3600 *24, now], document_type)
+        cor.buildCorpus(region, [now - time_interval_length *3600 *24, now], element_type)
         all_corpus[region.getKey()] = cor
         num += 1
         print 'build corpus %d' % (num)  

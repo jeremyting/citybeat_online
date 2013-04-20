@@ -26,9 +26,9 @@ def getTfidfVector(vectorizer, text):
         values.append( tf_vec[0,n] )
     return res_list, words, values
 
-def buildCorpus(region, time_interval, document_type='photos'):
+def buildCorpus(region, time_interval, element_type='photos'):
     # time_interval should be [start, end]
-    if document_type == 'photos':
+    if element_type == 'photos':
         di = PhotoInterface()
     else:
         di = TweetInterface()
@@ -37,7 +37,7 @@ def buildCorpus(region, time_interval, document_type='photos'):
     print cur.count()
     text = []
     for document in cur:
-        if document_type == 'photos':
+        if element_type == 'photos':
             doc = Photo(document)
         else:
             doc = Tweet(document)
@@ -51,12 +51,12 @@ def buildCorpus(region, time_interval, document_type='photos'):
     vectorizer.fit_transform(text)
     return vectorizer
     
-def buildAllCorpus(document_type='photo'):
+def buildAllCorpus(element_type='photo'):
     # return a dict = {region : its local corpus}
-    assert document_type in ['photo', 'tweet']
+    assert element_type in ['photo', 'tweet']
     
     all_corpus = {}
-    if document_type == 'photo':
+    if element_type == 'photo':
         coordinates = [InstagramConfig.photo_min_lat, InstagramConfig.photo_min_lng,
                                      InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
     else:
@@ -65,12 +65,12 @@ def buildAllCorpus(document_type='photo'):
                                      
     nyc = Region(coordinates)
     region_list = nyc.divideRegions(25, 25)
-    region_list = nyc.filterRegions(region_list, test=True, n=25, m=25, document_type=document_type)
+    region_list = nyc.filterRegions(region_list, test=True, n=25, m=25, element_type=element_type)
     now = int(tool.getCurrentStampUTC())
     
     for region in region_list:
         r = Region(region)
-        cor = buildCorpus(r, [now - 14 *3600 *24, now], document_type)
+        cor = buildCorpus(r, [now - 14 *3600 *24, now], element_type)
         all_corpus[r.toJSON()] = cor
         print getTfidfVector(cor, 'i love ny nyc park')
 
