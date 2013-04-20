@@ -80,8 +80,8 @@ def generateData2():
         
     for event in true_event_list + false_event_list:
         r = Region(event['region'])
-		corpus = all_corpus[r.getKey()]
-		BaseFeature(event, corpus, None).printFeatures()
+        corpus = all_corpus[r.getKey()]
+        BaseFeature(event, corpus, None).printFeatures()
 
 def main():
 	generateData2()

@@ -396,7 +396,7 @@ class BaseFeature(BaseEvent):
             h += - math.log(pr)/math.log(2)*pr
         return h
             
-    def getRatioOfPeopleToBaseEvent(self._type, self):
+    def getRatioOfPeopleToBaseEvent(self):
         # not a good feature
         return 1.0 * self.getActualValue() / len(self._event[self._element_type])
         
@@ -433,11 +433,10 @@ class BaseFeature(BaseEvent):
         
         end_time = self.getLatestElementTime()
         begin_time = self.getEarliestElementTime()
-        
-		if self._element_type == 'photos':
-			pi = PhotoInterface()
-		else:
-			pi = TweetInterface()
+        if self._element_type == 'photos':
+            pi = PhotoInterface()
+        else:
+            pi = TweetInterface()
         
         elements = []
         dt = 0
