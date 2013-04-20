@@ -23,10 +23,9 @@ class BaseFeature(BaseEvent):
     # to prevent the class Event from being too long to read
     
     def __init__(self, event, corpus=None, representor=None):
-        self._type = tool.getEventType(event)
-        self._event = BaseEvent(self._type, event).toDict()
         self._representor = representor
         self._corpus = corpus
+        super(BaseFeature, self).__init__(tool.getEventType(event), event)
     
     def getDuration(self):
         return self.getLatestElementTime() - self.getEarliestElementTime()
