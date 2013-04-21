@@ -1,5 +1,7 @@
 from event_interface import EventInterface
 from base_event import BaseEvent
+from photo_interface import PhotoInterface
+from tweet_interface import TweetInterface
 from region import Region
 from event import Event
 from photo import Photo
