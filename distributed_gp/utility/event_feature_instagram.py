@@ -1,9 +1,9 @@
-from event_feature import EventFeature
+from base_feature import BaseFeature
 
-class EventFeatureInstagram(EventFeature):
+class BaseFeatureInstagram(BaseFeature):
     
     def __init__(self, event, corpus=None, representor=None):
-        super(EventFeature, self).__init__(event)
+        super(BaseFeature, self).__init__(event)
         # note that, if you want to use any feature related with tfidf, corpus must be set
         # the the definition of Corpus class in corpus.py
         if corpus is not None:

@@ -14,12 +14,12 @@ import types
 import random
 import math
 
-class EventFeature(Event):
+class BaseFeature(Event):
 	# this class is the extension of class Event, especially for feature extraction
 	# to prevent the class Event from being too long to read
 	
 	def __init__(self, event):
-		super(EventFeature, self).__init__(event)
+		super(BaseFeature, self).__init__(event)
 				
 	def _getPhotoAvgLocation(self):
 		photos = self._event['photos']
@@ -250,7 +250,7 @@ class EventFeature(Event):
 		event.setPhotos(photos)
 		event.setRegion(self._event['region'])
 		event.setActualValue(event.getActualValueByCounting())
-		event = EventFeature(event)
+		event = BaseFeature(event)
 		
 		# compute the difference between entropy
 		# this has been smoothed
@@ -290,11 +290,11 @@ def generateData(biased=True):
 	ei.setCollection('labeled_event')
 	events = ei.getAllDocuments()
 	
-	EventFeature.GenerateArffFileHeader()
+	BaseFeature.GenerateArffFileHeader()
 	true_events = []
 	false_events = []
 	for event in events:
-		event = EventFeature(event)
+		event = BaseFeature(event)
 		feature_vector = event.extractFeatures(3)
 		if feature_vector[-1] == 1:
 			true_events.append(feature_vector)
@@ -324,5 +324,5 @@ if __name__=='__main__':
 #	ei.setDB('historic_alarm')
 #	ei.setCollection('labeled_event')
 #	event = ei.getDocument()
-#	e = EventFeature(event)
+#	e = BaseFeature(event)
 #	e.getHistoricFeatures()

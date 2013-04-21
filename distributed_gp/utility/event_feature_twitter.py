@@ -1,5 +1,5 @@
 from tweet_interface import TweetInterface
-from event_feature import EventFeature
+from base_feature import BaseFeature
 from tweet import Tweet
 from event_interface import EventInterface
 from photo_interface import PhotoInterface
@@ -18,7 +18,7 @@ import random
 import math
 import numpy
 
-class EventFeatureTwitter(EventFeature):
+class BaseFeatureTwitter(BaseFeature):
     
     def extractFeatures(self, entropy_para=3, k_topwords=3):
         # it outputs the feature vector
@@ -164,5 +164,5 @@ if __name__== '__main__':
 #   ei.setDB('historic_alarm')
 #   ei.setCollection('labeled_event')
 #   event = ei.getDocument()
-#   e = EventFeature(event)
+#   e = BaseFeature(event)
 #   e.getHistoricFeatures()

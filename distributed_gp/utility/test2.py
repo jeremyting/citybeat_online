@@ -1,5 +1,5 @@
 from event_interface import EventInterface
-from event_feature import EventFeature
+from base_feature import BaseFeature
 from photo_interface import PhotoInterface
 from photo import Photo
 from region import Region

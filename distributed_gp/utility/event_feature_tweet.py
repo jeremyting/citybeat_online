@@ -18,12 +18,12 @@ import random
 import math
 import numpy
 
-class EventFeature(Event):
+class BaseFeature(Event):
     # this class is the extension of class Event, especially for feature extraction
     # to prevent the class Event from being too long to read
     
     def __init__(self, event, corpus=None, representor=None):
-        super(EventFeature, self).__init__(event)
+        super(BaseFeature, self).__init__(event)
         # note that, if you want to use any feature related with tfidf, corpus must be set
         # the the definition of Corpus class in corpus.py
         if corpus is not None:
@@ -483,7 +483,7 @@ class EventFeature(Event):
         historic_event.setPhotos(photos)
         historic_event.setRegion(self._event['region'])
         historic_event.setActualValue(historic_event._getActualValueByCounting())
-        historic_event = EventFeature(historic_event)
+        historic_event = BaseFeature(historic_event)
         
         # compute the difference between entropy
         # this has been smoothed
@@ -521,7 +521,7 @@ class EventFeature(Event):
     
     def computeWordKLDivergenceWith(self, event):
         if type(event) is types.DictType:
-            fake_event = EventFeature(event)
+            fake_event = BaseFeature(event)
         else:
             fake_event = event
         event_topword_list = self._getTopWords(-1, True)
@@ -549,5 +549,5 @@ if __name__=='__main__':
 #   ei.setDB('historic_alarm')
 #   ei.setCollection('labeled_event')
 #   event = ei.getDocument()
-#   e = EventFeature(event)
+#   e = BaseFeature(event)
 #   e.getHistoricFeatures()

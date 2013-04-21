@@ -1,7 +1,7 @@
 from event_interface import EventInterface
-from event_feature import EventFeature
-from event_feature_instagram import EventFeatureInstagram
-from event_feature_sparse import EventFeatureSparse
+from base_feature import BaseFeature
+from base_feature_instagram import BaseFeatureInstagram
+from base_feature_sparse import BaseFeatureSparse
 from photo_interface import PhotoInterface
 from photo import Photo
 from region import Region
@@ -57,12 +57,12 @@ def generateData():
     #rep = Representor(None, 'citybeat', 'next_week_candidate_event_25by25_merged')
     all_corpus = buildAllCorpus()
     true_event_list, false_event_list = loadNextWeekData()
-    #EventFeature(None).GenerateArffFileHeader()
+    #BaseFeature(None).GenerateArffFileHeader()
         
     for event in true_event_list + false_event_list:
         r = Region(event['region'])
         corpus = all_corpus[r.getKey()]
-        EventFeatureInstagram(event, corpus, None).printFeatures()
+        BaseFeatureInstagram(event, corpus, None).printFeatures()
 
         
 def main():

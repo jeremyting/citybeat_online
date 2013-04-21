@@ -10,7 +10,7 @@ import time
 from utility.event_interface import EventInterface
 from utility.event import Event
 
-from utility.event_feature import EventFeature
+from utility.base_feature import BaseFeature
 from utility.corpus import Corpus
 
 import random
@@ -180,7 +180,7 @@ class Root:
     
     def getTopKeywords(self, event_id):
         event = self.ei.getEventByID(event_id)
-        ef = EventFeature(event)
+        ef = BaseFeature(event)
         words = ef.getTopKeywords(k=10)
         return json.dumps(words)
     #getTopKeywords.exposed = True

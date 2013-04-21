@@ -1,5 +1,5 @@
 from event_interface import EventInterface
-from event_feature import EventFeature
+from base_feature import BaseFeature
 from photo_interface import PhotoInterface
 from photo import Photo
 from region import Region
@@ -19,12 +19,12 @@ import types
 import random
 import math
 
-class EventFeatureSparse(EventFeature):
+class BaseFeatureSparse(BaseFeature):
     # this class is the extension of class Event, especially for feature extraction
     # to prevent the class Event from being too long to read
     
     def __init__(self, event, corpus=None, representor=None):
-        super(EventFeatureSparse, self).__init__(event, corpus, representor)
+        super(BaseFeatureSparse, self).__init__(event, corpus, representor)
     
     def getAllWordTFIDF(self):
         index_list, word_list, tfidf_list = self._representor.getTfidfVector(self._event)
@@ -71,5 +71,5 @@ if __name__=='__main__':
 #   ei.setDB('historic_alarm')
 #   ei.setCollection('labeled_event')
 #   event = ei.getDocument()
-#   e = EventFeature(event)
+#   e = BaseFeature(event)
 #   e.getHistoricFeatures()
