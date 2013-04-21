@@ -6,7 +6,7 @@ from photo_interface import PhotoInterface
 from photo import Photo
 from region import Region
 from event import Event
-from caption_parser import CaptionParser
+from text_parser import TextParser
 from stopwords import Stopwords
 from bson.objectid import ObjectId
 from corpus import Corpus

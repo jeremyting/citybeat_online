@@ -3,7 +3,7 @@ import tool
 import operator
 
 
-class CaptionParser:
+class TextParser:
     
     def __init__(self, stopword_removal):
         self._word_dict = {}
@@ -27,15 +27,15 @@ class CaptionParser:
             return new_top_words
         return new_top_words[0:min(k, len(new_top_words))]
     
-    def insertCaption(self, cap):
+    def insertText(self, cap):
         if cap is None or len(cap) == 0:
             return
         self._document_number = self._document_number + 1
-        tmp_dict = self._preprocessCaption(cap)
+        tmp_dict = self._preprocessText(cap)
         for word in tmp_dict.keys():
             self._word_dict[word] = self._word_dict.get(word, 0) + 1
     
-    def _preprocessCaption(self, cap):
+    def _preprocessText(self, cap):
         
         new_cap = tool.textPreprocessor(cap)
              
@@ -57,7 +57,7 @@ class CaptionParser:
         
         
 if __name__ == '__main__':
-    cp = CaptionParser(True)
+    cp = TextParser(True)
     cap1 = 'gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb gfd #@ @xia@2b #xcv@xcb hahasb@bbb'
     cap2 = 'YousbLoveMesb'
-    print cp._preprocessCaption(cap2)
+    print cp._preprocessText(cap2)

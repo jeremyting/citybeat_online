@@ -1,5 +1,5 @@
 from photo_interface import PhotoInterface
-from caption_parser import CaptionParser
+from text_parser import TextParser
 from photo import Photo
 from mongodb_interface import MongoDBInterface
 

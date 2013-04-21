@@ -1,12 +1,8 @@
 from event_interface import EventInterface
-from event_feature import EventFeature
-from event_feature_instagram import EventFeatureInstagram
-from event_feature_sparse import EventFeatureSparse
-from photo_interface import PhotoInterface
-from photo import Photo
+from base_feature import BaseFeature
 from region import Region
 from event import Event
-from caption_parser import CaptionParser
+from text_parser import TextParser
 from stopwords import Stopwords
 from bson.objectid import ObjectId
 from corpus import Corpus
@@ -22,7 +18,6 @@ import math
 import sys
 
 def loadUnbalancedData():
-    
     # load modified 
     
     ei = EventInterface()
@@ -75,32 +70,24 @@ def loadUnbalancedData():
     fid.close()
     return true_events, false_events
 
-def generateData2(sparse=False):
+def generateData2():
 #   if sparse:
     #rep = Representor()
 
-    all_corpus = buildAllCorpus()
+    all_corpus = buildAllCorpus(time_interval_length=14, debug=True)
     true_event_list, false_event_list = loadUnbalancedData()
-
-    if sparse:
-        word_index, word_list = getCorpusWordList(rep, true_event_list + false_event_list)
-        EventFeatureSparse(None).GenerateArffFileHeader(word_list)
-    else:
-        EventFeature(None).GenerateArffFileHeader()
+    BaseFeature.GenerateArffFileHeader()
         
     for event in true_event_list + false_event_list:
         r = Region(event['region'])
         corpus = all_corpus[r.getKey()]
-        if not sparse:
-            EventFeature(event, corpus, None).printFeatures()
-        else:
-            EventFeatureSparse(event, corpus, rep).printFeatures(word_index)
+        BaseFeature(event, corpus, None).printFeatures()
 
 def main():
-    generateData2()
+	generateData2()
 
 if __name__=='__main__':
-    main()
+	main()
     
     
     

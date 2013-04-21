@@ -1,5 +1,5 @@
 from event_interface import EventInterface
-from caption_parser import CaptionParser
+from text_parser import TextParser
 from photo import Photo
 from stopwords import Stopwords
 
@@ -9,6 +9,7 @@ from photo import Photo
 from tweet import Tweet
 from region import Region
 from config import InstagramConfig
+from config import TwitterConfig
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
@@ -25,19 +26,19 @@ import operator
 
 class Corpus(object):
 
-    def buildCorpus(self, region, time_interval, document_type='photo'):
+    def buildCorpus(self, region, time_interval, element_type='photos'):
         # time_interval should be [start, end]
-        if document_type == 'photo':
+        if element_type == 'photos':
             di = PhotoInterface()
         else:
             di = TweetInterface()
         cur = di.rangeQuery(region, time_interval)
         text = []
-        for document in cur:
-            if document_type == 'photo':
-                doc = Photo(document)
+        for element in cur:
+            if element_type == 'photos':
+                doc = Photo(element)
             else:
-                doc = Tweet(document)
+                doc = Tweet(element)
             t = doc.getText()
             #at least 5 length
             if len(t) > 4:
@@ -45,8 +46,9 @@ class Corpus(object):
         # it is not proper here to set up stopwords
         self._vectorizer = TfidfVectorizer(max_df=0.20, min_df=0, strip_accents='ascii',
                                            preprocessor=tool.textPreprocessor,
-                                                 smooth_idf=True, sublinear_tf=True, norm='l2', 
-                                                                       analyzer='word', ngram_range=(1,1), stop_words = 'english')
+                                           smooth_idf=True, sublinear_tf=True, norm='l2', 
+                                           analyzer='word', ngram_range=(1,1), stop_words = 'english')
+                                           
         self._vectorizer.fit_transform(text)
             
     def chooseTopWordWithHighestTDIDF(self, text, k=10):
@@ -65,29 +67,33 @@ class Corpus(object):
         return values
 
 
-def buildAllCorpus(document_type='photo', time_interval_length=14):
+def buildAllCorpus(element_type='photos', time_interval_length=14, debug=False):
     # return a dict = {region : its local corpus}
-    assert document_type in ['photo', 'tweet']
+    assert element_type in ['photos', 'tweets']
     
     all_corpus = {}
-    if document_type == 'photo':
+    if element_type == 'photos':
         coordinates = [InstagramConfig.photo_min_lat, InstagramConfig.photo_min_lng,
-                                     InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
+                       InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
     else:
-      coordinates = [TwitterConfig.photo_min_lat, TwitterConfig.photo_min_lng,
-                                     TwitterConfig.photo_max_lat, TwitterConfig.photo_max_lng]
+        coordinates = [TwitterConfig.min_lat, TwitterConfig.min_lng,
+                       TwitterConfig.max_lat, TwitterConfig.max_lng]
                                      
     nyc = Region(coordinates)
     region_list = nyc.divideRegions(25, 25)
-    region_list = nyc.filterRegions(region_list, test=True, n=25, m=25, document_type=document_type)
+    region_list = nyc.filterRegions(region_list, test=True, n=25, m=25, element_type=element_type)
     
     # 14 days ago
     now = int(tool.getCurrentStampUTC()) - 40 *3600 *24
     
     num = 0
     for region in region_list:
-        cor = Corpus()
-        cor.buildCorpus(region, [now - time_interval_length *3600 *24, now], document_type)
+        if debug and num > 0:
+            # speed up the debugging
+            pass
+        else:
+            cor = Corpus()
+            cor.buildCorpus(region, [now - time_interval_length *3600 *24, now], element_type)
         all_corpus[region.getKey()] = cor
         num += 1
         print 'build corpus %d' % (num)  
