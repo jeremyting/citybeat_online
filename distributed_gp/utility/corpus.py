@@ -26,19 +26,19 @@ import operator
 
 class Corpus(object):
 
-    def buildCorpus(self, region, time_interval, element_type='photo'):
+    def buildCorpus(self, region, time_interval, element_type='photos'):
         # time_interval should be [start, end]
-        if element_type == 'photo':
+        if element_type == 'photos':
             di = PhotoInterface()
         else:
             di = TweetInterface()
         cur = di.rangeQuery(region, time_interval)
         text = []
-        for document in cur:
-            if element_type == 'photo':
-                doc = Photo(document)
+        for element in cur:
+            if element_type == 'photos':
+                doc = Photo(element)
             else:
-                doc = Tweet(document)
+                doc = Tweet(element)
             t = doc.getText()
             #at least 5 length
             if len(t) > 4:
@@ -46,8 +46,9 @@ class Corpus(object):
         # it is not proper here to set up stopwords
         self._vectorizer = TfidfVectorizer(max_df=0.20, min_df=0, strip_accents='ascii',
                                            preprocessor=tool.textPreprocessor,
-                                                 smooth_idf=True, sublinear_tf=True, norm='l2', 
-                                                                       analyzer='word', ngram_range=(1,1), stop_words = 'english')
+                                           smooth_idf=True, sublinear_tf=True, norm='l2', 
+                                           analyzer='word', ngram_range=(1,1), stop_words = 'english')
+                                           
         self._vectorizer.fit_transform(text)
             
     def chooseTopWordWithHighestTDIDF(self, text, k=10):
