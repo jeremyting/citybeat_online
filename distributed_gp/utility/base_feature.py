@@ -286,7 +286,7 @@ class BaseFeature(BaseEvent):
         n = len(elements)
         # n would be very small when we compute the historical features
         if n < 2:
-            return [2.0, 2.0, 0, 2.0, 2.0]
+            return [2.0, 2.0]
         
         # add three features
         # how much percentage of elements in one sigma
@@ -479,7 +479,7 @@ class BaseFeature(BaseEvent):
         
         topic_divergence = self.computeWordKLDivergenceWith(historic_event)
         
-        return [historic_event.getElementDisFeatures()[3], topic_divergence,
+        return [historic_event.getElementDisFeatures()[1], topic_divergence,
 #               historic_event.getEntropy(entropy_para),
                 entropy_divergence]
     
