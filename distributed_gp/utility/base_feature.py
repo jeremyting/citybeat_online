@@ -410,7 +410,7 @@ class BaseFeature(BaseEvent):
         k = min(k, len(self._event[self._element_type]))
         for element in self._event[self._element_type]:
             element = createElement(self._element_type, element)
-            location_name = p.getLocationName()
+            location_name = element.getLocationName()
             if location_name == '':
                     continue
             cur_freq = freq.get(location_name, 0) + 1
