@@ -137,7 +137,7 @@ class BaseFeature(BaseEvent):
         event_id = str(self._event['_id'])
         
         tfidf_top3 = self.getTopWordByTFIDF(3)
-        res = self.countHashtagFromElementContainingTopKeywords(3)
+        res = self.countHashtagFromElementContainingTopKeyword(3)
         hashtage_cnt3 = res[0]
         number_elements_associated_with_keywords3 = res[1]
         
