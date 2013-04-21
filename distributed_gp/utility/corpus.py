@@ -88,11 +88,11 @@ def buildAllCorpus(element_type='photos', time_interval_length=14, debug=False):
     
     num = 0
     for region in region_list:
-        cor = Corpus()
         if debug and num > 0:
             # speed up the debugging
             pass
         else:
+            cor = Corpus()
             cor.buildCorpus(region, [now - time_interval_length *3600 *24, now], element_type)
         all_corpus[region.getKey()] = cor
         num += 1
