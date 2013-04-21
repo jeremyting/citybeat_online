@@ -444,7 +444,7 @@ class BaseFeature(BaseEvent):
         
         elements = []
         dt = 0
-        for day in xrange(1,15):
+        for day in xrange(1,8):
             # here 15 is hard coded because we use 14 days' data as the training
             et = end_time - day * 24 * 3600 + dt / 2
             bt = begin_time - day * 24 * 3600 - dt / 2
