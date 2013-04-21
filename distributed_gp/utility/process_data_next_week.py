@@ -1,6 +1,6 @@
 from event_interface import EventInterface
 from base_feature import BaseFeature
-from base_feature_instagram import BaseFeatureInstagram
+from base_feature import BaseFeature
 from base_feature_sparse import BaseFeatureSparse
 from photo_interface import PhotoInterface
 from photo import Photo
@@ -62,7 +62,7 @@ def generateData():
     for event in true_event_list + false_event_list:
         r = Region(event['region'])
         corpus = all_corpus[r.getKey()]
-        BaseFeatureInstagram(event, corpus, None).printFeatures()
+        BaseFeature(event, corpus, None).printFeatures()
 
         
 def main():

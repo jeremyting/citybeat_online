@@ -1,6 +1,6 @@
 from base_feature import BaseFeature
 
-class BaseFeatureInstagram(BaseFeature):
+class BaseFeature(BaseFeature):
     
     def __init__(self, event, corpus=None, representor=None):
         super(BaseFeature, self).__init__(event)

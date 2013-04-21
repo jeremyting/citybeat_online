@@ -8,7 +8,7 @@
 #           put it back to front-end db
 
 from utility.event_interface import EventInterface
-from utility.base_feature_instagram import BaseFeatureInstagram
+from utility.base_feature import BaseFeature
 from utility.corpus import buildAllCorpus
 from utility.region import Region
 from utility.event import Event
@@ -40,7 +40,7 @@ class EventMonitor():
             cnt+=1
             region = Region(e.getRegion())
             corpus = self.all_corpus[region.getKey()]
-            ef = BaseFeatureInstagram(e, corpus)     
+            ef = BaseFeature(e, corpus)     
             prob = self.clf.classify(ef.extractFeatures())
             
             ei_backup.addEvent(e)
