@@ -54,7 +54,7 @@ class BaseFeature(BaseEvent):
         for i in xrange(0, len(word_element_list)):
             j = 0
             for element in word_element_list[i][2]:
-                p = BaseEvent(self._element_type, element)
+                p = createElement(self._element_type, element)
                 cap = p.getText()
                 j += 1
                 cnt[i] += cap.count('#')
@@ -113,8 +113,8 @@ class BaseFeature(BaseEvent):
         # get top words by counting the frequecy
         text_parser = TextParser(stopword_removal=stopword_removal)
         for element in self._event[self._element_type]:
-            p = BaseEvent(self._element_type, element)
-            text = p.getText()
+            element = createElement(self._element_type, element)
+            text = element.getText()
             if not text is None:
                 text_parser.insertText(text)
         return text_parser.getTopWords(k)
@@ -217,12 +217,8 @@ class BaseFeature(BaseEvent):
         
         def ElementDistanceByText(element1, element2):
             
-            if self._element_type == 'photos':
-                p1 = Photo(element1)
-                p2 = Photo(element2)
-            else:
-                p1 = Tweet(element1)
-                p2 = Tweet(element2)
+            p1 = createElement(self._element_type, element1)
+            p2 = createElement(self._element_type, element2)
             cap1 = p1.getText()
             cap2 = p2.getText()
             cp1 = TextParser(True)
@@ -315,10 +311,7 @@ class BaseFeature(BaseEvent):
         cap_lens = 0
         elements = self._event[self._element_type]
         for element in elements:
-            if self._element_type == 'photos':
-                element = Photo(element)
-            else:
-                element = Tweet(element)
+            element = createElement(self._element_type, element)
             cap_len = len(element.getText())
             if cap_len > 0:
                 cap_lens += cap_len
@@ -333,20 +326,18 @@ class BaseFeature(BaseEvent):
         cap_number = 0
         elements = self._event[self._element_type]
         for element in elements:
-            if self._element_type == 'photos':
-                element = Photo(element)
-            else:
-                element = Tweet(element)
+            element = createElement(self._element_type, element)
             cap_len = len(element.getText())
             if cap_len > 0:
                 cap_number += 1
         return cap_number * 1.0 / len(elements)
     
     def _getAllTexts(self):
-        cap = ''
+        text = ''
         for element in self._event[self._element_type]:
-            cap += BaseEvent(self._element_type, element).getText() + ' '
-        return cap.strip()
+            element = createElement(self._element_type, element)
+            text += element.getText() + ' '
+        return text.strip()
     
     def getTopWordPopularity(self, k=1):
         # compute the average popularity of k-top words
@@ -416,7 +407,7 @@ class BaseFeature(BaseEvent):
         most_freq = 0
         k = min(k, len(self._event[self._element_type]))
         for element in self._event[self._element_type]:
-            p = BaseEvent(self._element_type, element)
+            element = createElement(self._element_type, element)
             location_name = p.getLocationName()
             if location_name == '':
                     continue
@@ -429,11 +420,12 @@ class BaseFeature(BaseEvent):
     def checkIfTopElementLocationSame(self, k=3):
         k = min(k, len(self._event[self._element_type]))
         elements = self._event[self._element_type]
-        location_name = BaseEvent(self._element_type, elements[0]).getLocationName()
+        element = createElement(self._element_type, elements[0])        
+        location_name = element.getLocationName()
         if location_name == '':
             return 0
         for i in xrange(1, k):
-            if not BaseEvent(self._element_type, elements[i]).getLocationName() == location_name:
+            if not createElement(self._element_type, elements[i]).getLocationName() == location_name:
                 return 0
         return 1
             
@@ -494,7 +486,7 @@ class BaseFeature(BaseEvent):
         text1 = ''
         text2 = ''
         for element in self._event[self._element_type]:
-            p = BaseEvent(self._element_type, element)
+            p = createElement(self._element_type, element)
             text1 += ' '
             text1 += p.getText()
         
@@ -502,7 +494,7 @@ class BaseFeature(BaseEvent):
             event = event.toDict()
             
         for element in event[self._element_type]:
-            p = BaseEvent(self._element_type, element)
+            p = createElement(self._element_type, element)
             text2 += ' '
             text2 += p.getText()
         return kldiv(tokenize(text1), tokenize(text2))
@@ -529,7 +521,15 @@ class BaseFeature(BaseEvent):
             freq2[ind[word]] = freq
         topic_divergence = KLDivergence.averageKLDivergence(freq1, freq2)
         return topic_divergence
-    
+
+
+
+# auxiliary method
+def createElement(element_type, element):
+    if element_type == 'Photos':
+        return Photo(element)
+    else:
+        return Tweet(element)
             
 if __name__=='__main__':
     generateData()

@@ -66,7 +66,7 @@ class Corpus(object):
         return values
 
 
-def buildAllCorpus(element_type='photos', time_interval_length=14):
+def buildAllCorpus(element_type='photos', time_interval_length=14, debug=False):
     # return a dict = {region : its local corpus}
     assert element_type in ['photos', 'tweets']
     
@@ -88,7 +88,11 @@ def buildAllCorpus(element_type='photos', time_interval_length=14):
     num = 0
     for region in region_list:
         cor = Corpus()
-        cor.buildCorpus(region, [now - time_interval_length *3600 *24, now], element_type)
+        if debug and num > 0:
+            # speed up the debugging
+            pass
+        else:
+            cor.buildCorpus(region, [now - time_interval_length *3600 *24, now], element_type)
         all_corpus[region.getKey()] = cor
         num += 1
         print 'build corpus %d' % (num)  

@@ -74,7 +74,7 @@ def generateData2():
 #   if sparse:
     #rep = Representor()
 
-    all_corpus = buildAllCorpus(time_interval_length=3)
+    all_corpus = buildAllCorpus(time_interval_length=14, debug=True)
     true_event_list, false_event_list = loadUnbalancedData()
     BaseFeature.GenerateArffFileHeader()
         
