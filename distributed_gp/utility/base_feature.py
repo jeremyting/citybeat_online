@@ -528,7 +528,7 @@ class BaseFeature(BaseEvent):
 
 # auxiliary method
 def createElement(element_type, element):
-    if element_type == 'Photos':
+    if element_type == 'photos':
         return Photo(element)
     else:
         return Tweet(element)
