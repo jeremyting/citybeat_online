@@ -78,7 +78,7 @@ class Region:
                 region_list.append(r)
         return region_list
     
-    def filterRegions(self, region_list, percentage=InstagramConfig.region_percentage,test=False, n=10, m=10, element_type='photo'):
+    def filterRegions(self, region_list, percentage=InstagramConfig.region_percentage,test=False, n=10, m=10, element_type='photos'):
         assert element_type in ['photos', 'tweets']
         if test:
             #n and m should be set if test is true
