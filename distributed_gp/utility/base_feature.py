@@ -449,11 +449,13 @@ class BaseFeature(BaseEvent):
             et = end_time - day * 24 * 3600 + dt / 2
             bt = begin_time - day * 24 * 3600 - dt / 2
             day_elements = pi.rangeQuery(self._event['region'], [str(bt), str(et)])
-            for element in day_elements:
-                # since rangeQuery sorts the elements from the most current to the most early
-                # thus all the elements in the List "elements" are sorted by their created time from 
-                # the most current to the most early
-                elements.append(element)
+            inds = range(0, day_elements.count())
+            # only select 40 elements
+            if len(inds) > 40:
+                random.shuffle(inds)
+                inds = inds[0:40]
+            for i in inds:
+                elements.append(day_elements[i])
                 
         random.shuffle(elements)
         elements = elements[0:min(len(self._event[self._element_type]), len(elements))]

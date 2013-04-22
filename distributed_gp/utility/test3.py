@@ -1,6 +1,5 @@
 from event_interface import EventInterface
 from base_feature import BaseFeature
-from base_feature_sparse import BaseFeatureSparse
 from photo_interface import PhotoInterface
 from photo import Photo
 from region import Region
@@ -98,8 +97,18 @@ def main():
     print pos
     print tot
 
+def test():
+    pi = PhotoInterface()
+    cur = pi.getAllDocuments()
+    l = [i for i in xrange(0,cur.count())]
+    random.shuffle(l)
+    print l[0:100]
+    for i in l[0:100]:
+        print cur[i]
+
 if __name__=='__main__':
-    main()
+    #test()
+    print range(0,10)
     
     
     

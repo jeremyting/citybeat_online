@@ -1,5 +1,6 @@
 from event_interface import EventInterface
 from base_feature import BaseFeature
+from base_feature_production import BaseFeatureProduction
 from region import Region
 from event import Event
 from text_parser import TextParser
@@ -76,12 +77,12 @@ def generateData2():
 
     all_corpus = buildAllCorpus(time_interval_length=14, debug=True)
     true_event_list, false_event_list = loadUnbalancedData()
-    BaseFeature.GenerateArffFileHeader()
+    BaseFeatureProduction.GenerateArffFileHeader()
         
     for event in true_event_list + false_event_list:
         r = Region(event['region'])
         corpus = all_corpus[r.getKey()]
-        BaseFeature(event, corpus, None).printFeatures()
+        BaseFeatureProduction(event, corpus, None).printFeatures()
 
 def main():
 	generateData2()
