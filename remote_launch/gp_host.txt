@@ -9,11 +9,9 @@ pacman.rutgers.edu
 millipede.rutgers.edu
 tron.rutgers.edu
 arkanoid.rutgers.edu
-breakout.rutgers.edu
 foodfight.rutgers.edu
 oak.rutgers.edu
 mco.rutgers.edu
-okc.rutgers.edu
 pit.rutgers.edu
 syr.rutgers.edu
 ord.rutgers.edu
@@ -35,7 +33,6 @@ stl.rutgers.edu
 yum.rutgers.edu
 tus.rutgers.edu
 hnl.rutgers.edu
-dfw.rutgers.edu
 koa.rutgers.edu
 ict.rutgers.edu
 mdw.rutgers.edu

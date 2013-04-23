@@ -20,6 +20,7 @@ def save_to_mongo(_results, _saved, model_update_time, data_source):
         result_pair = _results[key]
         if result_pair[1].return_value is None:
             done = False
+            print 'did not finish ',key
             continue
         else:
             if _saved[key] == False:
@@ -55,9 +56,9 @@ def run(data_source):
     nyc_region = Region(coordinates)
     regions = nyc_region.divideRegions(25, 25)
     if data_source == 'twitter':
-        regions = nyc_region.filterRegions(regions, test=True, n=25, m=25, document_type='tweet')
+        regions = nyc_region.filterRegions(regions, test=True, n=25, m=25, element_type='tweets')
     elif data_source == 'instagram':
-        regions = nyc_region.filterRegions(regions, test=True, n=25, m=25, document_type='photo')
+        regions = nyc_region.filterRegions(regions, test=True, n=25, m=25, element_type='photos')
 
     #regions = huge_region.divideRegions(25,25)
     #filtered_regions = huge_region.filterRegions( regions )
@@ -74,8 +75,9 @@ def run(data_source):
     redis_conn = Redis("tall4")
     redis_queue = Queue(connection = redis_conn)
     fourteen_days_ago = cur_utc_timestamp - 24*14*3600
-
+    
     for i in range(len(regions)):
+        print 'working on ',i
         test_region = regions[i]
         try:
             gp = GaussianProcessJob( test_region, str(fourteen_days_ago), str(cur_utc_timestamp) , redis_queue)
@@ -85,13 +87,13 @@ def run(data_source):
             continue
         _results[gp.getID()] = (test_region, res, pred_time)
         _saved[ gp.getID() ] = False
-        break #comment this
 
     save_to_mongo(_results, _saved, cur_utc_timestamp, data_source) 
     done = False
     while not done:
         done = save_to_mongo(_results, _saved, cur_utc_timestamp, data_source)
         time.sleep(10)
+        print 'still waiting'
 
     print 'finish work' 
 if __name__ == "__main__":

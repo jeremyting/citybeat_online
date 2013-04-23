@@ -31,8 +31,8 @@ def Predict(arg1, arg2, arg3):
     fout.close()
 
     outputFile = path + 'prediction' + str(arg3) + '.out'
-
-    os.chdir('/grad/users/kx19/CityBeat/distributed_gp')
+    matlab_path = "/grad/users/kx19/citybeat_online/distributed_gp"
+    os.chdir(matlab_path)
 
     shellComm = "matlab -r \'my_gp2 %s %s %s %s\'" %(trainingDataFile, testDataFile, outputFile, str(arg3))
     call([shellComm], shell=True)

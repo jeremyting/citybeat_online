@@ -41,7 +41,7 @@ class Alarm():
     def getNearestPrediction(self):
         pi = PredictionInterface()
         pi.setDB('citybeat_production')
-        pi.setCollection('online_prediction')
+        pi.setCollection('online_prediction_instagram')
         self.region.display()
         print str(self.cur_time)
         return pi.getNearestPrediction(self.region, str(self.cur_time))
@@ -88,7 +88,7 @@ class Alarm():
         zscore = (self.current_value - mu)*1.0/std
 
         print 'trying'
-        if zscore > 0:   #comment this
+        if zscore > 3.0:   #comment this
             print 'in alarm!'
             e = Event()
             e.setPredictedValues(mu, std)
@@ -105,8 +105,8 @@ class Alarm():
             ei.setCollection(self.candidate_collection)
             print e.getEarliestPhotoTime(),e.getLatestPhotoTime()
             #print e.toDict()['region']
-            #ei.addEvent(e)
-            ei.addEventWithoutMerge(e)
+            ei.addEvent(e)
+            #ei.addEventWithoutMerge(e)
             # modified by xia
 
 
@@ -123,9 +123,9 @@ def run(data_source):
     regions = nyc_region.divideRegions(alarm_region_size,alarm_region_size)
     
     if data_source == 'twitter':
-        regions = nyc_region.filterRegions( region_list = regions, test=True, n=alarm_region_size, m = alarm_region_size, document_type='tweet')
+        regions = nyc_region.filterRegions( region_list = regions, test=True, n=alarm_region_size, m = alarm_region_size, element_type= 'tweets')
     elif data_source == 'instagram':
-        regions = nyc_region.filterRegions( region_list = regions, test=True, n=alarm_region_size, m = alarm_region_size, document_type = 'photo')
+        regions = nyc_region.filterRegions( region_list = regions, test=True, n=alarm_region_size, m = alarm_region_size, element_type = 'photos')
         
 
     cur_utc_time = getCurrentStampUTC() 

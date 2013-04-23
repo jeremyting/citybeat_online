@@ -57,7 +57,7 @@ class EventMonitor():
             time.sleep(60)
 
 def test():
-    em = EventMonitor('citybeat', 'candidate_event_15by15_merged',  'citybeat', 'instagram_front_end_events', 'citybeat', 'event_backup_instagram')
+    em = EventMonitor('citybeat_production', 'online_candidate_instagram',  'citybeat_production', 'instagram_front_end_events', 'citybeat_production', 'event_backup_instagram')
     em.goThroughCandidateDB()
 
 if __name__=='__main__':
