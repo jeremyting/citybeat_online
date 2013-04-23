@@ -24,7 +24,7 @@ class EventMonitor():
         self.event_backup_db = event_backup_db
         self.event_backup_collection = event_backup_collection 
 
-        self.all_corpus = buildAllCorpus( time_interval_length = 2)
+        self.all_corpus = buildAllCorpus( time_interval_length = 14)
         self.clf = classifier.Classifier() 
 
     def goThroughCandidateDB(self):
