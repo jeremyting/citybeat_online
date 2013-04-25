@@ -3,6 +3,9 @@ from event import Event
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from math import sqrt
+from photo import Photo
+from tweet import Tweet
+
 import numpy as np
 from scipy.sparse import *
 from sklearn.metrics.pairwise import linear_kernel
