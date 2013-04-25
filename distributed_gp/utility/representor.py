@@ -41,7 +41,7 @@ class Representor():
         paras['analyzer'] = 'char_wb'
         paras['ngram_range'] = (4,4)
         paras['stop_words'] = 'english'
-        self._corpus_dicts = buildAllCorpus(element_type=self._element_type, debug=True, paras=paras)
+        self._corpus_dicts = buildAllCorpus(element_type=self._element_type, paras=paras)
         
 
     def _preProcessor(self, caption):
