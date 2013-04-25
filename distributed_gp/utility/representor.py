@@ -41,7 +41,7 @@ class Representor():
         paras['analyzer'] = 'char_wb'
         paras['ngram_range'] = (4,4)
         paras['stop_words'] = 'english'
-        self._corpus_dicts = buildAllCorpus(element_type=self._element_type, paras=paras)
+        self._corpus_dicts = buildAllCorpus(element_type=self._element_type, debug=True, paras=paras)
         
 
     def _preProcessor(self, caption):
@@ -88,7 +88,7 @@ class Representor():
     def getRepresentivePhotos(self, event):
        
         event_text = self._getEventText(event)
-        region = Region(Event(event).toDict())
+        region = Region(Event(event).toDict()['region'])
         corpus = self._corpus_dicts[region.getKey()]
         event_tfidf = corpus.getVectorizer().transform(event_text)
         
