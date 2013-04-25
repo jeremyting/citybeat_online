@@ -125,6 +125,12 @@ class Representor():
 
 def test():
     rep = Representor('photos')
+    ei = EventInterface()
+    ei.setDB('citybeat')
+    ei.setCollection('candidate_event_25by25_merged')
+    cur = ei.getAllDocuments()
+    for event in cur:
+        print rep.getRepresentivePhotos(event)
 
 def main():
     #read labels and ids
