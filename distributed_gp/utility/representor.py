@@ -12,6 +12,8 @@ from corpus import Corpus
 from corpus import buildAllCorpus
 from region import Region
 
+import re
+
 class Representor():
     def __init__(self, element_type):
         """Given an event, return a list incices of the photos in 'photos' filed 
