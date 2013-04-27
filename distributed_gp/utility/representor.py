@@ -13,7 +13,6 @@ from sklearn.metrics.pairwise import linear_kernel
 from corpus import Corpus
 from corpus import buildAllCorpus
 from region import Region
-import tool
 
 import re
 
@@ -164,14 +163,62 @@ def test():
 #    ei.setDB('citybeat')
 #    ei.setCollection('candidate_event_25by25_merged')
 #    cur = ei.getAllDocuments()
-    events = tool.getAllActualEvents()
+    events = getAllActualEvents()
     for event in events:
         #print rep.getRepresentivePhotos(event)
         try:
             print rep.getRepresentiveKeywords(event)
         except:
             print rep._getEventText(event)
-
+            
+def getAllActualEvents():
+    
+    ei = EventInterface()
+    ei.setDB('citybeat')
+    ei.setCollection('candidate_event_25by25_merged')
+    
+    true_events = []
+    false_events = []
+    fid2 = open('labeled_data_cf/181_positive.txt', 'r')
+        
+    modified_events = {}
+    
+    for line in fid2:
+        t = line.split(',')
+        modified_events[str(t[0])] = int(t[1])
+    fid2.close()
+        
+    # put the data into a text file first
+    fid = open('labeled_data_cf/data2.txt','r')
+    for line in fid:
+        if len(line.strip()) == 0:
+            continue
+        t = line.strip().split()
+        if not len(t) == 3:
+            continue
+        label = t[0].lower()
+        confidence = float(t[1])
+        event_id = str(t[2].split('/')[-1])
+        if label == 'not_sure':
+            continue
+        if label == 'yes':
+            label = 1
+        else:
+            label = -1
+        event = ei.getDocument({'_id':ObjectId(event_id)})
+        event['label'] = label
+        if modified_events.has_key(event_id):
+            event['label'] = modified_events[event_id]
+        
+        e = Event(event)
+        if e.getActualValue() < 8 or event['label'] == 0:
+#           print 'bad event ' + id
+            continue
+        if event['label'] == 1:
+            true_events.append(event)
+            
+    fid.close()
+    return true_events
 def main():
     #read labels and ids
     lines = open('label_data_csv2.txt').readlines()
