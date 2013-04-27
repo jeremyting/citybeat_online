@@ -13,6 +13,7 @@ from sklearn.metrics.pairwise import linear_kernel
 from corpus import Corpus
 from corpus import buildAllCorpus
 from region import Region
+import tool
 
 import re
 
@@ -30,7 +31,7 @@ class Representor():
         self._element_type = element_type
         
         paras = {}
-        paras['max_df'] = 0.01
+        paras['max_df'] = 0.03
         paras['min_df'] = 1
         paras['strip_accents'] = 'ascii'
         paras['smooth_idf'] = True
@@ -44,8 +45,8 @@ class Representor():
         
         paras['analyzer'] = 'word'
         paras['ngram_range'] = (1,1)
+        paras['preprocessor'] = tool.textPreprocessor
         self._corpus_dicts_word = buildAllCorpus(element_type=self._element_type, paras=paras)
-        
 
     def _preProcessor(self, text):
         regex = re.compile(r"#\w+")
@@ -159,11 +160,12 @@ class Representor():
 
 def test():
     rep = Representor('photos')
-    ei = EventInterface()
-    ei.setDB('citybeat')
-    ei.setCollection('candidate_event_25by25_merged')
-    cur = ei.getAllDocuments()
-    for event in cur:
+#    ei = EventInterface()
+#    ei.setDB('citybeat')
+#    ei.setCollection('candidate_event_25by25_merged')
+#    cur = ei.getAllDocuments()
+    events = tool.getAllActualEvents()
+    for event in events:
         #print rep.getRepresentivePhotos(event)
         print rep.getRepresentiveKeywords(event)
 
