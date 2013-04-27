@@ -32,7 +32,7 @@ class Representor():
         self._element_type = element_type
         
         paras = {}
-        paras['max_df'] = 0.03
+        paras['max_df'] = 0.05
         paras['min_df'] = 1
         paras['strip_accents'] = 'ascii'
         paras['smooth_idf'] = True
@@ -47,7 +47,7 @@ class Representor():
         paras['analyzer'] = 'word'
         paras['ngram_range'] = (1,1)
         paras['preprocessor'] = tool.textPreprocessor
-        self._corpus_dicts_word = buildAllCorpus(debug=True, element_type=self._element_type, paras=paras)
+        self._corpus_dicts_word = buildAllCorpus(element_type=self._element_type, paras=paras)
 
     def _preProcessor(self, text):
         regex = re.compile(r"#\w+")
