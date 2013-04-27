@@ -142,7 +142,7 @@ class Representor():
 
         return words
     
-    def getRepresentiveKeywords2(self, event, k=5):
+    def getRepresentiveKeywords2(self, event, k=10):
         photos = self.getRepresentivePhotos(event)
         l = min(10, len(photos))
         photos = photos[0:l]
