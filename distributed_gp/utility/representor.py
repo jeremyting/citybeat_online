@@ -150,7 +150,7 @@ class Representor():
         new_event = Event(new_event)
         new_event.setElements(photos)
         topwords = BaseFeature(new_event)._getTopWords(k=k)
-        return topwords
+        return topwords.itemgetter(1)
 
     def getTfidfVector(self, event):
         # this method is invalid now
