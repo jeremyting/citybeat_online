@@ -5,6 +5,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from math import sqrt
 from photo import Photo
 from tweet import Tweet
+from bson.objectid import ObjectId
 
 import numpy as np
 from scipy.sparse import *
