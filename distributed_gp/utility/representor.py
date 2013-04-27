@@ -147,6 +147,7 @@ class Representor():
         l = min(10, len(photos))
         photos = photos[0:l]
         new_event = copy.deepcopy(Event(event).toDict())
+        new_event = Event(new_event)
         new_event.setElements(photos)
         topwords = BaseFeature(new_event)._getTopWords(k=k)
         return topwords
