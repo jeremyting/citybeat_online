@@ -40,11 +40,11 @@ class Representor():
         paras['analyzer'] = 'char_wb'
         paras['ngram_range'] = (4,4)
         paras['stop_words'] = 'english'
-        self._corpus_dicts_char = buildAllCorpus(element_type=self._element_type, paras=paras)
+        self._corpus_dicts_char = buildAllCorpus(debug=True, element_type=self._element_type, paras=paras)
         
-        pars['analyzer'] = 'word'
+        paras['analyzer'] = 'word'
         paras['ngram_range'] = (1,1)
-        self._corpus_dicts_word = buildAllCorpus(element_type=self._element_type, paras=paras)
+        self._corpus_dicts_word = buildAllCorpus(debug=True, element_type=self._element_type, paras=paras)
         
 
     def _preProcessor(self, text):
@@ -164,7 +164,7 @@ def test():
     ei.setCollection('candidate_event_25by25_merged')
     cur = ei.getAllDocuments()
     for event in cur:
-        print rep.getRepresentivePhotos(event)
+        #print rep.getRepresentivePhotos(event)
         print rep.getRepresentiveKeywords(event)
 
 def main():
