@@ -32,7 +32,7 @@ class Representor():
         self._element_type = element_type
         
         paras = {}
-        paras['max_df'] = 0.05
+        paras['max_df'] = 0.02
         paras['min_df'] = 1
         paras['strip_accents'] = 'ascii'
         paras['smooth_idf'] = True
