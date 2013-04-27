@@ -6,6 +6,7 @@ from math import sqrt
 from photo import Photo
 from tweet import Tweet
 from bson.objectid import ObjectId
+from base_feature import BaseFeature
 
 import numpy as np
 from scipy.sparse import *
@@ -14,6 +15,7 @@ from sklearn.metrics.pairwise import linear_kernel
 from corpus import Corpus
 from corpus import buildAllCorpus
 from region import Region
+
 import tool
 
 import re
@@ -32,7 +34,7 @@ class Representor():
         self._element_type = element_type
         
         paras = {}
-        paras['max_df'] = 0.03
+        paras['max_df'] = 0.05
         paras['min_df'] = 1
         paras['strip_accents'] = 'ascii'
         paras['smooth_idf'] = True
@@ -43,12 +45,11 @@ class Representor():
         paras['ngram_range'] = (4,4)
         paras['stop_words'] = 'english'
         self._corpus_dicts_char = buildAllCorpus(debug=True, element_type=self._element_type, paras=paras)
-        
-        paras['analyzer'] = 'word'
-        paras['ngram_range'] = (1,1)
-        paras['preprocessor'] = tool.textPreprocessor
-        paras['max_df'] = 10
-        self._corpus_dicts_word = buildAllCorpus(element_type=self._element_type, paras=paras)
+
+        #paras['analyzer'] = 'word'
+        #paras['ngram_range'] = (1,1)
+        #paras['preprocessor'] = tool.textPreprocessor
+        #self._corpus_dicts_word = buildAllCorpus(element_type=self._element_type, paras=paras)
 
     def _preProcessor(self, text):
         regex = re.compile(r"#\w+")
@@ -139,6 +140,15 @@ class Representor():
             #values.append( tf_vec[0,n] )
 
         return words
+    
+    def getRepresentiveKeywords2(self, event, k=5):
+        photos = self.getRepresentivePhotos(event)
+        l = min(10, len(photos))
+        photos = photos[0:l]
+        new_event = copy.deepcopy(Event(event).toDict())
+        new_event.setElements(photos)
+        topwords = BaseFeature(new_event)._getTopWords(k=k)
+        return topwords
 
     def getTfidfVector(self, event):
         # this method is invalid now
@@ -170,7 +180,7 @@ def test():
     for event in events:
         #print rep.getRepresentivePhotos(event)
         try:
-            print rep.getRepresentiveKeywords(event)
+            print rep.getRepresentiveKeywords2(event)
         except:
             print rep._getEventText(event)
             
