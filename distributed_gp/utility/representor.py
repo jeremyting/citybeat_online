@@ -13,6 +13,7 @@ from sklearn.metrics.pairwise import linear_kernel
 from corpus import Corpus
 from corpus import buildAllCorpus
 from region import Region
+import tool
 
 import re
 
