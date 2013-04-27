@@ -178,13 +178,14 @@ def test():
 #    cur = ei.getAllDocuments()
     events = getAllActualEvents()
     for event in events:
+        print rep.getRepresentiveKeywords2(event)
         #print rep.getRepresentivePhotos(event)
-        try:
-            print rep.getRepresentiveKeywords2(event)
-        except:
-            pass
-            # print rep._getEventText(event)
-           
+        #
+#        try:
+#            print rep.getRepresentiveKeywords2(event)
+#        except:
+#            print rep._getEventText(event)
+            
 def getAllActualEvents():
     
     ei = EventInterface()
