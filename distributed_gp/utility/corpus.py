@@ -80,11 +80,12 @@ def buildAllCorpus(element_type='photos', time_interval_length=14, debug=False, 
     
     all_corpus = {}
     if element_type == 'photos':
-        coordinates = [InstagramConfig.photo_min_lat, InstagramConfig.photo_min_lng,
-                       InstagramConfig.photo_max_lat, InstagramConfig.photo_max_lng]
+        config = InstagramConfig
     else:
-        coordinates = [TwitterConfig.min_lat, TwitterConfig.min_lng,
-                       TwitterConfig.max_lat, TwitterConfig.max_lng]
+        config = TwitterConfig
+    
+    coordinates = [config.min_lat, config.min_lng,
+                   config.max_lat, config.max_lng]
                                      
     nyc = Region(coordinates)
     region_list = nyc.divideRegions(25, 25)
