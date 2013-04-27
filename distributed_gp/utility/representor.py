@@ -47,6 +47,7 @@ class Representor():
         paras['analyzer'] = 'word'
         paras['ngram_range'] = (1,1)
         paras['preprocessor'] = tool.textPreprocessor
+        paras['max_df'] = 10
         self._corpus_dicts_word = buildAllCorpus(element_type=self._element_type, paras=paras)
 
     def _preProcessor(self, text):
