@@ -9,7 +9,6 @@ from tweet import Tweet
 import numpy as np
 from scipy.sparse import *
 from sklearn.metrics.pairwise import linear_kernel
-from tweet_cluster import TweetCluster
 
 from corpus import Corpus
 from corpus import buildAllCorpus
@@ -41,16 +40,20 @@ class Representor():
         paras['analyzer'] = 'char_wb'
         paras['ngram_range'] = (4,4)
         paras['stop_words'] = 'english'
-        self._corpus_dicts = buildAllCorpus(element_type=self._element_type, paras=paras)
+        self._corpus_dicts_char = buildAllCorpus(element_type=self._element_type, paras=paras)
+        
+        pars['analyzer'] = 'word'
+        paras['ngram_range'] = (1,1)
+        self._corpus_dicts_word = buildAllCorpus(element_type=self._element_type, paras=paras)
         
 
-    def _preProcessor(self, caption):
+    def _preProcessor(self, text):
         regex = re.compile(r"#\w+")
-        match = regex.findall(caption)
+        match = regex.findall(text)
         if len(match)>=5:
             return ""
         else:
-            return caption
+            return text
 
     def _getAllText(self):
         _text = []
@@ -62,7 +65,7 @@ class Representor():
         return all(ord(c) < 128 for c in _str)
 
     def _getEventText(self, event):
-        """For a given event, return the text as a list. Note for photo without caption,
+        """For a given event, return the text as a list. Note for photo without text,
         use a None to hold the place"""
         
         assert self._element_type in Event(event).toDict().keys()
@@ -85,11 +88,18 @@ class Representor():
     def _cosine_sim(self, a, b):
         return a*b.T
     
+    def _getEventCharCorpus(self, event):
+        region = Region(Event(event).toDict()['region'])
+        return self._corpus_dicts_char[region.getKey()]
+        
+    def _getEventWordCorpus(self, event):
+        region = Region(Event(event).toDict()['region'])
+        return self._corpus_dicts_word[region.getKey()]  
+    
     def getRepresentivePhotos(self, event):
        
         event_text = self._getEventText(event)
-        region = Region(Event(event).toDict()['region'])
-        corpus = self._corpus_dicts[region.getKey()]
+        corpus = self._getEventCharCorpus(event)
         event_tfidf = corpus.getVectorizer().transform(event_text)
         
         centroid = event_tfidf.mean(axis=0)
@@ -105,6 +115,27 @@ class Representor():
         photos_to_return.reverse() 
 
         return photos_to_return 
+
+    def getRepresentiveKeywords(self, event, k=5):
+        # this method is invalid now
+        event_text = self._getEventText(event)
+        corpus = self._getEventWordCorpus(event)
+        vectorizer = corpus.getVectorizer()
+        voc = vectorizer.get_feature_names()
+        tf_vec = vectorizer.transform(event_text).mean(axis=0)
+
+        nonzeros = np.nonzero(tf_vec)[1]
+        res_list = nonzeros.ravel().tolist()[0] 
+
+        #values = []
+        words = []
+        k = min(k, len(res_list))
+        for i in xrange(0, k):
+            ind = res_list[i]
+            words.append( voc[ind] )
+            #values.append( tf_vec[0,n] )
+
+        return words
 
     def getTfidfVector(self, event):
         # this method is invalid now
@@ -134,6 +165,7 @@ def test():
     cur = ei.getAllDocuments()
     for event in cur:
         print rep.getRepresentivePhotos(event)
+        print rep.getRepresentiveKeywords(event)
 
 def main():
     #read labels and ids
