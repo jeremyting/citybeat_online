@@ -121,7 +121,8 @@ class Representor():
 
         return photos_to_return 
 
-    def getRepresentiveKeywords(self, event, k=5):
+    def getRepresentiveKeywords_invalid(self, event, k=5):
+        # do not ust this method
         # this method is invalid now
         event_text = self._getEventText(event)
         corpus = self._getEventWordCorpus(event)
@@ -142,7 +143,7 @@ class Representor():
 
         return words
     
-    def getRepresentiveKeywords2(self, event, k=10):
+    def getRepresentiveKeywords(self, event, k=10):
         photos = self.getRepresentivePhotos(event)
         l = min(10, len(photos))
         photos = photos[0:l]
@@ -180,7 +181,7 @@ def test():
 #    cur = ei.getAllDocuments()
     events = getAllActualEvents()
     for event in events:
-        print rep.getRepresentiveKeywords2(event)
+        print rep.getRepresentiveKeywords(event)
         #print rep.getRepresentivePhotos(event)
         #
 #        try:
