@@ -167,7 +167,10 @@ def test():
     events = tool.getAllActualEvents()
     for event in events:
         #print rep.getRepresentivePhotos(event)
-        print rep.getRepresentiveKeywords(event)
+        try:
+            print rep.getRepresentiveKeywords(event)
+        except:
+            print rep._getEventText(event)
 
 def main():
     #read labels and ids
