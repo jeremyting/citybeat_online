@@ -31,7 +31,7 @@ class Representor():
         
         paras = {}
         paras['max_df'] = 0.03
-        paras['min_df'] = 2
+        paras['min_df'] = 3
         paras['strip_accents'] = 'ascii'
         paras['smooth_idf'] = True
         paras['preprocessor'] = self._preProcessor
