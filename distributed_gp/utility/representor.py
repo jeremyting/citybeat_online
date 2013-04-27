@@ -182,8 +182,9 @@ def test():
         try:
             print rep.getRepresentiveKeywords2(event)
         except:
-            print rep._getEventText(event)
-            
+            pass
+            # print rep._getEventText(event)
+           
 def getAllActualEvents():
     
     ei = EventInterface()
