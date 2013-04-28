@@ -116,7 +116,7 @@ def readTweets():
     ti.setDB('tweets')
     ti.setCollection('tweets')
     cur = ti.getAllDocuments()
-    fid = open('/.freespace/citybeat_tweets')
+    fid = open('/.freespace/citybeat_tweets/nyc_all_tweets')
     for line in fid:
         print json.loads(line)
     fid.close()
