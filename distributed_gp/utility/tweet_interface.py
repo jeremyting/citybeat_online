@@ -111,6 +111,16 @@ def findEarliestTweet():
             created_time = tweet['created_time']
     print created_time
 
+def readTweets():
+    ti = TweetInterface()
+    ti.setDB('tweets')
+    ti.setCollection('tweets')
+    cur = ti.getAllDocuments()
+    fid = open('/.freespace/citybeat_tweets')
+    for line in fid:
+        print json.loads(line)
+    fid.close()
+
 def transferTweets():
     ti = TweetInterface()
     ti.setDB('tweets')
