@@ -45,7 +45,7 @@ class EventMonitor():
             
             ei_backup.addEvent(e)
             ei.deleteEventByID(str(e.getID()))
-            if prob > 0.7:
+            if prob > 0.5:
                 print 'ready to insert'
                 e.setLabel( prob )
                 ei_classified.addEvent(e)

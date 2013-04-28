@@ -88,8 +88,12 @@ class Alarm():
         zscore = (self.current_value - mu)*1.0/std
 
         print 'trying'
-        if zscore > 3.0 and current_value>8:   #comment this
-            print 'in alarm!, cur value = ',current_value
+        print 'cur value = '
+        print self.current_value
+        print 'zscore = '
+        print zscore
+        if zscore > 3.0 and self.current_value>3:   #comment this
+            print 'in alarm!, cur value = ',self.current_value
             e = Event()
             e.setPredictedValues(mu, std)
             e.setZscore(zscore)
