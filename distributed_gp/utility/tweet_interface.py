@@ -118,7 +118,7 @@ def readTweets():
     cur = ti.getAllDocuments()
     fid = open('/.freespace/citybeat_tweets/nyc_all_tweets')
     for line in fid:
-        print json.loads(line)
+        ti.saveDocument(json.loads(line))
     fid.close()
 
 def transferTweets():
