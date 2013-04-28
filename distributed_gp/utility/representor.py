@@ -3,14 +3,26 @@ from event import Event
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from math import sqrt
+from photo import Photo
+from tweet import Tweet
+from bson.objectid import ObjectId
+from base_feature import BaseFeature
+
 import numpy as np
 from scipy.sparse import *
 from sklearn.metrics.pairwise import linear_kernel
-from tweet_cluster import TweetCluster
+
+from corpus import Corpus
+from corpus import buildAllCorpus
+from region import Region
+
+import copy
+import tool
 
 import re
+
 class Representor():
-    def __init__(self, vectorizer = None, db='AmazonMT', collection='candidate_event_25by25_merged'):
+    def __init__(self, element_type):
         """Given an event, return a list incices of the photos in 'photos' filed 
         which are representative to stands for this cluster
         
@@ -19,61 +31,81 @@ class Representor():
         see http://scikit-learn.org/dev/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
         """
         
-        self.ei = EventInterface()
-        self.ei.setDB(db)
-        self.ei.setCollection(collection)
-        self.events = []
-        for e in self.ei.getAllDocuments():
-            event = Event(e)
-            event.selectOnePhotoForOneUser()
-            e = event.toDict()
-            self.events.append(e)
-        #self.events = [e for e in self.ei.getAllDocuments()]
-        self._captions = self._getAllCaptions()
+        assert element_type in ['tweets', 'photos']
+        self._element_type = element_type
         
-        if vectorizer is None:
-            self.vectorizer = TfidfVectorizer( max_df=0.05, min_df = 1, strip_accents='ascii', smooth_idf=True, preprocessor = self._preProcessor, sublinear_tf=True, norm = 'l2', analyzer='char_wb', ngram_range=(4,4), stop_words = 'english')
-        else:
-            self.vectorizer = vectorizer
-        self.vectorizer.fit_transform(self._captions)
-#        print self.vectorizer.get_feature_names()
-    def _preProcessor(self, caption):
+        paras = {}
+        paras['max_df'] = 0.05
+        paras['min_df'] = 1
+        paras['strip_accents'] = 'ascii'
+        paras['smooth_idf'] = True
+        paras['preprocessor'] = self._preProcessor
+        paras['sublinear_tf'] = True
+        paras['norm'] = 'l2'
+        paras['analyzer'] = 'char_wb'
+        paras['ngram_range'] = (4,4)
+        paras['stop_words'] = 'english'
+        self._corpus_dicts_char = buildAllCorpus(element_type=self._element_type, paras=paras)
+
+        #paras['analyzer'] = 'word'
+        #paras['ngram_range'] = (1,1)
+        #paras['preprocessor'] = tool.textPreprocessor
+        #self._corpus_dicts_word = buildAllCorpus(element_type=self._element_type, paras=paras)
+
+    def _preProcessor(self, text):
         regex = re.compile(r"#\w+")
-        match = regex.findall(caption)
+        match = regex.findall(text)
         if len(match)>=5:
             return ""
         else:
-            return caption
+            return text
 
-    def _getAllCaptions(self):
-        _captions = []
+    def _getAllText(self):
+        _text = []
         for event in self.events:
-            _captions += self._getEventCaptions(event)
-        return _captions
+            _text += self._getEventText(event)
+        return _text
 
     def _is_ascii(self, _str):
         return all(ord(c) < 128 for c in _str)
 
-    def _getEventCaptions(self, event):
-        """For a given event, return the captions as a list. Note for photo without caption,
+    def _getEventText(self, event):
+        """For a given event, return the text as a list. Note for photo without text,
         use a None to hold the place"""
-        event_captions = []
-        for p in event['photos']:
+        
+        assert self._element_type in Event(event).toDict().keys()
+        
+        event_text = []
+        for element in event[self._element_type]:
+            if self._element_type == 'photos':
+                element = Photo(element)
+            else:
+                element = Tweet(element)
             try:
-                if self._is_ascii(p['caption']['text']):
-                    event_captions.append( p['caption']['text'].lower() )
+                if self._is_ascii(element.getText()):
+                    event_text.append(element.getText().lower())
                 else:
-                    event_captions.append("")
+                    event_text.append("")
             except:
-                event_captions.append( "" )
-        return event_captions 
+                event_text.append( "" )
+        return event_text
+        
     def _cosine_sim(self, a, b):
         return a*b.T
     
-    def getRepresentivePhotos(self, event):
+    def _getEventCharCorpus(self, event):
+        region = Region(Event(event).toDict()['region'])
+        return self._corpus_dicts_char[region.getKey()]
         
-        event_captions = self._getEventCaptions(event)
-        event_tfidf = self.vectorizer.transform(event_captions)
+    def _getEventWordCorpus(self, event):
+        region = Region(Event(event).toDict()['region'])
+        return self._corpus_dicts_word[region.getKey()]  
+    
+    def getRepresentivePhotos(self, event):
+       
+        event_text = self._getEventText(event)
+        corpus = self._getEventCharCorpus(event)
+        event_tfidf = corpus.getVectorizer().transform(event_text)
         
         centroid = event_tfidf.mean(axis=0)
         #cosine_similarities = linear_kernel(centroid, event_tfidf).flatten()
@@ -89,9 +121,42 @@ class Representor():
 
         return photos_to_return 
 
+    def getRepresentiveKeywords_invalid(self, event, k=5):
+        # do not ust this method
+        # this method is invalid now
+        event_text = self._getEventText(event)
+        corpus = self._getEventWordCorpus(event)
+        vectorizer = corpus.getVectorizer()
+        voc = vectorizer.get_feature_names()
+        tf_vec = vectorizer.transform(event_text).mean(axis=0)
+
+        nonzeros = np.nonzero(tf_vec)[1]
+        res_list = nonzeros.ravel().tolist()[0] 
+
+        #values = []
+        words = []
+        k = min(k, len(res_list))
+        for i in xrange(0, k):
+            ind = res_list[i]
+            words.append( voc[ind] )
+            #values.append( tf_vec[0,n] )
+
+        return words
+    
+    def getRepresentiveKeywords(self, event, k=10):
+        photos = self.getRepresentivePhotos(event)
+        l = min(10, len(photos))
+        photos = photos[0:l]
+        new_event = copy.deepcopy(Event(event).toDict())
+        new_event = Event(new_event)
+        new_event.setElements(photos)
+        topwords = BaseFeature(new_event)._getTopWords(k=k)
+        return [word for word, val in topwords]
+
     def getTfidfVector(self, event):
+        # this method is invalid now
         voc = self.vectorizer.get_feature_names()
-        tf_vec = self.vectorizer.transform(self._getEventCaptions(event)).mean(axis=0)
+        tf_vec = self.vectorizer.transform(self._getEventText(event)).mean(axis=0)
 
         nonzeros = np.nonzero(tf_vec)[1]
         res_list = nonzeros.ravel().tolist()[0] 
@@ -105,9 +170,73 @@ class Representor():
         return res_list, words, values
 
     def getCorpusWordsVector(self):
+        # this method is invalid now
         return self.vectorizer.get_feature_names()
 
-
+def test():
+    rep = Representor('photos')
+#    ei = EventInterface()
+#    ei.setDB('citybeat')
+#    ei.setCollection('candidate_event_25by25_merged')
+#    cur = ei.getAllDocuments()
+    events = getAllActualEvents()
+    for event in events:
+        print rep.getRepresentiveKeywords(event)
+        #print rep.getRepresentivePhotos(event)
+        #
+#        try:
+#            print rep.getRepresentiveKeywords2(event)
+#        except:
+#            print rep._getEventText(event)
+            
+def getAllActualEvents():
+    
+    ei = EventInterface()
+    ei.setDB('citybeat')
+    ei.setCollection('candidate_event_25by25_merged')
+    
+    true_events = []
+    false_events = []
+    fid2 = open('labeled_data_cf/181_positive.txt', 'r')
+        
+    modified_events = {}
+    
+    for line in fid2:
+        t = line.split(',')
+        modified_events[str(t[0])] = int(t[1])
+    fid2.close()
+        
+    # put the data into a text file first
+    fid = open('labeled_data_cf/data2.txt','r')
+    for line in fid:
+        if len(line.strip()) == 0:
+            continue
+        t = line.strip().split()
+        if not len(t) == 3:
+            continue
+        label = t[0].lower()
+        confidence = float(t[1])
+        event_id = str(t[2].split('/')[-1])
+        if label == 'not_sure':
+            continue
+        if label == 'yes':
+            label = 1
+        else:
+            label = -1
+        event = ei.getDocument({'_id':ObjectId(event_id)})
+        event['label'] = label
+        if modified_events.has_key(event_id):
+            event['label'] = modified_events[event_id]
+        
+        e = Event(event)
+        if e.getActualValue() < 8 or event['label'] == 0:
+#           print 'bad event ' + id
+            continue
+        if event['label'] == 1:
+            true_events.append(event)
+            
+    fid.close()
+    return true_events
 def main():
     #read labels and ids
     lines = open('label_data_csv2.txt').readlines()
@@ -135,4 +264,4 @@ def main():
 #                print '\n'
 
 if __name__ == '__main__':
-    main()
+    test()

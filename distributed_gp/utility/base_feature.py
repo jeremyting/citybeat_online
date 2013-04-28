@@ -75,7 +75,7 @@ class BaseFeature(BaseEvent):
     
     def _getTopKeywordsWithoutStopwords(self, k):
         # this method will return topwords without stopwords
-        return self._getTopWords(k, stopword_removal=True)
+        return self._getTopWords(k)
         
     def _getRandomElementsAssociatedWithKeywords(self, top_keywords, k=10):
         # get elements associated with the top_keywords
@@ -111,7 +111,7 @@ class BaseFeature(BaseEvent):
             n += 1      
         return lat/n, lng/n
         
-    def _getTopWords(self, k, stopword_removal=False):
+    def _getTopWords(self, k, stopword_removal=True):
         # get top words by counting the frequecy
         text_parser = TextParser(stopword_removal=stopword_removal)
         for element in self._event[self._element_type]:
@@ -343,7 +343,7 @@ class BaseFeature(BaseEvent):
     
     def getTopWordPopularity(self, k=1):
         # compute the average popularity of k-top words
-        top_words = self._getTopWords(k, True)
+        top_words = self._getTopWords(k)
         if len(top_words) == 0:
             return 0
         avg_pop = 0
@@ -508,8 +508,8 @@ class BaseFeature(BaseEvent):
             fake_event = BaseFeature(event)
         else:
             fake_event = event
-        event_topword_list = self._getTopWords(-1, True)
-        event_topword_list2 = fake_event._getTopWords(-1, True)
+        event_topword_list = self._getTopWords(-1)
+        event_topword_list2 = fake_event._getTopWords(-1)
         
         n_ind = 0
         ind = {}
