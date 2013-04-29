@@ -140,7 +140,7 @@ def transferTweets():
         ti2.saveDocument(tweet)
      
 def main():
-    readTweets()
+    transferTweets()
 #    ti = TweetInterface()
 #    period = ['1364829908', '1365693908']
 #    region = {'min_lat':40.73297324, 'max_lat':40.73827852, 'min_lng':-73.99410076, 'max_lng':-73.98609447999999}
