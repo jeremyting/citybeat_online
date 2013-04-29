@@ -130,7 +130,7 @@ def readTweets():
         else:
             fail += 1
         i += 1
-        if i % 100 = 0:
+        if i % 100 == 0:
             print suc, fail
     fid.close()
 
