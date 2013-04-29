@@ -127,9 +127,9 @@ def transferTweets():
     ti.setCollection('tweets')
     cur = ti.getAllDocuments()
     
-    ti2 = TweetInterface()
-    ti2.setDB('citybeat_production')
-    ti2.setCollection('tweets')
+#    ti2 = TweetInterface()
+#    ti2.setDB('citybeat_production')
+#    ti2.setCollection('tweets')
     ids = set()
     for tweet in cur:
         id = tweet['id_str']
@@ -137,10 +137,11 @@ def transferTweets():
             continue
         ids.add(id)
         tweet['_id'] = id
-        ti2.saveDocument(tweet)
+    print len(ids)
+#        ti2.saveDocument(tweet)
      
 def main():
-    transferTweets()
+    readTweets()
 #    ti = TweetInterface()
 #    period = ['1364829908', '1365693908']
 #    region = {'min_lat':40.73297324, 'max_lat':40.73827852, 'min_lng':-73.99410076, 'max_lng':-73.98609447999999}
