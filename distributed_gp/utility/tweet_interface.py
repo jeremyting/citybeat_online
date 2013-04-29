@@ -34,9 +34,9 @@ class TweetInterface(MongoDBInterface):
             tweet = tweet.toDict()
         if 'location' not in tweet.keys():
             if 'coordinates' not in tweet.keys():
-                return
+                return False
             if 'coordinates' not in tweet['coordinates'].keys():
-                return
+                return False
             location = {}
             location['latitude'] = tweet['coordinates']['coordinates'][1]
             location['longitude'] = tweet['coordinates']['coordinates'][0]
@@ -44,11 +44,12 @@ class TweetInterface(MongoDBInterface):
             
             if (location['latitude'] < TwitterConfig.min_lat or location['latitude'] > TwitterConfig.max_lat
                     or location['longitude'] < TwitterConfig.min_lng or location['longitude'] > TwitterConfig.max_lng):
-                return
+                return False
         
         tweet['created_time'] = Tweet(tweet).getCreatedUTCTimestamp()
         
         super(TweetInterface, self).saveDocument(tweet)
+        return True
     
     def rangeQuery(self, region=None, period=None):
         #period should be specified as: [begin_time end_time]
@@ -117,10 +118,20 @@ def readTweets():
     ti.setCollection('tweets')
     cur = ti.getAllDocuments()
     fid = open('/.freespace/citybeat_tweets/nyc_all_tweets')
+    suc = 0
+    fail = 0
+    i = 0
     for line in fid:
         tweet = json.loads(line)
         tweet['_id'] = tweet['id_str']
-        ti.saveDocument(tweet)
+        res = ti.saveDocument(tweet)
+        if res:
+            suc += 1
+        else:
+            fail += 1
+        i += 1
+        if i % 100 = 0:
+            print suc, fail
     fid.close()
 
 def transferTweets():
@@ -142,4 +153,4 @@ def transferTweets():
         ti2.saveDocument(tweet)
         
 if __name__ == '__main__':
-    transferTweets()
+    readTweets()
