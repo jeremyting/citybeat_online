@@ -118,7 +118,9 @@ def readTweets():
     cur = ti.getAllDocuments()
     fid = open('/.freespace/citybeat_tweets/nyc_all_tweets')
     for line in fid:
-        ti.saveDocument(json.loads(line))
+        tweet = json.loads(line)
+        tweet['_id'] = tweet['id_str']
+        ti.saveDocument(tweet)
     fid.close()
 
 def transferTweets():
@@ -127,9 +129,9 @@ def transferTweets():
     ti.setCollection('tweets')
     cur = ti.getAllDocuments()
     
-#    ti2 = TweetInterface()
-#    ti2.setDB('citybeat_production')
-#    ti2.setCollection('tweets')
+    ti2 = TweetInterface()
+    ti2.setDB('citybeat_production')
+    ti2.setCollection('tweets')
     ids = set()
     for tweet in cur:
         id = tweet['id_str']
@@ -137,15 +139,7 @@ def transferTweets():
             continue
         ids.add(id)
         tweet['_id'] = id
-    print len(ids)
-#        ti2.saveDocument(tweet)
-     
-def main():
-    readTweets()
-#    ti = TweetInterface()
-#    period = ['1364829908', '1365693908']
-#    region = {'min_lat':40.73297324, 'max_lat':40.73827852, 'min_lng':-73.99410076, 'max_lng':-73.98609447999999}
-#    print ti.rangeQuery(region=region, period=period).count()
+        ti2.saveDocument(tweet)
         
 if __name__ == '__main__':
-    main()
+    transferTweets()
