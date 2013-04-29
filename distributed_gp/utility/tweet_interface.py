@@ -115,7 +115,7 @@ def findEarliestTweet():
 def readTweets():
     ti = TweetInterface()
     ti.setDB('tweets')
-    ti.setCollection('tweets')
+    ti.setCollection('tweets_from_socialflow')
     cur = ti.getAllDocuments()
     fid = open('/.freespace/citybeat_tweets/nyc_all_tweets')
     suc = 0
