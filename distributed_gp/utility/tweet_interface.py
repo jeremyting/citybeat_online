@@ -151,6 +151,27 @@ def transferTweets():
         ids.add(id)
         tweet['_id'] = id
         ti2.saveDocument(tweet)
+
+def getTweetDistribution():
+    ti = TweetInterface()
+    ti.setDB('citybeat_production')
+    ti.setCollection('tweets')
+    cur = ti.getAllFields('created_time')
+    earliest = 2363910281
+    latest = 363910281
+    histagram = {}
+    for tuple in cur:
+        time = int(tuple['created_time'])
+        if time > latest:
+            latest = time
+        if time < earliest:
+            earliest = time
+        hour = time / 3600
+        histagram[hour] = histagram.get(hour, 0) + 1
         
+    for key, value in histagram.items():
+        print key, value
+
+
 if __name__ == '__main__':
-    readTweets()
+    getTweetDistribution()

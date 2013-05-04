@@ -17,7 +17,7 @@ class MongoDBInterface(object):
     
     def __init__(self):
         self._connection = pymongo.Connection(config.mongodb_address,
-                                                                                    config.mongodb_port)
+                                              config.mongodb_port)
                                                         
     def setDB(self,  name):
         self._db = self._connection[name]
@@ -56,7 +56,9 @@ class MongoDBInterface(object):
         for ID in query_res:
             IDs.append(ID['_id'])
         return IDs
-
+    def getAllFields(self, field, condition={}):
+        # field should be a string, this method cannot be run on get _id
+        return self._collection.find(condition, {field:1, '_id':False})
 
 if __name__=='__main__':
     mi = MongoDBInterface()
