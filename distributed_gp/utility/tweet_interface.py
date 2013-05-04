@@ -166,9 +166,9 @@ def getTweetDistribution():
             latest = time
         if time < earliest:
             earliest = time
-        hour = time / 3600
+        hour = time / (3600*24)
         histagram[hour] = histagram.get(hour, 0) + 1
-        
+
     for key, value in histagram.items():
         print key, value
 

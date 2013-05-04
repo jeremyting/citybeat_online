@@ -81,11 +81,29 @@ class PhotoInterface(MongoDBInterface):
                     t2 = t
         return [t1, t2]
     
-
+def getPhotoDistribution():
+    ti = PhotoInterface()
+    ti.setDB('citybeat_production')
+    ti.setCollection('photos')
+    cur = ti.getAllFields('created_time')
+    earliest = 2363910281
+    latest = 363910281
+    histagram = {}
+    i = 0
+    for tuple in cur:
+        time = int(tuple['created_time'])
+        if time > latest:
+            latest = time
+        if time < earliest:
+            earliest = time
+        hour = time / 3600
+        histagram[hour] = histagram.get(hour, 0) + 1
+        i += 1
+        if i == 1000:
+            break
+        
+    for key, value in histagram.items():
+        print key, value
 
 if __name__=="__main__":
-    pi = PhotoInterface()
-    pi.setDB('citybeat')
-    pi.setCollection('photos')
-    print type(pi.getDocument()['created_time'])
-#   a = 1
+    getPhotoDistribution()
