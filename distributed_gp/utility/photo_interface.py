@@ -95,7 +95,7 @@ def getPhotoDistribution():
             latest = time
         if time < earliest:
             earliest = time
-        hour = time / (3600 * 24)
+        hour = time / (3600)
         histagram[hour] = histagram.get(hour, 0) + 1
         
     for key, value in histagram.items():
