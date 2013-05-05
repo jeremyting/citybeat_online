@@ -10,25 +10,23 @@ from tweet import Tweet
 from config import TwitterConfig
 from datetime import datetime
 from bson.objectid import ObjectId
+from element_interface import ElementInterface
 
 import config
 import time
-import logging
 import string
 import types
 import json
 import numpy
 
 
-class TweetInterface(MongoDBInterface):
+class TweetInterface(ElementInterface):
     
     def __init__(self, db=TwitterConfig.tweet_db,  
                  collection=TwitterConfig.tweet_collection):
-      # initialize an interface for accessing event from mongodb
-      super(TweetInterface, self).__init__()
-      self.setDB(db)
-      self.setCollection(collection)
-      
+      # initialize an interface for accessing tweet from mongodb
+      super(TweetInterface, self).__init__(db, collection, 'tweets')
+
     def saveDocument(self, tweet):
         if not type(tweet) is types.DictType:
             tweet = tweet.toDict()
@@ -50,33 +48,6 @@ class TweetInterface(MongoDBInterface):
         
         super(TweetInterface, self).saveDocument(tweet)
         return True
-    
-    def rangeQuery(self, region=None, period=None):
-        #period should be specified as: [begin_time end_time]
-        #specify begin_time and end_time as the utctimestamp, string!!
-        
-        if period is not None:
-            assert period[0] <= period[1]
-        
-        region_conditions = {}
-        period_conditions = {}
-        if not region is None:
-        #region should be specified as the class defined in region.py
-            if not type(region) is types.DictType:
-                region = region.toDict() 
-            region_conditions = {'location.latitude':{'$gte':region['min_lat'], '$lte':region['max_lat']},
-                                   'location.longitude':{'$gte':region['min_lng'], '$lte':region['max_lng']}
-                                    }
-                                    
-        if not period is None:
-            period_conditions = {'created_time':{'$gte':str(period[0]), '$lte':str(period[1])}}
-
-        conditions = dict(region_conditions, **period_conditions)
-        
-        #returns a cursor
-        #sort the tweet in chronologically decreasing order
-        return self.getAllDocuments(conditions).sort('created_time', -1)
-
 
 def getTweetStatistics():
     ti = TweetInterface()
@@ -172,6 +143,12 @@ def getTweetDistribution():
     for key, value in histagram.items():
         print key, value
 
+def testWithTweet():
+    ti = TweetInterface()
+    cur = ti.getAllDocuments()
+    for t in cur:
+        print len(Tweet(t).getText().strip())
+
 
 if __name__ == '__main__':
-    getTweetDistribution()
+    testWithTweet()

@@ -1,4 +1,6 @@
+from event_interface import EventInterface
 from base_feature import BaseFeature
+from corpus import buildAllCorpus
 
 class BaseFeatureProduction(BaseFeature):
     # the only difference betweetn this class and BaseFeature is that this 
@@ -28,7 +30,8 @@ class BaseFeatureProduction(BaseFeature):
         hashtage_cnt3 = res[0]
         number_elements_associated_with_keywords3 = res[1]
         
-#       historic_features = [0]*3   for test only
+        # for test only
+        #historic_features = [0]*3  
         historic_features = self.getHistoricFeatures(entropy_para)
         diff_avg_element_dis = avg_element_dis - historic_features[0]
         diff_top_word_pop = historic_features[1]
@@ -47,7 +50,20 @@ class BaseFeatureProduction(BaseFeature):
                 number_elements_associated_with_keywords3[0], number_elements_associated_with_keywords3[1], number_elements_associated_with_keywords3[2],
                 location_name_similarity, 
                 event_id]
-    
+
+def testWithPhoto():
+    corpus_all = buildAllCorpus(element_type='photos', debug=True)
+    for key, corpus in corpus_all.items():
+        break
+
+    ei = EventInterface()
+    ei.setDB('citybeat')
+    ei.setCollection('candidate_event_25by25_merged')
+    event = ei.getDocument()
+    event = BaseFeatureProduction(event, corpus=corpus)
+    print event.extractFeatures()
+
             
 if __name__=='__main__':
-    pass
+    testWithPhoto()
+    # print '*************************'
