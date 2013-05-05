@@ -140,7 +140,13 @@ def getTweetDistribution():
         hour = time / (3600*24)
         histagram[hour] = histagram.get(hour, 0) + 1
 
+    res = []
     for key, value in histagram.items():
+        res.append((key, value))
+
+    sorted(res, key=itemgetter(1))
+    
+    for key, value in res:
         print key, value
 
 def testWithTweet():
@@ -151,4 +157,4 @@ def testWithTweet():
 
 
 if __name__ == '__main__':
-    testWithTweet()
+    getTweetDistribution()
