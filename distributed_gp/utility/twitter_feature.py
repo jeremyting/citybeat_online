@@ -91,7 +91,7 @@ class TwitterFeature(BaseFeature):
                 event_id]
 
 def testWithTweet():
-    corpus_all = buildAllCorpus(element_type='tweets', debug=True)
+    corpus_all = buildAllCorpus(element_type='tweets', debug=False)
     # for key, corpus in corpus_all.items():
     #     break
 
