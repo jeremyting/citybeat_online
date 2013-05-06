@@ -237,6 +237,7 @@ def getAllActualEvents():
             
     fid.close()
     return true_events
+    
 def main():
     #read labels and ids
     lines = open('label_data_csv2.txt').readlines()

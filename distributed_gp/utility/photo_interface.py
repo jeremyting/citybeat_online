@@ -7,41 +7,14 @@ import types
 from datetime import datetime
 from mongodb_interface import MongoDBInterface
 from config import InstagramConfig
+from element_interface import ElementInterface
 
-class PhotoInterface(MongoDBInterface):
+class PhotoInterface(ElementInterface):
     
     def __init__(self, db=InstagramConfig.photo_db,  
                  collection=InstagramConfig.photo_collection):
         # initialize an interface for accessing photos from mongodb
-        super(PhotoInterface, self).__init__()
-        self.setDB(db)
-        self.setCollection(collection)
-    
-    def rangeQuery(self, region=None, period=None):
-        #period should be specified as: [begin_time end_time]
-        #specify begin_time and end_time as the utctimestamp, string!!
-        
-        if period is not None:
-            assert period[0] <= period[1]
-            
-        region_conditions = {}
-        period_conditions = {}
-        if not region is None:
-        #region should be specified as the class defined in region.py
-            if not type(region) is types.DictType:
-                region = region.toDict() 
-            region_conditions = {'location.latitude':{'$gte':region['min_lat'], '$lte':region['max_lat']},
-                                   'location.longitude':{'$gte':region['min_lng'], '$lte':region['max_lng']}
-                                    }
-                                    
-        if not period is None:
-            period_conditions = {'created_time':{'$gte':str(period[0]), '$lte':str(period[1])}}
-
-        conditions = dict(region_conditions, **period_conditions)
-        
-        #returns a cursor
-        #sort the photo in chronologically decreasing order
-        return self.getAllDocuments(conditions).sort('created_time', -1)
+        super(PhotoInterface, self).__init__(db, collection, 'photos')
     
     def _computeBoundaryOfPhotos(self):
         cnt = 0

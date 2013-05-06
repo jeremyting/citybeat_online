@@ -35,11 +35,8 @@ class MongoDBInterface(object):
         assert condition is not None
         self._collection.remove(condition)
     
-    def getDocument(self, condition=None):
-        if not condition is None:
-            return self._collection.find_one(condition)
-        else:
-            return self._collection.find_one()
+    def getDocument(self, condition={}):
+        return self._collection.find_one(condition)
         
     def getAllDocuments(self, condition={}, limit=0):
         return self._collection.find(condition, timeout=False, limit=limit)

@@ -203,9 +203,9 @@ class BaseFeature(BaseEvent):
         print '@attribute NumberOfhashtags2 real'   
         print '@attribute NumberOfhashtags3 real'   
         
-        print '@attribute NumberOfPhotsoContaingTopWord1 real'
-        print '@attribute NumberOfPhotsoContaingTopWord2 real'
-        print '@attribute NumberOfPhotsoContaingTopWord3 real'
+        print '@attribute NumberOfPhotsContaingTopWord1 real'
+        print '@attribute NumberOfPhotsContaingTopWord2 real'
+        print '@attribute NumberOfPhotsContaingTopWord3 real'
         
         print '@attribute Top10ElementLocationNameFreq real'
 #       print '@attribute Top3ElementLocationNameSame real'
@@ -534,6 +534,28 @@ def createElement(element_type, element):
         return Photo(element)
     else:
         return Tweet(element)
-            
+
+def testWithTweet():
+    from corpus import buildAllCorpus
+    corpus_all = buildAllCorpus(element_type='tweets', debug=True)
+    for key, corpus in corpus_all.items():
+        break
+
+    ei = EventInterface()
+    ei.setDB('citybeat')
+    ei.setCollection('candidate_event_25by25_merged')
+    event = ei.getDocument()
+    print event
+    ti = TweetInterface()
+    cur = ti.getAllDocuments(limit=30)
+    tweets = []
+    for tweet in cur:
+        tweets.append(tweet)
+    del event['photos']
+    event['tweets'] = tweets
+    event = BaseFeature(event, corpus=corpus)
+    print event.printFeatures()
+
+
 if __name__=='__main__':
-    generateData()
+    pass
