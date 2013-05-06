@@ -91,7 +91,7 @@ class TwitterFeature(BaseFeature):
                 event_id]
 
 def testWithTweet():
-    corpus_all = buildAllCorpus(element_type='tweets', debug=False)
+    corpus_all = buildAllCorpus(element_type='tweets', debug=True)
     # for key, corpus in corpus_all.items():
     #     break
 
@@ -102,7 +102,7 @@ def testWithTweet():
     for event in cur:
         region = Region(event['region'])
         event = TwitterFeature(event, corpus=corpus_all[region.getKey()])
-        event.printFeatures()
+        print event.extractFeatures()
 
 if __name__=='__main__':
     # testWithPhoto()
