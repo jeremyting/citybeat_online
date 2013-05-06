@@ -2,6 +2,7 @@ from corpus import buildAllCorpus
 from event_interface import EventInterface
 from tweet_interface import TweetInterface
 from base_feature import BaseFeature
+from region import Region
 
 class TwitterFeature(BaseFeature):
     # the only difference betweetn this class and BaseFeature is that this 
@@ -58,7 +59,7 @@ class TwitterFeature(BaseFeature):
         std_element_dis = dis_feautures[0]
         avg_element_dis = dis_feautures[1]
         avg_element_dis_cap = self.getElementTextDisFeatures()[1]
-        cap_per = self.getTextPercentage()
+        # cap_per = self.getTextPercentage()
         std = self.getPredictedStd()
         top_word_pop = self.getTopWordPopularity(k_topwords)
         zscore = self.getZscore()
@@ -81,7 +82,7 @@ class TwitterFeature(BaseFeature):
         return [avg_cap_len,
 				std_element_dis, avg_element_dis, 
                 avg_element_dis_cap,
-                cap_per,
+                # cap_per,
                 std, top_word_pop, zscore, entropy, #ratio,
                 diff_avg_element_dis, diff_top_word_pop, diff_entropy,
                 tfidf_top3[0], tfidf_top3[1], tfidf_top3[2], 
@@ -91,15 +92,16 @@ class TwitterFeature(BaseFeature):
 
 def testWithTweet():
     corpus_all = buildAllCorpus(element_type='tweets', debug=True)
-    for key, corpus in corpus_all.items():
-        break
+    # for key, corpus in corpus_all.items():
+    #     break
 
     ei = EventInterface()
     ei.setDB('citybeat_experiment')
     ei.setCollection('twitter_candidate_events')
     cur = ei.getAllDocuments()
     for event in cur:
-        event = TwitterFeature(event, corpus=corpus)
+        region = Region(event['region'])
+        event = TwitterFeature(event, corpus=corpus_all[region.getKey()])
         event.printFeatures()
 
 if __name__=='__main__':
