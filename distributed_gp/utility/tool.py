@@ -19,7 +19,10 @@ def processAsPeopleCount(data):
     return_data = []
     window_size = 600
     for photo_json in data:
-        user = photo_json['user']['username']
+        try:
+            user = photo_json['user']['username']
+        except:
+            user = photo_json['user']['id_str']
         if user not in user_last_upload:
             user_last_upload[user] = int(photo_json['created_time'])
             return_data.append(photo_json)

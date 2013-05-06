@@ -24,12 +24,10 @@ from utility.tool import getCurrentStampUTC
 from utility.tool import processAsPeopleCount
 
 from utility.photo_interface import PhotoInterface
-from utility.tweet_interface import TweetInterface
 
 
 from utility.event_interface import EventInterface
 from utility.event import Event
-from utility.tweet_event import TweetEvent
 
 
 
@@ -37,36 +35,26 @@ from utility.tweet_event import TweetEvent
 
 
 class Alarm():
-    def __init__(self, region, start_time, end_of_time, prediction_collection, candidate_collection, data_source):
+    def __init__(self, region, start_time, end_of_time, prediction_collection, candidate_collection):
         self.cur_time = int(start_time)
         self.end_of_time = int(end_of_time)
         self.region = region
         self.prediction_collection = prediction_collection
         self.candidate_collection = candidate_collection
-        self.data_source = data_source
 
     def getNearestPrediction(self):
         pi = PredictionInterface()
-        pi.setDB('citybeat_experiment')
-        if self.data_source == 'twitter':
-            pi.setCollection('twitter_prediction')
-        elif self.data_source == 'instagram':
-            pi.setCollection('instagram_prediction')
+        pi.setDB('citybeat')
+        pi.setCollection(self.prediction_collection)
         return pi.getNearestPrediction(self.region, str(self.cur_time))
 
     def _getFiftenMiniutesPhotos(self):
-        #pi = PhotoInterface('citybeat_experiment', 'tweets')
-        data_interface = None
-        if self.data_source=='twitter':
-            data_interface = TweetInterface('citybeat_production', 'tweets')
-        elif self.data_source == 'instagram':
-            data_interface = TweetInterface('citybeat_production', 'photos')
+        pi = PhotoInterface('citybeat', 'photos')
         _fifteen_minutes_ago = 15*60
-        #cursor  = pi.rangeQuery( self.region , (str( self.cur_time - _fifteen_minutes_ago), str(self.cur_time)) )
-        cursor = data_interface.rangeQuery( self.region , (str( self.cur_time - _fifteen_minutes_ago), str(self.cur_time)) )
+        cursor  = pi.rangeQuery( self.region , (str( self.cur_time - _fifteen_minutes_ago), str(self.cur_time)) )
         _photos = []
         for p in cursor:
-            _photos.append(p)
+            _photos.append( p )
         _photos = sorted( _photos, key=lambda k:k['created_time'] )
         before = len(_photos)
         _photos = processAsPeopleCount(_photos)
@@ -97,12 +85,9 @@ class Alarm():
 
         zscore = (self.current_value - mu)*1.0/std
 
-        print 'zscore = ',zscore, 'pred_mu = ',mu, 'actual = ',self.current_value
-        if zscore > 3 and self.current_value>=8:
-            if self.data_source=='twitter':
-                e = TweetEvent()
-            elif self.data_source == 'instagram':
-                e = Event()     #this is default instagram event
+
+        if zscore > 3:
+            e = Event()
             e.setPredictedValues(mu, std)
             e.setZscore(zscore)
             e.setRegion(self.region)
@@ -114,16 +99,15 @@ class Alarm():
             #print 'current value ',4.0*self.current_value, ' predict = ',mu*4.0,' std = ',std*4.0
         
             ei = EventInterface( )
-            ei.setDB('citybeat_experiment')
             ei.setCollection(self.candidate_collection)
             print e.getEarliestPhotoTime(),e.getLatestPhotoTime()
             #print e.toDict()['region']
-            ei.addEvent(e)
-            #ei.addEventWithoutMerge(e)
+            #ei.addEvent(e)
+            ei.addEventWithoutMerge(e)
             # modified by xia
 
 
-def run( data_source):
+def run():
     coordinates = [InstagramConfig.photo_min_lat,
             InstagramConfig.photo_min_lng,
             InstagramConfig.photo_max_lat,
@@ -134,12 +118,7 @@ def run( data_source):
     alarm_region_size = 25
 
     regions = huge_region.divideRegions(alarm_region_size,alarm_region_size)
-    if data_source == 'twitter':
-        element_type = 'tweets'
-    elif data_source == 'instagram':
-        element_type = 'photos'
-
-    filtered_regions = huge_region.filterRegions( regions, test=True, n=25, m=25, element_type=element_type)
+    filtered_regions = huge_region.filterRegions( regions)
     # get the same regions as in db. Here it's 10 by 10
 
     regions = filtered_regions
@@ -147,12 +126,11 @@ def run( data_source):
     print 'all regions',len(regions)
     for region in regions:
         #delete the last 7*24*3600 to set it back to Dec 1st
-        start_of_time =  1367107200
-        end_of_time = 1367107200 + 7*24*3600 
-        alarm = Alarm(region, start_of_time, end_of_time, 'twitter_prediction', 'twitter_candidate_events', data_source)
+        start_of_time =  1354320000 + 7*24*3600
+        end_of_time = 1354320000 + 7*24*3600 + 7*24*3600
+        alarm = Alarm(region, start_of_time, end_of_time, 'next_week_prediction_25by25', 'next_week_candidate_event_25by25')
         cnt = 0
         region.display()
-        xia_cnt = 0
         while alarm.nextTimeStep(300):
             cnt += 1
             alarm.fireAlarm()
@@ -161,7 +139,4 @@ def run( data_source):
                 print 'alarm = ',cnt
         print '\n\n' 
 if __name__ == "__main__":
-    assert(sys.argv[1] in ['twitter', 'instagram'])
-    data_source = sys.argv[1]
-    
-    run( data_source)                            
+    run()                            
