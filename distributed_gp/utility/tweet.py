@@ -11,7 +11,7 @@ class Tweet(BaseElement):
     
     def __init__(self, tweet):
         super(Tweet, self).__init__(tweet)
-    
+
     def getCreatedUTCTimestamp(self):
         ts = self._element['created_at']
         dt = int(mktime_tz(parsedate_tz(ts.strip())))
