@@ -99,8 +99,6 @@ def testWithTweet():
     ei.setCollection('twitter_candidate_events')
     cur = ei.getAllDocuments()
     for event in cur:
-        print event['tweets'][0]
-        break
         event = TwitterFeature(event, corpus=corpus)
         event.printFeatures()
 
