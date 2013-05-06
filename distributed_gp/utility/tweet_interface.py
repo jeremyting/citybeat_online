@@ -9,7 +9,6 @@ from mongodb_interface import MongoDBInterface
 from tweet import Tweet
 from config import TwitterConfig
 from datetime import datetime
-from bson.objectid import ObjectId
 from element_interface import ElementInterface
 
 import config
@@ -145,7 +144,7 @@ def getTweetDistribution():
         res.append((key, value))
 
     sorted(res, key=itemgetter(1))
-    
+
     for key, value in res:
         print key, value
 
