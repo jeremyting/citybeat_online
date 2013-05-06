@@ -12,7 +12,7 @@ class TweetEvent(BaseEvent):
     
     def __init__(self, event=None):
         # the input argument event should be a dictionary or python object
-        super(Event, self).__init__('tweets', event)
+        super(TweetEvent, self).__init__('tweets', event)
 
                 
     def addTweet(self, tweet):
@@ -48,4 +48,4 @@ class TweetEvent(BaseEvent):
         return self._mergeWith(TweetEvent(event))
         
 def main():
-    pass
+    TweetEvent()
