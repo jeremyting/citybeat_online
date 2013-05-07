@@ -5,6 +5,7 @@ import types
 from region import Region
 from photo import Photo
 from tweet import Tweet
+from base_element import BaseElement
 
 class BaseEvent(object):
     
@@ -225,6 +226,17 @@ class BaseEvent(object):
             if t < et:
                 et = t
         return et
+
+    def getGeoLocationCenter(self):
+        lat = 0
+        lon = 0
+        n = len(self._event[self._element_type])
+        for element in self._event[self._element_type]:
+            element = BaseElement(element)
+            loc = element.getLocations()
+            lat += loc[0]
+            lon += loc[1]
+        return [lat/n, lon/n]
 
 if __name__ == 'main':
     be = BaseEvent('photos')

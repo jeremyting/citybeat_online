@@ -121,4 +121,10 @@ def TransferEvent():
         ei2.addEvent(event)
 
 if __name__=='__main__':
-    TransferEvent()
+    # TransferEvent()
+    ei = EventInterface()
+    ei.setDB('citybeat')
+    ei.setCollection('candidate_event_25by25')
+    for event in ei.getAllDocuments():
+        e = PhotoEvent(event)
+        print e.getGeoLocationCenter()
