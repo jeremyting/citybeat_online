@@ -121,3 +121,4 @@ if __name__=='__main__':
             print e.extractFeatures()
             for tweet in event['tweets']:
                 print Tweet(tweet).getText()
+            break
