@@ -3,6 +3,7 @@ from event_interface import EventInterface
 from tweet_interface import TweetInterface
 from base_feature import BaseFeature
 from region import Region
+from tweet import Tweet
 
 class TwitterFeature(BaseFeature):
     # the only difference betweetn this class and BaseFeature is that this 
@@ -107,4 +108,16 @@ def testWithTweet():
 if __name__=='__main__':
     # testWithPhoto()
     # print '*************************'
-    testWithTweet()
+    # testWithTweet()
+    corpus_all = buildAllCorpus(element_type='tweets', debug=True)
+    ei = EventInterface()
+    ei.setDB('citybeat_experiment')
+    ei.setCollection('twitter_candidate_events')
+    cur = ei.getAllDocuments()
+    for event in cur:
+        if len(event['tweets']) == 8:
+            region = Region(event['region'])
+            e = TwitterFeature(event, corpus=corpus_all[region.getKey()])
+            print e.extractFeatures()
+            for tweet in event['tweets']:
+                print Tweet(tweet).getText()
