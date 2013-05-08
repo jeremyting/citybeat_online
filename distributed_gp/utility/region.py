@@ -43,8 +43,7 @@ class Region:
             self._region[key] = float('%.8f' % value)
     
     def getKey(self):
-        key = ''
-        key += str(self._region['min_lat']) + ';'
+        key = str(self._region['min_lat']) + ';'
         key += str(self._region['min_lng']) + ';'
         key += str(self._region['max_lat']) + ';'
         key += str(self._region['max_lng'])

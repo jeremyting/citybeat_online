@@ -33,7 +33,7 @@ class ElementInterface(MongoDBInterface):
 
       
     
-    def rangeQuery(self, region=None, period=None):
+    def rangeQuery(self, region=None, period=None, field=None):
         #period should be specified as: [begin_time end_time]
         #specify begin_time and end_time as the utctimestamp, string!!
         
@@ -57,4 +57,25 @@ class ElementInterface(MongoDBInterface):
         
         #returns a cursor
         #sort the tweet in chronologically decreasing order
-        return self.getAllDocuments(conditions).sort('created_time', -1)
+        if field is None:
+          return self.getAllDocuments(conditions).sort('created_time', -1)
+        else:
+          return self.getAllFields(field, condition=conditions)
+
+def test():
+  region = {}
+  region['min_lat'] = -1000
+  region['max_lat'] = 1000
+  region['min_lng'] = -1000
+  region['max_lng'] = 1000
+
+  ti = ElementInterface('citybeat_production', 'photos', 'photos')
+  cur = ti.rangeQuery(region=region, field='caption.text')
+  cnt = 0
+  for text in cur:
+    if len(text) > 0:
+      cnt += 1
+  print cnt
+
+if __name__ == '__main__':
+  test()

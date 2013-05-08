@@ -90,10 +90,11 @@ class EventInterface(MongoDBInterface):
 #                   print old_event['_id'], new_event['_id']
                 if merged > 0:
                     self.updateDocument(merged_event)
-                return
+                return merged_event
         # cannot merge
         print 'create a new event'
         super(EventInterface, self).saveDocument(new_event)
+        return new_event
       
 
 def testDeleteEventByID():
@@ -121,4 +122,10 @@ def TransferEvent():
         ei2.addEvent(event)
 
 if __name__=='__main__':
-    TransferEvent()
+    # TransferEvent()
+    ei = EventInterface()
+    ei.setDB('citybeat')
+    ei.setCollection('candidate_event_25by25')
+    for event in ei.getAllDocuments():
+        e = PhotoEvent(event)
+        print e.getGeoLocationCenter()

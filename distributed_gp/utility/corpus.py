@@ -25,21 +25,22 @@ class Corpus(object):
 
     def buildCorpus(self, region, time_interval, element_type='photos', paras={}):
         # time_interval should be [start, end]
-        if element_type == 'photos':
-            di = PhotoInterface()
-        else:
-            di = TweetInterface()
-        cur = di.rangeQuery(region, time_interval)
         text = []
-        for element in cur:
-            if element_type == 'photos':
-                doc = Photo(element)
-            else:
-                doc = Tweet(element)
-            t = doc.getText()
-            #at least 5 length
-            if len(t) > 4:
-                text.append(t)
+        if element_type == 'photos':
+            ei = PhotoInterface()
+            cur = ei.rangeQuery(region, time_interval, 'caption.text')
+        else:
+            ei = TweetInterface()
+            cur = ei.rangeQuery(region, time_interval, 'text')
+        for t in cur:
+            try:
+                if element_type == 'photos':
+                    text.append(t['caption']['text'])
+                else:
+                    text.append(t['text'])
+            except:
+                pass
+
         # it is not proper here to set up stopwords
         self._vectorizer = TfidfVectorizer(max_df=paras.get('max_df', 0.2),
                                            min_df=paras.get('min_df', 0.0),
@@ -54,7 +55,7 @@ class Corpus(object):
                                            )
                                            
         self._vectorizer.fit_transform(text)
-    
+
     def getVectorizer(self):
         return self._vectorizer
     
@@ -92,7 +93,7 @@ def buildAllCorpus(element_type='photos', time_interval_length=14, debug=False, 
     region_list = nyc.filterRegions(region_list, test=True, n=25, m=25, element_type=element_type)
     
     # 14 days ago
-    now = int(tool.getCurrentStampUTC()) - 40 *3600 *24
+    now = int(tool.getCurrentStampUTC())
     
     num = 0
     for region in region_list:
@@ -108,4 +109,4 @@ def buildAllCorpus(element_type='photos', time_interval_length=14, debug=False, 
     return all_corpus
 
 if __name__ == '__main__':
-    buildAllCorpus()
+    buildAllCorpus(element_type='photos')
