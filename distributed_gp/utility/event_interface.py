@@ -90,10 +90,11 @@ class EventInterface(MongoDBInterface):
 #                   print old_event['_id'], new_event['_id']
                 if merged > 0:
                     self.updateDocument(merged_event)
-                return
+                return merged_event
         # cannot merge
         print 'create a new event'
         super(EventInterface, self).saveDocument(new_event)
+        return new_event
       
 
 def testDeleteEventByID():
