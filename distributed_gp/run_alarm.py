@@ -28,12 +28,9 @@ from utility.tweet_interface import TweetInterface
 
 
 from utility.event_interface import EventInterface
-from utility.event import Event
+#from utility.event import Event
 from utility.tweet_event import TweetEvent
-
-
-
-
+from utility.photo_event import PhotoEvent
 
 
 class Alarm():
@@ -102,7 +99,7 @@ class Alarm():
             if self.data_source=='twitter':
                 e = TweetEvent()
             elif self.data_source == 'instagram':
-                e = Event()     #this is default instagram event
+                e = PhotoEvent()     #this is default instagram event
             e.setPredictedValues(mu, std)
             e.setZscore(zscore)
             e.setRegion(self.region)
@@ -110,13 +107,13 @@ class Alarm():
             e.setActualValue(self.current_value)
 
             for p in self.photos:
-                e.addPhoto(p)
+                e.addTweet(p)
             #print 'current value ',4.0*self.current_value, ' predict = ',mu*4.0,' std = ',std*4.0
         
             ei = EventInterface( )
             ei.setDB('citybeat_experiment')
             ei.setCollection(self.candidate_collection)
-            print e.getEarliestPhotoTime(),e.getLatestPhotoTime()
+            #print e.getEarliestPhotoTime(),e.getLatestPhotoTime()
             #print e.toDict()['region']
             ei.addEvent(e)
             #ei.addEventWithoutMerge(e)
@@ -134,10 +131,16 @@ def run( data_source):
     alarm_region_size = 25
 
     regions = huge_region.divideRegions(alarm_region_size,alarm_region_size)
+    prediction_collection = None
+    candidate_collection = None
     if data_source == 'twitter':
         element_type = 'tweets'
+        prediction_collection = "twitter_prediction"
+        candidate_collection = "twitter_candidate_events"
     elif data_source == 'instagram':
         element_type = 'photos'
+        prediction_collection = "instagram_prediction"
+        candidate_collection = "instagram_candidate_events"
 
     filtered_regions = huge_region.filterRegions( regions, test=True, n=25, m=25, element_type=element_type)
     # get the same regions as in db. Here it's 10 by 10
@@ -149,7 +152,7 @@ def run( data_source):
         #delete the last 7*24*3600 to set it back to Dec 1st
         start_of_time =  1367107200
         end_of_time = 1367107200 + 7*24*3600 
-        alarm = Alarm(region, start_of_time, end_of_time, 'twitter_prediction', 'twitter_candidate_events', data_source)
+        alarm = Alarm(region, start_of_time, end_of_time, prediction_interface, candidate_collection, data_source)
         cnt = 0
         region.display()
         xia_cnt = 0
