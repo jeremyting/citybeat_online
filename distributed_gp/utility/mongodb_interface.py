@@ -53,9 +53,10 @@ class MongoDBInterface(object):
         for ID in query_res:
             IDs.append(ID['_id'])
         return IDs
-    def getAllFields(self, field, condition={}):
+
+    def getAllFields(self, field, condition={}, limit=0):
         # field should be a string, this method cannot be run on get _id
-        return self._collection.find(condition, {field:1, '_id':False})
+        return self._collection.find(condition, {field:1, '_id':False}, limit=limit)
 
 if __name__=='__main__':
     mi = MongoDBInterface()

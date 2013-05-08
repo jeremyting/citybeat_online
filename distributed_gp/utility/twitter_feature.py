@@ -109,23 +109,14 @@ if __name__=='__main__':
     # testWithPhoto()
     # print '*************************'
     # testWithTweet()
-    corpus_all = buildAllCorpus(element_type='tweets', debug=True)
+    corpus_all = buildAllCorpus(element_type='tweets', debug=False)
     ei = EventInterface()
     ei.setDB('citybeat_experiment')
     ei.setCollection('twitter_candidate_events')
     cur = ei.getAllDocuments()
     for event in cur:
         if len(event['tweets']) == 8:
-            for tweet in event['tweets']:
-                print tweet['user']['id']
             region = Region(event['region'])
             e = TwitterFeature(event, corpus=corpus_all[region.getKey()])
             print e.extractFeatures()
-            print e._getTopWords(k=-1)
-            print len(event['tweets'])
-            i = 0
-            for tweet in event['tweets']:
-                i += 1
-                print '************************', i
-                print Tweet(tweet).getText()
-            break
+
