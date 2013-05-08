@@ -24,6 +24,7 @@ from utility.tool import getCurrentStampUTC
 from utility.tool import processAsPeopleCount
 
 from utility.photo_interface import PhotoInterface
+from utility.tweet_interface import TweetInterface
 
 
 from utility.event_interface import EventInterface
@@ -43,13 +44,11 @@ class Alarm():
     def getNearestPrediction(self):
         pi = PredictionInterface()
         pi.setDB('citybeat_production')
-        
         if self.data_source == 'instagram':
             pi.setCollection('online_prediction_instagram')
         else:
             pi.setCreatedTime('online_prediction_twitter')
         self.region.display()
-        print str(self.cur_time)
         return pi.getNearestPrediction(self.region, str(self.cur_time))
 
     def _getFiftenMiniutesData(self):
@@ -57,7 +56,7 @@ class Alarm():
         if self.data_source=='twitter':
             data_interface = TweetInterface('citybeat_production', 'tweets')
         elif self.data_source == 'instagram':
-            data_interface = TweetInterface('citybeat_production', 'photos')
+            data_interface = PhotoInterface('citybeat_production', 'photos')
         _fifteen_minutes_ago = 15*60
         cursor = data_interface.rangeQuery( self.region , (str( self.cur_time - _fifteen_minutes_ago), str(self.cur_time)) )
         _data = []
@@ -84,9 +83,6 @@ class Alarm():
         
         self._getFiftenMiniutesData()
         if prediction is None:
-            #print 'None data for this region: details as follow'
-            #self.region.display()
-            #print 'time:' ,self.cur_time
             print 'No prediction'
             return 
         else:
@@ -94,15 +90,9 @@ class Alarm():
         mu = float(prediction['mu'])/4.0
         std = float(prediction['std'])/4.0
         time_stamp = prediction['time']
-
         zscore = (self.current_value - mu)*1.0/std
-
-        print 'trying'
-        print 'cur value = '
-        print self.current_value
-        print 'zscore = '
-        print zscore
-        if zscore > 3.0 and self.current_value>3:   #comment this
+        print 'cur value = ' ,self.current_value, 'zscore = ', zscore
+        if zscore > 3.0 and self.current_value>5:   #comment this
             print 'in alarm!, cur value = ',self.current_value
             if self.data_source == 'twitter':
                 e = TweetEvent()
@@ -119,17 +109,13 @@ class Alarm():
             e.setCreatedTime(self.cur_time)
             e.setActualValue(self.current_value)
 
-            for p in self.data:
-                e.addPhoto(p)
-        
             ei = EventInterface( )
             ei.setCollection(self.candidate_collection)
             print e.getEarliestPhotoTime(),e.getLatestPhotoTime()
-            ei.addEvent(e)
+            print ei.addEvent(e)
 
 
 def run(data_source):
-    assert(sys.argv[1] in ['twitter', 'instagram'])
     coordinates = [InstagramConfig.photo_min_lat,
             InstagramConfig.photo_min_lng,
             InstagramConfig.photo_max_lat,
@@ -145,10 +131,8 @@ def run(data_source):
     elif data_source == 'instagram':
         regions = nyc_region.filterRegions( region_list = regions, test=True, n=alarm_region_size, m = alarm_region_size, element_type = 'photos')
         
-
     cur_utc_time = getCurrentStampUTC() 
 
-    print 'all regions',len(regions)
     for region in regions:
         start_of_time =  cur_utc_time
         end_of_time = cur_utc_time
@@ -156,6 +140,8 @@ def run(data_source):
             alarm = Alarm(region, start_of_time, end_of_time, TwitterConfig.prediction_collection, TwitterConfig.event_collection, data_source)
         elif data_source == 'instagram':
             alarm = Alarm(region, start_of_time, end_of_time, InstagramConfig.prediction_collection, InstagramConfig.event_collection, data_source)
+            #for test only
+            #alarm = Alarm(region, start_of_time, end_of_time, InstagramConfig.prediction_collection, "tmp_remove", data_source)
         region.display()
         alarm.fireAlarm()
 
