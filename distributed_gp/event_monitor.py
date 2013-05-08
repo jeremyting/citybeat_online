@@ -31,7 +31,7 @@ class EventMonitor():
         """Go through candidate event db and classify whatever is left"""
         ei = EventInterface(self.candidate_db, self.candidate_collection)
         ei_classified = EventInterface(self.classified_event_db, self.classified_event_collection)
-        ei_backup = EventInterface(self.event_backup_db, self.event_backup_collection)
+        #ei_backup = EventInterface(self.event_backup_db, self.event_backup_collection)
         cnt = 0
         
         for e in ei.getAllDocuments():
@@ -49,12 +49,6 @@ class EventMonitor():
                 print 'ready to insert'
                 e.setLabel( prob )
                 ei_classified.addEvent(e)
-            
-    def monitor(self):
-        em = EventMonitor('citybeat', 'candidate_event_15by15_merged',  'citybeat', 'instagram_front_end_events', 'citybeat', 'event_backup_instagram')
-        while True:
-            self.goThroughCandidateDB()
-            time.sleep(60)
 
 def test():
     em = EventMonitor('citybeat_production', 'online_candidate_instagram',  'citybeat_production', 'instagram_front_end_events', 'citybeat_production', 'event_backup_instagram')

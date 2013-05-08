@@ -1,7 +1,7 @@
 #!/bin/sh
 
 procs=`ps aux|grep event_classifier.py |grep -v grep | wc -l`
-
+source /res/users/kx19/.bash_profile
 echo $procs
 if [ $procs -gt 0 ]; then
     echo "process running. exit."
