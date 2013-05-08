@@ -122,9 +122,14 @@ def TransferEvent(source_db, source_collection, targe_db, targe_collection):
         ei2.addEvent(event)
 
 if __name__=='__main__':
-    TransferEvent('citybeat_production', 'instagram_front_end_events',
-                  'citybeat_production_backup', 'instagram_front_end_events')
-    TransferEvent('citybeat_production', 'online_candidate_instagram',
-                  'citybeat_production_backup', 'online_candidate_instagram')
-    TransferEvent('citybeat_production', 'event_backup_instagram',
-                  'citybeat_production_backup', 'event_backup_instagram')
+    # TransferEvent('EventInterface()', 'instagram_front_end_events',
+    #               'citybeat_production_backup', 'instagram_front_end_events')
+    # TransferEvent('citybeat_production', 'online_candidate_instagram',
+    #               'citybeat_production_backup', 'online_candidate_instagram')
+    # TransferEvent('citybeat_production', 'event_backup_instagram',
+    #               'citybeat_production_backup', 'event_backup_instagram')
+    ei = EventInterface('citybeat', 'candidate_event_25by25_merged')
+    for e in ei.getAllDocuments():
+        pe = PhotoEvent(e)
+        assert int(pe.getEarliestElementTime()) == int(e['photos'][-1]['created_time'])
+        assert int(pe.getLatestElementTime()) == int(e['photos'][0]['created_time'])
