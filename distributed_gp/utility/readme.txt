@@ -13,8 +13,8 @@ BaseEvent
 
 
 MongoDBInterface  
-    -- ElementInterface (rangeQuery)
+    -- ElementInterface (rangeQuery, either photo or tweet)
         -- PhotoInterface
         -- TweetInterface
-    -- PredictionInterface
-    -- EventInterface
+    -- PredictionInterface (either photo or tweet)
+    -- EventInterface (either photo or tweet)
