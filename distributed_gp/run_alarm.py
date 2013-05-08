@@ -61,15 +61,15 @@ class Alarm():
         _fifteen_minutes_ago = 15*60
         #cursor  = pi.rangeQuery( self.region , (str( self.cur_time - _fifteen_minutes_ago), str(self.cur_time)) )
         cursor = data_interface.rangeQuery( self.region , (str( self.cur_time - _fifteen_minutes_ago), str(self.cur_time)) )
-        _photos = []
+        _data = []
         for p in cursor:
-            _photos.append(p)
-        _photos = sorted( _photos, key=lambda k:k['created_time'] )
-        before = len(_photos)
-        _photos = processAsPeopleCount(_photos)
-        after = len(_photos)
+            _data.append(p)
+        _data = sorted( _data, key=lambda k:k['created_time'] )
+        before = len(_data)
+        _data = processAsPeopleCount(_data)
+        after = len(_data)
         self.current_value = after
-        self.photos = _photos
+        self.data = _data
 
     def nextTimeStep(self, step_length ):
         _cur_time = self.cur_time + step_length
@@ -98,16 +98,18 @@ class Alarm():
         if zscore > 3 and self.current_value>=8:
             if self.data_source=='twitter':
                 e = TweetEvent()
+                for dt in self.data:
+                    e.addTweet(dt)
             elif self.data_source == 'instagram':
                 e = PhotoEvent()     #this is default instagram event
+                for dt in self.data:
+                    e.addPhoto(dt)
             e.setPredictedValues(mu, std)
             e.setZscore(zscore)
             e.setRegion(self.region)
             e.setCreatedTime(self.cur_time)
             e.setActualValue(self.current_value)
 
-            for p in self.photos:
-                e.addTweet(p)
             #print 'current value ',4.0*self.current_value, ' predict = ',mu*4.0,' std = ',std*4.0
         
             ei = EventInterface( )
@@ -152,7 +154,7 @@ def run( data_source):
         #delete the last 7*24*3600 to set it back to Dec 1st
         start_of_time =  1367107200
         end_of_time = 1367107200 + 7*24*3600 
-        alarm = Alarm(region, start_of_time, end_of_time, prediction_interface, candidate_collection, data_source)
+        alarm = Alarm(region, start_of_time, end_of_time, prediction_collection, candidate_collection, data_source)
         cnt = 0
         region.display()
         xia_cnt = 0
