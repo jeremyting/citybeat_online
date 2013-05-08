@@ -33,7 +33,10 @@ class EventInterface(MongoDBInterface):
         self.addEvent(raw_event)
         
     def getEventByID(self, ID):
-        return self.getDocument({'_id':ObjectId(str(ID))})
+        try:
+            return self.getDocument({'_id':ObjectId(str(ID))})
+        except:
+            return None
     
     def deleteEventByID(self, ID):
         assert type(ID) is types.StringType
@@ -128,8 +131,7 @@ if __name__=='__main__':
     #               'citybeat_production_backup', 'online_candidate_instagram')
     # TransferEvent('citybeat_production', 'event_backup_instagram',
     #               'citybeat_production_backup', 'event_backup_instagram')
-    ei = EventInterface('citybeat', 'candidate_event_25by25_merged')
-    for e in ei.getAllDocuments():
-        pe = PhotoEvent(e)
-        assert int(pe.getEarliestElementTime()) == int(e['photos'][-1]['created_time'])
-        assert int(pe.getLatestElementTime()) == int(e['photos'][0]['created_time'])
+    ei = EventInterface()
+    ei.setDB('citybeat_experiment')
+    ei.setCollection('twitter_candidate_events')
+    print ei.getEventByID('51886458c2375746dc7dcd8')
