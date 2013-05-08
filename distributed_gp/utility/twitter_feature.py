@@ -16,17 +16,9 @@ class TwitterFeature(BaseFeature):
     def GenerateArffFileHeader():
         print '@relation CityBeatEvents'
         print '@attribute AvgTextLen real'
-#       print '@attribute stat_MinElementDis real'
-#       print '@attribute stat_MaxElementDis real'
         print '@attribute stat_StdElementDis real'
         print '@attribute AvgElementDis real'
-#       print '@attribute stat_MedianElementDis real'
-#       print '@attribute stat_MinElementDisbyCap real'
-#       print '@attribute stat_MaxElementDisbyCap real'
-#       print '@attribute stat_StdElementDisbyCap real'
         print '@attribute AvgElementDisbyCap real'
-#       print '@attribute stat_MedianElementDisbyCap real'
-        print '@attribute TextPercentage real'
         print '@attribute PredictedStd real'
         print '@attribute TopWordPopularity real'
         print '@attribute Zscore real'
@@ -48,7 +40,7 @@ class TwitterFeature(BaseFeature):
         print '@attribute NumberOfPhotsContaingTopWord3 real'
                                 
         print '@attribute ID string'
-        print '@attribute label {1,-1}'
+        # print '@attribute label {1,-1}'
 
         print '@data'
 
@@ -81,42 +73,39 @@ class TwitterFeature(BaseFeature):
         diff_entropy = historic_features[2]
         
         return [avg_cap_len,
-				std_element_dis, avg_element_dis, 
+				std_element_dis,
+                avg_element_dis, 
                 avg_element_dis_cap,
-                # cap_per,
-                std, top_word_pop, zscore, entropy, #ratio,
+                std, 
+                top_word_pop, 
+                zscore, 
+                entropy,
                 diff_avg_element_dis, diff_top_word_pop, diff_entropy,
                 tfidf_top3[0], tfidf_top3[1], tfidf_top3[2], 
                 hashtage_cnt3[0], hashtage_cnt3[1], hashtage_cnt3[2],
-                number_elements_associated_with_keywords3[0], number_elements_associated_with_keywords3[1], number_elements_associated_with_keywords3[2],
+                number_elements_associated_with_keywords3[0], 
+                number_elements_associated_with_keywords3[1],
+                number_elements_associated_with_keywords3[2],
                 event_id]
 
 def testWithTweet():
-    corpus_all = buildAllCorpus(element_type='tweets', debug=True)
-    # for key, corpus in corpus_all.items():
-    #     break
-
-    ei = EventInterface()
-    ei.setDB('citybeat_experiment')
-    ei.setCollection('twitter_candidate_events')
-    cur = ei.getAllDocuments()
-    for event in cur:
-        region = Region(event['region'])
-        event = TwitterFeature(event, corpus=corpus_all[region.getKey()])
-        print event.extractFeatures()
-
-if __name__=='__main__':
-    # testWithPhoto()
-    # print '*************************'
-    # testWithTweet()
+    cnt = 0
     corpus_all = buildAllCorpus(element_type='tweets', debug=False)
     ei = EventInterface()
     ei.setDB('citybeat_experiment')
     ei.setCollection('twitter_candidate_events')
     cur = ei.getAllDocuments()
+    print TwitterFeature.GenerateArffFileHeader()
     for event in cur:
-        if len(event['tweets']) == 8:
-            region = Region(event['region'])
-            e = TwitterFeature(event, corpus=corpus_all[region.getKey()])
-            print e.extractFeatures()
+        region = Region(event['region'])
+        event = TwitterFeature(event, corpus=corpus_all[region.getKey()])
+        if event.getActualValue() < 8:
+            print '< 8'
+            continue
+        cnt += 1
+        print event.extractFeatures()
+    print  cnt, cur.count()
+
+if __name__=='__main__':
+    testWithTweet()
 

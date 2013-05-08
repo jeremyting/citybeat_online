@@ -108,24 +108,23 @@ def testDeleteEventByID():
     for event in cur:
         print event['_id']
         
-def TransferEvent():
+def TransferEvent(source_db, source_collection, targe_db, targe_collection):
     ei = EventInterface()
-    ei.setDB('citybeat')
-    ei.setCollection('candidate_event_25by25')
+    ei.setDB(source_db)
+    ei.setCollection(source_collection)
     
     ei2 = EventInterface()
-    ei2.setDB('test')
-    ei2.setCollection('test_useless')
+    ei2.setDB(targe_db)
+    ei2.setCollection(targe_collection)
     
     cur = ei.getAllDocuments()
     for event in cur:
         ei2.addEvent(event)
 
 if __name__=='__main__':
-    # TransferEvent()
-    ei = EventInterface()
-    ei.setDB('citybeat')
-    ei.setCollection('candidate_event_25by25')
-    for event in ei.getAllDocuments():
-        e = PhotoEvent(event)
-        print e.getGeoLocationCenter()
+    TransferEvent('citybeat_production', 'instagram_front_end_events',
+                  'citybeat_production_backup', 'instagram_front_end_events')
+    TransferEvent('citybeat_production', 'online_candidate_instagram',
+                  'citybeat_production_backup', 'online_candidate_instagram')
+    TransferEvent('citybeat_production', 'event_backup_instagram',
+                  'citybeat_production_backup', 'event_backup_instagram')
