@@ -27,39 +27,49 @@ from utility.photo_interface import PhotoInterface
 
 
 from utility.event_interface import EventInterface
-from utility.event import Event
+from utility.tweet_event import TweetEvent
+from utility.photo_event import PhotoEvent
 
 
 class Alarm():
-    def __init__(self, region, start_time, end_of_time, prediction_collection, candidate_collection):
+    def __init__(self, region, start_time, end_of_time, prediction_collection, candidate_collection, data_source):
         self.cur_time = int(start_time)
         self.end_of_time = int(end_of_time)
         self.region = region
         self.prediction_collection = prediction_collection
         self.candidate_collection = candidate_collection
+        self.data_source = data_source
 
     def getNearestPrediction(self):
         pi = PredictionInterface()
         pi.setDB('citybeat_production')
-        pi.setCollection('online_prediction_instagram')
+        
+        if self.data_source == 'instagram':
+            pi.setCollection('online_prediction_instagram')
+        else:
+            pi.setCreatedTime('online_prediction_twitter')
         self.region.display()
         print str(self.cur_time)
         return pi.getNearestPrediction(self.region, str(self.cur_time))
 
-    def _getFiftenMiniutesPhotos(self):
-        pi = PhotoInterface( )
+    def _getFiftenMiniutesData(self):
+        data_interface = None
+        if self.data_source=='twitter':
+            data_interface = TweetInterface('citybeat_production', 'tweets')
+        elif self.data_source == 'instagram':
+            data_interface = TweetInterface('citybeat_production', 'photos')
         _fifteen_minutes_ago = 15*60
-        cursor  = pi.rangeQuery( self.region , (str( self.cur_time - _fifteen_minutes_ago), str(self.cur_time)) )
-        _photos = []
+        cursor = data_interface.rangeQuery( self.region , (str( self.cur_time - _fifteen_minutes_ago), str(self.cur_time)) )
+        _data = []
         for p in cursor:
-            _photos.append( p )
-        print 'in fiften minutes there are ',len(_photos)
-        _photos = sorted( _photos, key=lambda k:k['created_time'] )
-        before = len(_photos)
-        _photos = processAsPeopleCount(_photos)
-        after = len(_photos)
+            _data.append(p)
+        _data = sorted( _data, key=lambda k:k['created_time'] )
+        before = len(_data)
+        _data = processAsPeopleCount(_data)
+        after = len(_data)
         self.current_value = after
-        self.photos = _photos
+        self.data = _data
+
 
     def nextTimeStep(self, step_length ):
         _cur_time = self.cur_time + step_length
@@ -72,7 +82,7 @@ class Alarm():
     def fireAlarm(self):
         prediction = self.getNearestPrediction()
         
-        self._getFiftenMiniutesPhotos()
+        self._getFiftenMiniutesData()
         if prediction is None:
             #print 'None data for this region: details as follow'
             #self.region.display()
@@ -94,24 +104,28 @@ class Alarm():
         print zscore
         if zscore > 3.0 and self.current_value>3:   #comment this
             print 'in alarm!, cur value = ',self.current_value
-            e = Event()
+            if self.data_source == 'twitter':
+                e = TweetEvent()
+                for dt in self.data:
+                    e.addTweet(dt)
+            elif self.data_source == 'instagram':
+                e = PhotoEvent()
+                for dt in self.data:
+                    e.addPhoto(dt)
+            
             e.setPredictedValues(mu, std)
             e.setZscore(zscore)
             e.setRegion(self.region)
             e.setCreatedTime(self.cur_time)
             e.setActualValue(self.current_value)
 
-            for p in self.photos:
+            for p in self.data:
                 e.addPhoto(p)
-            #print 'current value ',4.0*self.current_value, ' predict = ',mu*4.0,' std = ',std*4.0
         
             ei = EventInterface( )
             ei.setCollection(self.candidate_collection)
             print e.getEarliestPhotoTime(),e.getLatestPhotoTime()
-            #print e.toDict()['region']
             ei.addEvent(e)
-            #ei.addEventWithoutMerge(e)
-            # modified by xia
 
 
 def run(data_source):
@@ -139,9 +153,9 @@ def run(data_source):
         start_of_time =  cur_utc_time
         end_of_time = cur_utc_time
         if data_source == 'twitter':
-            alarm = Alarm(region, start_of_time, end_of_time, TwitterConfig.prediction_collection, TwitterConfig.event_collection)
+            alarm = Alarm(region, start_of_time, end_of_time, TwitterConfig.prediction_collection, TwitterConfig.event_collection, data_source)
         elif data_source == 'instagram':
-            alarm = Alarm(region, start_of_time, end_of_time, InstagramConfig.prediction_collection, InstagramConfig.event_collection)
+            alarm = Alarm(region, start_of_time, end_of_time, InstagramConfig.prediction_collection, InstagramConfig.event_collection, data_source)
         region.display()
         alarm.fireAlarm()
 
