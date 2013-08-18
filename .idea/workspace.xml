@@ -13,7 +13,7 @@
     <file path="/gp_job.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376711941348" ignored="false" />
     <file path="/event_classifier.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376833968171" ignored="false" />
     <file path="/my_gp2.m" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376834177295" ignored="false" />
-    <file path="/run_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376836143165" ignored="false" />
+    <file path="/run_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376836604381" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +56,7 @@
       <file leaf-file-name="run_gp.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/distributed_gp/run_gp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="36" selection-start="777" selection-end="777" vertical-scroll-proportion="-1.1283784">
+            <state line="85" column="9" selection-start="3359" selection-end="3359" vertical-scroll-proportion="0.38511327">
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -94,7 +94,7 @@
       <file leaf-file-name="gp_job.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/distributed_gp/gp_job.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="13" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0">
+            <state line="27" column="15" selection-start="1025" selection-end="1025" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -508,15 +508,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/distributed_gp/gp_job.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="13" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/distributed_gp/do_gp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="69" column="12" selection-start="1714" selection-end="1714" vertical-scroll-proportion="-13.538462">
@@ -526,9 +517,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/gp_job.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="15" selection-start="1025" selection-end="1025" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/distributed_gp/run_gp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="36" selection-start="777" selection-end="777" vertical-scroll-proportion="-1.1283784">
+        <state line="85" column="9" selection-start="3359" selection-end="3359" vertical-scroll-proportion="0.38511327">
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>

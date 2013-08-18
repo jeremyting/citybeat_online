@@ -78,12 +78,12 @@ def run(data_source):
     for i in range(len(regions)):
         logging.warn("Working on region %d" % i)
         test_region = regions[i]
-        try:
-            gp = GaussianProcessJob(test_region, str(fourteen_days_ago), str(cur_utc_timestamp), redis_queue)
-            res, pred_time = gp.submit()
-        except Exception as e:
-            logging.warn("Initialization of gp error. continue, error message %s" % (e))
-            continue
+        #try:
+        gp = GaussianProcessJob(test_region, str(fourteen_days_ago), str(cur_utc_timestamp), redis_queue)
+        res, pred_time = gp.submit()
+        #except Exception as e:
+        #    logging.warn("Initialization of gp error. continue, error message %s" % e)
+        #    continue
         _results[gp.getID()] = (test_region, res, pred_time)
         _saved[gp.getID()] = False
 
