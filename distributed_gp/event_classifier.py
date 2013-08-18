@@ -8,14 +8,15 @@ read tf-idf
        if e is event:
            put it back to front-end db
 """
+import logging
+import time
+
 from utility.event_interface import EventInterface
 from utility.base_feature_production import BaseFeatureProduction
 from utility.corpus import buildAllCorpus
 from utility.region import Region
 from utility.event import Event
-import logging
 import classifier
-import time
 
 
 class EventMonitor():

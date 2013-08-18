@@ -1,20 +1,18 @@
 import time
 import math
 import sys
+import logging
+
+from rq import Queue
+from redis import Redis
 
 from utility.region import Region
 from utility.config import InstagramConfig
 from utility.config import TwitterConfig
-from rq import Queue
-from redis import Redis
-
 from gp_job import GaussianProcessJob
 from utility.prediction_interface import PredictionInterface
 from utility.prediction import Prediction
 from utility.tool import getCurrentStampUTC
-
-import logging
-import traceback
 
 
 def save_to_mongo(_results, _saved, model_update_time, data_source):

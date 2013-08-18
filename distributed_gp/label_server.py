@@ -1,18 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf8 -*-
 
-import cherrypy
-import foursquare
 import json
-import time
+
+import cherrypy
 
 from utility.event_interface import EventInterface
-from utility.event import Event
-
 from utility.base_feature_production import BaseFeatureProduction
-from utility.corpus import Corpus
-
-import random
 
 
 class Root:

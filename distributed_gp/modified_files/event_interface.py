@@ -5,16 +5,11 @@
 ##########
 #Edited by: (Please write your name here)#
 
-from mongodb_interface import MongoDBInterface
+import types
+
+from utility.mongodb_interface import MongoDBInterface
 from event import Event
 from config import InstagramConfig
-from datetime import datetime
-
-import config
-import time
-import logging
-import string
-import types
 
 
 class EventInterface(MongoDBInterface):

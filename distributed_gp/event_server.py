@@ -2,10 +2,8 @@
 # -*- coding: utf8 -*-
 
 import cherrypy
-import foursquare
 #import config
 import json
-import time
 
 from utility.event_interface import EventInterface
 from utility.event import Event
@@ -13,7 +11,6 @@ from utility.event import Event
 from utility.representor import Representor
 
 from utility.base_feature_production import BaseFeatureProduction
-from utility.corpus import Corpus
 
 import random
 

@@ -1,10 +1,7 @@
-from mongodb_interface import MongoDBInterface
-from photo import Photo
-from region import Region
-
 import operator
-import string
 import types
+
+from photo import Photo
 
 
 class Event(object):
