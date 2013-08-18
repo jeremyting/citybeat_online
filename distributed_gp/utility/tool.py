@@ -4,14 +4,17 @@ from email.utils import parsedate_tz, mktime_tz
 from calendar import timegm
 import types
 
+
 def getCurrentStampUTC():
     cur_utc_timestamp = calendar.timegm(datetime.utcnow().utctimetuple())
     return cur_utc_timestamp
 
+
 def convertTwitterDateToTimestamp(time_string):
     dt = int(mktime_tz(parsedate_tz(ts.strip())))
     return dt
-    
+
+
 def processAsPeopleCount(data):
     # process the data and delete those that are "floodingly" upload photos
     # eliminate photos that are within a time window
@@ -27,13 +30,14 @@ def processAsPeopleCount(data):
             user_last_upload[user] = int(photo_json['created_time'])
             return_data.append(photo_json)
         else:
-            if float(photo_json['created_time']) - float(user_last_upload[user]) > window_size: 
+            if float(photo_json['created_time']) - float(user_last_upload[user]) > window_size:
                 user_last_upload[user] = int(photo_json['created_time'])
             else:
                 return_data.append(photo_json)
     return return_data
-    
-def textPreprocessor(text):   
+
+
+def textPreprocessor(text):
     def removeAt(text):
         # remove @xxx
         new_text = ''
@@ -43,7 +47,7 @@ def textPreprocessor(text):
                 continue
             new_text += word + ' '
         return new_text.strip()
-        
+
     text = removeAt(text)
     # change the word YouLoveMe into you love me seperately
     new_text = ''
@@ -63,6 +67,7 @@ def textPreprocessor(text):
     new_text = removeAt(new_text)
     return new_text.strip()
 
+
 def getEventType(event):
     if type(event) is types.DictType:
         if 'tweets' in event.keys():
@@ -71,10 +76,8 @@ def getEventType(event):
             return 'photos'
     else:
         return event._element_type
-    
-		
 
-        
+
 if __name__ == "__main__":
     print getCurrentStampUTC()
 

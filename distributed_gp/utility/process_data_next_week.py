@@ -21,68 +21,70 @@ import math
 
 import sys
 
+
 def loadNextWeekData():
-    
-    # load modified 
-    
+    # load modified
+
     ei = EventInterface()
     ei.setDB('citybeat')
     ei.setCollection('next_week_candidate_event_25by25_merged')
-    
+
     true_events = []
     false_events = []
-    
+
     fid2 = open('labeled_data_cf/label_next_week.txt', 'r')
-    
+
     for line in fid2:
         t = line.split(',')
         id = str(t[0])
         label = int(t[1])
-        
-        event = ei.getDocument({'_id':ObjectId(id)})
+
+        event = ei.getDocument({'_id': ObjectId(id)})
         event['label'] = label
         e = Event(event)
         if e.getActualValue() < 8 or event['label'] == 0:
-#           print 'bad event ' + id
+        #           print 'bad event ' + id
             continue
         if event['label'] == 1:
             true_events.append(event)
         else:
             false_events.append(event)
-            
+
     fid2.close()
     return true_events, false_events
+
 
 def generateData():
     #rep = Representor(None, 'citybeat', 'next_week_candidate_event_25by25_merged')
     all_corpus = buildAllCorpus()
     true_event_list, false_event_list = loadNextWeekData()
     #BaseFeature(None).GenerateArffFileHeader()
-        
+
     for event in true_event_list + false_event_list:
         r = Region(event['region'])
         corpus = all_corpus[r.getKey()]
         BaseFeature(event, corpus, None).printFeatures()
 
-        
+
 def main():
     generateData()
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     main()
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
 #def loadRawLabeledData():
 #   
 #   ei = EventInterface()

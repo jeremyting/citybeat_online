@@ -8,8 +8,8 @@ from photo_interface import PhotoInterface
 from mongodb_interface import MongoDBInterface
 from tweet_interface import TweetInterface
 
+
 class Region:
-    
     def __init__(self, region):
         # this init method supports three types of input
         if type(region) is types.DictType:
@@ -23,7 +23,7 @@ class Region:
                 self._region['max_lng'] = region[3]
             else:
                 self._region = region.toDict()
-            
+
     def insideRegion(self, coordinate):
         # coordinates must be formatted as [lat, lng]
         lat = coordinate[0]
@@ -33,38 +33,39 @@ class Region:
         if self._region['min_lng'] > lng or lng > self._region['max_lng']:
             return False
         return True
-    
+
     def toDict(self):
         return self._region
-    
+
     def _roundTo8Digits(self):
         # this is a stricky operation but neccessary
         for key, value in self._region.items():
             self._region[key] = float('%.8f' % value)
-    
+
     def getKey(self):
         key = str(self._region['min_lat']) + ';'
         key += str(self._region['min_lng']) + ';'
         key += str(self._region['max_lat']) + ';'
         key += str(self._region['max_lng'])
-    
+
     def toJSON(self):
         return json.dumps(self._region)
-    
+
     def toTuple(self):
         return (self._region['min_lat'], self._region['min_lng'], self._region['max_lat'], self._region['max_lng'])
-    
+
     def display(self):
         print self._region
-                
+
     def getMidCoordinates(self):
-        return ((self._region['min_lat'] + self._region['max_lat'])/2, (self._region['min_lng'] + self._region['max_lng'])/2)
-        
+        return ((self._region['min_lat'] + self._region['max_lat']) / 2,
+                (self._region['min_lng'] + self._region['max_lng']) / 2)
+
     def divideRegions(self, n, m):
         # this method only works when the "region" is the whole region
         # divde the whole NYC into n*m rectangular regions
-        lat_offset =    (self._region['max_lat'] - self._region['min_lat']) / n
-        lng_offset =    (self._region['max_lng'] - self._region['min_lng']) / m
+        lat_offset = (self._region['max_lat'] - self._region['min_lat']) / n
+        lng_offset = (self._region['max_lng'] - self._region['min_lng']) / m
         region_list = []
         for i in xrange(0, n):
             low_lat = self._region['min_lat'] + i * lat_offset
@@ -76,8 +77,9 @@ class Region:
                 r = Region(coordinates)
                 region_list.append(r)
         return region_list
-    
-    def filterRegions(self, region_list, percentage=InstagramConfig.region_percentage,test=False, n=10, m=10, element_type='photos'):
+
+    def filterRegions(self, region_list, percentage=InstagramConfig.region_percentage, test=False, n=10, m=10,
+                      element_type='photos'):
         assert element_type in ['photos', 'tweets']
         if test:
             #n and m should be set if test is true
@@ -87,21 +89,21 @@ class Region:
             # grand : res ; joust : grad 
             folder = BaseConfig.getRegionListPath()
             file_name = element_type + '_'
-            file_name += str(n)+'_'+str(m)+'.txt'
+            file_name += str(n) + '_' + str(m) + '.txt'
             fid = open(folder + file_name)
             for line in fid:
                 region = line.split()
-                for i in xrange(0,4):
+                for i in xrange(0, 4):
                     region[i] = float(region[i])
                 region = Region(region)
                 new_region_list.append(region)
             return new_region_list
-            
-        # this method should not be a member of this class
-        # TODO: change the period to one week
-        
-#       end_time = 1359704845
-#       begin_time = 1299704845
+
+            # this method should not be a member of this class
+            # TODO: change the period to one week
+
+        #       end_time = 1359704845
+        #       begin_time = 1299704845
         end_time = 1962096000
         begin_time = 1362096000
         if element_type == 'photos':
@@ -110,7 +112,7 @@ class Region:
             di = TweetInterface()
         document_cur = di.rangeQuery(period=[str(begin_time), str(end_time)])
         region_number = len(region_list)
-        number_document_in_region = [0]*region_number
+        number_document_in_region = [0] * region_number
         bad_documents = 0
         total_documents = 0
         for document in document_cur:
@@ -125,30 +127,31 @@ class Region:
                     break
             if flag == 0:
                 bad_documents += 1
-                
+
         print str(bad_documents) + ' out of ' + str(total_documents) + ' documents are bad(not in NY)'
-        
+
         region_tuples = []
         for i in xrange(0, region_number):
             region_tuples.append((region_list[i], number_document_in_region[i]))
-        
+
         region_tuples.sort(key=operator.itemgetter(1), reverse=True)
 
         valid_region_number = int(0.5 + 1.0 * region_number * percentage)
         valid_regions = []
-        
-#       print region_tuples[valid_region_number-1][1]
+
+        #       print region_tuples[valid_region_number-1][1]
 
         for i in xrange(0, valid_region_number):
             region = region_tuples[i][0]
-            lat = (self._region['min_lat'] + self._region['max_lat'])/2
-            lng = (self._region['min_lng'] + self._region['max_lng'])/2
+            lat = (self._region['min_lat'] + self._region['max_lat']) / 2
+            lng = (self._region['min_lng'] + self._region['max_lng']) / 2
             cnt = region_tuples[i][1]
-        
+
         for i in xrange(0, valid_region_number):
             valid_regions.append(region_tuples[i][0])
-        
+
         return valid_regions
+
 
 def checkTweetInRegion():
     region = {}
@@ -156,9 +159,9 @@ def checkTweetInRegion():
     region['max_lat'] = InstagramConfig.photo_max_lat
     region['min_lng'] = InstagramConfig.photo_min_lng
     region['max_lng'] = InstagramConfig.photo_max_lng
-    
+
     r = Region(region)
-    
+
     ti = TweetInterface()
     ti.setDB('citybeat_production')
     ti.setCollection('tweets')
@@ -172,9 +175,10 @@ def checkTweetInRegion():
         tot += 1
         if r.insideRegion(cor):
             tweet_in_region += 1
-    
+
     print tweet_in_region
     print tot
+
 
 def doFiltering():
     coordinates = [InstagramConfig.photo_min_lat, InstagramConfig.photo_min_lng,
@@ -186,5 +190,6 @@ def doFiltering():
         region = region.toDict()
         print region['min_lat'], region['min_lng'], region['max_lat'], region['max_lng']
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     doFiltering()

@@ -21,7 +21,6 @@ for event in events:
 
 random.shuffle(event_list)
 
-
 ei2 = EventInterface()
 ei2.setDB('label')
 ei2.setCollection('label_10by10')

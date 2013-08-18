@@ -2,6 +2,7 @@ import math
 
 error = 1e-8
 
+
 def _check(pro):
     s = 0
     for pr in pro:
@@ -10,6 +11,7 @@ def _check(pro):
         s += pr
     return abs(1 - s) < error
 
+
 def KLDivergence(pro1, pro2):
     if not _check(pro1):
         pro1 = normalizeWithSmoothing(pro1)
@@ -17,12 +19,14 @@ def KLDivergence(pro1, pro2):
         pro2 = normalizeWithSmoothing(pro2)
     s = 0
     for i in xrange(0, len(pro1)):
-        s += pro1[i]*math.log(pro1[i]/pro2[i])/math.log(2)
+        s += pro1[i] * math.log(pro1[i] / pro2[i]) / math.log(2)
     return s
-    
+
+
 def averageKLDivergence(pro1, pro2):
-    return (KLDivergence(pro1, pro2) + KLDivergence(pro2, pro1))/2
-    
+    return (KLDivergence(pro1, pro2) + KLDivergence(pro2, pro1)) / 2
+
+
 def normalizeWithSmoothing(pro1):
     s = 0
     for i in xrange(0, len(pro1)):
@@ -30,7 +34,7 @@ def normalizeWithSmoothing(pro1):
         s += pro1[i]
     for i in xrange(0, len(pro1)):
         pro1[i] /= s
-    return pro1 
+    return pro1
 
 
 if __name__ == '__main__':

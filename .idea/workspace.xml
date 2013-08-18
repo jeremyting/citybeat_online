@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/.tx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/baseline.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/event_monitor.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/experiment_log.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/instagram_gp_log.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/log.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/log_instagra.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/nohup.out" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/res.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/run_alarm.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/run_baseline.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/run_baseline_alarm.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/run_experiment.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/t.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/test_prediction.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/test_query.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/distributed_gp/data_split.m" afterPath="$PROJECT_DIR$/distributed_gp/matlab/data_split.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/distributed_gp/eliminate_outlier.m" afterPath="$PROJECT_DIR$/distributed_gp/matlab/eliminate_outlier.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/distributed_gp/my_gp2.m" afterPath="$PROJECT_DIR$/distributed_gp/matlab/my_gp2.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/AlarmInterface.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/AlarmInterface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/EventQuery.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/EventQuery.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/MongoDB.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/MongoDB.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/NLP_tool.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/NLP_tool.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/GPLM_toolbox/gpml-matlab/util/lbfgsb/README.html" afterPath="$PROJECT_DIR$/distributed_gp/GPLM_toolbox/gpml-matlab/util/lbfgsb/README.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/UpdateNewAlarms.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/UpdateNewAlarms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/_kl_divergence.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/_kl_divergence.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/algorithms/_kl_divergence.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/algorithms/_kl_divergence.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/alarm.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/alarm.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/alarm2.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/alarm2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/trash/alarm2.py" afterPath="$PROJECT_DIR$/distributed_gp/trash/alarm2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/base_element.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/base_element.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/base_event.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/base_event.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/base_feature.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/base_feature.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/base_feature_production.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/base_feature_production.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/classifier.py" afterPath="$PROJECT_DIR$/distributed_gp/classifier.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/algorithms/community.py" afterPath="$PROJECT_DIR$/distributed_gp/algorithms/community.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/algorithms/community.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/algorithms/community.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/trash/config.py" afterPath="$PROJECT_DIR$/distributed_gp/trash/config.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/config.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/config.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/corpus.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/corpus.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/data_process.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/data_process.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/do_gp.py" afterPath="$PROJECT_DIR$/distributed_gp/do_gp.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/element_interface.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/element_interface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/entry_point.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/entry_point.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/event.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/event.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/event.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/event.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/event_choose.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/event_choose.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/event_classifier.py" afterPath="$PROJECT_DIR$/distributed_gp/event_classifier.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/event_feature_sparse.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/event_feature_sparse.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/event_feature_tweet.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/event_feature_tweet.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/event_feature_twitter.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/event_feature_twitter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/event_feature_twitter_sparse.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/event_feature_twitter_sparse.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/event_interface.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/event_interface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/event_interface.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/event_interface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/event_server.py" afterPath="$PROJECT_DIR$/distributed_gp/event_server.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/gp_job.py" afterPath="$PROJECT_DIR$/distributed_gp/gp_job.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/algorithms/graph_builder.py" afterPath="$PROJECT_DIR$/distributed_gp/algorithms/graph_builder.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/heatmap2.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/heatmap2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/GPLM_toolbox/gpml-matlab/doc/index.html" afterPath="$PROJECT_DIR$/distributed_gp/GPLM_toolbox/gpml-matlab/doc/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/instagram_time_series.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/instagram_time_series.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/algorithms/kl_divergence.py" afterPath="$PROJECT_DIR$/distributed_gp/algorithms/kl_divergence.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/kl_divergence.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/kl_divergence.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/label_server.py" afterPath="$PROJECT_DIR$/distributed_gp/label_server.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/merge_db.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/merge_db.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/trash/mongo_test.py" afterPath="$PROJECT_DIR$/distributed_gp/trash/mongo_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/mongodb_interface.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/mongodb_interface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/mymap.html" afterPath="$PROJECT_DIR$/distributed_gp/utility/mymap.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/photo.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/photo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/photo_event.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/photo_event.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/photo_interface.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/photo_interface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/photo_transfer.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/photo_transfer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/plot_timeseries.py" afterPath="$PROJECT_DIR$/distributed_gp/plot_timeseries.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/prediction.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/prediction.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/prediction_interface.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/prediction_interface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/processOldAlarms.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/processOldAlarms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/process_data.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/process_data.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/process_data_next_week.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/process_data_next_week.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/region.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/region.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/representor.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/representor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/trash/run_distributed_gp.py" afterPath="$PROJECT_DIR$/distributed_gp/trash/run_distributed_gp.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/run_distributed_gp_test.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/run_distributed_gp_test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/run_gp.py" afterPath="$PROJECT_DIR$/distributed_gp/run_gp.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/run_gp_worker.py" afterPath="$PROJECT_DIR$/distributed_gp/run_gp_worker.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/run_online_alarm.py" afterPath="$PROJECT_DIR$/distributed_gp/run_online_alarm.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/run_twitter_alarm.py" afterPath="$PROJECT_DIR$/distributed_gp/run_twitter_alarm.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/run_twitter_experiment.py" afterPath="$PROJECT_DIR$/distributed_gp/run_twitter_experiment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/stopwords.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/stopwords.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/GPLM_toolbox/gpml-matlab/doc/style.css" afterPath="$PROJECT_DIR$/distributed_gp/GPLM_toolbox/gpml-matlab/doc/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/test.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/test.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/test.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/test2.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/test2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/test3.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/test3.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/test4.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/test4.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/test5.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/test5.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/test_merge_with.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/test_merge_with.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/test_multi_iheritate.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/test_multi_iheritate.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/test_results.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/test_results.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/text_parser.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/text_parser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/time_series.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/time_series.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/tool.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/tool.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/tweet.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/tweet.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/tweet_event.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/tweet_event.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/tweet_interface.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/tweet_interface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/twitter_data_process.py" afterPath="$PROJECT_DIR$/distributed_gp/modified_files/twitter_data_process.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/twitter_feature.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/twitter_feature.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/twitter_time_series.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/twitter_time_series.py" />
+    </list>
+    <ignored path="citybeat_online.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376707585918" ignored="false" />
+    <file path="/a.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376707667161" ignored="false" />
+    <file path="/start_script.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376707882687" ignored="false" />
+    <file path="/do_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376834250265" ignored="false" />
+    <file path="/gp_job.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376711941348" ignored="false" />
+    <file path="/event_classifier.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376833968171" ignored="false" />
+    <file path="/my_gp2.m" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376834177295" ignored="false" />
+    <file path="/run_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376834992956" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="citybeat_online" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="classifier.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/classifier.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="0" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="do_gp.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/do_gp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="69" column="12" selection-start="1714" selection-end="1714" vertical-scroll-proportion="-13.538462">
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="run_gp.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/run_gp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="97" column="0" selection-start="3764" selection-end="3764" vertical-scroll-proportion="0.6452703">
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data_split.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/data_split.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="3" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my_gp2.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/my_gp2.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="16" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eliminate_outlier.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/eliminate_outlier.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="11" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gp_job.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/gp_job.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="13" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="event_classifier.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/event_classifier.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="38" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#167#217#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plot_timeseries.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/plot_timeseries.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="corpus.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/utility/corpus.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="75" column="4" selection-start="2744" selection-end="2744" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/distributed_gp/classifier.py" />
+        <option value="$PROJECT_DIR$/distributed_gp/run_alarm.py" />
+        <option value="$PROJECT_DIR$/distributed_gp/data_split.m" />
+        <option value="$PROJECT_DIR$/distributed_gp/gp_job.py" />
+        <option value="$PROJECT_DIR$/distributed_gp/event_classifier.py" />
+        <option value="$PROJECT_DIR$/distributed_gp/matlab/my_gp2.m" />
+        <option value="$PROJECT_DIR$/distributed_gp/do_gp.py" />
+        <option value="$PROJECT_DIR$/distributed_gp/run_gp.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="12" />
+    <option name="y" value="31" />
+    <option name="width" value="1420" />
+    <option name="height" value="860" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="distributed_gp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Software/vpython/bin/python" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <PyConsoleSettings>
+        <option name="mySdkHome" value="$USER_HOME$/Software/vpython/bin/python" />
+        <option name="myModuleName" value="citybeat_online" />
+      </PyConsoleSettings>
+    </option>
+    <option name="myDjangoConsoleState">
+      <PyConsoleSettings />
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/distributed_gp/matlab" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="citybeat_online" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="citybeat_online" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="citybeat_online" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="" />
+      <created>1376707584076</created>
+      <updated>1376707584076</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="12" y="31" width="1420" height="860" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.09594595" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2496361" sideWeight="0.90405405" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/distributed_gp/utility/event_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="8" selection-start="1325" selection-end="1325" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routine/rt_alarm.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/label_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="410" selection-end="410" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/utility/corpus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="4" selection-start="2744" selection-end="2744" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/ts_prediction/try/Code/words.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="442" column="9" selection-start="3420" selection-end="3420" vertical-scroll-proportion="10.728155">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/event_classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="38" selection-start="162" selection-end="162" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#167#217#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/plot_timeseries.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/eliminate_outlier.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="11" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/data_split.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="3" selection-start="303" selection-end="303" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/my_gp2.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="16" selection-start="395" selection-end="395" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/gp_job.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="13" selection-start="1256" selection-end="1256" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/do_gp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="69" column="12" selection-start="1714" selection-end="1714" vertical-scroll-proportion="-13.538462">
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/run_gp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="0" selection-start="3764" selection-end="3764" vertical-scroll-proportion="0.6452703">
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

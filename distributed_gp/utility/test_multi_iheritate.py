@@ -8,7 +8,7 @@ class B(object):
         print '321'
 
 
-class C(B,A):
+class C(B, A):
     def __init__(self):
         B._do(self)
 		

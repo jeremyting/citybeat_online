@@ -22,37 +22,38 @@ import random
 import math
 import numpy
 
+
 class BaseFeature(BaseEvent):
     # this class is the extension of class Event, especially for feature extraction
     # to prevent the class Event from being too long to read
-    
+
     def __init__(self, event, corpus=None, representor=None):
         self._representor = representor
         self._corpus = corpus
         super(BaseFeature, self).__init__(tool.getEventType(event), event)
-    
+
     def getDuration(self):
         return self.getLatestElementTime() - self.getEarliestElementTime()
-    
+
     def preprocess(self):
         self.leaveOneElementForOneUser()
         #self.selectRelaventElements()
-    
+
     def selectRelaventElements(self, k=10):
         assert self._representor is not None
         elements = self._representor.getRepresentiveElements(self.toDict())
         # choose first 30%
-#       k = max(k, 0.3*len(elements))
-#       k = int(k + 0.5)
+        #       k = max(k, 0.3*len(elements))
+        #       k = int(k + 0.5)
         self.setElements(elements[0:min(k, len(elements))])
-    
+
     def countHashtagFromElementContainingTopKeyword(self, k=3):
         # count the number of hashtags of elements that associated with topwords
         # k is the number of top keywords
         # rank top keywords by counting their frequency
         word_element_list = self.getTopKeywordsAndElements(k, 10000)
-        cnt = [0]*k
-        cnt2 = [0]*k
+        cnt = [0] * k
+        cnt2 = [0] * k
         for i in xrange(0, len(word_element_list)):
             j = 0
             for element in word_element_list[i][2]:
@@ -60,23 +61,23 @@ class BaseFeature(BaseEvent):
                 cap = p.getText()
                 j += 1
                 cnt[i] += cap.count('#')
-            # return the number of hashtags
+                # return the number of hashtags
             cnt[i] = cnt[i] * 1.0 / j
             # reteurn the number of elements
             cnt2[i] = len(word_element_list[i][2])
-        return [cnt, cnt2]              
-    
+        return [cnt, cnt2]
+
     def getTopWordByTFIDF(self, k=3):
         # rank and get the top k words by tfidf
         all_cap = self._getAllTexts()
         tfidf = self._corpus.chooseTopWordWithHighestTDIDF(all_cap, k=3)
         tfidf.sort(reverse=True)
         return tfidf
-    
+
     def _getTopKeywordsWithoutStopwords(self, k):
         # this method will return topwords without stopwords
         return self._getTopWords(k)
-        
+
     def _getRandomElementsAssociatedWithKeywords(self, top_keywords, k=10):
         # get elements associated with the top_keywords
         # k specifies the number of elements to show
@@ -87,16 +88,16 @@ class BaseFeature(BaseEvent):
             random.shuffle(elements)
             k = min(len(elements), k)
             # discard the keywords with only one element
-#           if k == 1:
-#               break
+            #           if k == 1:
+            #               break
             res.append([word, fre, elements[0:k]])
         return res
-    
+
     def getTopKeywordsAndElements(self, num_keywords, num_elements):
         # get top words and its related elements
         keywords = self._getTopKeywordsWithoutStopwords(num_keywords)
         return self._getRandomElementsAssociatedWithKeywords(keywords, num_elements)
-    
+
     def _getElementAvgLocation(self):
         # no use
         elements = self._event[self._element_type]
@@ -108,9 +109,9 @@ class BaseFeature(BaseEvent):
             pLon = float(element['location']['longitude'])
             lat += pLat
             lng += pLon
-            n += 1      
-        return lat/n, lng/n
-        
+            n += 1
+        return lat / n, lng / n
+
     def _getTopWords(self, k, stopword_removal=True):
         # get top words by counting the frequecy
         text_parser = TextParser(stopword_removal=stopword_removal)
@@ -120,7 +121,7 @@ class BaseFeature(BaseEvent):
             if not text is None:
                 text_parser.insertText(text)
         return text_parser.getTopWords(k)
-    
+
     def extractFeatures(self, entropy_para=3, k_topwords=3):
         # it outputs the feature vector
         self.preprocess()
@@ -134,58 +135,59 @@ class BaseFeature(BaseEvent):
         top_word_pop = self.getTopWordPopularity(k_topwords)
         zscore = self.getZscore()
         entropy = self.getEntropy(entropy_para)
-        
+
         label = int(self.getLabel())
         event_id = str(self._event['_id'])
-        
+
         tfidf_top3 = self.getTopWordByTFIDF(3)
         res = self.countHashtagFromElementContainingTopKeyword(3)
         hashtage_cnt3 = res[0]
         number_elements_associated_with_keywords3 = res[1]
-        
-#       historic_features = [0]*3   for test only
+
+        #       historic_features = [0]*3   for test only
         historic_features = self.getHistoricFeatures(entropy_para)
         diff_avg_element_dis = avg_element_dis - historic_features[0]
         diff_top_word_pop = historic_features[1]
         diff_entropy = historic_features[2]
-        
+
         location_name_similarity = self.getTopElementsLocationSimilarity()
-        
+
         return [avg_cap_len,
-				std_element_dis, avg_element_dis, 
+                std_element_dis, avg_element_dis,
                 avg_element_dis_cap,
                 cap_per,
                 std, top_word_pop, zscore, entropy, #ratio,
                 diff_avg_element_dis, diff_top_word_pop, diff_entropy,
-                tfidf_top3[0], tfidf_top3[1], tfidf_top3[2], 
+                tfidf_top3[0], tfidf_top3[1], tfidf_top3[2],
                 hashtage_cnt3[0], hashtage_cnt3[1], hashtage_cnt3[2],
-                number_elements_associated_with_keywords3[0], number_elements_associated_with_keywords3[1], number_elements_associated_with_keywords3[2],
-                location_name_similarity, 
+                number_elements_associated_with_keywords3[0], number_elements_associated_with_keywords3[1],
+                number_elements_associated_with_keywords3[2],
+                location_name_similarity,
                 event_id,
                 label]
-                
+
     def printFeatures(self):
         feature_list = self.extractFeatures()
         n = len(feature_list)
-        for i in xrange(0, n-1):
-            print feature_list[i],',',
+        for i in xrange(0, n - 1):
+            print feature_list[i], ',',
         print feature_list[-1]
-            
-            
+
+
     @staticmethod
     def GenerateArffFileHeader():
         print '@relation CityBeatEvents'
         print '@attribute AvgTextLen real'
-#       print '@attribute stat_MinElementDis real'
-#       print '@attribute stat_MaxElementDis real'
+        #       print '@attribute stat_MinElementDis real'
+        #       print '@attribute stat_MaxElementDis real'
         print '@attribute stat_StdElementDis real'
         print '@attribute AvgElementDis real'
-#       print '@attribute stat_MedianElementDis real'
-#       print '@attribute stat_MinElementDisbyCap real'
-#       print '@attribute stat_MaxElementDisbyCap real'
-#       print '@attribute stat_StdElementDisbyCap real'
+        #       print '@attribute stat_MedianElementDis real'
+        #       print '@attribute stat_MinElementDisbyCap real'
+        #       print '@attribute stat_MaxElementDisbyCap real'
+        #       print '@attribute stat_StdElementDisbyCap real'
         print '@attribute AvgElementDisbyCap real'
-#       print '@attribute stat_MedianElementDisbyCap real'
+        #       print '@attribute stat_MedianElementDisbyCap real'
         print '@attribute TextPercentage real'
         print '@attribute PredictedStd real'
         print '@attribute TopWordPopularity real'
@@ -195,30 +197,30 @@ class BaseFeature(BaseEvent):
         print '@attribute diff_TopWordPopularity real'
         print '@attribute diff_Entropy real'
 
-        print '@attribute tfidf1 real'  
-        print '@attribute tfidf2 real'  
+        print '@attribute tfidf1 real'
+        print '@attribute tfidf2 real'
         print '@attribute tfidf3 real'
-        
-        print '@attribute NumberOfhashtags1 real'   
-        print '@attribute NumberOfhashtags2 real'   
-        print '@attribute NumberOfhashtags3 real'   
-        
+
+        print '@attribute NumberOfhashtags1 real'
+        print '@attribute NumberOfhashtags2 real'
+        print '@attribute NumberOfhashtags3 real'
+
         print '@attribute NumberOfPhotsContaingTopWord1 real'
         print '@attribute NumberOfPhotsContaingTopWord2 real'
         print '@attribute NumberOfPhotsContaingTopWord3 real'
-        
+
         print '@attribute Top10ElementLocationNameFreq real'
-#       print '@attribute Top3ElementLocationNameSame real'
-                                
+        #       print '@attribute Top3ElementLocationNameSame real'
+
         print '@attribute ID string'
         print '@attribute label {1,-1}'
         print '@data'
-        
+
     def getElementTextDisFeatures(self):
         # one feauture, compute the average element-to-element textual distance (similarity, KL divergence) 
-        
+
         def ElementDistanceByText(element1, element2):
-            
+
             p1 = createElement(self._element_type, element1)
             p2 = createElement(self._element_type, element2)
             cap1 = p1.getText()
@@ -235,11 +237,11 @@ class BaseFeature(BaseEvent):
             word_dict1 = {}
             for word, freq in word_list1:
                 word_dict1[word] = freq
-            word_dict2 ={}
+            word_dict2 = {}
             for word, freq in word_list2:
                 word_dict2[word] = freq
             return kldiv(word_dict1, word_dict2)
-            
+
         elements = self._event[self._element_type]
         diss = []
         for i in xrange(0, len(elements)):
@@ -254,59 +256,59 @@ class BaseFeature(BaseEvent):
                 avail += 1
                 avgDis += val
             if avail > 0:
-                diss.append(1.0*avgDis / avail)
+                diss.append(1.0 * avgDis / avail)
             else:
                 diss.append(10.0)
         return self._computeSimpleStatistic(diss)
-    
-    
+
+
     def _computeGeolocationCenter(self):
         lat = 0
         lon = 0
         for element in self._event[self._element_type]:
             lat += float(element['location']['latitude'])
             lon += float(element['location']['longitude'])
-        return lat/len(self._event[self._element_type]), lon/len(self._event[self._element_type])
-    
+        return lat / len(self._event[self._element_type]), lon / len(self._event[self._element_type])
+
     def _computeSimpleStatistic(self, my_values):
-        return [numpy.std(my_values), numpy.mean(my_values)] 
-    
+        return [numpy.std(my_values), numpy.mean(my_values)]
+
     def getElementDisFeatures(self):
         #average element-to-element geolocation distance
-        
+
         def elementDistance(element1, element2):
             # inside method, do not call
             lat1 = float(element1['location']['latitude'])
             lon1 = float(element1['location']['longitude'])
             lat2 = float(element2['location']['latitude'])
             lon2 = float(element2['location']['longitude'])
-            return math.sqrt(10000*(lat1-lat2)*(lat1-lat2) + 10000*(lon1-lon2)*(lon1-lon2))
-            
+            return math.sqrt(10000 * (lat1 - lat2) * (lat1 - lat2) + 10000 * (lon1 - lon2) * (lon1 - lon2))
+
         elements = self._event[self._element_type]
         n = len(elements)
         # n would be very small when we compute the historical features
         if n < 2:
             return [2.0, 2.0]
-        
+
         # add three features
         # how much percentage of elements in one sigma
         # how much percentage of elements in two sigma
         # how much percentage of elements in 3 sigma 
         # 3 closest elements are within how many sigma, maybe a good feature
-        
+
         diss = []
-        
+
         for i in xrange(0, n):
             dis_to_other_element = 0
             for j in xrange(0, n):
                 if not i == j:
                     pairwiseDis = elementDistance(elements[i], elements[j])
                     dis_to_other_element += pairwiseDis
-            dis_to_other_element = dis_to_other_element / (n-1)
+            dis_to_other_element = dis_to_other_element / (n - 1)
             diss.append(dis_to_other_element)
-        
+
         return self._computeSimpleStatistic(diss)
-    
+
     def getAvgTextLen(self):
         # not a good feature
         cap_number = 0
@@ -322,7 +324,7 @@ class BaseFeature(BaseEvent):
             return -1
         else:
             return 1.0 * cap_lens / cap_number
-    
+
     def getTextPercentage(self):
         # not a good feature
         cap_number = 0
@@ -333,14 +335,14 @@ class BaseFeature(BaseEvent):
             if cap_len > 0:
                 cap_number += 1
         return cap_number * 1.0 / len(elements)
-    
+
     def _getAllTexts(self):
         text = ''
         for element in self._event[self._element_type]:
             element = createElement(self._element_type, element)
             text += element.getText() + ' '
         return text.strip()
-    
+
     def getTopWordPopularity(self, k=1):
         # compute the average popularity of k-top words
         top_words = self._getTopWords(k)
@@ -350,13 +352,13 @@ class BaseFeature(BaseEvent):
         for top_word in top_words:
             avg_pop += top_word[1]
         return avg_pop / min(k, len(top_words))
-    
+
     def getPredictedStd(self):
         return float(self._event['predicted_std'])
-        
+
     def getPredictedMu(self):
         return float(self._event['predicted_mu'])
-        
+
     def _divideAndCount(self, n):
         # devide the region into n*n grids to compute the entropy
         # p(i) = # of elements in that grid, to the total number of grids
@@ -364,10 +366,10 @@ class BaseFeature(BaseEvent):
         element_number = self.getElementNumber()
         region = Region(self._event['region'])
         subregions = region.divideRegions(n, n)
-        
+
         # Laplacian smoothed
-        pro = [1.0]*n*n
-        s = n*n
+        pro = [1.0] * n * n
+        s = n * n
         elements = self._event[self._element_type]
         for element in elements:
             lat = element['location']['latitude']
@@ -382,11 +384,11 @@ class BaseFeature(BaseEvent):
                         raise Exception('bad data')
                     flag = True
                 i += 1
-        for i in xrange(0, n*n):
+        for i in xrange(0, n * n):
             pro[i] /= s
         return pro
-        
-        
+
+
     def getEntropy(self, n):
         # devide the region into n*m grids to compute the entropy
         # p(i) = # of elements in that grid, to the total number of grids
@@ -396,14 +398,14 @@ class BaseFeature(BaseEvent):
         element_number = self.getElementNumber() + n * n
         h = 0
         for pr in pro:
-            h += - math.log(pr)/math.log(2)*pr
+            h += - math.log(pr) / math.log(2) * pr
         return h
-            
+
     def getRatioOfPeopleToBaseEvent(self):
         # not a good feature
         return 1.0 * self.getActualValue() / len(self._event[self._element_type])
-        
-    
+
+
     def getTopElementsLocationSimilarity(self, k=10):
         freq = {}
         most_freq = 0
@@ -412,17 +414,17 @@ class BaseFeature(BaseEvent):
             element = createElement(self._element_type, element)
             location_name = element.getLocationName()
             if location_name == '':
-                    continue
+                continue
             cur_freq = freq.get(location_name, 0) + 1
             freq[location_name] = cur_freq
             if cur_freq > most_freq:
                 most_freq = cur_freq
-        return most_freq*1.0 / k
-        
+        return most_freq * 1.0 / k
+
     def checkIfTopElementLocationSame(self, k=3):
         k = min(k, len(self._event[self._element_type]))
         elements = self._event[self._element_type]
-        element = createElement(self._element_type, elements[0])        
+        element = createElement(self._element_type, elements[0])
         location_name = element.getLocationName()
         if location_name == '':
             return 0
@@ -430,21 +432,21 @@ class BaseFeature(BaseEvent):
             if not createElement(self._element_type, elements[i]).getLocationName() == location_name:
                 return 0
         return 1
-            
+
     def getHistoricFeatures(self, entropy_para):
         # this method computes the features that capture the difference between current
         # event and background knowledge
-        
+
         end_time = self.getLatestElementTime()
         begin_time = self.getEarliestElementTime()
         if self._element_type == 'photos':
             pi = PhotoInterface()
         else:
             pi = TweetInterface()
-        
+
         elements = []
         dt = 0
-        for day in xrange(1,8):
+        for day in xrange(1, 8):
             # here 15 is hard coded because we use 14 days' data as the training
             et = end_time - day * 24 * 3600 + dt / 2
             bt = begin_time - day * 24 * 3600 - dt / 2
@@ -456,35 +458,35 @@ class BaseFeature(BaseEvent):
                 inds = inds[0:40]
             for i in inds:
                 elements.append(day_elements[i])
-                
+
         random.shuffle(elements)
         elements = elements[0:min(len(self._event[self._element_type]), len(elements))]
-        
+
         if len(elements) == 0:
             # TODO: refine
             return [1, 10, 10]
-            
+
         # fake a historic event
         historic_event = BaseEvent(self._element_type)
         historic_event.setElements(elements)
         historic_event.setRegion(self._event['region'])
         historic_event.setActualValue(historic_event._getActualValueByCounting())
         historic_event = BaseFeature(historic_event)
-        
+
         # compute the difference between entropy
         # this has been smoothed
         pro1 = self._divideAndCount(entropy_para)
         pro2 = historic_event._divideAndCount(entropy_para)
         entropy_divergence = KLDivergence.averageKLDivergence(pro1, pro2)
-        
+
         # compute the difference between top words
-        
+
         topic_divergence = self.computeWordKLDivergenceWith(historic_event)
-        
+
         return [historic_event.getElementDisFeatures()[1], topic_divergence,
-#               historic_event.getEntropy(entropy_para),
+                #               historic_event.getEntropy(entropy_para),
                 entropy_divergence]
-    
+
     def computeWordKLDivergenceWithByEddie(self, event):
         # this method calls the kl divergence computation by eddie's methods
         text1 = ''
@@ -493,16 +495,16 @@ class BaseFeature(BaseEvent):
             p = createElement(self._element_type, element)
             text1 += ' '
             text1 += p.getText()
-        
+
         if type(event) is not types.DictType:
             event = event.toDict()
-            
+
         for element in event[self._element_type]:
             p = createElement(self._element_type, element)
             text2 += ' '
             text2 += p.getText()
         return kldiv(tokenize(text1), tokenize(text2))
-    
+
     def computeWordKLDivergenceWith(self, event):
         if type(event) is types.DictType:
             fake_event = BaseFeature(event)
@@ -510,7 +512,7 @@ class BaseFeature(BaseEvent):
             fake_event = event
         event_topword_list = self._getTopWords(-1)
         event_topword_list2 = fake_event._getTopWords(-1)
-        
+
         n_ind = 0
         ind = {}
         for word, freq in event_topword_list + event_topword_list2:
@@ -527,7 +529,6 @@ class BaseFeature(BaseEvent):
         return topic_divergence
 
 
-
 # auxiliary method
 def createElement(element_type, element):
     if element_type == 'photos':
@@ -535,8 +536,10 @@ def createElement(element_type, element):
     else:
         return Tweet(element)
 
+
 def testWithTweet():
     from corpus import buildAllCorpus
+
     corpus_all = buildAllCorpus(element_type='tweets', debug=True)
     for key, corpus in corpus_all.items():
         break
@@ -557,5 +560,5 @@ def testWithTweet():
     print event.printFeatures()
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
     pass

@@ -9,13 +9,13 @@ from mongodb_interface import MongoDBInterface
 from config import InstagramConfig
 from element_interface import ElementInterface
 
+
 class PhotoInterface(ElementInterface):
-    
-    def __init__(self, db=InstagramConfig.photo_db,  
+    def __init__(self, db=InstagramConfig.photo_db,
                  collection=InstagramConfig.photo_collection):
         # initialize an interface for accessing photos from mongodb
         super(PhotoInterface, self).__init__(db, collection, 'photos')
-    
+
     def _computeBoundaryOfPhotos(self):
         cnt = 0
         min_lat = 1000
@@ -37,7 +37,7 @@ class PhotoInterface(ElementInterface):
             if cnt % 10000 == 0:
                 print cnt
         return [min_lat, max_lat, min_lng, max_lng]
-        
+
     def findTimeInterval(self):
         pc = self.getAllDocuments()
         t1 = -1
@@ -53,7 +53,8 @@ class PhotoInterface(ElementInterface):
                 if t > t2:
                     t2 = t
         return [t1, t2]
-    
+
+
 def getPhotoDistribution():
     ti = PhotoInterface()
     ti.setDB('citybeat_production')
@@ -70,9 +71,10 @@ def getPhotoDistribution():
             earliest = time
         hour = time / (3600)
         histagram[hour] = histagram.get(hour, 0) + 1
-        
+
     for key, value in histagram.items():
         print key, value
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     getPhotoDistribution()

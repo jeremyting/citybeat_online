@@ -1,6 +1,7 @@
 import re, math, collections
 
-def tokenize(_str, n_gram = 5):
+
+def tokenize(_str, n_gram=5):
     _str = _str.lower()
     #n_gram here
     _str_size = len(_str)
@@ -9,9 +10,9 @@ def tokenize(_str, n_gram = 5):
 
     # find the n_gram
     for i in range(0, _str_size - n_gram):
-        tokens[ _str[i:i+n_gram] ] += 1
+        tokens[_str[i:i + n_gram]] += 1
     return tokens
-    
+
     # find the words intead of n_gram
     stopwords = ['and', 'for', 'if', 'the', 'then', 'be', 'is', 'are', 'will', 'in', 'it', 'to', 'that']
     tokens = collections.defaultdict(lambda: 0.)
@@ -22,6 +23,7 @@ def tokenize(_str, n_gram = 5):
         tokens[m] += 1
 
     return tokens
+
 #end of tokenize
 
 def kldiv(_s, _t):
@@ -41,7 +43,7 @@ def kldiv(_s, _t):
     lenvocabdiff = len(vocabdiff)
 
     """ epsilon """
-    epsilon = min(min(_s.values())/ssum, min(_t.values())/tsum) * 0.001
+    epsilon = min(min(_s.values()) / ssum, min(_t.values()) / tsum) * 0.001
 
     """ gamma """
     gamma = 1 - lenvocabdiff * epsilon
@@ -50,8 +52,8 @@ def kldiv(_s, _t):
     # print "_t: %s" % _t
 
     """ Check if distribution probabilities sum to 1"""
-    sc = sum([v/ssum for v in _s.itervalues()])
-    st = sum([v/tsum for v in _t.itervalues()])
+    sc = sum([v / ssum for v in _s.itervalues()])
+    st = sum([v / tsum for v in _t.itervalues()])
 
     if sc < 9e-6:
         print "Sum P: %e, Sum Q: %e" % (sc, st)
@@ -72,14 +74,14 @@ def kldiv(_s, _t):
 
         ckl = (pts - ptt) * math.log(pts / ptt)
 
-        div +=  ckl
+        div += ckl
 
     return div
+
 #end of kldiv
 
 
-if __name__== "__main__":
-
+if __name__ == "__main__":
     d1 = """Many research publications want you to use BibTeX, which better
     organizes the whole process. Suppose for concreteness your source
     file is x.tex. Basically, you create a file x.bib containing the

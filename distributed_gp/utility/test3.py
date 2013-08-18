@@ -50,13 +50,12 @@ def main():
     ei.setDB('citybeat')
     ei.setCollection('candidate_event_25by25_merged')
     events = ei.getAllDocuments()
-    
-    
+
     event = ei.getEventByID('511478c8c2a3754cfe6684a9')
     print event['region']
-        
-    lat = (event['region']['min_lat'] + event['region']['max_lat'])/2
-    lon = (event['region']['min_lng'] + event['region']['max_lng'])/2
+
+    lat = (event['region']['min_lat'] + event['region']['max_lat']) / 2
+    lon = (event['region']['min_lng'] + event['region']['max_lng']) / 2
     fid1 = open('region_cache/25_25.txt', 'r')
     for line in fid1:
         cor = line.split(' ')
@@ -70,16 +69,16 @@ def main():
             print min_lat, max_lat, min_lng, max_lng
             break
     fid1.close()
-    
+
     fid2 = open('labeled_data_cf/181_positive.txt', 'r')
-        
+
     labels = {}
-    
+
     for line in fid2:
         t = line.split(',')
         labels[str(t[0])] = int(t[1])
     fid2.close()
-    
+
     pos = 0
     tot = 0
     for event in events:
@@ -87,28 +86,30 @@ def main():
         id = str(event['_id'])
         if id not in labels.keys():
             continue
-        
+
         if (floatEqual(region['min_lat'], min_lat) and floatEqual(region['max_lat'], max_lat)
-           and floatEqual(region['min_lng'], min_lng) and floatEqual(region['max_lng'], max_lng)):
-          tot += 1
-          if labels[id] == 1:
-            pos += 1
-            print id
+            and floatEqual(region['min_lng'], min_lng) and floatEqual(region['max_lng'], max_lng)):
+            tot += 1
+            if labels[id] == 1:
+                pos += 1
+                print id
     print pos
     print tot
+
 
 def test():
     pi = PhotoInterface()
     cur = pi.getAllDocuments()
-    l = [i for i in xrange(0,cur.count())]
+    l = [i for i in xrange(0, cur.count())]
     random.shuffle(l)
     print l[0:100]
     for i in l[0:100]:
         print cur[i]
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     #test()
-    print range(0,10)
+    print range(0, 10)
     
     
     

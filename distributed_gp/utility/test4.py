@@ -14,7 +14,6 @@ from tweet_interface import TweetInterface
 from tweet import Tweet
 from tweet_cluster import TweetCluster
 
-
 import operator
 import string
 import types
@@ -27,7 +26,7 @@ import sys
 
 def getClassifiedLabels():
     fid = open('results/181_logistic_regression_result.txt')
-    
+
     tp = []
     tn = []
     fp = []
@@ -47,65 +46,68 @@ def getClassifiedLabels():
                 fn.append(id)
             else:
                 fp.append(id)
-    
+
     for id in fn:
         print id
-        
-#   print len(tp)
-#   print len(tn)
-#   print len(fp)
-#   print len(fn)           
-#       
-    
+
+    #   print len(tp)
+    #   print len(tn)
+    #   print len(fp)
+    #   print len(fn)
+    #
+
     fid.close()
+
 
 def getBaselineEvents():
     ei = EventInterface()
     ei.setDB('citybeat')
     ei.setCollection('baseline_candidate_events')
-    
+
     events = ei.getAllDocuments()
-    
+
     event_list = []
-    
+
     for event in events:
         e = Event(event)
         if e.getActualValue() < 8 or e.getZscore() < 3:
             continue
         event_list.append(event)
-    
-#   print len(event_list)
-    
-#   return 
-    
+
+    #   print len(event_list)
+
+    #   return
+
     random.shuffle(event_list)
-    
+
     for i in xrange(50):
-        print event_list[i]['_id']  
+        print event_list[i]['_id']
+
 
 def mergeBaselineEvents():
     ei = EventInterface()
     ei.setDB('citybeat')
     ei.setCollection('baseline_candidate_events')
-    
+
     ei2 = EventInterface()
     ei2.setDB('citybeat')
     ei2.setCollection('baseline_candidate_events_merged')
-    
+
     events = ei.getAllDocuments()
-    
+
     for event in events:
         ei2.addEvent(event)
+
 
 def main():
     pi = PhotoInterface()
     pi.setDB('citybeat')
     pi.setCollection('photos')
-    
+
     pi2 = PhotoInterface()
     pi2.setDB('citybeat')
     pi2.setCollection('photos_no_duplicate')
-    
+
     region = {}
     region['min_lat'] = 40.690531
     region['min_lng'] = -74.058151
@@ -114,14 +116,15 @@ def main():
     st = '1352937600'
     et = '1355615999'
     pc = pi.rangeQuery(region, [st, et])
-#   print pc.count()
-    
+    #   print pc.count()
+
     ids = set()
     for photo in pc:
         ids.add(photo['link'])
 
     print len(ids)
     print pi2.rangeQuery(region, [st, et]).count()
+
 
 def generateUnlabeledEvent():
     ids = []
@@ -137,7 +140,8 @@ def generateUnlabeledEvent():
     for i in xrange(50):
         print ids[i]
     fid.close()
-    
+
+
 def getCaptionStatistics():
     pi = PhotoInterface()
     pi.setDB('citybeat')
@@ -152,12 +156,12 @@ def getCaptionStatistics():
             continue
         withCap += 1
         l += len(cap)
-    
-    print 1.0*withCap / tot
-    print 1.0*l / withCap
-    
 
-if __name__=='__main__':
+    print 1.0 * withCap / tot
+    print 1.0 * l / withCap
+
+
+if __name__ == '__main__':
 #   getClassifiedLabels()
 #   mergeBaselineEvents()
 #   generateUnlabeledEvent()

@@ -1,7 +1,7 @@
 import heatmap
 import random
 
-if __name__ == "__main__":    
+if __name__ == "__main__":
     pts = []
     for x in range(400):
         pts.append((random.random(), random.random() ))

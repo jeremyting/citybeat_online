@@ -20,11 +20,10 @@ import numpy
 
 
 class TweetInterface(ElementInterface):
-    
-    def __init__(self, db=TwitterConfig.tweet_db,  
+    def __init__(self, db=TwitterConfig.tweet_db,
                  collection=TwitterConfig.tweet_collection):
-      # initialize an interface for accessing tweet from mongodb
-      super(TweetInterface, self).__init__(db, collection, 'tweets')
+        # initialize an interface for accessing tweet from mongodb
+        super(TweetInterface, self).__init__(db, collection, 'tweets')
 
     def saveDocument(self, tweet):
         if not type(tweet) is types.DictType:
@@ -38,22 +37,23 @@ class TweetInterface(ElementInterface):
             location['latitude'] = tweet['coordinates']['coordinates'][1]
             location['longitude'] = tweet['coordinates']['coordinates'][0]
             tweet['location'] = location
-            
+
             if (location['latitude'] < TwitterConfig.min_lat or location['latitude'] > TwitterConfig.max_lat
-                    or location['longitude'] < TwitterConfig.min_lng or location['longitude'] > TwitterConfig.max_lng):
+                or location['longitude'] < TwitterConfig.min_lng or location['longitude'] > TwitterConfig.max_lng):
                 return False
-        
+
         tweet['created_time'] = Tweet(tweet).getCreatedUTCTimestamp()
-        
+
         super(TweetInterface, self).saveDocument(tweet)
         return True
+
 
 def getTweetStatistics():
     ti = TweetInterface()
     ti.setDB('citybeat_production')
     ti.setCollection('tweets')
     cur = ti.getAllDocuments()
-    
+
     lats = []
     lons = []
     for tweet in cur:
@@ -61,16 +61,16 @@ def getTweetStatistics():
         lon = tweet['location']['longitude']
         lats.append(lat)
         lons.append(lon)
-        
+
     print [numpy.min(lats), numpy.max(lats), numpy.std(lats),
-                 numpy.mean(lats), numpy.median(lats)]
-    
+           numpy.mean(lats), numpy.median(lats)]
+
     print '*********************************'
-    
+
     print [numpy.min(lons), numpy.max(lons), numpy.std(lons),
-                 numpy.mean(lons), numpy.median(lons)]  
-    
-    
+           numpy.mean(lons), numpy.median(lons)]
+
+
 def findEarliestTweet():
     ti = TweetInterface()
     ti.setDB('citybeat_production')
@@ -81,6 +81,7 @@ def findEarliestTweet():
         if tweet['created_time'] < created_time:
             created_time = tweet['created_time']
     print created_time
+
 
 def readTweets():
     ti = TweetInterface()
@@ -104,12 +105,13 @@ def readTweets():
             print suc, fail
     fid.close()
 
+
 def transferTweets():
     ti = TweetInterface()
     ti.setDB('tweets')
     ti.setCollection('tweets')
     cur = ti.getAllDocuments()
-    
+
     ti2 = TweetInterface()
     ti2.setDB('citybeat_production')
     ti2.setCollection('tweets')
@@ -121,6 +123,7 @@ def transferTweets():
         ids.add(id)
         tweet['_id'] = id
         ti2.saveDocument(tweet)
+
 
 def getTweetDistribution():
     ti = TweetInterface()
@@ -136,7 +139,7 @@ def getTweetDistribution():
             latest = time
         if time < earliest:
             earliest = time
-        hour = time / (3600*24)
+        hour = time / (3600 * 24)
         histagram[hour] = histagram.get(hour, 0) + 1
 
     res = []
@@ -147,6 +150,7 @@ def getTweetDistribution():
 
     for key, value in res:
         print key, value
+
 
 def testWithTweet():
     ti = TweetInterface()

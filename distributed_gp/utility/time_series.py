@@ -19,19 +19,21 @@ from config import InstagramConfig
 import photo_interface
 import tweet_interface
 
+
 class TimeSeries(object):
     """For a single region specified by a box of
     [upper_left_lat, upper_left_lng, down_right_lat, down_right_lng]
     
     """
-    def __init__(self, region, start_timestamp, end_timestamp, freq = '1h', data_source = 'instagram'):
+
+    def __init__(self, region, start_timestamp, end_timestamp, freq='1h', data_source='instagram'):
         self.sample_freq = freq
-        self.freq = freq 
+        self.freq = freq
         if data_source == 'instagram':
             pi = photo_interface.PhotoInterface()
-            self.cursor  = pi.rangeQuery( region , (str(start_timestamp), str(end_timestamp)) )
+            self.cursor = pi.rangeQuery(region, (str(start_timestamp), str(end_timestamp)))
         elif data_source == 'twitter':
             print 'in twitter!'
-            pi = tweet_interface.TweetInterface('citybeat_production', 'tweets' )
+            pi = tweet_interface.TweetInterface('citybeat_production', 'tweets')
             region.display()
             self.cursor = pi.rangeQuery(region, [str(start_timestamp), str(end_timestamp)])

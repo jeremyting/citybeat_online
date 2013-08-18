@@ -1,25 +1,16 @@
-import time
-import math
-import sys
-
-from datetime import datetime
 from datetime import timedelta
-import calendar
 from uuid import uuid4
 
+import calendar
+import logging
 
 from utility.instagram_time_series import InstagramTimeSeries
 from utility.twitter_time_series import TwitterTimeSeries
-from utility.region import Region
-from utility.config import InstagramConfig
-
 from do_gp import Predict
 
 
-
 class GaussianProcessJob():
-
-    def __init__(self, region, data_backward, current_time , redis_queue, days_to_predict = 1, data_source = 'instagram'):
+    def __init__(self, region, data_backward, current_time, redis_queue, days_to_predict=1, data_source='instagram'):
         """For a single gp job, specify its
         region - data structure that'specified by a box of lat, lng in region.py
         data_backward - timestamp for how long the time-series goes back
@@ -33,13 +24,13 @@ class GaussianProcessJob():
         self.days_to_predict = days_to_predict
         self.data_source = data_source
         self._id = unicode(uuid4())
-        
+
         #redis_conn = Redis(queue_server)
         #self.q = Queue(connection = redis_conn)
         self.q = redis_queue
         self.ts = self._getTimeSeries()
 
-        if len(self.ts.index)>10:
+        if len(self.ts.index) > 10:
             self.enough_data = True
         else:
             self.enough_data = False
@@ -58,11 +49,10 @@ class GaussianProcessJob():
         show up at Times Square
 
         """
-        #ts = self._getTimeSeries()
         ts = self.ts
         index = ts.index
-        if(len(index) < 3 ):
-            raise Exception("Only %d data points"%(len(index)))
+        if (len(index) < 3 ):
+            raise Exception("Only %d data points" % (len(index)))
         start_date = ts.index[0]
         #notice here start_time is datetime object
 
@@ -70,25 +60,25 @@ class GaussianProcessJob():
         (days from begining of the timeseries, number of data at that time)
         
         """
-        training = []                  
+        training = []
         for idx in index:
-            days_diff = (idx - start_date).days + (idx - start_date).seconds/(24*3600.0)
-            training.append( (days_diff, ts[idx]) )
+            days_diff = (idx - start_date).days + (idx - start_date).seconds / (24 * 3600.0)
+            training.append((days_diff, ts[idx]))
         nearest_current_date = index[-1]
 
         testing = []
         align = []
         converted_align = []
-        for hour in range(25*self.days_to_predict):
-            next_date = nearest_current_date + timedelta(seconds=3600*(hour+1))
+        for hour in range(25 * self.days_to_predict):
+            next_date = nearest_current_date + timedelta(seconds=3600 * (hour + 1))
             delta = next_date - start_date
-            days_from_start = (delta.seconds+delta.days*86400)/(3600*24.0)
-            testing.append( days_from_start)
-            align.append( next_date )
-            converted_align.append( calendar.timegm(next_date.utctimetuple()) ) 
+            days_from_start = (delta.seconds + delta.days * 86400) / (3600 * 24.0)
+            testing.append(days_from_start)
+            align.append(next_date)
+            converted_align.append(calendar.timegm(next_date.utctimetuple()))
 
         return training, testing, align, converted_align
-    
+
     def getID(self):
         return self._id
 
@@ -98,12 +88,9 @@ class GaussianProcessJob():
         (mean, variance, timestamp of the prediction)
         """
         training, testing, align, converted = self._dataPrepare()
-
-        result = self.q.enqueue_call( Predict,args = ( training,testing, self._id,), timeout=86400, result_ttl=-1)
-        print 'training '
-        print self.ts.index
-        print align
-        print converted
-
+        result = self.q.enqueue_call(Predict, args=( training, testing, self._id,), timeout=86400, result_ttl=-1)
+        logging.warning("Submitting job. Details as follow")
+        logging.warning("Align: " + align)
+        logging.warning("Converted: " + converted)
         return result, converted
 

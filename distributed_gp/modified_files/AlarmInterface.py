@@ -16,50 +16,50 @@ import string
 
 dbAddress = 'grande'
 
+
 class AlarmDataInterface:
-    
-    def __init__(self, address = dbAddress, port = 27017, db = 'alarm_filter', collection = 'photos'):
+    def __init__(self, address=dbAddress, port=27017, db='alarm_filter', collection='photos'):
         self.db = MongoDBInterface(address, port)
         self.db.SetDB(db)
         self.db.SetCollection(collection)
-        
+
     def GetUnlabeledEvent(self):
         # Get unlabeled "event" from the alarm filter
-        return self.db.GetItem({'label':'unlabeled'})
-    
+        return self.db.GetItem({'label': 'unlabeled'})
+
     def LabelEvent(self, event, label):
         # Label an "event" as a true event or non-event
         event['label'] = label
         self.db.UpdateItem(event)
-        
+
     def _GetAllEventsAtLocation(self, lat, lon):
-        return self.db.GetAllItems({'mid_lat':lat, 'mid_lng':lon})
-            
+        return self.db.GetAllItems({'mid_lat': lat, 'mid_lng': lon})
+
     def _MergeTwoEvents(self, oldEvent, newEvent):
         # merge the photos from the new event to the old event
         # it will remove the duplicate photos
         oldPhotos = oldEvent['photos']
         newPhotos = newEvent['photos']
         oldPhoto = oldPhotos[-1]
-        for i in xrange(0,len(newPhotos)):
+        for i in xrange(0, len(newPhotos)):
             if self._UnicodeToInt(newPhotos[i]['created_time']) > self._UnicodeToInt(oldPhoto['created_time']):
                 oldPhotos = oldPhotos + newPhotos[i:]
-                print '%d out of %d photos have been increased' %(len(newPhotos[i:]), len(newPhotos))
+                print '%d out of %d photos have been increased' % (len(newPhotos[i:]), len(newPhotos))
                 break
-            
+
         # this print is just for debug
         print 'no photo has been increased'
         # end for debug
-        
+
         oldEvent['photos'] = oldPhotos
         return oldEvent
-    
+
     def _UnicodeToInt(self, unic):
         return string.atoi(unic.encode("utf-8"))
-        
+
     def MergeEvent(self, event):
         # merge the event with older events in DB
-        
+
         # get all events in the same location
         allEvents = self._GetAllEventsAtLocation(event['mid_lat'], event['mid_lng'])
         if allEvents is None:
@@ -69,28 +69,28 @@ class AlarmDataInterface:
             lastPhoto = oldEvent['photos'][-1]
             t1 = self._UnicodeToInt(event['photos'][-1]['created_time'])
             t2 = self._UnicodeToInt(lastPhoto['created_time'])
-            
+
             if t1 == t2:
                 # no further photos for this event
                 return True
-            
+
             # maximal allowed time interval is 15 mins
-            if t1 > t2 and t1 <= t2 + 60*15:
+            if t1 > t2 and t1 <= t2 + 60 * 15:
                 #within 15 minutes
                 mergedEvent = self._MergeTwoEvents(oldEvent, event)
                 self.db.UpdateItem(mergedEvent)
                 return True
         return False
-                
-    
-    def GetUnlabelEvents(self, condition = None):
+
+
+    def GetUnlabelEvents(self, condition=None):
         # TODO: select events according to the conditions
-        pass 
+        pass
 
-        
 
-#def getPhotoFromInstagram(cnt):
-#   # only for test
+    #def getPhotoFromInstagram(cnt):
+
+    #   # only for test
 #   cur_time = datetime.utcnow()
 #   #sw_ne = (40.773012,-73.9863145)
 #   sw_ne = (40.75953, -73.9863145)

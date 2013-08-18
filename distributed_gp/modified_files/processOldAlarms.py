@@ -1,11 +1,12 @@
 from MongoDB import MongoDBInterface
 from AlarmInterface import AlarmDataInterface
 
+
 def ProcessRawEvents(rawEvent):
     myDB = MongoDBInterface('grande', 27017)
     myDB.SetDB('citybeat')
     myDB.SetCollection('photos')
-    
+
     event = {}
     photos = []
     lineNumber = -1
@@ -26,22 +27,20 @@ def ProcessRawEvents(rawEvent):
             event['actual_value'] = vals[7].strip()
             continue
         photo_id = line.split(' ')[5].strip()
-        photo = myDB.GetItem({'id':photo_id})
+        photo = myDB.GetItem({'id': photo_id})
         photos.append(photo)
     event['photos'] = photos
     return event
-        
-        
-    
+
 
 def ReadAlarmsFromFile(fileName):
     file = open(fileName)
-    
+
     adi = AlarmDataInterface('grande', 27017, 'historic_alarm', 'raw_event')
     mdbi = MongoDBInterface('grande', 27017)
     mdbi.SetDB('historic_alarm')
     mdbi.SetCollection('raw_event')
-    
+
     event = []
     for line in file:
         if not line == '\n':
@@ -57,6 +56,6 @@ def ReadAlarmsFromFile(fileName):
                 event = []
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     ReadAlarmsFromFile('alarm3_report.txt')
     
