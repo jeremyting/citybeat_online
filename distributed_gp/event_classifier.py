@@ -55,30 +55,8 @@ class EventMonitor():
                 if prob > 0.5:
                     print 'new events find in collection but not in front end , add it'
                     ei_classified.addEvent(e)
-            """
-            if prob > 0.5:
-                print 'ready to insert'
-                e.setLabel( prob )
-                tmp_id = "518a755dc2a3750cc221d6fc"
-                if ei_classified.getEventByID(tmp_id) is not None:
-                    print 'Should merge this event in front end!'
-                    print 'before merge photos # ', len(ei.getEventByID(tmp_id)['photos'])
-                    ei_classified.addEvent(e)
-                    print 'after merge photos  # ', len(ei.getEventByID(tmp_id)['photos'])
-                else:
-                    print 'not mergeing just add '
-                    ei_classified.addEvent(e)
-            else:
-                if ei_classified.getEventByID()
-            """
             #ei_backup.addEvent(e)
             #ei.deleteEventByID(str(e.getID()))
-
-
-def test():
-    em = EventMonitor('citybeat_production', 'online_candidate_instagram', 'citybeat_production',
-                      'instagram_front_end_events', 'citybeat_production', 'event_backup_instagram')
-    em.goThroughCandidateDB()
 
 def main():
     em = EventMonitor('citybeat_production', 'online_candidate_instagram', 'citybeat_production',
@@ -90,6 +68,5 @@ def main():
 
 
 if __name__ == '__main__':
-    #test()
     main()
 

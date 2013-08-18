@@ -28,7 +28,6 @@ def getPositiveSamples(data):
             # neg
             testing = np.concatenate((testing, [row]))
     n, m = data.shape
-
     for row in data[181:n, :]:
         r = random.random()
         if r < 0.11:

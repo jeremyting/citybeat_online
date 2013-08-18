@@ -5,17 +5,16 @@ from subprocess import call
 
 model_path = '/grad/users/kx19/gaussian_process_tmp/'
 
-
 def LoadFromCSV(fileName):
     reader = csv.reader(open(fileName))
-    buffer = []
+    _buffer = []
     for t, mu, sigma in reader:
-        buffer.append([t, mu, sigma])
-    return buffer
+        _buffer.append([t, mu, sigma])
+    return _buffer
 
 
 def SaveToCSV(fileName, data):
-    writer = csv.writer(file(fileName, 'w'));
+    writer = csv.writer(file(fileName, 'w'))
     for item in data:
         writer.writerow(item)
 
@@ -64,16 +63,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-"""
-sw_ne = (40.75953,-73.9863145)
-periods = []
-cur_time = int (time.time())
-pre = cur_time
-jobs = []
-client = client = InstagramAPI(client_id =config.instagram_client_id, client_secret = config.instagram_client_secret)
-while pre>=cur_time-10*3600:
-    do_func( (40,30,(pre-60*3,pre),client))
-    pre = pre-3*60
-    #periods.append( (pre-3*60, pre) )
-"""

@@ -22,7 +22,8 @@ class BaseConfig(object):
     @staticmethod
     def getRegionListPath():
         cp = os.getcwd()
-        path = '/*/users/kx19/citybeat_online/distributed_gp/utility/region_cache/'
+        #path = '/*/users/kx19/citybeat_online/distributed_gp/utility/region_cache/'
+        path = './region_cache/'
         if '/res/' in cp:
             return path.replace('*', 'res')
         if '/grad/' in cp:
