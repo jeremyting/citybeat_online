@@ -30,6 +30,7 @@ class BaseConfig(object):
         if '/grad/' in cp:
             return path.replace('*', 'grad')
             # in my pc
+        print "The path is ",path
         return path
         #return cp + '\\region_cache\\'
 

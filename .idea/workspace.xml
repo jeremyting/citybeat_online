@@ -14,7 +14,7 @@
     <file path="/event_classifier.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376833968171" ignored="false" />
     <file path="/my_gp2.m" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376834177295" ignored="false" />
     <file path="/run_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376837461879" ignored="false" />
-    <file path="/config.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376856041667" ignored="false" />
+    <file path="/config.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376856069745" ignored="false" />
     <file path="/region.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376838753069" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +76,7 @@
       <file leaf-file-name="config.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/distributed_gp/utility/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="9" selection-start="839" selection-end="839" vertical-scroll-proportion="0.5905512">
+            <state line="32" column="33" selection-start="843" selection-end="843" vertical-scroll-proportion="0.5610236">
               <folding />
             </state>
           </provider>
@@ -531,7 +531,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/distributed_gp/utility/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="9" selection-start="839" selection-end="839" vertical-scroll-proportion="0.5905512">
+        <state line="32" column="33" selection-start="843" selection-end="843" vertical-scroll-proportion="0.5610236">
           <folding />
         </state>
       </provider>
