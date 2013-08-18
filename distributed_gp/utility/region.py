@@ -87,7 +87,8 @@ class Region:
             new_region_list = []
             #folder = '/res/users/kx19/Citybeat/CityBeat/distributed_gp/utility/region_cache/'
             # grand : res ; joust : grad 
-            folder = BaseConfig.getRegionListPath()
+            #folder = BaseConfig.getRegionListPath()
+            folder = './region_cache/'
             file_name = element_type + '_'
             file_name += str(n) + '_' + str(m) + '.txt'
             fid = open(folder + file_name)
