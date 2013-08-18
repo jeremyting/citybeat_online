@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/distributed_gp/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/config.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/utility/region.py" afterPath="$PROJECT_DIR$/distributed_gp/utility/region.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -17,7 +14,7 @@
     <file path="/event_classifier.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376833968171" ignored="false" />
     <file path="/my_gp2.m" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376834177295" ignored="false" />
     <file path="/run_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376837461879" ignored="false" />
-    <file path="/config.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376855821437" ignored="false" />
+    <file path="/config.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376856041667" ignored="false" />
     <file path="/region.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376838753069" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +76,7 @@
       <file leaf-file-name="config.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/distributed_gp/utility/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="18" selection-start="701" selection-end="701" vertical-scroll-proportion="0.38385826">
+            <state line="33" column="9" selection-start="839" selection-end="839" vertical-scroll-proportion="0.5905512">
               <folding />
             </state>
           </provider>
@@ -534,7 +531,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/distributed_gp/utility/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="18" selection-start="701" selection-end="701" vertical-scroll-proportion="0.38385826">
+        <state line="33" column="9" selection-start="839" selection-end="839" vertical-scroll-proportion="0.5905512">
           <folding />
         </state>
       </provider>

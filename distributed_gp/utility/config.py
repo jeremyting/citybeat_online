@@ -22,7 +22,7 @@ class BaseConfig(object):
     @staticmethod
     def getRegionListPath():
         cp = os.getcwd()
-        #path = '/*/users/kx19/citybeat_online/distributed_gp/utility/region_cache/'
+        #relative path here
         path = os.path.join(os.path.dirname(__file__), 'region_cache/')
         print path
         if '/res/' in cp:
@@ -30,7 +30,8 @@ class BaseConfig(object):
         if '/grad/' in cp:
             return path.replace('*', 'grad')
             # in my pc
-        return cp + '\\region_cache\\'
+        return path
+        #return cp + '\\region_cache\\'
 
 
 class InstagramConfig(BaseConfig):
