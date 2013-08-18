@@ -23,7 +23,8 @@ class BaseConfig(object):
     def getRegionListPath():
         cp = os.getcwd()
         #path = '/*/users/kx19/citybeat_online/distributed_gp/utility/region_cache/'
-        path = './region_cache/'
+        path = os.path.join(os.path.dirname(__file__), 'region_cache/')
+        print path
         if '/res/' in cp:
             return path.replace('*', 'res')
         if '/grad/' in cp:
