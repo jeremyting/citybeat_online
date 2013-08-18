@@ -84,7 +84,7 @@ def run(data_source):
             res, pred_time = gp.submit()
         except Exception as e:
             logging.warn("Initialization of gp error. continue, error message %s" % e)
-            logging.warn("Trace: %s" % '\n'.join(traceback.format_list(traceback.print_stack())))
+            logging.warn("Trace: %s" % '\n'.join(traceback.format_list(traceback.extract_stack())))
             continue
         _results[gp.getID()] = (test_region, res, pred_time)
         _saved[gp.getID()] = False
