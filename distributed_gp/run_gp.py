@@ -22,7 +22,7 @@ def save_to_mongo(_results, _saved, model_update_time, data_source):
         result_pair = _results[key]
         if result_pair[1].return_value is None:
             done = False
-            logging.WARN("Haven't finish yet for key %s, continue..." % key)
+            logging.warn("Haven't finish yet for key %s, continue..." % key)
             continue
         else:
             if _saved[key] == False:
@@ -76,13 +76,13 @@ def run(data_source):
     fourteen_days_ago = cur_utc_timestamp - 24 * 14 * 3600
 
     for i in range(len(regions)):
-        logging.WARN("Working on region %d" % i)
+        logging.warn("Working on region %d" % i)
         test_region = regions[i]
         try:
             gp = GaussianProcessJob(test_region, str(fourteen_days_ago), str(cur_utc_timestamp), redis_queue)
             res, pred_time = gp.submit()
         except Exception as e:
-            logging.WARN("Initialization of gp error. continue, error message %s" % (e))
+            logging.warn("Initialization of gp error. continue, error message %s" % (e))
             continue
         _results[gp.getID()] = (test_region, res, pred_time)
         _saved[gp.getID()] = False
