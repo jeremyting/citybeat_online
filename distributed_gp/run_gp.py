@@ -14,6 +14,7 @@ from utility.prediction import Prediction
 from utility.tool import getCurrentStampUTC
 
 import logging
+import traceback
 
 
 def save_to_mongo(_results, _saved, model_update_time, data_source):
@@ -78,12 +79,13 @@ def run(data_source):
     for i in range(len(regions)):
         logging.warn("Working on region %d" % i)
         test_region = regions[i]
-        #try:
-        gp = GaussianProcessJob(test_region, str(fourteen_days_ago), str(cur_utc_timestamp), redis_queue)
-        res, pred_time = gp.submit()
-        #except Exception as e:
-        #    logging.warn("Initialization of gp error. continue, error message %s" % e)
-        #    continue
+        try:
+            gp = GaussianProcessJob(test_region, str(fourteen_days_ago), str(cur_utc_timestamp), redis_queue)
+            res, pred_time = gp.submit()
+        except Exception as e:
+            logging.warn("Initialization of gp error. continue, error message %s" % e)
+            logging.warn("Trace: %s" % '\n'.join(traceback.format_list()))
+            continue
         _results[gp.getID()] = (test_region, res, pred_time)
         _saved[gp.getID()] = False
 
