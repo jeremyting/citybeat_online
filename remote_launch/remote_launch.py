@@ -10,9 +10,9 @@ def main():
     for line in lines:
         if sys.argv[1]=='launch':
             if sys.argv[2]=='api': 
-                launch_cmd = "ssh kx19@"+ line[:-1] + " \"source ~/virtual_env/virtualenv-1.9.1/new_env/bin/activate; nohup python /grad/users/kx19/citybeat_online/distributed_gp/run_api_worker.py > /.freespace/api_worker_log.txt < /dev/null 2>&1 &\"";
+                launch_cmd = "ssh kx19@"+ line[:-1] + " \"source ~/virtual_env/virtualenv-1.9.1/new_env/bin/activate; nohup python /grad/users/kx19/citybeat_smil/citybeat/crawlers/instagram/run_api_worker.py > /.freespace/api_worker_log.txt < /dev/null 2>&1 &\"";
             elif sys.argv[2]=='gp':
-                launch_cmd = "ssh kx19@"+ line[:-1] + " \"source ~/virtual_env/virtualenv-1.9.1/new_env/bin/activate; nohup python /grad/users/kx19/citybeat_online/distributed_gp/run_gp_worker.py > /.freespace/gp_worker_log.txt < /dev/null 2>&1 &\"";
+                launch_cmd = "ssh kx19@"+ line[:-1] + " \"source ~/virtual_env/virtualenv-1.9.1/new_env/bin/activate; nohup python /grad/users/kx19/citybeat_smil/citybeat/crawlers/instagram/run_gp_worker.py > /.freespace/gp_worker_log.txt < /dev/null 2>&1 &\"";
             os.popen(launch_cmd)
         elif sys.argv[1]=='kill':
             if sys.argv[2]=='api':
