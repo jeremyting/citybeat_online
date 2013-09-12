@@ -45,13 +45,15 @@ def Predict(arg1, arg2, arg3):
 
 
 def TestPredict():
-    fileName = '/grad/users/kx19/CityBeat/distributed_gp/tmp/trainingData56.in'
+    fileName = os.path.join(os.path.curdir(), 'tmp/trainingData56.in')
+    # fileName = '/grad/users/kx19/CityBeat/distributed_gp/tmp/trainingData56.in'
     reader = csv.reader(open(fileName), delimiter=',')
     buffer = []
     for t, pop in reader:
         buffer.append([t, pop])
 
-    testFileName = '/grad/users/kx19/CityBeat/distributed_gp/tmp/testData56.in'
+    testFileName = os.path.join(os.path.curdir(), 'tmp/trainingData56.in')
+    #testFileName = '/grad/users/kx19/CityBeat/distributed_gp/tmp/testData56.in'
     reader = csv.reader(open(testFileName), delimiter=',')
     testData = []
     for t in reader:
