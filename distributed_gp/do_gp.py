@@ -3,8 +3,10 @@ import os
 import logging
 from subprocess import call
 
+from os.path import expanduser
+home_dir = expanduser("~")
 
-model_path = '/grad/users/kx19/gaussian_process_tmp/'
+model_path = os.path.join(home_dir, 'gaussian_process_tmp/')
 
 def LoadFromCSV(fileName):
     reader = csv.reader(open(fileName))
@@ -31,7 +33,8 @@ def Predict(arg1, arg2, arg3):
     fout.close()
 
     outputFile = model_path + 'prediction' + str(arg3) + '.out'
-    matlab_path = "/grad/users/kx19/citybeat_online/distributed_gp/matlab"
+    matlab_path = os.path.join(os.path.curdir(), 'matlab')
+    #matlab_path = "/grad/users/kx19/citybeat_online/distributed_gp/matlab"
     os.chdir(matlab_path)
 
     shellComm = "matlab -r \'my_gp2 %s %s %s %s\'" % (trainingDataFile, testDataFile, outputFile, str(arg3))

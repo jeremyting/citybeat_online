@@ -2,44 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/AlarmInterface.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/EventQuery.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/MongoDB.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/UpdateNewAlarms.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/alarm.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/alarm2.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/alarm3_report.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/caption_madision.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/config.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/data_process.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/download.py.bak" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/event.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/event_interface.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/nohup.out" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/photos.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/processOldAlarms.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/res_xia.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/run_distributed_gp_test.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/test.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/test.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/test_results.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/distributed_gp/modified_files/twitter_data_process.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trash/alarm_test.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trash/experiment.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trash/insta_scanner.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trash/instagram_scanner.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/trash/scan_client.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/citybeat_online.iml" afterPath="$PROJECT_DIR$/.idea/citybeat_online.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/config.py" afterPath="$PROJECT_DIR$/utility/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/do_gp.py" afterPath="$PROJECT_DIR$/distributed_gp/do_gp.py" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1378923041008" ignored="false" />
     <file path="/a.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376707667161" ignored="false" />
     <file path="/start_script.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376858291794" ignored="false" />
-    <file path="/do_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376858311904" ignored="false" />
+    <file path="/do_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1378998424510" ignored="false" />
     <file path="/gp_job.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376837532214" ignored="false" />
     <file path="/event_classifier.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376833968171" ignored="false" />
     <file path="/my_gp2.m" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376834177295" ignored="false" />
@@ -70,16 +40,27 @@
       <file leaf-file-name="do_gp.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/distributed_gp/do_gp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="33" selection-start="718" selection-end="718" vertical-scroll-proportion="0.5643994">
+            <state line="53" column="36" selection-start="1517" selection-end="1521" vertical-scroll-proportion="0.5248869">
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="posixpath.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/posixpath.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="0" selection-start="1140" selection-end="1140" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classifier.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/distributed_gp/classifier.py">
+      <file leaf-file-name="posix.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Library/Caches/PyCharm20/python_stubs/-1698384448/posix.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
+            <state line="326" column="4" selection-start="6808" selection-end="6808" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -178,10 +159,10 @@
         <option value="$PROJECT_DIR$/distributed_gp/utility/config.py" />
         <option value="$PROJECT_DIR$/distributed_gp/run_gp.py" />
         <option value="$PROJECT_DIR$/distributed_gp/citybeat.cfg" />
-        <option value="$PROJECT_DIR$/distributed_gp/do_gp.py" />
         <option value="$PROJECT_DIR$/distributed_gp/event_server.py" />
         <option value="$PROJECT_DIR$/utility/config.py" />
         <option value="$PROJECT_DIR$/citybeat.cfg" />
+        <option value="$PROJECT_DIR$/distributed_gp/do_gp.py" />
       </list>
     </option>
   </component>
@@ -454,16 +435,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/distributed_gp/plot_timeseries.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/distributed_gp/run_gp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="26" selection-start="2263" selection-end="2263" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/distributed_gp/event_classifier.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="0" selection-start="438" selection-end="438" vertical-scroll-proportion="0.0" />
@@ -545,10 +516,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm20/python_stubs/-1698384448/posix.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="326" column="4" selection-start="6808" selection-end="6808" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/posixpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="1140" selection-end="1140" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/distributed_gp/do_gp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="33" selection-start="718" selection-end="718" vertical-scroll-proportion="0.5643994">
-          <folding />
+        <state line="53" column="36" selection-start="1517" selection-end="1521" vertical-scroll-proportion="0.5248869">
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
