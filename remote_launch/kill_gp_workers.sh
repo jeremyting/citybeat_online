@@ -11,3 +11,4 @@ do
             # pkill -9 -f kills a job with partial name. So *make sure* that the name here is what you want to kill
             ssh "${array[i]}" "pkill -9 -f run_gp_worker.py"
 done
+
