@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/do_gp.py" afterPath="$PROJECT_DIR$/distributed_gp/do_gp.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/matlab/my_gp2.m" afterPath="$PROJECT_DIR$/distributed_gp/matlab/my_gp2.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1378923041008" ignored="false" />
     <file path="/a.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376707667161" ignored="false" />
     <file path="/start_script.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376858291794" ignored="false" />
-    <file path="/do_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1378998424510" ignored="false" />
+    <file path="/do_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1378998952451" ignored="false" />
     <file path="/gp_job.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376837532214" ignored="false" />
     <file path="/event_classifier.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376833968171" ignored="false" />
-    <file path="/my_gp2.m" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376834177295" ignored="false" />
+    <file path="/my_gp2.m" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1378999496895" ignored="false" />
     <file path="/run_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376837461879" ignored="false" />
     <file path="/config.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376856069745" ignored="false" />
     <file path="/region.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376838753069" ignored="false" />
@@ -37,13 +38,49 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="do_gp.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="do_gp.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/distributed_gp/do_gp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="36" selection-start="1517" selection-end="1521" vertical-scroll-proportion="0.5248869">
+            <state line="41" column="36" selection-start="1207" selection-end="1207" vertical-scroll-proportion="-23.653847">
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my_gp2.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/my_gp2.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="validate.m" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/validate.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="0" selection-start="512" selection-end="512" vertical-scroll-proportion="0.41364297">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eliminate_outlier.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/eliminate_outlier.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data_split.m" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/data_split.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,46 +103,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="event.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/event.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="30" selection-start="1113" selection-end="1113" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="event_choose.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/event_choose.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="photo_event.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/photo_event.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="10" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="event_interface.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/event_interface.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="6" column="0" selection-start="177" selection-end="177" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gp_job.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/distributed_gp/gp_job.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="8" selection-start="95" selection-end="95" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -148,7 +149,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/distributed_gp/data_split.m" />
-        <option value="$PROJECT_DIR$/distributed_gp/matlab/my_gp2.m" />
         <option value="$PROJECT_DIR$/distributed_gp/gp_job.py" />
         <option value="$PROJECT_DIR$/distributed_gp/run_online_alarm.py" />
         <option value="$PROJECT_DIR$/distributed_gp/run_twitter_alarm.py" />
@@ -163,6 +163,7 @@
         <option value="$PROJECT_DIR$/utility/config.py" />
         <option value="$PROJECT_DIR$/citybeat.cfg" />
         <option value="$PROJECT_DIR$/distributed_gp/do_gp.py" />
+        <option value="$PROJECT_DIR$/distributed_gp/matlab/my_gp2.m" />
       </list>
     </option>
   </component>
@@ -228,6 +229,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="distributed_gp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="distributed_gp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="matlab" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -435,26 +454,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/distributed_gp/event_classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="438" selection-end="438" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="296" selection-end="296" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/citybeat.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="11" selection-start="81" selection-end="81" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/distributed_gp/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -532,10 +531,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/distributed_gp/do_gp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="36" selection-start="1517" selection-end="1521" vertical-scroll-proportion="0.5248869">
+        <state line="41" column="36" selection-start="1207" selection-end="1207" vertical-scroll-proportion="-23.653847">
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/eliminate_outlier.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/data_split.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/my_gp2.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/matlab/validate.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="512" selection-end="512" vertical-scroll-proportion="0.41364297">
+          <folding />
         </state>
       </provider>
     </entry>
