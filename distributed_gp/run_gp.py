@@ -6,6 +6,11 @@ import logging
 from rq import Queue
 from redis import Redis
 
+import os
+
+# import utility from parent directory
+os.path.join(os.path.dirname(__file__), os.pardir)
+
 from utility.region import Region
 from utility.config import InstagramConfig
 from utility.config import TwitterConfig
