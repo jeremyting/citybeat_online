@@ -5,7 +5,6 @@ instagram_client_secret = '204c565fa1244437b9034921e034bdd6'
 
 instagram_API_pause = 0.1
 
-#mongodb_address = 'grande'
 mongodb_address = 'grande.rutgers.edu'
 mongodb_port = 27017
 
