@@ -6,10 +6,13 @@ import logging
 from rq import Queue
 from redis import Redis
 
-import os
 
-# import utility from parent directory
-os.path.join(os.path.dirname(__file__), os.pardir)
+import sys, os
+
+path = os.path.realpath(__file__)
+path = os.path.dirname(path)
+path = os.path.dirname(path)
+sys.path.append(path)
 
 from utility.region import Region
 from utility.config import InstagramConfig
@@ -18,7 +21,6 @@ from gp_job import GaussianProcessJob
 from utility.prediction_interface import PredictionInterface
 from utility.prediction import Prediction
 from utility.tool import getCurrentStampUTC
-
 
 def save_to_mongo(_results, _saved, model_update_time, data_source):
     done = True
@@ -102,7 +104,7 @@ def run(data_source):
 
 if __name__ == "__main__":
     logging.basicConfig(filename='./log/run_gp.log', level = logging.WARNING)
-    assert ( sys.argv[1] in ['twitter', 'instagram'])
+    assert (sys.argv[1] in ['twitter', 'instagram'])
     if sys.argv[1] == 'twitter':
         run(data_source='twitter')
     elif sys.argv[1] == 'instagram':
