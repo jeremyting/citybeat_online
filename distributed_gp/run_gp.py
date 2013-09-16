@@ -99,7 +99,7 @@ def run(data_source):
     logging.info("Work done.")
 
 if __name__ == "__main__":
-    logging.basicConfig(filename='./log/run_gp.log', level = logging.WARNING)
+    logging.basicConfig(filename='/.freespace/run_gp.log', level = logging.WARNING)
     assert (sys.argv[1] in ['twitter', 'instagram'])
     if sys.argv[1] == 'twitter':
         run(data_source='twitter')

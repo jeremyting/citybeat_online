@@ -60,7 +60,7 @@ ylabel('Population');
 f = [mu+3*sqrt(s2); flipdim(mu-3*sqrt(s2),1)] + mean(y);
 fill([xx; flipdim(xx,1)], f, [7 7 7]/8); hold on          % show predictions
 plot(xx, mu+mean(y), 'r--', 'LineWidth', 2);
-my_path = '/grad/users/kx19/gaussian_process_tmp/';
+my_path = '/grad/users/cx28/gaussian_process_tmp/';
 print(h, '-depsc', [my_path 'pic' num2str(uniqueIndex)]);
 choice = 0;
 
