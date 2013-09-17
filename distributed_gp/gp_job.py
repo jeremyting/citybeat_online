@@ -89,8 +89,8 @@ class GaussianProcessJob():
         """
         training, testing, align, converted = self._dataPrepare()
         result = self.q.enqueue_call(Predict, args=( training, testing, self._id,), timeout=86400, result_ttl=-1)
-        logging.warning("Submitting job. Details as follow")
-        logging.warning("Align: " + '\n'.join([str(ele) for ele in align]))
-        logging.warning("Converted: " + '\n'.join([str(ele) for ele in converted]))
+        #logging.warning("Submitting job. Details as follow")
+        #logging.warning("Align: " + '\n'.join([str(ele) for ele in align]))
+        #logging.warning("Converted: " + '\n'.join([str(ele) for ele in converted]))
         return result, converted
 
