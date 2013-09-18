@@ -4,10 +4,13 @@ from uuid import uuid4
 import calendar
 import logging
 
+import sys, os
+# add the utility library outside
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+
 from utility.instagram_time_series import InstagramTimeSeries
 from utility.twitter_time_series import TwitterTimeSeries
 from do_gp import Predict
-
 
 class GaussianProcessJob():
     def __init__(self, region, data_backward, current_time, redis_queue, days_to_predict=1, data_source='instagram'):
@@ -88,9 +91,9 @@ class GaussianProcessJob():
         (mean, variance, timestamp of the prediction)
         """
         training, testing, align, converted = self._dataPrepare()
-        result = self.q.enqueue_call(Predict, args=( training, testing, self._id,), timeout=86400, result_ttl=-1)
-        #logging.warning("Submitting job. Details as follow")
-        #logging.warning("Align: " + '\n'.join([str(ele) for ele in align]))
-        #logging.warning("Converted: " + '\n'.join([str(ele) for ele in converted]))
+        result = self.q.enqueue_call(func=Predict, args=( training, testing, self._id,), timeout=86400, result_ttl=-1)
+        logging.warning("Submitting job. Details as follow")
+        logging.warning("Align: " + '\n'.join([str(ele) for ele in align]))
+        logging.warning("Converted: " + '\n'.join([str(ele) for ele in converted]))
         return result, converted
 

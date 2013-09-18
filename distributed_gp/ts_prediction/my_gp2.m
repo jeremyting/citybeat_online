@@ -1,5 +1,5 @@
 function [t mu sigma] = my_gp2(trainingDataFile, testDataFile, outputFile)
-addpath(genpath('/grad/users/kx19/CityBeat/distributed_gp/GPLM_toolbox/gpml-matlab'));
+addpath(genpath('/grad/users/cx28/citybeat_online/distributed_gp/GPLM_toolbox/gpml-matlab'));
 
 data = load(trainingDataFile);
 data = eliminate_outlier(data,3);

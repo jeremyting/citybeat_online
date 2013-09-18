@@ -21,9 +21,7 @@ def SaveToCSV(fileName, data):
     for item in data:
         writer.writerow(item)
 
-
 def Predict(arg1, arg2, arg3):
-    logging("start gp predicting (before call matlab)")
     trainingDataFile = model_path + 'trainingData' + str(arg3) + '.in'
     SaveToCSV(trainingDataFile, arg1)
 
@@ -34,10 +32,10 @@ def Predict(arg1, arg2, arg3):
     fout.close()
 
     outputFile = model_path + 'prediction' + str(arg3) + '.out'
-    matlab_path = os.path.join(os.path.curdir(), 'matlab')
+    current_dir = os.path.dirname(os.path.realpath(__file__))
+    matlab_path = os.path.join(current_dir, 'matlab')
     #matlab_path = "/grad/users/kx19/citybeat_online/distributed_gp/matlab"
     os.chdir(matlab_path)
-
     shellComm = "matlab -r \'my_gp2 %s %s %s %s\'" % (trainingDataFile, testDataFile, outputFile, str(arg3))
     call([shellComm], shell=True)
     buffer = LoadFromCSV(outputFile)

@@ -79,7 +79,7 @@ def run(data_source):
 
     for i in range(len(regions)):
         logging.warn("Working on region %d" % i)
-        test_region = regions[i]
+	test_region = regions[i]
         #try:
         gp = GaussianProcessJob(test_region, str(fourteen_days_ago), str(cur_utc_timestamp), redis_queue)
         res, pred_time = gp.submit()
@@ -94,9 +94,9 @@ def run(data_source):
     while not done:
         done = save_to_mongo(_results, _saved, cur_utc_timestamp, data_source)
         time.sleep(10)
-        logging.info("Waiting for completing...")
+        logging.warn("Waiting for completing...")
 
-    logging.info("Work done.")
+    logging.warn("Work done.")
 
 if __name__ == "__main__":
     logging.basicConfig(filename='/.freespace/run_gp.log', level = logging.WARNING)
