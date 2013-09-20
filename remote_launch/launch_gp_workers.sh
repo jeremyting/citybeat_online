@@ -9,7 +9,7 @@ do
     do
         echo "${array[i]}"
         current_path=$PWD
-        launch_cmd="source ~/.bash_profile; nohup python /grad/users/cx28/citybeat_online/distributed_gp/run_gp_worker.py > /.freespace/gp_worker_log2.txt < /dev/null 2>&1 &"
+        launch_cmd="source ~/.bash_profile; nohup python /grad/users/$USER/citybeat_online/distributed_gp/run_gp_worker.py > /.freespace/citybeat_logs/instagram_gp_worker < /dev/null 2>&1 &"
         echo "cmd = $launch_cmd"
         ssh "${array[i]}" "$launch_cmd" 
     done
