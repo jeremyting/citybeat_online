@@ -5,6 +5,10 @@ import cherrypy
 #import config
 import json
 
+import sys, os
+# add the utility library outside
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+
 from utility.event_interface import EventInterface
 from utility.event import Event
 
