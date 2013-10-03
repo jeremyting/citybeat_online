@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/config.py" afterPath="$PROJECT_DIR$/utility/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/corpus.py" afterPath="$PROJECT_DIR$/utility/corpus.py" />
+      <change type="DELETED" beforePath="D:\PyCharmProjects\citybeat_online\crawlers\twitter_crawler\config.py" afterPath="" />
+      <change type="DELETED" beforePath="D:\PyCharmProjects\citybeat_online\crawlers\twitter_crawler\cron.log" afterPath="" />
+      <change type="DELETED" beforePath="D:\PyCharmProjects\citybeat_online\crawlers\twitter_crawler\twitter_crawl.log" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py" afterPath="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380778817800" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380779012705" ignored="false" />
     <file path="/a.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376707667161" ignored="false" />
     <file path="/start_script.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376858291794" ignored="false" />
     <file path="/do_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1378998952451" ignored="false" />
@@ -16,7 +18,7 @@
     <file path="/event_classifier.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380778276133" ignored="false" />
     <file path="/my_gp2.m" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1378999496895" ignored="false" />
     <file path="/run_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1379018234913" ignored="false" />
-    <file path="/config.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380778851065" ignored="false" />
+    <file path="/config.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380780280086" ignored="false" />
     <file path="/region.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376838753069" ignored="false" />
     <file path="/event_server.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376858371747" ignored="false" />
     <file path="/citybeat.cfg" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376858846128" ignored="false" />
@@ -77,13 +79,33 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="corpus.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="corpus.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/corpus.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="30" selection-start="2073" selection-end="2073" vertical-scroll-proportion="0.80479455">
+            <state line="47" column="31" selection-start="2074" selection-end="2074" vertical-scroll-proportion="-4.7">
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="twitter_crawl.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="0" selection-start="635" selection-end="635" vertical-scroll-proportion="0.5205479">
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="check_twitter.sh" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/check_twitter.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="0" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,18 +132,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classifier.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/distributed_gp/classifier.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="11" selection-start="1075" selection-end="1075" vertical-scroll-proportion="-0.56">
-              <folding>
-                <element signature="e#0#114#1" expanded="false" />
-                <element signature="e#480#1061#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="event_classifier.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/distributed_gp/event_classifier.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -129,26 +139,6 @@
               <folding>
                 <element signature="e#167#181#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base_feature_production.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/base_feature_production.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="32" selection-start="172" selection-end="172" vertical-scroll-proportion="-1.52">
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base_feature.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/base_feature.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="28" selection-start="2374" selection-end="2381" vertical-scroll-proportion="-2.28">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -171,8 +161,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/distributed_gp/matlab/my_gp2.m" />
-        <option value="$PROJECT_DIR$/utility/base_event.py" />
         <option value="$PROJECT_DIR$/distributed_gp/run_gp.py" />
         <option value="$PROJECT_DIR$/distributed_gp/gp_job.py" />
         <option value="$PROJECT_DIR$/distributed_gp/status_pipeline/status_config.py" />
@@ -187,6 +175,8 @@
         <option value="$PROJECT_DIR$/distributed_gp/event_classifier.py" />
         <option value="$PROJECT_DIR$/utility/config.py" />
         <option value="$PROJECT_DIR$/utility/corpus.py" />
+        <option value="$PROJECT_DIR$/crawlers/twitter_crawler/config.py" />
+        <option value="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py" />
       </list>
     </option>
   </component>
@@ -266,6 +256,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="distributed_gp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crawlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twitter_crawler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -528,7 +536,11 @@
       <created>1380778819188</created>
       <updated>1380778819188</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix a small bug&#10;">
+      <created>1380779014180</created>
+      <updated>1380779014180</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -617,7 +629,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="test with corpus&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix a small bug&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -637,6 +649,7 @@
     <MESSAGE value="add status pipeline" />
     <MESSAGE value="remove stale code" />
     <MESSAGE value="test with corpus&#10;" />
+    <MESSAGE value="fix a small bug&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -644,42 +657,12 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utility/mongodb_backup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="546" selection-end="546" vertical-scroll-proportion="-12.16">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="31" selection-start="341" selection-end="341" vertical-scroll-proportion="-4.88">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/merge_db.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="34" selection-start="133" selection-end="133" vertical-scroll-proportion="-4.56">
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="11" selection-start="131" selection-end="131" vertical-scroll-proportion="14.44">
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/check_twitter.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -768,9 +751,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utility/corpus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="30" selection-start="2073" selection-end="2073" vertical-scroll-proportion="0.80479455">
+        <state line="47" column="31" selection-start="2074" selection-end="2074" vertical-scroll-proportion="-4.7">
           <folding>
             <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/check_twitter.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="0" selection-start="635" selection-end="635" vertical-scroll-proportion="0.5205479">
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
