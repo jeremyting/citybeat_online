@@ -1,7 +1,9 @@
 import datetime
 import tweepy
 from tweepy.error import TweepError
-#from tweepy.parsers import RawJsonParser
+from config import mongo_host
+from config import mongo_db_name
+from config import mongo_port
 import json
 import time
 import sys
@@ -22,7 +24,10 @@ def tweepy_auth():
 #tweepy parser
 import tweepy
 import json
- 
+from utility.tweet_interface import TweetInterface
+
+
+
 @classmethod
 def parse(cls, api, raw):
     status = cls.first_parse(api, raw)
@@ -34,20 +39,23 @@ tweepy.models.Status.parse = parse
 
 
 class CustomStreamListener(tweepy.StreamListener):
-    def __init__(self, db_name):
+    def __init__(self):
         tweepy.StreamListener.__init__(self)
         self.mid_list = []
-        self.db_name = db_name
+        self.ti = TweetInterface('citybeat_production', 'tweets')
+
     def save_to_mongo(self,tweet):
         tweet = json.loads(tweet.json)
         if tweet['coordinates'] is None:
             return
-        mongo = pymongo.Connection("grande.rutgers.edu",27017)
-        mongo_db = mongo[self.db_name]
+        mongo = pymongo.Connection(mongo_host, mongo_port)
+        mongo_db = mongo[mongo_db_name]
         mongo_collection = mongo_db.tweets
-        #find closest mid point as mid_lat, mid_lng
+        
         tweet['_id'] = tweet['id']
-        mongo_collection.save(tweet)
+        self.ti.saveDocument( tweet )
+        
+        #mongo_collection.save(tweet)
 
     def on_status(self, status):
         try:
@@ -68,10 +76,9 @@ class CustomStreamListener(tweepy.StreamListener):
             print >> sys.stderr, 'Timeout...'
             return True # Don't kill the stream
 
-
 def main():
     auth = tweepy_auth()
-    streaming_api = tweepy.streaming.Stream(auth, CustomStreamListener('tweets'), timeout=60)
+    streaming_api = tweepy.streaming.Stream(auth, CustomStreamListener(), timeout=60)
     streaming_api.filter(follow=None, locations=[-74.0547045, 40.696614,-73.8700515,40.813458])
            
 
