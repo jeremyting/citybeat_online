@@ -7,7 +7,7 @@ from region import Region
 from config import InstagramConfig
 from config import TwitterConfig
 import tool
-
+import logging
 
 class Corpus(object):
     def buildCorpus(self, region, time_interval, element_type='photos', paras={}):
@@ -41,11 +41,10 @@ class Corpus(object):
                                            stop_words=paras.get('stop_words', 'english')
         )
 
-        print self._vectorizer
-        print '*************'
-        self._vectorizer.fit_transform(text)
-        print self._vectorizer
-        print '!!!!!!!!!!!!!!!!'
+        try:
+            self._vectorizer.fit_transform(text)
+        except Exception as error :
+            logging.warn(error)
 
     def getVectorizer(self):
         return self._vectorizer
