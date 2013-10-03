@@ -7,6 +7,9 @@ import foursquare
 import json
 import time
 
+import sys, os
+# add the utility library outside
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 from utility.event_interface import EventInterface
 from utility.event_frontend import EventFrontend 
@@ -18,9 +21,6 @@ from utility.event_feature import EventFeature
 from utility.corpus import Corpus
 
 import random
-
-
-
 
 class Root:
     def __init__(self):
