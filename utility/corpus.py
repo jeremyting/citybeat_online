@@ -16,7 +16,6 @@ class Corpus(object):
         if element_type == 'photos':
             ei = PhotoInterface()
             cur = ei.rangeQuery(region, time_interval, 'caption.text')
-            print cur.count()
         else:
             ei = TweetInterface()
             cur = ei.rangeQuery(region, time_interval, 'text')

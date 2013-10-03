@@ -32,6 +32,7 @@ class EventMonitor():
         self.classified_event_collection = classified_event_collection
         self.event_backup_db = event_backup_db
         self.event_backup_collection = event_backup_collection
+        # here we have a problem, if there is no photo during that period, need to provide a empty vector
         self.all_corpus = buildAllCorpus(time_interval_length=3)
         self.clf = classifier.Classifier()
 
