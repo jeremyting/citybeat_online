@@ -42,8 +42,10 @@ class Corpus(object):
         )
 
         print self._vectorizer
+        print '*************'
         self._vectorizer.fit_transform(text)
         print self._vectorizer
+        print '!!!!!!!!!!!!!!!!'
 
     def getVectorizer(self):
         return self._vectorizer
