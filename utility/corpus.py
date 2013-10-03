@@ -41,6 +41,7 @@ class Corpus(object):
                                            stop_words=paras.get('stop_words', 'english')
         )
 
+        print self._vectorizer
         self._vectorizer.fit_transform(text)
         print self._vectorizer
 
