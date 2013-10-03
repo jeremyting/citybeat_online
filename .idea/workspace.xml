@@ -8,7 +8,7 @@
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380778552731" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380778817800" ignored="false" />
     <file path="/a.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376707667161" ignored="false" />
     <file path="/start_script.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376858291794" ignored="false" />
     <file path="/do_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1378998952451" ignored="false" />
@@ -16,7 +16,7 @@
     <file path="/event_classifier.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380778276133" ignored="false" />
     <file path="/my_gp2.m" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1378999496895" ignored="false" />
     <file path="/run_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1379018234913" ignored="false" />
-    <file path="/config.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380778208838" ignored="false" />
+    <file path="/config.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380778851065" ignored="false" />
     <file path="/region.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376838753069" ignored="false" />
     <file path="/event_server.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376858371747" ignored="false" />
     <file path="/citybeat.cfg" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376858846128" ignored="false" />
@@ -28,7 +28,7 @@
     <file path="/status.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380317330107" ignored="false" />
     <file path="/test3.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380734561036" ignored="false" />
     <file path="/check_twitter.sh" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380772383655" ignored="false" />
-    <file path="/corpus.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380778785138" ignored="false" />
+    <file path="/corpus.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380778996357" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,10 +48,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="config.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="config.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.5993691">
+            <state line="9" column="20" selection-start="277" selection-end="277" vertical-scroll-proportion="-6.84">
               <folding />
             </state>
           </provider>
@@ -77,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="corpus.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="corpus.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utility/corpus.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="35" selection-start="1976" selection-end="1976" vertical-scroll-proportion="-3.8">
+            <state line="47" column="30" selection-start="2073" selection-end="2073" vertical-scroll-proportion="0.80479455">
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -185,8 +185,8 @@
         <option value="$PROJECT_DIR$/crawlers/twitter_crawler/check_twitter.sh" />
         <option value="$PROJECT_DIR$/distributed_gp/event_server.py" />
         <option value="$PROJECT_DIR$/distributed_gp/event_classifier.py" />
-        <option value="$PROJECT_DIR$/utility/corpus.py" />
         <option value="$PROJECT_DIR$/utility/config.py" />
+        <option value="$PROJECT_DIR$/utility/corpus.py" />
       </list>
     </option>
   </component>
@@ -524,7 +524,11 @@
       <created>1380778553838</created>
       <updated>1380778553838</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="test with corpus&#10;">
+      <created>1380778819188</created>
+      <updated>1380778819188</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -755,19 +759,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/corpus.py">
+    <entry file="file://$PROJECT_DIR$/utility/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="35" selection-start="1976" selection-end="1976" vertical-scroll-proportion="-3.8">
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
+        <state line="9" column="20" selection-start="277" selection-end="277" vertical-scroll-proportion="-6.84">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/config.py">
+    <entry file="file://$PROJECT_DIR$/utility/corpus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="278" selection-end="278" vertical-scroll-proportion="0.5993691">
-          <folding />
+        <state line="47" column="30" selection-start="2073" selection-end="2073" vertical-scroll-proportion="0.80479455">
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

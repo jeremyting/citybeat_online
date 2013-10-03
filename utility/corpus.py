@@ -41,6 +41,7 @@ class Corpus(object):
                                            stop_words=paras.get('stop_words', 'english')
         )
 
+        # If the program do not break here, we may ignore the bug
         try:
             self._vectorizer.fit_transform(text)
         except Exception as error :
