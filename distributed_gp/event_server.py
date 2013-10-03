@@ -13,7 +13,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 from utility.event_interface import EventInterface
 from utility.event import Event
-from utility.representor import Representor
+# from utility.representor import Representor
 from utility.base_feature_production import BaseFeatureProduction
 
 import random
@@ -172,7 +172,7 @@ class Root:
         event = self.ei.getEventByID(event_id)
         event = Event(event)
         event.selectOnePhotoForOneUser()
-        event_dic = event.toJSON()
+        event_dic = event.toDict()
         print event_dic.keys()
         event_dic['_id'] = str(event_dic['_id'])
         return json.dumps(event_dic)
@@ -180,7 +180,7 @@ class Root:
     
     def getTopKeywords(self, event_id):
         event = self.ei.getEventByID(event_id)
-        ef = EventFeature(event)
+        ef = BaseFeatureProduction(event)
         words = ef.getTopKeywords(k=10)
         return json.dumps(words)
     #getTopKeywords.exposed = True

@@ -9,6 +9,7 @@ format=' [%(asctime)s]   [%(levelname)s] (%(threadName)-10s) %(message)s '
 
 def save_mogo(res, mid_lat, mid_lng, db_name):
     mongo = pymongo.Connection(mongo_host, mongo_port)
+    # hard-code here, need to modify
     mongo_db = mongo[db_name]
     mongo_collection = mongo_db.photos
     print 'trying to save to ',db_name, 'collection = photos'

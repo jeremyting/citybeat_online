@@ -1,9 +1,10 @@
+import sys, os
+# add the utility library outside
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+
 import datetime
 import tweepy
 from tweepy.error import TweepError
-from config import mongo_host
-from config import mongo_db_name
-from config import mongo_port
 import json
 import time
 import sys
@@ -49,14 +50,9 @@ class CustomStreamListener(tweepy.StreamListener):
         tweet = json.loads(tweet.json)
         if tweet['coordinates'] is None:
             return
-        mongo = pymongo.Connection(mongo_host, mongo_port)
-        mongo_db = mongo[mongo_db_name]
-        mongo_collection = mongo_db.tweets
-        
+
         tweet['_id'] = tweet['id']
         self.ti.saveDocument( tweet )
-        
-        #mongo_collection.save(tweet)
 
     def on_status(self, status):
         print 'get'
