@@ -1,0 +1,5 @@
+check_twitter.sh is used to check whether the script is running. If not, launch it again. 
+
+
+To install on a new machine, you should only need to change "check_twitter.sh" and "config.py"
+

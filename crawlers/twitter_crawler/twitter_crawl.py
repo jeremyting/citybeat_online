@@ -1,6 +1,9 @@
 import datetime
 import tweepy
 from tweepy.error import TweepError
+from config import mongo_host
+from config import mongo_db_name
+from config import mongo_port
 import json
 import time
 import sys
@@ -8,22 +11,23 @@ import sys
 import pymongo
 
 def tweepy_auth():
-    CONSUMER_KEY = '01gugiESt8CSq97ypjTQg'
-    CONSUMER_SECRET = 'JQPPGBxZploR3fG9TDylDH3ZrjJgcHlsLSR5SSBY'
-    ACCESS_KEY = '3183721-QQZ4rpf5cv3og207hSwHFPGpsTf5v7kPuY6MO9S9iY'
-    ACCESS_SECRET = '2DP9FW6ZmCis4TewZLYHQGbqWiThq4uQqSQbJSiFJw'
+    #CONSUMER_KEY = '01gugiESt8CSq97ypjTQg'
+    #CONSUMER_SECRET = 'JQPPGBxZploR3fG9TDylDH3ZrjJgcHlsLSR5SSBY'
+    #ACCESS_KEY = '3183721-QQZ4rpf5cv3og207hSwHFPGpsTf5v7kPuY6MO9S9iY'
+    #ACCESS_SECRET = '2DP9FW6ZmCis4TewZLYHQGbqWiThq4uQqSQbJSiFJw'
+    CONSUMER_KEY = 'n8Fx0IXCVndSyRBMnXDRAA'
+    CONSUMER_SECRET = 'TdM6xvlh7mPjmaWhb0tYRjriS5RvdDiG5LXhSPKaA8'
+    ACCESS_KEY = '82368523-TrISJ6c0xGlG3CSSisIIyYakDPRU9q4aKXzAjI'
+    ACCESS_SECRET = 'rqi70hpRrMCH9ggvWyHZpLvLz7KhtUhYSjWUattJA'
+    
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
-    #api = tweepy.API(auth)
     return auth
-
 
 #tweepy parser
 import tweepy
 import json
 from utility.tweet_interface import TweetInterface
-
-
 
 @classmethod
 def parse(cls, api, raw):
@@ -45,18 +49,24 @@ class CustomStreamListener(tweepy.StreamListener):
         tweet = json.loads(tweet.json)
         if tweet['coordinates'] is None:
             return
+        mongo = pymongo.Connection(mongo_host, mongo_port)
+        mongo_db = mongo[mongo_db_name]
+        mongo_collection = mongo_db.tweets
         
         tweet['_id'] = tweet['id']
-        self.ti.saveDocument(tweet)
+        self.ti.saveDocument( tweet )
+        
+        #mongo_collection.save(tweet)
 
     def on_status(self, status):
+        print 'get'
         try:
-            #print "%s\t%s\t%s\t%s\t%s" % (status.text, 
-            #        status.author.screen_name, 
-            #        status.created_at, 
-            #        status.source,
-            #        status.coordinates['coordinates']
-            #        )
+            print "%s\t%s\t%s\t%s\t%s" % (status.text, 
+                    status.author.screen_name, 
+                    status.created_at, 
+                    status.source,
+                    status.coordinates['coordinates']
+                    )
             self.save_to_mongo(status)
         except Exception, e:
             print >> sys.stderr, 'Encountered Exception:', e
@@ -69,10 +79,11 @@ class CustomStreamListener(tweepy.StreamListener):
             return True # Don't kill the stream
 
 def main():
+    print 'in'
     auth = tweepy_auth()
     streaming_api = tweepy.streaming.Stream(auth, CustomStreamListener(), timeout=60)
     streaming_api.filter(follow=None, locations=[-74.0547045, 40.696614,-73.8700515,40.813458])
-           
+    print 'out'
 
 if __name__=="__main__":
     main()

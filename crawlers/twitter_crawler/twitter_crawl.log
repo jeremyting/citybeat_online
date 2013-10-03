@@ -1,0 +1,26 @@
+Encountered Exception: could not connect to grande.rutgers.edu:27017: timed out
+Encountered Exception: could not connect to grande.rutgers.edu:27017: timed out
+Traceback (most recent call last):
+  File "/home/eddie/citybeat_production/crawlers/twitter/twitter_crawl.py", line 86, in <module>
+    main()
+  File "/home/eddie/citybeat_production/crawlers/twitter/twitter_crawl.py", line 82, in main
+    streaming_api.filter(follow=None, locations=[-74.0547045, 40.696614,-73.8700515,40.813458])
+  File "/usr/local/lib/python2.7/dist-packages/tweepy/streaming.py", line 230, in filter
+    self._start(async)
+  File "/usr/local/lib/python2.7/dist-packages/tweepy/streaming.py", line 171, in _start
+    self._run()
+  File "/usr/local/lib/python2.7/dist-packages/tweepy/streaming.py", line 117, in _run
+    self._read_loop(resp)
+  File "/usr/local/lib/python2.7/dist-packages/tweepy/streaming.py", line 149, in _read_loop
+    c = resp.read(1)
+  File "/usr/lib/python2.7/httplib.py", line 541, in read
+    return self._read_chunked(amt)
+  File "/usr/lib/python2.7/httplib.py", line 574, in _read_chunked
+    line = self.fp.readline(_MAXLINE + 1)
+  File "/usr/lib/python2.7/socket.py", line 476, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/lib/python2.7/ssl.py", line 232, in recv
+    return self.read(buflen)
+  File "/usr/lib/python2.7/ssl.py", line 151, in read
+    return self._sslobj.read(len)
+ssl.SSLError: The read operation timed out
