@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "event_server.py", line 204, in <module>
+    cherrypy.quickstart(Root(), '/', global_conf)
+  File "event_server.py", line 23, in __init__
+    self.representor = Representor()
+TypeError: __init__() takes exactly 2 arguments (1 given)
