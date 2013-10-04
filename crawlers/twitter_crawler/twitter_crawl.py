@@ -1,6 +1,6 @@
 import sys, os
 # add the utility library outside
-sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__)))))
 
 import datetime
 import tweepy
@@ -8,7 +8,11 @@ from tweepy.error import TweepError
 import json
 import time
 import sys
+from utility.tweet_interface import TweetInterface
 
+#tweepy parser
+import tweepy
+import json
 import pymongo
 
 def tweepy_auth():
@@ -25,11 +29,6 @@ def tweepy_auth():
     auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
     return auth
 
-#tweepy parser
-import tweepy
-import json
-from utility.tweet_interface import TweetInterface
-
 @classmethod
 def parse(cls, api, raw):
     status = cls.first_parse(api, raw)
@@ -44,7 +43,7 @@ class CustomStreamListener(tweepy.StreamListener):
     def __init__(self):
         tweepy.StreamListener.__init__(self)
         self.mid_list = []
-        self.ti = TweetInterface('citybeat_production', 'tweets')
+        self.ti = TweetInterface()
 
     def save_to_mongo(self,tweet):
         tweet = json.loads(tweet.json)
@@ -52,7 +51,7 @@ class CustomStreamListener(tweepy.StreamListener):
             return
 
         tweet['_id'] = tweet['id']
-        self.ti.saveDocument( tweet )
+        self.ti.saveDocument(tweet)
 
     def on_status(self, status):
         print 'get'
