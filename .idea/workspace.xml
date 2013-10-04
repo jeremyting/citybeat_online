@@ -2,21 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\PyCharmProjects\citybeat_online\crawlers\twitter_crawler\utility\__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\PyCharmProjects\citybeat_online\crawlers\twitter_crawler\utility\base_element.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\PyCharmProjects\citybeat_online\crawlers\twitter_crawler\utility\config.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\PyCharmProjects\citybeat_online\crawlers\twitter_crawler\utility\mongodb_interface.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\PyCharmProjects\citybeat_online\crawlers\twitter_crawler\utility\tweet.py" afterPath="" />
-      <change type="DELETED" beforePath="D:\PyCharmProjects\citybeat_online\crawlers\twitter_crawler\utility\tweet_interface.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crawlers/twitter_crawler/config.py" afterPath="$PROJECT_DIR$/crawlers/twitter_crawler/config.py" />
+      <change type="DELETED" beforePath="D:\PyCharmProjects\citybeat_online\distributed_gp\event_server2.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/event_server.py" afterPath="$PROJECT_DIR$/distributed_gp/event_server.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crawlers/instagram_crawler/mongo_storage.py" afterPath="$PROJECT_DIR$/crawlers/instagram_crawler/mongo_storage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py" afterPath="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380780444743" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380838007185" ignored="false" />
     <file path="/a.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376707667161" ignored="false" />
     <file path="/start_script.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376858291794" ignored="false" />
     <file path="/do_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1378998952451" ignored="false" />
@@ -26,7 +18,7 @@
     <file path="/run_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1379018234913" ignored="false" />
     <file path="/config.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380837041061" ignored="false" />
     <file path="/region.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376838753069" ignored="false" />
-    <file path="/event_server.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380837888850" ignored="false" />
+    <file path="/event_server.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380847008717" ignored="false" />
     <file path="/citybeat.cfg" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376858846128" ignored="false" />
     <file path="/base_event.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1379002142041" ignored="false" />
     <file path="/mongodb_backup.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380738295163" ignored="false" />
@@ -57,46 +49,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="config.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/crawlers/instagram_crawler/config.py">
+      <file leaf-file-name="event_classifier.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/event_classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="7" selection-start="64" selection-end="71" vertical-scroll-proportion="0.0">
+            <state line="13" column="0" selection-start="195" selection-end="321" vertical-scroll-proportion="-0.76">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crawl_config.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/crawlers/instagram_crawler/crawl_config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="23" selection-end="23" vertical-scroll-proportion="-0.76">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="18" selection-start="123" selection-end="123" vertical-scroll-proportion="-2.28">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="twitter_crawl.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="0" selection-start="2425" selection-end="2425" vertical-scroll-proportion="0.24">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="event_server.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="event_server.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="2" selection-start="1761" selection-end="1761" vertical-scroll-proportion="-13.16">
+            <state line="94" column="36" selection-start="3045" selection-end="3045" vertical-scroll-proportion="0.39490446">
               <folding>
                 <element signature="e#42#57#0" expanded="true" />
               </folding>
@@ -104,44 +69,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base_element.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/base_element.py">
+      <file leaf-file-name="event_server_bak.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/event_server_bak.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="14" selection-start="526" selection-end="532" vertical-scroll-proportion="-3.8">
+            <state line="53" column="0" selection-start="1692" selection-end="1692" vertical-scroll-proportion="89.04">
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mongo_storage.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/crawlers/instagram_crawler/mongo_storage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="29" selection-start="452" selection-end="452" vertical-scroll-proportion="0.7808219">
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/crawlers/instagram_crawler/README">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="number.csv" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/crawlers/instagram_crawler/number.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
           </provider>
         </entry>
       </file>
@@ -550,7 +483,11 @@
       <created>1380780445356</created>
       <updated>1380780445356</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fix bugs ..">
+      <created>1380838009498</created>
+      <updated>1380838009498</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -578,12 +515,12 @@
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24356775" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28787878" sideWeight="0.67066896" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28787878" sideWeight="0.67066896" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -639,7 +576,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug in tweet crawler" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bugs .." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -661,6 +598,7 @@
     <MESSAGE value="test with corpus&#10;" />
     <MESSAGE value="fix a small bug&#10;" />
     <MESSAGE value="fix bug in tweet crawler" />
+    <MESSAGE value="fix bugs .." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -668,22 +606,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/distributed_gp/do_gp.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#10#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/distributed_gp/event_classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="195" selection-end="321" vertical-scroll-proportion="-7.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crawlers/instagram_crawler/test_instagram.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="9" selection-start="206" selection-end="206" vertical-scroll-proportion="-7.56">
@@ -779,20 +701,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
+    <entry file="file://$PROJECT_DIR$/crawlers/instagram_crawler/mongo_storage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="2" selection-start="1761" selection-end="1761" vertical-scroll-proportion="-13.16">
+        <state line="12" column="29" selection-start="452" selection-end="452" vertical-scroll-proportion="0.26433122">
           <folding>
-            <element signature="e#42#57#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crawlers/instagram_crawler/mongo_storage.py">
+    <entry file="file://$PROJECT_DIR$/distributed_gp/event_classifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="29" selection-start="452" selection-end="452" vertical-scroll-proportion="0.7808219">
+        <state line="13" column="0" selection-start="195" selection-end="321" vertical-scroll-proportion="-0.76">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/event_server_bak.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="0" selection-start="1692" selection-end="1692" vertical-scroll-proportion="89.04">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="36" selection-start="3045" selection-end="3045" vertical-scroll-proportion="0.39490446">
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#42#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
