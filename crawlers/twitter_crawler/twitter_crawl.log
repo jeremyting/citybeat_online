@@ -24,3 +24,212 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/ssl.py", line 151, in read
     return self._sslobj.read(len)
 ssl.SSLError: The read operation timed out
+python: can't open file '/home/eddie/citybeat_production/crawlers/twitter/twitter_crawl.py': [Errno 2] No such file or directory
+Encountered Exception: 'ascii' codec can't encode character u'\U0001f62a' in position 12: ordinal not in range(128)
+Encountered Exception: 'NoneType' object is not subscriptable
+Encountered Exception: 'ascii' codec can't encode character u'\u201c' in position 0: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\U0001f622' in position 120: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\u2019' in position 31: ordinal not in range(128)
+Encountered Exception: 'NoneType' object is not subscriptable
+Encountered Exception: 'ascii' codec can't encode character u'\u2661' in position 68: ordinal not in range(128)
+Encountered Exception: 'NoneType' object is not subscriptable
+Encountered Exception: 'ascii' codec can't encode character u'\xed' in position 16: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\u2764' in position 12: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\U0001f61a' in position 56: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\u2026' in position 91: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode characters in position 106-108: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\U0001f610' in position 23: ordinal not in range(128)
+Encountered Exception: 'NoneType' object is not subscriptable
+Encountered Exception: 'NoneType' object is not subscriptable
+Encountered Exception: 'ascii' codec can't encode character u'\U0001f629' in position 43: ordinal not in range(128)
+Encountered Exception: 'NoneType' object is not subscriptable
+Encountered Exception: 'ascii' codec can't encode character u'\xd1' in position 98: ordinal not in range(128)
+Encountered Exception: 'NoneType' object is not subscriptable
+Encountered Exception: 'ascii' codec can't encode characters in position 57-58: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode characters in position 40-42: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\ue416' in position 7: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\U0001f602' in position 24: ordinal not in range(128)
+in
+get
+Watching it now!!!!!!!?!!!??!!!!!!	Safi_Russell	2013-10-04 03:58:58	Twitter for iPhone	[-73.94758115, 40.83472876]
+get
+get
+get
+get
+@MERRSANTANA what's wrong pookie	ChekaDatBITCH	2013-10-04 03:59:03	Twitter for iPhone	[-74.3037633, 40.4115939]
+get
+get
+Everybody tryna get up on our shit	ShareefWizdom	2013-10-04 03:59:06	Twitter for iPhone	[-73.93430492, 40.6278958]
+get
+Get lucky @ Flores Towers http://t.co/i8Xoexa8bX	bigE1209	2013-10-04 03:59:07	Instagram	[-73.90254974, 40.87161636]
+get
+I miss @FBonadies	DHalseyM	2013-10-04 03:59:07	Twitter for iPhone	[-73.88567128, 40.85665567]
+get
+get
+get
+Lol http://t.co/vGxWrHUZWj	AnniaraMoya	2013-10-04 03:59:13	Twitter for iPhone	[-74.01628907, 40.78977353]
+get
+get
+get
+@JSinkbeil feel better :(	kristen_piazza	2013-10-04 03:59:14	Twitter for Android	[-75.16009843, 40.99993812]
+get
+get
+get
+get
+Why am i wide awake	taylorpullan	2013-10-04 03:59:20	Twitter for iPhone	[-73.17577011, 40.8677009]
+get
+get
+get
+get
+I believe I have a gift of only speaking the truth &amp; speaking my mind and not being afraid of others thoughts. But now it's like a curse	ForeverStylez_	2013-10-04 03:59:26	Twitter for iPhone	[-73.86560485, 40.8562848]
+get
+get
+I'm not even tired...	jameerobinsonn	2013-10-04 03:59:27	Twitter for Android	[-73.8055043, 42.6935226]
+get
+Haven't been in a show in 4ever	hannahteich	2013-10-04 03:59:28	Twitter for iPhone	[-73.84937987, 40.72548736]
+get
+get
+THE FACT THAT I BARTEND AT A JAPANESE RESTAURANT THAT SOUNDS LIKE PACHA LOOKS LIKE VEGAS AND HAS ONE CUSTOMER. I CANT	smchss	2013-10-04 03:59:29	Twitter for iPhone	[-73.9541941, 40.71880482]
+get
+Community House by #artstar #VitoAcconci #architecture #newyork #sculpture coreclub @ The Core Club http://t.co/qh7OhaGlhP	artyrocio	2013-10-04 03:59:32	Instagram	[-73.97298499, 40.76079341]
+get
+@katertot527 ay ma	JonTanners	2013-10-04 03:59:33	Twitter for iPhone	[-73.98063339, 40.77482364]
+get
+@ThatBitchJesss Come to calicos it's mikeS DAY OF BIRTH!	seashelleyy	2013-10-04 03:59:34	Twitter for iPhone	[-73.97219618, 40.7499714]
+get
+get
+I'm so mean lol	Healthy_Plague	2013-10-04 03:59:38	Twitter for Android	[-74.8813116, 40.0757513]
+get
+if you dont clean your animals how can someone know you clean yaself doe lmfao	ASAPKillaTee	2013-10-04 03:59:41	Twitter for iPhone	[-73.89978909, 40.81980485]
+get
+@RealLeyla awesome podcast w/ @LewisHowes ! Keep up the fantastic work! Continued success	jdthornton4	2013-10-04 03:59:42	Twitter for iPhone	[-75.32696662, 40.01596598]
+get
+get
+My birthday isn't over yet!!!!! #BeerPong #ImProbablyFuckedUp @ The Gin Mill http://t.co/vbkJTdC91G	jesuisangiee	2013-10-04 03:59:46	Instagram	[-73.9773584, 40.78459913]
+get
+Showing two pieces! Come check it out (@ Burger Joint) http://t.co/ugqse8qzok	ZehavaSupernova	2013-10-04 03:59:47	foursquare	[-73.99801308, 40.73304172]
+get
+Birthday one fucking minute, lets fucking goooooooooo!	Gaine_Respect	2013-10-04 03:59:48	Twitter for iPhone	[-73.79622709, 40.71868346]
+get
+@Cj_Schildt27 your advice is horrible	maaegan	2013-10-04 03:59:50	Twitter for iPhone	[-73.1309695, 40.91308136]
+get
+@JordanPeele :  are you guys going to revisit the Clortho, the inner city wizardry school. I love that skit	inthewordsofkim	2013-10-04 03:59:51	Twitter for Android	[-73.92347713, 40.62984951]
+get
+I lost my appetite #relationships	ForeverStylez_	2013-10-04 03:59:54	Twitter for iPhone	[-73.8655683, 40.85626458]
+get
+get
+get
+tori complains about me not being there to cuddle but she wouldnt cuddle while sleeping anyways	manoverboardny	2013-10-04 03:59:55	Twitter for iPhone	[-73.96959123, 42.1029416]
+get
+get
+Guess wat lol http://t.co/ZOracYlxAs	spanish17	2013-10-04 03:59:57	Twitter for iPad	[-73.73827856, 40.67118476]
+get
+get
+get
+get
+@modeknit come visit! #wish	KayGardiner	2013-10-04 04:00:01	Twitter for iPhone	[-73.97655034, 40.77628709]
+get
+get
+Due to constr., constr. G at Greenpoint Ave Sta (Brklyn)   until 5:00AM All trains board at the Church Av-bnd platform and run every 24 ...	511nyG	2013-10-04 04:00:04	511NY	[-73.954292, 40.730227]
+get
+@janelleeeeee___ since when were you on my dick	BlowindatPiNK_	20Encountered Exception: 'NoneType' object is not subscriptable
+Encountered Exception: 'ascii' codec can't encode character u'\u201c' in position 0: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\xd1' in position 66: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode characters in position 50-52: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\xe1' in position 41: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode characters in position 35-36: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode characters in position 42-43: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\u201c' in position 0: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode characters in position 51-52: ordinal not in range(128)
+Encountered Exception: 'NoneType' object is not subscriptable
+Encountered Exception: 'ascii' codec can't encode character u'\u201c' in position 0: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\u2026' in position 100: ordinal not in range(128)
+Encountered Exception: 'NoneType' object is not subscriptable
+Encountered Exception: 'ascii' codec can't encode character u'\u201c' in position 0: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\u201c' in position 0: ordinal not in range(128)
+13-10-04 04:00:07	Twitter for Android	[-73.9393335, 40.5947286]
+get
+@ddlovato you should kiss me like you mean it cause I know you do ;) ....... :*	lovato_crazyy	2013-10-04 04:00:09	Twitter for Android	[-73.7784553, 40.7029341]
+get
+get
+get
+happy birthday my big booty, love your ratchet ass. TURNT UP This weekend !!!!!!!!!!!!!!!!! @elizabeth_x	aileencristinaa	2013-10-04 04:00:12	Twitter for iPhone	[-74.00322527, 40.79729931]
+get
+get
+@AddyGyo Can I cheer you up over coffee? I've made friends with some upoerclassmen who absolutely CRUSH the gpa obsession. You'll benefit	Jshyman186	2013-10-04 04:00:17	Twitter for iPhone	[-73.98843426, 40.73160421]
+get
+@Meshi_Boo lol a little ?	Gyaldemburger	2013-10-04 04:00:18	Tweetlogix	[-73.846001, 40.720446]
+get
+get
+get
+get
+Still a better #Love story than #Twilight #Tigers big #cats http://t.co/avccIvrODr	MjSallal	2013-10-04 04:00:23	Twitter for Android	[-73.9633845, 40.7700685]
+get
+I never learned about Rwanda or Bosnia in school and it feels like a betrayal to the victims that their stories weren't taught in history.	ajank95	2013-10-04 04:00:23	Twitter for iPhone	[-73.94892161, 40.78620022]
+get
+there is sun on the horizon, a candle in a cave, a little bit of color on the next page	DaveWesWhite	2013-10-04 04:00:23	Twitter for iPhone	[-73.98865058, 40.72661094]
+get
+get
+Mehhhhhhhhhhhh	isawhobbes	2013-10-04 04:00:25	Twitter for iPhone	[-74.9781745, 44.63168778]
+get
+Facts onlyyyy "@KingDreyfus: The best shit ever lol RT BlowindatPiNK_: Taurus shit"	BlowindatPiNK_	2013-10-04 04:00:26	Twitter for Android	[-73.9393335, 40.5947286]
+get
+If you prefer salt rim over sugar you can't be trusted	ariihermanson	2013-10-04 04:00:27	Twitter for iPhone	[-74.00422897, 40.70867334]
+get
+get
+The fact that my brother might be moving to my dad's in schnectady &lt;&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;&gt;&gt;&lt;&gt;&lt;&gt;	jameerobinsonn	2013-10-04 04:00:29	Twitter for Android	[-73.8055043, 42.6935226]
+get
+#np Ghost - cudi. Lol appropriate	sevnrobss	2013-10-04 04:00:29	Twitter for iPhone	[-73.97062923, 40.8395439]
+get
+Can't wait to go on vaca in a couple hours so excited??	albania914	2013-10-04 04:00:30	Twitter for iPhone	[-73.96731129, 40.76356043]
+get
+@MamieMelody oh no I hope your not talking about me	thelamontross	2013-10-04 04:00:31	Twitter for Android	[-74.0012569, 40.7656819]
+get
+get
+I told u I got u	kindtrilligy	2013-10-04 04:00:32	Twitter for iPhone	[-73.91603388, 40.63683767]
+get
+get
+@gimmegime if ya lose a head, you lose ya job. Heh	iovthestorm	2013-10-04 04:00:35	Twitter for iPhone	[-74.00476153, 40.6831291]
+get
+GANA #MasFollowers
+MI DINAMICA 11pm Hr/Mex
+
+#LatinosEnLaCasa
+
+COSTA RICA 10 pm
+BOLIVIA 12 am
+EL SALVADOR 10 pm
+TIJUANA 9 pm
+
+RT RT RT RT RT	MeriEffendi	2013-10-04 04:00:36	Twitter for Android	[-73.996748, 40.715588]
+get
+get
+get
+get
+MASSIVE ATTACK &amp; ADAM CURTIS AT PARK AVENUE ARMORY @ Park Avenue Armory http://t.co/PRLx7bcCGw	CuBCNYlondon	2013-10-04 04:00:38	Instagram	[-73.96569002, 40.76726287]
+get
+Live from New York City	dahighguy	2013-10-04 04:00:38	Twitter for iPhone	[-73.92929233, 40.66610578]
+get
+@AliyahWitko29 buggin I hate gaysss	datfrshnigg	2013-10-04 04:00:42	Twitter for iPhone	[-73.88676207, 42.75612594]
+get
+Existen personas que salen de tu vida y dan ganas de aplaudirles...	Rob0627	2013-10-04 04:00:43	Twitter for Android	[-73.7859045, 40.6696905]
+get
+get
+TOP SELLING JERSEYS WORLDWIDE FOR 2012-2013.. 1-LEBRON 2-ROSE .3.KOBE 4.DURANT .5.WADE	LIONTRIBEJUDA	2013-10-04 04:00:44	Twitter for Android	[-73.9527193, 40.6741239]
+get
+This NyQuil is taking forever	ThisBitchCarla	2013-10-04 04:00:45	Twitter for iPhone	[-73.88175758, 40.73660751]
+get
+get
+@Brothertiger Oh hey. Brunch tmw sweetums?	FLASH_LIGHTS_CO	2013-10-04 04:00:46	Twitter for iPhone	[-73.99178062, 40.68911312]
+get
+What the fuck did I do this time!	Healthy_Plague	2013-10-04 04:00:46	Twitter for Android	[-74.8808866, 40.0614781]
+get
+The view from the club tho &gt;&gt;&gt;&gt; #nyc #besttime @ PH-D at Dream Downtown http://t.co/Na9zvG7ycQ	samanthaash_	2013-10-04 04:00:47	Instagram	[-74.00330983, 40.74239352]
+get
+@ddlovato saw it fuEncountered Exception: 'ascii' codec can't encode character u'\U0001f389' in position 24: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode characters in position 27-29: ordinal not in range(128)
+Encountered Exception: 'ascii' codec can't encode character u'\U0001f451' in position 28: ordinal not in range(128)
+Encountered Exception: 'NoneType' object is not subscriptable
+Encountered Exception: 'NoneType' object is not subscriptable
+Encountered Exception: 'NoneType' object is not subscriptable
