@@ -2,13 +2,11 @@ import os
 
 instagram_client_id = '4d9231b411eb4ef69435b40eb83999d6'
 instagram_client_secret = '204c565fa1244437b9034921e034bdd6'
-
 instagram_API_pause = 0.1
-
 mongodb_address = 'grande.rutgers.edu'
 #mongodb_address = 'ec2-23-22-67-45.compute-1.amazonaws.com'
 mongodb_port = 27017
-
+production_backend_db = 'citybeat_production'
 
 class BaseConfig(object):
     min_lat = 40.690531
@@ -28,9 +26,9 @@ class BaseConfig(object):
 
 
 class InstagramConfig(BaseConfig):
-    photo_db = 'citybeat_production'
-    event_db = 'citybeat_production'
-    prediction_db = 'citybeat_production'
+    photo_db = production_backend_db
+    event_db = production_backend_db
+    prediction_db = production_backend_db
     #online setting
     photo_collection = 'photos'
     event_collection = 'online_candidate_instagram'
@@ -54,9 +52,9 @@ class InstagramConfig(BaseConfig):
 
 class TwitterConfig(BaseConfig):
     # we have not yet moved tweets from citybeat to production
-    tweet_db = 'citybeat_production'
-    event_db = 'citybeat_production'
-    prediction_db = 'citybeat_production'
+    tweet_db = production_backend_db
+    event_db = production_backend_db
+    prediction_db = production_backend_db
     tweet_collection = 'tweets'
     prediction_collection = 'online_prediction_twitter'
     event_collection = 'online_candidate_twitter'
