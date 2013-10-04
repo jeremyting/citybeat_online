@@ -1,5 +1,4 @@
 from instagram.client import InstagramAPI
-from config import instagram_log_path
 from mongo_storage import save_mogo
 
 import config
@@ -15,14 +14,13 @@ def download(para):
     mid_lat = para[0]
     mid_lng = para[1]
     period = para[2] 
-    client = para[3] 
-    db_name = para[4]
+    client = para[3]
     radius_m = 400
     min_time = period[0]
     max_time = period[1]
     try:
         res = client.media_search(lat = mid_lat, lng = mid_lng, max_timestamp = max_time, min_timestamp = min_time, return_json = True, distance = radius_m, count=60)
-        save_mogo(res, mid_lat, mid_lng, db_name)
+        save_mogo(res, mid_lat, mid_lng)
         time.sleep(0.35)
         logging.warning("Download successfully!")
     except Exception as e:

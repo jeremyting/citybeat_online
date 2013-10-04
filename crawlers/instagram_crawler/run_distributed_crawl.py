@@ -37,14 +37,12 @@ def main():
     """parse parameter here"""
     """to make this script flexible, I'm using db name as the last db name"""
 
-    if len(sys.argv)==3:
+    if len(sys.argv)==2:
         start_utc_timestamp = int(calendar.timegm( datetime.utcnow().utctimetuple() ))
         seconds_to_traceback = int(sys.argv[1])
-        mongo_db_name = sys.argv[2]
-    elif len(sys.argv)==4:
+    elif len(sys.argv)==3:
         start_utc_timestamp = int(sys.argv[1])
         seconds_to_traceback = int(sys.argv[2])
-        mongo_db_name = sys.argv[3]
     else:
         sys.stderr.write("Usage: python %s (start_utc_timestamp) seconds_to_traceback mongo_db_name"%sys.argv[0])
         raise SystemExit(1)

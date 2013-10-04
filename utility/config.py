@@ -49,6 +49,7 @@ class InstagramConfig(BaseConfig):
     # try 10*10, 15*15, 20*20, 25*25
     #region_N = 25
     #region_M = 25
+    redis_server = 'tall3'
 
 
 class TwitterConfig(BaseConfig):
