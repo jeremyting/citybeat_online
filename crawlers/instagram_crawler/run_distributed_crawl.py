@@ -63,7 +63,7 @@ def main():
             counts[randrange(len(clients))]+=1
             time_window = int(location[2])
             hour = datetime.fromtimestamp(pre).hour
-            paras = ( location[0], location[1],(pre-time_window,pre), client, mongo_db_name)
+            paras = ( location[0], location[1],(pre-time_window,pre), client)
             pre -= time_window
             q.enqueue_call(func=download,args=(paras,),timeout=572000)
             api_assign_count+=1
