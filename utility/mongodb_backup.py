@@ -9,10 +9,16 @@ target_mongodb_address = 'ec2-23-22-67-45.compute-1.amazonaws.com'
 target_mongodb_port = 27017
 target_connection = pymongo.Connection(target_mongodb_address, target_mongodb_port)
 
-for db in source_connection.database_names():
-    if (db != 'citybeat_production'):
-        continue
-    target_connection.copy_database(db, db, source_mongodb_address)
-    print 'finished'
+print target_connection.database_names()
+
+'''
+target_connection['admin'].authenticate( 'admin', 'mediumdatarules')
+try:
+    target_connection.copy_database('citybeat_production', 'citybeat_production', source_mongodb_address)
+except Exception as e:
+    print e
+'''
+print target_connection.database_names()
+
 
 
