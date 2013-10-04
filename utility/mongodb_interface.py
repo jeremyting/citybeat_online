@@ -18,6 +18,7 @@ class MongoDBInterface(object):
     def __init__(self):
         self._connection = pymongo.Connection(config.mongodb_address,
                                               config.mongodb_port)
+        self._connection['admin'].authenticate(config.mongodb_user, config.mongodb_password)
 
     def setDB(self, name):
         self._db = self._connection[name]

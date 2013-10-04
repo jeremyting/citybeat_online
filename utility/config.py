@@ -8,6 +8,9 @@ mongodb_address = 'ec2-23-22-67-45.compute-1.amazonaws.com'
 mongodb_port = 27017
 production_backend_db = 'citybeat_production'
 
+mongodb_user = 'admin'
+mongodb_password = 'mediumdatarules'
+
 class BaseConfig(object):
     min_lat = 40.690531
     max_lat = 40.823163
