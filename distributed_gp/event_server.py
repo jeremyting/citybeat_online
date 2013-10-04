@@ -77,7 +77,7 @@ class Root:
         event = self.ei.getEventByID(event_id)
         event = Event(event)
         event.selectOnePhotoForOneUser()
-        event_dic = event.toJSON()
+        event_dic = event.toDict()
         event_dic['_id'] = str(event_dic['_id'])
         return json.dumps(event_dic)
     getEventByID.exposed = True

@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/distributed_gp/event_server_bak.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/event_server.py" afterPath="$PROJECT_DIR$/distributed_gp/event_server.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380847206013" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380847220454" ignored="false" />
     <file path="/a.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376707667161" ignored="false" />
     <file path="/start_script.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376858291794" ignored="false" />
     <file path="/do_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1378998952451" ignored="false" />
@@ -17,7 +17,7 @@
     <file path="/run_gp.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1379018234913" ignored="false" />
     <file path="/config.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380837041061" ignored="false" />
     <file path="/region.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376838753069" ignored="false" />
-    <file path="/event_server.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380847008717" ignored="false" />
+    <file path="/event_server.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380847480498" ignored="false" />
     <file path="/citybeat.cfg" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1376858846128" ignored="false" />
     <file path="/base_event.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1379002142041" ignored="false" />
     <file path="/mongodb_backup.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1380738295163" ignored="false" />
@@ -60,7 +60,7 @@
       <file leaf-file-name="event_server.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="36" selection-start="3045" selection-end="3045" vertical-scroll-proportion="0.39490446">
+            <state line="79" column="0" selection-start="2494" selection-end="2494" vertical-scroll-proportion="0.38053098">
               <folding>
                 <element signature="e#42#57#0" expanded="true" />
               </folding>
@@ -490,7 +490,11 @@
       <created>1380847209344</created>
       <updated>1380847209344</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="fix bugs ..">
+      <created>1380847223327</created>
+      <updated>1380847223327</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -518,7 +522,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24356775" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -729,7 +733,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="36" selection-start="3045" selection-end="3045" vertical-scroll-proportion="0.39490446">
+        <state line="79" column="0" selection-start="2494" selection-end="2494" vertical-scroll-proportion="0.38053098">
           <folding>
             <element signature="e#42#57#0" expanded="true" />
           </folding>
