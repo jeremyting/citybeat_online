@@ -11,7 +11,7 @@ from bson.objectid import ObjectId
 
 from mongodb_interface import MongoDBInterface
 from config import InstagramConfig
-from utility.tweet_event import TweetEvent
+from tweet_event import TweetEvent
 from photo_event import PhotoEvent
 import tool
 

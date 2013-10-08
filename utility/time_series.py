@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from utility import photo_interface, tweet_interface
+import photo_interface, tweet_interface
 
 
 class TimeSeries(object):

@@ -1,4 +1,4 @@
-from utility.event_interface import EventInterface
+from event_interface import EventInterface
 
 
 def testWithMerge():

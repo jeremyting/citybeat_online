@@ -11,7 +11,7 @@ from tweet_interface import TweetInterface
 from region import Region
 from photo import Photo
 from tweet import Tweet
-from utility.text_parser import TextParser
+from text_parser import TextParser
 from _kl_divergence import kldiv
 from _kl_divergence import tokenize
 import kl_divergence as KLDivergence
@@ -533,7 +533,7 @@ def createElement(element_type, element):
 
 
 def testWithTweet():
-    from utility.corpus import buildAllCorpus
+    from corpus import buildAllCorpus
 
     corpus_all = buildAllCorpus(element_type='tweets', debug=True)
     for key, corpus in corpus_all.items():

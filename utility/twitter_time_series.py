@@ -18,6 +18,9 @@ from pandas import Series
 
 from time_series import TimeSeries
 
+from region import Region
+from config import InstagramConfig
+
 
 class TwitterTimeSeries(TimeSeries):
     """For a single region specified by a box of
@@ -87,9 +90,6 @@ class TwitterTimeSeries(TimeSeries):
             pass
         return self.series
 
-
-from utility.region import Region
-from utility.config import InstagramConfig
 
 
 def test():
