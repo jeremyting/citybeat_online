@@ -1,5 +1,5 @@
 from email.utils import parsedate_tz, mktime_tz
-from utility.base_element import BaseElement
+from base_element import BaseElement
 
 
 class Tweet(BaseElement):

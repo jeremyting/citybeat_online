@@ -1,4 +1,4 @@
-from utility.event import Event
+from event import Event
 
 
 class PhotoEvent(Event):
