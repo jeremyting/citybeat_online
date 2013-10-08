@@ -95,32 +95,6 @@ class EventInterface(MongoDBInterface):
         super(EventInterface, self).saveDocument(new_event)
         return new_event
 
-
-def testDeleteEventByID():
-    ei = EventInterface()
-    ei.setDB('test')
-    ei.setCollection('test_xia')
-    ei.deleteEventByID('51147e8cc2a3754cfe668a86')
-    cur = ei.getAllDocuments()
-    print cur.count()
-    for event in cur:
-        print event['_id']
-
-
-def TransferEvent(source_db, source_collection, targe_db, targe_collection):
-    ei = EventInterface()
-    ei.setDB(source_db)
-    ei.setCollection(source_collection)
-
-    ei2 = EventInterface()
-    ei2.setDB(targe_db)
-    ei2.setCollection(targe_collection)
-
-    cur = ei.getAllDocuments()
-    for event in cur:
-        ei2.addEvent(event)
-
-
 if __name__ == '__main__':
     # TransferEvent('EventInterface()', 'instagram_front_end_events',
     #               'citybeat_production_backup', 'instagram_front_end_events')

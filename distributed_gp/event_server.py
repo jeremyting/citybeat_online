@@ -12,6 +12,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 
 from utility.event_interface import EventInterface
 from utility.event import Event
+from utility.config import InstagramConfig
 
 #from utility.representor import Representor
 
@@ -20,10 +21,10 @@ import random
 class Root:
     def __init__(self):
         self.ei = EventInterface()
-        self.ei.setDB('citybeat_production')
+        self.ei.setDB(InstagramConfig.event_db)
         #self.representor = Representor(db='citybeat_production', collection='instagram_front_end_events')
         
-        self.ei.setCollection('instagram_front_end_events')
+        self.ei.setCollection(InstagramConfig.front_end_events)
 
     def getAllEvents(self):
         event_cursor = self.ei.getAllDocuments()
