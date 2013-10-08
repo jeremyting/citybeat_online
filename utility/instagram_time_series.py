@@ -18,6 +18,8 @@ from pandas import Series
 
 from time_series import TimeSeries
 
+from region import Region
+from config import InstagramConfig
 
 class InstagramTimeSeries(TimeSeries):
     """For a single region specified by a box of
@@ -86,11 +88,6 @@ class InstagramTimeSeries(TimeSeries):
         except Exception as e:  #not enough data
             pass
         return self.series
-
-
-from utility.region import Region
-from utility.config import InstagramConfig
-
 
 def test():
     coordinates = [InstagramConfig.photo_min_lat,
