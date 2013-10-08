@@ -1,4 +1,4 @@
-from utility.base_event import BaseEvent
+from base_event import BaseEvent
 
 
 class Event(BaseEvent):

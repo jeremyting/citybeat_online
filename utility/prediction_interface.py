@@ -1,7 +1,7 @@
 import types
 
-from utility.mongodb_interface import MongoDBInterface
-from utility.config import InstagramConfig
+from mongodb_interface import MongoDBInterface
+from config import InstagramConfig
 
 
 class PredictionInterface(MongoDBInterface):

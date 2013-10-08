@@ -1,10 +1,10 @@
 import operator
 import types
 
-from utility.region import Region
-from utility.photo import Photo
-from utility.tweet import Tweet
-from utility.base_element import BaseElement
+from region import Region
+from photo import Photo
+from tweet import Tweet
+from base_element import BaseElement
 
 
 class BaseEvent(object):

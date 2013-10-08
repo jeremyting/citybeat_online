@@ -2,10 +2,10 @@ import operator
 import types
 import json
 
-from utility.config import InstagramConfig
-from utility.config import BaseConfig
-from utility.photo_interface import PhotoInterface
-from utility.tweet_interface import TweetInterface
+from config import InstagramConfig
+from config import BaseConfig
+from photo_interface import PhotoInterface
+from tweet_interface import TweetInterface
 
 
 class Region:

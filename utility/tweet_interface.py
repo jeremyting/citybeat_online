@@ -10,7 +10,7 @@ import json
 
 import numpy
 
-from utility.tweet import Tweet
+from tweet import Tweet
 from config import TwitterConfig
 from element_interface import ElementInterface
 

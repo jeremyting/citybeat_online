@@ -1,7 +1,7 @@
-from utility.corpus import buildAllCorpus
-from utility.event_interface import EventInterface
-from utility.base_feature import BaseFeature
-from utility.region import Region
+from corpus import buildAllCorpus
+from event_interface import EventInterface
+from base_feature import BaseFeature
+from region import Region
 
 
 class TwitterFeature(BaseFeature):

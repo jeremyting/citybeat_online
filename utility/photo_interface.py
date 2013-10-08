@@ -1,5 +1,5 @@
-from utility.config import InstagramConfig
-from utility.element_interface import ElementInterface
+from config import InstagramConfig
+from element_interface import ElementInterface
 
 
 class PhotoInterface(ElementInterface):

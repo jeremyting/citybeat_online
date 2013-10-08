@@ -1,6 +1,6 @@
 import operator
 
-from utility.stopwords import Stopwords
+from stopwords import Stopwords
 import tool
 
 

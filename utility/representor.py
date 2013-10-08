@@ -8,7 +8,7 @@ from scipy.sparse import *
 from event_interface import EventInterface
 from event import Event
 from photo import Photo
-from utility.tweet import Tweet
+from tweet import Tweet
 from base_feature import BaseFeature
 from corpus import buildAllCorpus
 from region import Region

@@ -8,7 +8,7 @@ from photo_interface import PhotoInterface
 from photo import Photo
 from region import Region
 from event import Event
-from utility.text_parser import TextParser
+from text_parser import TextParser
 from _kl_divergence import kldiv
 from _kl_divergence import tokenize
 import kl_divergence as KLDivergence

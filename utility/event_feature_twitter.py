@@ -1,4 +1,4 @@
-from utility.base_feature import BaseFeature
+from base_feature import BaseFeature
 from tweet_cluster import TweetCluster
 
 
