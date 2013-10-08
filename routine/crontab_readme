@@ -1,0 +1,11 @@
+
+The jobs running on Rutgers
+
+0 1 * * * /grad/users/cx28/citybeat_online/routine/rt_run_instagram_gp.sh >/dev/null 2>&1
+*/5 * * * * /grad/users/cx28/citybeat_online/routine/rt_alarm.sh >/dev/null 2>&1
+* * * * * /grad/users/cx28/citybeat_online/routine/rt_instagram_crawler.sh >/dev/null 2>&1
+0 1,13 * * * /grad/users/cx28/citybeat_smil/citybeat/system_monitor/monitor.sh >/dev/null 2>&1
+
+The jobs runing on EC2
+
+* * * * * $HOME/citybeat_online/crawlers/twitter_crawler/check_twitter.sh >> $HOME/citybeat_online/crawlers/twitter_crawler/cron.log
