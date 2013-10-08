@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routine/rt_instagram_crawler.sh" afterPath="$PROJECT_DIR$/routine/rt_instagram_crawler.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/mongodb_backup.py" afterPath="$PROJECT_DIR$/utility/mongodb_backup.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/mongodb_interface.py" afterPath="$PROJECT_DIR$/utility/mongodb_interface.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381267257225" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381267455297" ignored="false" />
     <file path="/crontab_readme" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381267207763" ignored="false" />
+    <file path="/mongodb_backup.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381271712491" ignored="false" />
+    <file path="/mongodb_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381271049385" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,15 +31,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="config.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="23" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="event_server.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -84,10 +78,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rt_instagram_crawler.sh" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/routine/rt_instagram_crawler.sh">
+      <file leaf-file-name="mongodb_backup.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/mongodb_backup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="273" selection-end="273" vertical-scroll-proportion="0.14587332">
+            <state line="42" column="3" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="element_interface.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utility/element_interface.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="32" selection-start="273" selection-end="273" vertical-scroll-proportion="0.25503355">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mongodb_interface.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="23" selection-start="1208" selection-end="1223" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -137,20 +151,20 @@
         <option value="$PROJECT_DIR$/crawlers/instagram_crawler/run_distributed_crawl.py" />
         <option value="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py" />
         <option value="$PROJECT_DIR$/crawlers/twitter_crawler/README" />
-        <option value="$PROJECT_DIR$/utility/mongodb_backup.py" />
-        <option value="$PROJECT_DIR$/utility/mongodb_interface.py" />
         <option value="$PROJECT_DIR$/utility/config.py" />
         <option value="$PROJECT_DIR$/utility/event_interface.py" />
         <option value="$PROJECT_DIR$/distributed_gp/event_server.py" />
         <option value="$PROJECT_DIR$/crawlers/instagram_crawler/worker_download.py" />
         <option value="$PROJECT_DIR$/routine/crontab_readme" />
         <option value="$PROJECT_DIR$/routine/rt_instagram_crawler.sh" />
+        <option value="$PROJECT_DIR$/utility/mongodb_interface.py" />
+        <option value="$PROJECT_DIR$/utility/mongodb_backup.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="27" />
-    <option name="y" value="166" />
+    <option name="x" value="17" />
+    <option name="y" value="48" />
     <option name="width" value="1376" />
     <option name="height" value="744" />
   </component>
@@ -209,7 +223,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="routine" />
+              <option name="myItemId" value="utility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -590,7 +604,11 @@
       <created>1381267258935</created>
       <updated>1381267258935</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="modify the cycle of instagram crawler&#10;copy the cron jobs&#10;">
+      <created>1381267456375</created>
+      <updated>1381267456375</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -614,7 +632,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="27" y="166" width="1376" height="744" extended-state="0" />
+    <frame x="17" y="48" width="1376" height="744" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -622,12 +640,12 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3500761" sideWeight="0.6736402" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3500761" sideWeight="0.67066896" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32635984" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32933104" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32590052" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -725,21 +743,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utility/mongodb_backup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="402" selection-end="470" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/gold_label.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="26" selection-start="319" selection-end="319" vertical-scroll-proportion="0.5294118" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="170" selection-end="170" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/NLP_tool.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="60" selection-start="44" selection-end="60" vertical-scroll-proportion="0.0" />
@@ -802,15 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crawlers/instagram_crawler/worker_download.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="24" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routine/crontab_readme">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="44" selection-start="456" selection-end="456" vertical-scroll-proportion="0.0">
@@ -820,7 +814,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routine/rt_instagram_crawler.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="273" selection-end="273" vertical-scroll-proportion="0.14587332">
+        <state line="4" column="0" selection-start="273" selection-end="273" vertical-scroll-proportion="0.22960725">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crawlers/instagram_crawler/worker_download.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="24" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="23" selection-start="1208" selection-end="1223" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/mongodb_backup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="3" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/element_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="32" selection-start="273" selection-end="273" vertical-scroll-proportion="0.25503355">
           <folding />
         </state>
       </provider>
