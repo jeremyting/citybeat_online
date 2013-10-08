@@ -6,7 +6,7 @@ instagram_API_pause = 0.1
 #mongodb_address = 'grande.rutgers.edu'
 mongodb_address = 'ec2-23-22-67-45.compute-1.amazonaws.com'
 mongodb_port = 27017
-production_backend_db = 'citybeat_production'
+production_back_end_db = 'citybeat_production'
 
 mongodb_user = 'admin'
 mongodb_password = 'mediumdatarules'
@@ -29,13 +29,14 @@ class BaseConfig(object):
 
 
 class InstagramConfig(BaseConfig):
-    photo_db = production_backend_db
-    event_db = production_backend_db
-    prediction_db = production_backend_db
+    photo_db = production_back_end_db
+    event_db = production_back_end_db
+    prediction_db = production_back_end_db
     #online setting
     photo_collection = 'photos'
     event_collection = 'online_candidate_instagram'
     prediction_collection = 'online_prediction_instagram'
+    front_end_events = 'instagram_front_end_events'
     # in seconds
     merge_time_interval = 1
     zscore = 3
@@ -55,9 +56,9 @@ class InstagramConfig(BaseConfig):
 
 class TwitterConfig(BaseConfig):
     # we have not yet moved tweets from citybeat to production
-    tweet_db = production_backend_db
-    event_db = production_backend_db
-    prediction_db = production_backend_db
+    tweet_db = production_back_end_db
+    event_db = production_back_end_db
+    prediction_db = production_back_end_db
     tweet_collection = 'tweets'
     prediction_collection = 'online_prediction_twitter'
     event_collection = 'online_candidate_twitter'
