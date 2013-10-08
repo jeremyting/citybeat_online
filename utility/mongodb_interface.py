@@ -6,10 +6,8 @@
 ##########
 #Edited by: (Please write your name here)#
 import types
-
 import pymongo
-
-from utility import config
+import config
 
 
 class MongoDBInterface(object):
