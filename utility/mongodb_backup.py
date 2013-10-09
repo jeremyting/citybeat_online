@@ -13,7 +13,7 @@ source_connection['admin'].authenticate( 'admin', 'mediumdatarules')
 print source_connection.database_names()
 print source_connection['citybeat_production'].collection_names()
 
-for collection in target_connection['citybeat_production'].collection_names():
+for collection in source_connection['citybeat_production'].collection_names():
     print 'start collection: ' + collection
     target_interface = MongoDBInterface(target_connection)
     target_interface.setDB('citybeat_production')
@@ -26,7 +26,7 @@ for collection in target_connection['citybeat_production'].collection_names():
     count = 0
     for e in source_interface.getAllDocuments():
         try:
-            source_interface.saveDocument(e)
+            target_mongodb_address.saveDocument(e)
             count += 1
         except Exception:
             pass

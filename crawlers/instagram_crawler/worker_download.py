@@ -21,7 +21,7 @@ def download(para):
     try:
         res = client.media_search(lat = mid_lat, lng = mid_lng, max_timestamp = max_time, min_timestamp = min_time, return_json = True, distance = radius_m, count=60)
         save_mogo(res, mid_lat, mid_lng)
-        time.sleep(1.05)
+        time.sleep(0.35)
         logging.warning("Download successfully!")
     except Exception as e:
         logging.warning(e)
