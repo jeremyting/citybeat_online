@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system_monitor/monitor.sh" afterPath="$PROJECT_DIR$/system_monitor/monitor.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/mongodb_backup.py" afterPath="$PROJECT_DIR$/utility/mongodb_backup.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381294681506" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381294741467" ignored="false" />
     <file path="/crontab_readme" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381267207763" ignored="false" />
-    <file path="/mongodb_backup.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381271712491" ignored="false" />
+    <file path="/mongodb_backup.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381296863747" ignored="false" />
     <file path="/mongodb_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381271049385" ignored="false" />
     <file path="/photo_event.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381272390257" ignored="false" />
     <file path="/a.dummy" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381272946692" ignored="false" />
@@ -36,26 +36,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="mongodb_interface.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="55" selection-start="348" selection-end="363" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#170#182#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="25" selection-start="154" selection-end="154" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="monitor.sh" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/system_monitor/monitor.sh">
           <provider selected="true" editor-type-id="text-editor">
@@ -86,7 +66,36 @@
       <file leaf-file-name="rt_event_classifier.sh" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routine/rt_event_classifier.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="142" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
+            <state line="14" column="0" selection-start="512" selection-end="512" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="event_classifier.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/event_classifier.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="20" selection-start="1765" selection-end="1765" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mongodb_backup.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utility/mongodb_backup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="25" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.35625">
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mongodb_interface.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="8" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,19 +110,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rt_run_instagram_gp.sh" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="rt_run_instagram_gp.sh" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routine/rt_run_instagram_gp.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="236" selection-end="236" vertical-scroll-proportion="0.23100305">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="send_email.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/system_monitor/send_email.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="4" column="0" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -158,13 +158,13 @@
         <option value="$PROJECT_DIR$/utility/test_merge_with.py" />
         <option value="$PROJECT_DIR$/utility/instagram_time_series.py" />
         <option value="$PROJECT_DIR$/utility/mongodb_interface.py" />
-        <option value="$PROJECT_DIR$/utility/mongodb_backup.py" />
         <option value="$PROJECT_DIR$/routine/rt_instagram_crawler.sh" />
         <option value="$PROJECT_DIR$/crawlers/instagram_crawler/worker_download.py" />
         <option value="$PROJECT_DIR$/utility/config.py" />
         <option value="$PROJECT_DIR$/system_monitor/monitor.sh" />
         <option value="$PROJECT_DIR$/routine/rt_alarm.sh" />
         <option value="$PROJECT_DIR$/routine/rt_event_classifier.sh" />
+        <option value="$PROJECT_DIR$/utility/mongodb_backup.py" />
       </list>
     </option>
   </component>
@@ -228,7 +228,35 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="routine" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="distributed_gp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -266,7 +294,7 @@
       <recent name="$PROJECT_DIR$/distributed_gp/matlab" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.tweet">
+  <component name="RunManager" selected="Python.mongodb_backup">
     <configuration default="false" name="mongodb_backup" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -500,9 +528,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.tweet" />
-        <item index="1" class="java.lang.String" itemvalue="Python.photo_event" />
-        <item index="2" class="java.lang.String" itemvalue="Python.mongodb_backup" />
+        <item index="0" class="java.lang.String" itemvalue="Python.mongodb_backup" />
+        <item index="1" class="java.lang.String" itemvalue="Python.tweet" />
+        <item index="2" class="java.lang.String" itemvalue="Python.photo_event" />
         <item index="3" class="java.lang.String" itemvalue="Python.test3" />
         <item index="4" class="java.lang.String" itemvalue="Python.status" />
       </list>
@@ -712,7 +740,11 @@
       <created>1381294681843</created>
       <updated>1381294681843</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="modify the log ( from &quot;&gt;&gt;&quot; to &quot;&gt;&quot;)">
+      <created>1381294742899</created>
+      <updated>1381294742899</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -740,15 +772,15 @@
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3561644" sideWeight="0.67066896" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3561644" sideWeight="0.67066896" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32933104" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32590052" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -855,25 +887,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utility/instagram_time_series.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#577#606#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.log">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/check_twitter.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -892,7 +905,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="27" selection-start="351" selection-end="351" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#178#190#0" expanded="true" />
+            <element signature="e#178#190#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -901,16 +914,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="28" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#178#190#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="55" selection-start="348" selection-end="363" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#170#182#0" expanded="true" />
+            <element signature="e#178#190#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -952,16 +956,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routine/rt_alarm.sh">
+    <entry file="file://$PROJECT_DIR$/routine/rt_run_instagram_gp.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routine/rt_event_classifier.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="142" selection-start="444" selection-end="444" vertical-scroll-proportion="0.0">
+        <state line="4" column="0" selection-start="236" selection-end="236" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -973,10 +970,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routine/rt_run_instagram_gp.sh">
+    <entry file="file://$PROJECT_DIR$/routine/rt_event_classifier.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="236" selection-end="236" vertical-scroll-proportion="0.23100305">
+        <state line="14" column="0" selection-start="512" selection-end="512" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routine/rt_alarm.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/event_classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="20" selection-start="1765" selection-end="1765" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="8" selection-start="279" selection-end="279" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/mongodb_backup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="25" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.35625">
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
