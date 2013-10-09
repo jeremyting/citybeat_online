@@ -61,8 +61,8 @@ class EventMonitor():
                 if prob > 0.5:
                     print 'new events find in collection but not in front end , add it'
                     ei_classified.addEvent(e)
-            #ei_backup.addEvent(e)
-            #ei.deleteEventByID(str(e.getID()))
+
+            ei.deleteEventByID(str(e.getID()))
 
 def main():
     em = EventMonitor('citybeat_production', 'online_candidate_instagram', 'citybeat_production',
