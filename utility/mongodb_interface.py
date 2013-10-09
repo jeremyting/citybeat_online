@@ -13,12 +13,9 @@ import config
 class MongoDBInterface(object):
     #A basic interface#
 
-    def __init__(self, conn=None):
-        if conn is None:
-            self._connection = pymongo.Connection(config.mongodb_address, config.mongodb_port)
-            self._connection['admin'].authenticate(config.mongodb_user, config.mongodb_password)
-        else:
-            self._connection = conn
+    def __init__(self):
+        self._connection = pymongo.Connection(config.mongodb_address, config.mongodb_port)
+        self._connection['admin'].authenticate(config.mongodb_user, config.mongodb_password)
 
     def setDB(self, name):
         self._db = self._connection[name]
