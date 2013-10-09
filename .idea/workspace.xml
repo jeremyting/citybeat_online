@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/mongodb_backup.py" afterPath="$PROJECT_DIR$/utility/mongodb_backup.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routine/rt_instagram_crawler.sh" afterPath="$PROJECT_DIR$/routine/rt_instagram_crawler.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crawlers/instagram_crawler/worker_download.py" afterPath="$PROJECT_DIR$/crawlers/instagram_crawler/worker_download.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/config.py" afterPath="$PROJECT_DIR$/utility/config.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381284820944" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381292154125" ignored="false" />
     <file path="/crontab_readme" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381267207763" ignored="false" />
     <file path="/mongodb_backup.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381271712491" ignored="false" />
     <file path="/mongodb_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381271049385" ignored="false" />
@@ -37,42 +35,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="time_series.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/time_series.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="32" selection-start="575" selection-end="575" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_merge_with.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/test_merge_with.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="24" selection-start="116" selection-end="116" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="event_interface.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/event_interface.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="46" selection-start="274" selection-end="274" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="twitter_time_series.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/twitter_time_series.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="44" selection-start="1682" selection-end="1682" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="instagram_time_series.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/instagram_time_series.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -84,13 +46,56 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mongodb_backup.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/mongodb_backup.py">
+      <file leaf-file-name="twitter_crawl.log" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.log">
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="16" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tweet_interface.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/tweet_interface.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="27" selection-start="351" selection-end="351" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#178#190#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="element_interface.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/element_interface.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="28" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#178#190#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mongodb_interface.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="55" selection-start="348" selection-end="363" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#170#182#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utility/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="25" selection-start="154" selection-end="154" vertical-scroll-proportion="0.2375">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,10 +109,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="worker_download.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="worker_download.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crawlers/instagram_crawler/worker_download.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="24" selection-start="732" selection-end="732" vertical-scroll-proportion="0.6352584">
+            <state line="23" column="24" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -115,19 +120,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mongodb_interface.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
+      <file leaf-file-name="twitter_crawl.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="33" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
+            <state line="45" column="24" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base_feature.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/base_feature.py">
+      <file leaf-file-name="check_twitter.sh" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/check_twitter.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="534" column="20" selection-start="20036" selection-end="20036" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -151,7 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/utility/region.py" />
         <option value="$PROJECT_DIR$/utility/representor.py" />
         <option value="$PROJECT_DIR$/utility/text_parser.py" />
         <option value="$PROJECT_DIR$/utility/tweet_event.py" />
@@ -167,12 +171,13 @@
         <option value="$PROJECT_DIR$/utility/mongodb_backup.py" />
         <option value="$PROJECT_DIR$/routine/rt_instagram_crawler.sh" />
         <option value="$PROJECT_DIR$/crawlers/instagram_crawler/worker_download.py" />
+        <option value="$PROJECT_DIR$/utility/config.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="17" />
-    <option name="y" value="48" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1376" />
     <option name="height" value="744" />
   </component>
@@ -247,6 +252,10 @@
               <option name="myItemId" value="crawlers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twitter_crawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -259,10 +268,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="crawlers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="instagram_crawler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -722,7 +727,11 @@
       <created>1381284825058</created>
       <updated>1381284825058</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="recover api instagram">
+      <created>1381292155985</created>
+      <updated>1381292155985</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -746,7 +755,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="17" y="48" width="1376" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -812,7 +821,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="maybe not a bug, do a test" />
+    <option name="LAST_COMMIT_MESSAGE" value="recover api instagram" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -847,6 +856,7 @@
     <MESSAGE value="fix bug for mongo_interface.py" />
     <MESSAGE value="fix bug for &quot;from utility.xxx&quot; in utility file" />
     <MESSAGE value="maybe not a bug, do a test" />
+    <MESSAGE value="recover api instagram" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -861,44 +871,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utility/text_parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="62" selection-end="62" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/tool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/tweet.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/tweet_event.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="34" selection-end="34" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/tweet_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="203" selection-end="203" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/twitter_feature.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="34" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/base_feature.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="534" column="20" selection-start="20036" selection-end="20036" vertical-scroll-proportion="0.0">
@@ -934,22 +906,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/instagram_time_series.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#577#606#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="33" selection-start="618" selection-end="618" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/mongodb_backup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="16" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0">
@@ -968,10 +924,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/crawlers/instagram_crawler/worker_download.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="24" selection-start="732" selection-end="732" vertical-scroll-proportion="0.6352584">
+        <state line="23" column="24" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/instagram_time_series.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#577#606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.log">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/check_twitter.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="24" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/tweet_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="27" selection-start="351" selection-end="351" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#178#190#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/element_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="28" selection-start="269" selection-end="269" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#178#190#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="55" selection-start="348" selection-end="363" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#170#182#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="25" selection-start="154" selection-end="154" vertical-scroll-proportion="0.2375">
+          <folding />
         </state>
       </provider>
     </entry>
