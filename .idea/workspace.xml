@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/event_server.py" afterPath="$PROJECT_DIR$/distributed_gp/event_server.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381524394946" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381524532695" ignored="false" />
     <file path="/crontab_readme" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381267207763" ignored="false" />
     <file path="/mongodb_backup.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381296863747" ignored="false" />
     <file path="/mongodb_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381271049385" ignored="false" />
@@ -87,7 +86,7 @@
       <file leaf-file-name="event_server.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="45" selection-start="3881" selection-end="3881" vertical-scroll-proportion="0.6122449">
+            <state line="100" column="27" selection-start="3389" selection-end="3389" vertical-scroll-proportion="0.33236995">
               <folding>
                 <element signature="e#119#134#0" expanded="true" />
               </folding>
@@ -777,7 +776,11 @@
       <created>1381524397353</created>
       <updated>1381524397353</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="add event_server.py to support stats data&#10;">
+      <created>1381524537127</created>
+      <updated>1381524537127</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -809,12 +812,12 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3159091" sideWeight="0.38421956" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3159091" sideWeight="0.38765007" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3159091" sideWeight="0.28816468" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3159091" sideWeight="0.28987992" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32761577" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32307693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32761577" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32246998" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1033,7 +1036,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="45" selection-start="3881" selection-end="3881" vertical-scroll-proportion="0.6122449">
+        <state line="100" column="27" selection-start="3389" selection-end="3389" vertical-scroll-proportion="0.33236995">
           <folding>
             <element signature="e#119#134#0" expanded="true" />
           </folding>
