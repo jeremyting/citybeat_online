@@ -1,5 +1,5 @@
 from base_event import BaseEvent
-
+from photo import Photo
 
 class Event(BaseEvent):
     # Event is for Instagram photo, a little trick of the naming machanism here
@@ -43,6 +43,12 @@ class Event(BaseEvent):
     def mergeWith(self, event):
         return self._mergeWith(Event(event))
 
+    def getAllPhotoImageUrls(self):
+        urls = []
+        for e in self.getAllElements():
+            e = Photo(e)
+            urls.append(e.getImageUrl())
+        return urls
 
 def main():
     pass

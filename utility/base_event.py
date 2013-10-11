@@ -10,11 +10,7 @@ from base_element import BaseElement
 class BaseEvent(object):
     def __init__(self, element_type, event=None):
         assert element_type in ['photos', 'tweets']
-        if element_type == 'photos':
-            self._element_type = 'photos'
-        else:
-            self._element_type = 'tweets'
-
+        self._element_type = element_type
         if not event is None:
             if type(event) is types.DictType:
                 self._event = event
@@ -36,6 +32,9 @@ class BaseEvent(object):
         if not type(element) is types.DictType:
             element = element.toDict()
         self._event[self._element_type].append(element)
+
+    def getAllElements(self):
+        return self._event[self._element_type]
 
     def getElementNumber(self):
         return len(self._event[self._element_type])

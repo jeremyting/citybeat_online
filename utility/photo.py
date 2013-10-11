@@ -32,4 +32,10 @@ class Photo(BaseElement):
 
     def getText(self):
         # new interface
-        return self.getCaption()        
+        return self.getCaption()
+
+    def getImageUrl(self):
+        try:
+            return self._element['images']['low_resolution']['url']
+        except Exception:
+            return ''

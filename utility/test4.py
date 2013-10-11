@@ -5,6 +5,7 @@ from tweet_interface import TweetInterface
 from photo_interface import PhotoInterface
 from tweet import Tweet
 from photo import Photo
+from photo_event import PhotoEvent
 
 
 
@@ -24,18 +25,13 @@ def main():
     print cnt
 
 def test():
-    pi = PhotoInterface()
-    pi.setDB('citybeat_production')
-    pi.setCollection('photos')
-    cur = pi.getAllDocuments({'created_time' : {'$gte' : '1378711668'}})
-    print cur.count()
-    cnt = 0
-    for photo in cur:
-        photo = Photo(photo)
-        if 'quinn' in photo.getText().lower():
-            cnt += 1
-    print cnt
+    ei = EventInterface(collection='instagram_front_end_events')
+    cur = ei.getAllDocuments(limit=2)
+    for e in cur:
+        e = PhotoEvent(e)
+        print e.getID()
+        print e.getAllPhotoImageUrls()
 
 if __name__ == '__main__':
-    main()
+    #main()
     test()
