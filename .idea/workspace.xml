@@ -6,14 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\PyCharmProjects\citybeat_online\status_pipeline\__init__.py" afterPath="$PROJECT_DIR$/stats/__init__.py" />
-      <change type="MOVED" beforePath="D:\PyCharmProjects\citybeat_online\status_pipeline\stats_interfaces.py" afterPath="$PROJECT_DIR$/stats/stats_interfaces.py" />
-      <change type="MOVED" beforePath="D:\PyCharmProjects\citybeat_online\status_pipeline\status.py" afterPath="$PROJECT_DIR$/stats/status.py" />
-      <change type="MOVED" beforePath="D:\PyCharmProjects\citybeat_online\status_pipeline\status_config.py" afterPath="$PROJECT_DIR$/stats/status_config.py" />
+      <change type="MOVED" beforePath="D:\PyCharmProjects\citybeat_online\stats\status.py" afterPath="$PROJECT_DIR$/stats/stats.py" />
+      <change type="MOVED" beforePath="D:\PyCharmProjects\citybeat_online\stats\status_config.py" afterPath="$PROJECT_DIR$/stats/stats_config.py" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381465795158" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381467163378" ignored="false" />
     <file path="/crontab_readme" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381267207763" ignored="false" />
     <file path="/mongodb_backup.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381296863747" ignored="false" />
     <file path="/mongodb_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381271049385" ignored="false" />
@@ -62,8 +60,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="status_config.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stats/status_config.py">
+      <file leaf-file-name="stats_config.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stats/stats_config.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="4" column="22" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0">
               <folding />
@@ -71,10 +69,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="status.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/stats/status.py">
+      <file leaf-file-name="stats.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/stats/stats.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="0" selection-start="2166" selection-end="2166" vertical-scroll-proportion="0.96710527">
+            <state line="56" column="0" selection-start="2163" selection-end="2163" vertical-scroll-proportion="0.71710527">
               <folding />
             </state>
           </provider>
@@ -108,7 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/utility/time_series.py" />
         <option value="$PROJECT_DIR$/utility/test_merge_with.py" />
         <option value="$PROJECT_DIR$/utility/instagram_time_series.py" />
         <option value="$PROJECT_DIR$/utility/mongodb_interface.py" />
@@ -124,6 +121,7 @@
         <option value="$PROJECT_DIR$/utility/config.py" />
         <option value="$PROJECT_DIR$/status_pipeline/stats_interfaces.py" />
         <option value="$PROJECT_DIR$/status_pipeline/status.py" />
+        <option value="$PROJECT_DIR$/stats/status.py" />
       </list>
     </option>
   </component>
@@ -699,7 +697,11 @@
       <created>1381465797211</created>
       <updated>1381465797211</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="rename the stats&#10;">
+      <created>1381467165029</created>
+      <updated>1381467165029</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -789,7 +791,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="add status" />
+    <option name="LAST_COMMIT_MESSAGE" value="rename the stats&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -803,7 +805,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="add status pipeline" />
     <MESSAGE value="remove stale code" />
     <MESSAGE value="test with corpus&#10;" />
     <MESSAGE value="fix a small bug&#10;" />
@@ -828,6 +829,7 @@
     <MESSAGE value="db back up" />
     <MESSAGE value="modify the bug in classifier" />
     <MESSAGE value="add status" />
+    <MESSAGE value="rename the stats&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -918,6 +920,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/stats/stats_config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="22" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/stats/stats_interfaces.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="44" selection-start="363" selection-end="363" vertical-scroll-proportion="0.0">
@@ -925,16 +934,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stats/status_config.py">
+    <entry file="file://$PROJECT_DIR$/stats/stats.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="22" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stats/status.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="2166" selection-end="2166" vertical-scroll-proportion="0.96710527">
+        <state line="56" column="0" selection-start="2163" selection-end="2163" vertical-scroll-proportion="0.71710527">
           <folding />
         </state>
       </provider>

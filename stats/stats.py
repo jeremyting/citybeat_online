@@ -10,7 +10,7 @@ from utility.tweet_interface import TweetInterface
 from utility.tool import getCurrentStampUTC
 from utility.config import StatsConfig
 
-import status_config
+import stats_config
 from stats_interfaces import InstagramStatsInterface
 from stats_interfaces import TwitterStatsInterface
 
@@ -42,7 +42,7 @@ class Status(object):
         current_count = self._tweet_interface.rangeQuery(period=[now - 65, now - 5]).count()
         baseline_count = self._tweet_interface.rangeQuery(period=[now - 65 - 600, now - 65]).count() / 10.0
         if baseline_count == 0.0:
-            return [current_count, status_config.NO_BASE_LINE]
+            return [current_count, stats_config.NO_BASE_LINE]
         else:
             return [current_count, (current_count - baseline_count) / baseline_count]
 
@@ -51,7 +51,7 @@ class Status(object):
         current_count = int(self._photo_interface.rangeQuery(period=[now - 600, now]).count() / 10.0 + 0.5)
         baseline_count = self._photo_interface.rangeQuery(period=[now - 60 * 21, now - 60]).count() / 20.0
         if baseline_count == 0.0:
-            return [current_count, status_config.NO_BASE_LINE]
+            return [current_count, stats_config.NO_BASE_LINE]
         else:
             return [current_count, (current_count - baseline_count) / baseline_count]
 
