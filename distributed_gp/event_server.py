@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf8 -*-
 
+# the name of this file is mis-leading, it actually provides the stats data
+
 import cherrypy
 import foursquare
 import json
@@ -13,6 +15,9 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 from utility.event_interface import EventInterface
 from utility.event import Event
 from utility.config import InstagramConfig
+from utility.tool import getCurrentStampUTC
+from stats.stats_interfaces import InstagramStatsInterface
+from stats.stats_interfaces import TwitterStatsInterface
 
 #from utility.representor import Representor
 
@@ -25,6 +30,8 @@ class Root:
         #self.representor = Representor(db='citybeat_production', collection='instagram_front_end_events')
         
         self.ei.setCollection(InstagramConfig.front_end_events)
+        self.instagram_stats_interface = InstagramStatsInterface()
+        self.twitter_stats_interface = TwitterStatsInterface()
 
     def getAllEvents(self):
         event_cursor = self.ei.getAllDocuments()
@@ -89,6 +96,16 @@ class Root:
         self.ei.updateDocument( event ) 
     #setLabel.exposed = True
 
+    def getLatestInstagramCountStats(self):
+        now = int(getCurrentStampUTC()) - 5 * 60
+        condition = {'created_time': {"$gte": str(now)}}
+        return self.instagram_stats_interface.getAllDocuments(condition=condition).sort('created_time', -1)[0]
+
+    def getLatestTwitterCountStats(self):
+        now = int(getCurrentStampUTC()) - 5 * 60
+        condition = {'created_time': {"$gte": str(now)}}
+        return self.twitter_stats_interface.getAllDocuments(condition=condition).sort('created_time', -1)[0]
+
 global_conf = {
         'global':{'server.environment': 'production',
             'engine.autoreload_on': True,
@@ -98,5 +115,10 @@ global_conf = {
             }
         }
 
+'''
+e = Root()
+print e.getLatestInstagramCountStats()
+print e.getLatestTwitterCountStats()
+'''
 cherrypy.config.update(global_conf)
 cherrypy.quickstart(Root(), '/', global_conf)
