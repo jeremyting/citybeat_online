@@ -100,11 +100,13 @@ class Root:
         now = int(getCurrentStampUTC()) - 5 * 60
         condition = {'created_time': {"$gte": str(now)}}
         return self.instagram_stats_interface.getAllDocuments(condition=condition).sort('created_time', -1)[0]
+    getLatestInstagramCountStats.exposed = True
 
     def getLatestTwitterCountStats(self):
         now = int(getCurrentStampUTC()) - 5 * 60
         condition = {'created_time': {"$gte": str(now)}}
         return self.twitter_stats_interface.getAllDocuments(condition=condition).sort('created_time', -1)[0]
+    getLatestTwitterCountStats.exposed = True
 
 global_conf = {
         'global':{'server.environment': 'production',

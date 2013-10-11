@@ -10,7 +10,7 @@
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381521848299" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381524394946" ignored="false" />
     <file path="/crontab_readme" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381267207763" ignored="false" />
     <file path="/mongodb_backup.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381296863747" ignored="false" />
     <file path="/mongodb_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381271049385" ignored="false" />
@@ -26,7 +26,7 @@
     <file path="/test4.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381521714500" ignored="false" />
     <file path="/event.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381521237783" ignored="false" />
     <file path="/base_event.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381521283446" ignored="false" />
-    <file path="/event_server.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381524261204" ignored="false" />
+    <file path="/event_server.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381524501681" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +87,7 @@
       <file leaf-file-name="event_server.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="0" selection-start="3530" selection-end="3531" vertical-scroll-proportion="0.44606414">
+            <state line="108" column="45" selection-start="3881" selection-end="3881" vertical-scroll-proportion="0.6122449">
               <folding>
                 <element signature="e#119#134#0" expanded="true" />
               </folding>
@@ -773,7 +773,11 @@
       <created>1381521852228</created>
       <updated>1381521852229</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="add event_server.py to support stats data&#10;">
+      <created>1381524397353</created>
+      <updated>1381524397353</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -863,7 +867,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="add 'url'" />
+    <option name="LAST_COMMIT_MESSAGE" value="add event_server.py to support stats data&#10;" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -877,7 +881,6 @@
     <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="test with corpus&#10;" />
     <MESSAGE value="fix a small bug&#10;" />
     <MESSAGE value="fix bug in tweet crawler" />
     <MESSAGE value="fix bugs .." />
@@ -902,6 +905,7 @@
     <MESSAGE value="add status" />
     <MESSAGE value="rename the stats&#10;" />
     <MESSAGE value="add 'url'" />
+    <MESSAGE value="add event_server.py to support stats data&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1029,7 +1033,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="0" selection-start="3530" selection-end="3531" vertical-scroll-proportion="0.44606414">
+        <state line="108" column="45" selection-start="3881" selection-end="3881" vertical-scroll-proportion="0.6122449">
           <folding>
             <element signature="e#119#134#0" expanded="true" />
           </folding>
