@@ -8,13 +8,13 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 from utility.photo_interface import PhotoInterface
 from utility.tweet_interface import TweetInterface
 from utility.tool import getCurrentStampUTC
-from utility.config import StatsConfig
+from utility.tweet import Tweet
 
 import stats_config
 from stats_interfaces import InstagramStatsInterface
 from stats_interfaces import TwitterStatsInterface
 
-class Status(object):
+class Stats(object):
 
     def __init__(self):
         # emty dictionary
@@ -22,17 +22,22 @@ class Status(object):
         self._photo_interface = PhotoInterface()
 
     def getCurrentCountStats(self, type):
-        assert  type in ['photos', 'tweets']
+        assert type in ['photos', 'tweets']
         stats = {}
-        stats['type'] = type
         if type == 'photos':
-            stats['index'] = StatsConfig.photo_count_index
             res = self._extractPhotoCount()
         else:
-            stats['index'] = StatsConfig.tweet_count_index
             res = self._extractTweetCount()
-        stats['current_count'] = res[0]
+        stats['current_count_per_minute'] = res[0]
         stats['delta'] = res[1]
+        stats['created_time'] = str(getCurrentStampUTC())
+        return stats
+
+    def get24HoursCountStats(self, type):
+        assert type in ['photos', 'tweets']
+        stats = {}
+        stats['current_24_hours_counts'] = self._extract24HoursCountsStats(type=type)
+        stats['past_week_24_hours_counts'] = self._extract24HoursCountsStats(past_week=True, type=type)
         stats['created_time'] = str(getCurrentStampUTC())
         return stats
 
@@ -55,8 +60,32 @@ class Status(object):
         else:
             return [current_count, (current_count - baseline_count) / baseline_count]
 
+    def _extract24HoursCountsStats(self, past_week=False, type='tweets'):
+        now = int(getCurrentStampUTC())
+        offset = 0
+        if past_week:
+            offset = 7 * 24
+        count_during_past_24_hours = []
+        for hour in xrange(24):
+            end_time = now - 3600 * hour - offset
+            begin_time = end_time - 3600
+            if type == 'tweets':
+                count_during_past_24_hours.append(self._tweet_interface.rangeQuery(period=[begin_time, end_time]).count())
+            else:
+                count_during_past_24_hours.append(self._photo_interface.rangeQuery(period=[begin_time, end_time]).count())
+        return count_during_past_24_hours
+
+    def _extractTweetTopMentions(self, k=10):
+        # 10 minutes
+        now = int(getCurrentStampUTC())
+        time_span = 10 * 60
+        end_time = now
+        begin_time = end_time - time_span
+        cur = self._tweet_interface.rangeQuery(period=[begin_time, end_time], field='text')
+        return cur
+
 def main():
-    stats = Status()
+    stats = Stats()
 
     instagram_stats_interface = InstagramStatsInterface()
     instagram_stats = stats.getCurrentCountStats('photos')

@@ -93,7 +93,7 @@ class Root:
     def setLabel(self, event_id, label):
         event = self.ei.getEventByID(str(event_id))
         event['label'] = int(label)
-        self.ei.updateDocument( event ) 
+        self.ei.updateDocument( event )
     #setLabel.exposed = True
 
     def getLatestInstagramCountStats(self):

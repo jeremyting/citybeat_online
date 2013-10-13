@@ -66,8 +66,6 @@ class TwitterConfig(BaseConfig):
 class StatsConfig(object):
     instagram_collection = 'instagram_stats'
     twitter_collection = 'twitter_stats'
-    photo_count_index = 'photo_count'
-    tweet_count_index = 'tweet_count'
 
 if __name__ == '__main__':
     print BaseConfig.getRegionListPath()
