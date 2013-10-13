@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stats/test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/config.py" afterPath="$PROJECT_DIR$/utility/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/event_server.py" afterPath="$PROJECT_DIR$/distributed_gp/event_server.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stats/stats.py" afterPath="$PROJECT_DIR$/stats/stats.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/test5.py" afterPath="$PROJECT_DIR$/utility/test5.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381682020235" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381682257657" ignored="false" />
+    <file path="/twitter_crawl.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381701510244" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,37 +85,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tool.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/tool.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="22" selection-start="141" selection-end="159" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base_event.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/base_event.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="36" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test4.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/test4.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test5.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="test5.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/test5.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="17" selection-start="506" selection-end="506" vertical-scroll-proportion="0.6988304">
+            <state line="17" column="34" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="twitter_crawl.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="79" column="31" selection-start="2578" selection-end="2578" vertical-scroll-proportion="-6.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="twitter_crawl_extended.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="82" column="37" selection-start="2969" selection-end="2969" vertical-scroll-proportion="4.52907">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tweet_interface.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/tweet_interface.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="18" column="8" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -143,8 +140,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/utility/mongodb_backup.py" />
-        <option value="$PROJECT_DIR$/distributed_gp/event_classifier.py" />
         <option value="$PROJECT_DIR$/status_pipeline/status_config.py" />
         <option value="$PROJECT_DIR$/status_pipeline/stats_interfaces.py" />
         <option value="$PROJECT_DIR$/status_pipeline/status.py" />
@@ -159,6 +154,8 @@
         <option value="$PROJECT_DIR$/stats/stats.py" />
         <option value="$PROJECT_DIR$/stats/test.py" />
         <option value="$PROJECT_DIR$/utility/test5.py" />
+        <option value="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py" />
+        <option value="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py" />
       </list>
     </option>
   </component>
@@ -201,19 +198,47 @@
               <option name="myItemId" value="citybeat_online" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="&lt; Python 2.7.3 (D:/python27/python.exe) &gt;" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="citybeat_online" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crawlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="twitter_crawler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="crawlers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -250,26 +275,7 @@
       <recent name="$PROJECT_DIR$/distributed_gp/matlab" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test5">
-    <configuration default="false" name="test4" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utility" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="citybeat_online" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utility/test4.py" />
-      <option name="PARAMETERS" value="" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.twitter_crawl">
     <configuration default="false" name="event_server" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -341,6 +347,25 @@
       <module name="citybeat_online" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utility/test5.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="twitter_crawl" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/crawlers/twitter_crawler" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="citybeat_online" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -474,19 +499,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.test4" />
-      <item index="1" class="java.lang.String" itemvalue="Python.event_server" />
-      <item index="2" class="java.lang.String" itemvalue="Python.stats" />
-      <item index="3" class="java.lang.String" itemvalue="Python.test" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test5" />
+      <item index="0" class="java.lang.String" itemvalue="Python.event_server" />
+      <item index="1" class="java.lang.String" itemvalue="Python.stats" />
+      <item index="2" class="java.lang.String" itemvalue="Python.test" />
+      <item index="3" class="java.lang.String" itemvalue="Python.test5" />
+      <item index="4" class="java.lang.String" itemvalue="Python.twitter_crawl" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.test5" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test" />
-        <item index="2" class="java.lang.String" itemvalue="Python.stats" />
-        <item index="3" class="java.lang.String" itemvalue="Python.event_server" />
-        <item index="4" class="java.lang.String" itemvalue="Python.test4" />
+        <item index="0" class="java.lang.String" itemvalue="Python.twitter_crawl" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test5" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test" />
+        <item index="3" class="java.lang.String" itemvalue="Python.stats" />
+        <item index="4" class="java.lang.String" itemvalue="Python.event_server" />
       </list>
     </recent_temporary>
   </component>
@@ -734,7 +759,11 @@
       <created>1381526113270</created>
       <updated>1381526113270</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="add status">
+      <created>1381682260894</created>
+      <updated>1381682260895</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -761,22 +790,22 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32575756" sideWeight="0.380789" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32575756" sideWeight="0.38421956" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32575756" sideWeight="0.28816468" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32575756" sideWeight="0.28987992" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32649574" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32590052" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32246998" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24013722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -824,7 +853,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="add event_server.py to support stats data&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="add status" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -859,10 +888,10 @@
     <MESSAGE value="modify the log ( from &quot;&gt;&gt;&quot; to &quot;&gt;&quot;)" />
     <MESSAGE value="db back up" />
     <MESSAGE value="modify the bug in classifier" />
-    <MESSAGE value="add status" />
     <MESSAGE value="rename the stats&#10;" />
     <MESSAGE value="add 'url'" />
     <MESSAGE value="add event_server.py to support stats data&#10;" />
+    <MESSAGE value="add status" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -877,21 +906,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="6" selection-start="220" selection-end="220" vertical-scroll-proportion="0.33333334" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/element_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="610" selection-end="610" vertical-scroll-proportion="0.25054947" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/event_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="46" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/photo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="12" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.0" />
@@ -972,7 +986,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utility/test5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="17" selection-start="506" selection-end="506" vertical-scroll-proportion="0.6988304">
+        <state line="17" column="34" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/tweet_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="8" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="31" selection-start="2578" selection-end="2578" vertical-scroll-proportion="-6.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="37" selection-start="2969" selection-end="2969" vertical-scroll-proportion="4.52907">
           <folding />
         </state>
       </provider>
