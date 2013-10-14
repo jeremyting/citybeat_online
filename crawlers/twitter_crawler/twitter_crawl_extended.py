@@ -16,14 +16,10 @@ import json
 import pymongo
 
 def tweepy_auth():
-    #CONSUMER_KEY = '01gugiESt8CSq97ypjTQg'
-    #CONSUMER_SECRET = 'JQPPGBxZploR3fG9TDylDH3ZrjJgcHlsLSR5SSBY'
-    #ACCESS_KEY = '3183721-QQZ4rpf5cv3og207hSwHFPGpsTf5v7kPuY6MO9S9iY'
-    #ACCESS_SECRET = '2DP9FW6ZmCis4TewZLYHQGbqWiThq4uQqSQbJSiFJw'
-    CONSUMER_KEY = 'n8Fx0IXCVndSyRBMnXDRAA'
-    CONSUMER_SECRET = 'TdM6xvlh7mPjmaWhb0tYRjriS5RvdDiG5LXhSPKaA8'
-    ACCESS_KEY = '82368523-TrISJ6c0xGlG3CSSisIIyYakDPRU9q4aKXzAjI'
-    ACCESS_SECRET = 'rqi70hpRrMCH9ggvWyHZpLvLz7KhtUhYSjWUattJA'
+    CONSUMER_KEY = 'bkjREJaBNXJIlAG7x9g'
+    CONSUMER_SECRET = 'IJCCqMAErMIb5dyzrkPBmnqiPcOvg1wxoz3zB3A7I'
+    ACCESS_KEY = '925570813-L5Ek1ZDE2V5spfBMhB11RdK8Lz9Tk2uWed74rRIw'
+    ACCESS_SECRET = 'Ek4sjwW4a0BXXi2w4jJrf1gtoYrhhNIRdBgXr9RtU'
 
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
@@ -47,9 +43,6 @@ class CustomStreamListener(tweepy.StreamListener):
 
     def save_to_mongo(self,tweet):
         tweet = json.loads(tweet.json)
-        if tweet['coordinates'] is None:
-            return
-
         tweet['_id'] = tweet['id']
         self.ti.saveDocument(tweet)
 
