@@ -56,12 +56,7 @@ class CustomStreamListener(tweepy.StreamListener):
     def on_status(self, status):
         print 'get'
         try:
-            print "%s\t%s\t%s\t%s\t%s" % (status.text,
-                    status.author.screen_name,
-                    status.created_at,
-                    status.source,
-                    status.coordinates['coordinates']
-                    )
+            print status.text
             self.save_to_mongo(status)
         except Exception, e:
             print >> sys.stderr, 'Encountered Exception:', e
