@@ -50,6 +50,7 @@ class CustomStreamListener(tweepy.StreamListener):
         print 'get'
         try:
             print status.text
+            print type(status)
             self.save_to_mongo(status)
         except Exception, e:
             print >> sys.stderr, 'Encountered Exception:', e
@@ -64,8 +65,6 @@ class CustomStreamListener(tweepy.StreamListener):
 def main():
     print 'in'
     auth = tweepy_auth()
-    #streaming_api = tweepy.streaming.Stream(auth, CustomStreamListener(), timeout=60)
-    #streaming_api.filter(follow=None, locations=[-74.0547045, 40.696614,-73.8700515,40.813458])
     streaming_api = tweepy.streaming.Stream(auth, CustomStreamListener(collection='extended_tweets'), timeout=60)
     terms = ['ny', 'nyc', 'new york', 'new york city']
     streaming_api.filter(track=terms)
