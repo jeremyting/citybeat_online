@@ -5,14 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/tweet_interface.py" afterPath="$PROJECT_DIR$/utility/tweet_interface.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py" afterPath="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381781147268" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381781244367" ignored="false" />
     <file path="/twitter_crawl.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381701510244" ignored="false" />
-    <file path="/twitter_crawl_extended.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381781218998" ignored="false" />
+    <file path="/twitter_crawl_extended.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381782282916" ignored="false" />
+    <file path="/tweet_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381782208349" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,15 +38,6 @@
         <entry file="file://$PROJECT_DIR$/utility/config.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="71" column="0" selection-start="2125" selection-end="2125" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stats_interfaces.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stats/stats_interfaces.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="0" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -98,7 +91,7 @@
       <file leaf-file-name="twitter_crawl.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="0" selection-start="1571" selection-end="1571" vertical-scroll-proportion="-5.24">
+            <state line="53" column="28" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -107,7 +100,7 @@
       <file leaf-file-name="twitter_crawl_extended.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="33" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.41955835">
+            <state line="47" column="59" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.41192412">
               <folding />
             </state>
           </provider>
@@ -116,7 +109,7 @@
       <file leaf-file-name="tweet_interface.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/tweet_interface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="8" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0">
+            <state line="23" column="51" selection-start="648" selection-end="665" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -141,7 +134,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/status_pipeline/status_config.py" />
         <option value="$PROJECT_DIR$/status_pipeline/stats_interfaces.py" />
         <option value="$PROJECT_DIR$/status_pipeline/status.py" />
         <option value="$PROJECT_DIR$/stats/status.py" />
@@ -156,6 +148,7 @@
         <option value="$PROJECT_DIR$/stats/test.py" />
         <option value="$PROJECT_DIR$/utility/test5.py" />
         <option value="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py" />
+        <option value="$PROJECT_DIR$/utility/tweet_interface.py" />
         <option value="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py" />
       </list>
     </option>
@@ -784,7 +777,11 @@
       <created>1381781148365</created>
       <updated>1381781148365</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="add crawler to nyc, ny, new york city">
+      <created>1381781245837</created>
+      <updated>1381781245837</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -812,13 +809,14 @@
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24013722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32575756" sideWeight="0.380789" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32575756" sideWeight="0.432247" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32575756" sideWeight="0.28816468" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32575756" sideWeight="0.32590052" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32590052" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32246998" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -826,7 +824,6 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24013722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -927,11 +924,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utility/photo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="12" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stats/stats_config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="22" selection-start="77" selection-end="77" vertical-scroll-proportion="0.22157435" />
@@ -1005,13 +997,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/tweet_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="8" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/test5.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="34" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
@@ -1019,16 +1004,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utility/element_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="6" selection-start="247" selection-end="247" vertical-scroll-proportion="-0.43401015">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="1571" selection-end="1571" vertical-scroll-proportion="-5.24">
+        <state line="53" column="28" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/tweet_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="51" selection-start="648" selection-end="665" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="33" selection-start="1701" selection-end="1701" vertical-scroll-proportion="0.41955835">
+        <state line="47" column="59" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.41192412">
           <folding />
         </state>
       </provider>

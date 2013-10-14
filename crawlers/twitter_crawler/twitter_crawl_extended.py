@@ -45,16 +45,10 @@ class CustomStreamListener(tweepy.StreamListener):
         tweet = json.loads(tweet.json)
         tweet['_id'] = tweet['id']
         print type(tweet)
-        self.ti.saveDocument(tweet)
+        self.ti.saveDocument(tweet, must_have_geo_tag=False)
 
     def on_status(self, status):
         print 'get'
-        print "%s\t%s\t%s\t%s" % (status.text,
-                    status.author.screen_name,
-                    status.created_at,
-                    status.source)
-        self.save_to_mongo(status)
-        return
         try:
             print "%s\t%s\t%s\t%s" % (status.text,
                     status.author.screen_name,

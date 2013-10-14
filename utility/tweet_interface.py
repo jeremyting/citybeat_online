@@ -21,28 +21,36 @@ class TweetInterface(ElementInterface):
         # initialize an interface for accessing tweet from mongodb
         super(TweetInterface, self).__init__(db, collection, 'tweets')
 
-    def saveDocument(self, tweet):
+    def saveDocument(self, tweet, must_have_geo_tag=True):
+        # if turn on the flag 'must_have_geo_tage', all tweets without coordinates will be filtered out.
+        # if we did not set must_have_geo_tag as true, we allow non-geotagged tweets, but if some of them
+        # are geotagged, they must lie in the region we previously defined in config file.
         if not type(tweet) is types.DictType:
             tweet = tweet.toDict()
         if 'location' not in tweet.keys():
-            if 'coordinates' not in tweet.keys():
+            if must_have_geo_tag and 'coordinates' not in tweet.keys():
                 return False
-            if 'coordinates' not in tweet['coordinates'].keys():
+            if must_have_geo_tag and 'coordinates' not in tweet['coordinates'].keys():
                 return False
             location = {}
-            location['latitude'] = tweet['coordinates']['coordinates'][1]
-            location['longitude'] = tweet['coordinates']['coordinates'][0]
+            try:
+                location['latitude'] = tweet['coordinates']['coordinates'][1]
+                location['longitude'] = tweet['coordinates']['coordinates'][0]
+            except Exception:
+                pass
             tweet['location'] = location
 
-            if (location['latitude'] < TwitterConfig.min_lat or location['latitude'] > TwitterConfig.max_lat
-                or location['longitude'] < TwitterConfig.min_lng or location['longitude'] > TwitterConfig.max_lng):
-                return False
+            try:
+                if (location['latitude'] < TwitterConfig.min_lat or location['latitude'] > TwitterConfig.max_lat
+                    or location['longitude'] < TwitterConfig.min_lng or location['longitude'] > TwitterConfig.max_lng):
+                    return False
+            except Exception:
+                pass
 
         tweet['created_time'] = Tweet(tweet).getCreatedUTCTimestamp()
 
         super(TweetInterface, self).saveDocument(tweet)
         return True
-
 
 def getTweetStatistics():
     ti = TweetInterface()
