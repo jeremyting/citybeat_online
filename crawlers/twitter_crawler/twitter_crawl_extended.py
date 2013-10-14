@@ -49,6 +49,12 @@ class CustomStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
         print 'get'
+        print "%s\t%s\t%s\t%s" % (status.text,
+                    status.author.screen_name,
+                    status.created_at,
+                    status.source)
+        self.save_to_mongo(status)
+        return
         try:
             print "%s\t%s\t%s\t%s" % (status.text,
                     status.author.screen_name,
