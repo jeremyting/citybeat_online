@@ -10,9 +10,9 @@
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381780807502" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381780999575" ignored="false" />
     <file path="/twitter_crawl.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381701510244" ignored="false" />
-    <file path="/twitter_crawl_extended.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381780970591" ignored="false" />
+    <file path="/twitter_crawl_extended.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381781128464" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +98,7 @@
       <file leaf-file-name="twitter_crawl.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="31" selection-start="2578" selection-end="2578" vertical-scroll-proportion="-6.0">
+            <state line="51" column="0" selection-start="1571" selection-end="1571" vertical-scroll-proportion="-5.24">
               <folding />
             </state>
           </provider>
@@ -107,7 +107,7 @@
       <file leaf-file-name="twitter_crawl_extended.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="38" selection-start="1621" selection-end="1621" vertical-scroll-proportion="0.53943217">
+            <state line="56" column="21" selection-start="1741" selection-end="1741" vertical-scroll-proportion="0.47949526">
               <folding />
             </state>
           </provider>
@@ -776,7 +776,11 @@
       <created>1381780809734</created>
       <updated>1381780809734</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="add crawler to nyc, ny, new york city">
+      <created>1381781000686</created>
+      <updated>1381781000686</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -997,6 +1001,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utility/tweet_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="8" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utility/test5.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="34" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
@@ -1006,21 +1017,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="31" selection-start="2578" selection-end="2578" vertical-scroll-proportion="-6.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/tweet_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="8" selection-start="622" selection-end="622" vertical-scroll-proportion="0.0">
+        <state line="51" column="0" selection-start="1571" selection-end="1571" vertical-scroll-proportion="-5.24">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="38" selection-start="1621" selection-end="1621" vertical-scroll-proportion="0.53943217">
+        <state line="56" column="21" selection-start="1741" selection-end="1741" vertical-scroll-proportion="0.47949526">
           <folding />
         </state>
       </provider>

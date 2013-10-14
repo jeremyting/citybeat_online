@@ -44,13 +44,17 @@ class CustomStreamListener(tweepy.StreamListener):
     def save_to_mongo(self,tweet):
         tweet = json.loads(tweet.json)
         tweet['_id'] = tweet['id']
+        print type(tweet)
         self.ti.saveDocument(tweet)
 
     def on_status(self, status):
         print 'get'
         try:
-            print status.text
-            print type(status)
+            print "%s\t%s\t%s\t%s" % (status.text,
+                    status.author.screen_name,
+                    status.created_at,
+                    status.source,
+                    )
             self.save_to_mongo(status)
         except Exception, e:
             print >> sys.stderr, 'Encountered Exception:', e
