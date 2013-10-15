@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/mongodb_interface.py" afterPath="$PROJECT_DIR$/utility/mongodb_interface.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/test5.py" afterPath="$PROJECT_DIR$/utility/test5.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/event_classifier.py" afterPath="$PROJECT_DIR$/distributed_gp/event_classifier.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381812143681" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381812306498" ignored="false" />
     <file path="/twitter_crawl.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381701510244" ignored="false" />
     <file path="/twitter_crawl_extended.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381800710361" ignored="false" />
     <file path="/tweet_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381782208349" ignored="false" />
@@ -21,6 +20,7 @@
     <file path="/stats.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381811500414" ignored="false" />
     <file path="/mongodb_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381812260101" ignored="false" />
     <file path="/element_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381811620089" ignored="false" />
+    <file path="/event_classifier.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381856089666" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,10 +67,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test5.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="test5.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/test5.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="44" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.28197673">
+            <state line="15" column="17" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -78,13 +78,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mongodb_interface.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
+      <file leaf-file-name="event_classifier.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/event_classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="43" selection-start="1896" selection-end="1896" vertical-scroll-proportion="0.0">
+            <state line="65" column="35" selection-start="2655" selection-end="2655" vertical-scroll-proportion="1.2209302">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="corpus.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/corpus.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="33" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0">
               <folding>
-                <element signature="e#170#182#0" expanded="true" />
+                <element signature="e#0#59#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tool.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/tool.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="0" selection-start="137" selection-end="137" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -135,7 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/utility/event.py" />
         <option value="$PROJECT_DIR$/utility/base_event.py" />
         <option value="$PROJECT_DIR$/utility/test4.py" />
         <option value="$PROJECT_DIR$/utility/photo.py" />
@@ -151,6 +168,7 @@
         <option value="$PROJECT_DIR$/utility/element_interface.py" />
         <option value="$PROJECT_DIR$/utility/test5.py" />
         <option value="$PROJECT_DIR$/utility/mongodb_interface.py" />
+        <option value="$PROJECT_DIR$/distributed_gp/event_classifier.py" />
       </list>
     </option>
   </component>
@@ -214,7 +232,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utility" />
+              <option name="myItemId" value="distributed_gp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -808,7 +826,11 @@
       <created>1381812144804</created>
       <updated>1381812144804</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="modify stats and interface&#10;">
+      <created>1381812307883</created>
+      <updated>1381812307883</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -951,20 +973,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utility/base_event.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="36" selection-start="204" selection-end="204" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stats/stats_interfaces.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="28" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.66497463">
@@ -1028,15 +1036,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/corpus.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="613" selection-end="613" vertical-scroll-proportion="0.24119242">
-          <folding>
-            <element signature="e#0#59#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/element_interface.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="12" selection-start="623" selection-end="623" vertical-scroll-proportion="0.0">
@@ -1051,21 +1050,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utility/tool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="137" selection-end="137" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="43" selection-start="1896" selection-end="1896" vertical-scroll-proportion="0.0">
+        <state line="72" column="40" selection-start="2329" selection-end="2329" vertical-scroll-proportion="0.44186047">
           <folding>
             <element signature="e#170#182#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utility/corpus.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="33" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utility/test5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="44" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.28197673">
+        <state line="15" column="17" selection-start="361" selection-end="361" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#0#42#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/event_classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="35" selection-start="2655" selection-end="2655" vertical-scroll-proportion="1.2209302">
+          <folding />
         </state>
       </provider>
     </entry>

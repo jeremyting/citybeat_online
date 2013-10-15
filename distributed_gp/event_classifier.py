@@ -20,6 +20,7 @@ from utility.base_feature_production import BaseFeatureProduction
 from utility.corpus import buildAllCorpus
 from utility.region import Region
 from utility.event import Event
+from utility.tool import getCurrentStampUTC
 import classifier
 
 
@@ -41,7 +42,10 @@ class EventMonitor():
         ei = EventInterface(self.candidate_db, self.candidate_collection)
         ei_classified = EventInterface(self.classified_event_db, self.classified_event_collection)
         cnt = 0
-        for e in ei.getAllDocuments():
+        # consider past 2 hours for merge
+        low_bound = str(int(getCurrentStampUTC()) - 60 * 60 * 2)
+        condition = {'created_time':{ '$gte':  low_bound}}
+        for e in ei.getAllDocuments(condition=condition):
             logging.warning("Classifying %d-th candidate event..." % cnt)
             e = Event(e)
             cnt += 1
@@ -62,7 +66,7 @@ class EventMonitor():
                     print 'new events find in collection but not in front end , add it'
                     ei_classified.addEvent(e)
 
-            ei.deleteEventByID(str(e.getID()))
+            # ei.deleteEventByID(str(e.getID()))
 
 def main():
     em = EventMonitor('citybeat_production', 'online_candidate_instagram', 'citybeat_production',
