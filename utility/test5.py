@@ -1,7 +1,10 @@
 from tweet_interface import TweetInterface
-from config import TwitterConfig
+from config import TwitterConfig, InstagramConfig
+from event_interface import EventInterface
 from tool import getCurrentStampUTC
 import matplotlib.pyplot as plt
+import csv
+
 
 def main():
     ti = TweetInterface()
@@ -47,8 +50,29 @@ def testWithExtendedTweets():
     print most_popular_tweet, max_retweet_count
     print len(tweets)
 
+def findLastWeekEvents():
+    ei = EventInterface()
+    ei.setCollection(InstagramConfig.front_end_events)
+
+    conditions = {'created_time':{'$gte':'1381228200'}}
+    fields = ['_id']
+    cur = ei.getAllFields(fields=fields, condition=conditions)
+
+
+    with open('all_classified_events_from_10_09_to_10_15.csv', 'wb') as csvfile:
+        event_writer = csv.writer(csvfile, delimiter=',')
+        events = []
+        for event in cur:
+            url = 'http://ec2-23-22-67-45.compute-1.amazonaws.com/cb/event/' + str(event['_id'])
+            events.append([url])
+        event_writer.writerows(events)
+
+findLastWeekEvents()
+
+'''
 testWithExtendedTweets()
 import re
 twitter_username_re = re.compile(r'(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9]+)')
 mentions = twitter_username_re.findall('fsdg @fucasg @sdfg!! 154@163.com @xia!!')
 print mentions
+'''

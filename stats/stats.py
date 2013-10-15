@@ -126,6 +126,17 @@ class Stats(object):
                 most_popular_tweet = text
                 user_name = tweet['user']['screen_name']
 
+        single_tweet_count = 0
+        retweet_count = 0
+        for key, value in tweets.items():
+            if value == 1:
+                single_tweet_count += 1
+            else:
+                retweet_count += value
+
+        print 1.0 * single_tweet_count / (single_tweet_count + retweet_count)
+        print 1.0 * retweet_count / (single_tweet_count + retweet_count)
+
         print user_name
         print most_popular_tweet
         print max_retweet_count
