@@ -61,6 +61,8 @@ class TwitterConfig(BaseConfig):
     tweet_collection = 'tweets'
     prediction_collection = 'online_prediction_twitter'
     event_collection = 'online_candidate_twitter'
+    # store tweets contains NY, NYC, NEW YORK, NEW YORK CITY
+    extended_tweet_collection = 'extended_tweets'
     # grand : res ; joust : grad
 
 class StatsConfig(object):

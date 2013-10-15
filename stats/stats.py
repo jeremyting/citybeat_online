@@ -9,10 +9,14 @@ from utility.photo_interface import PhotoInterface
 from utility.tweet_interface import TweetInterface
 from utility.tool import getCurrentStampUTC
 from utility.tweet import Tweet
+from utility.config import TwitterConfig
 
 import stats_config
 from stats_interfaces import InstagramStatsInterface
 from stats_interfaces import TwitterStatsInterface
+
+import re
+import operator
 
 class Stats(object):
 
@@ -76,13 +80,56 @@ class Stats(object):
         return count_during_past_24_hours
 
     def _extractTweetTopMentions(self, k=10):
-        # 10 minutes
+        # 60 minutes
         now = int(getCurrentStampUTC())
-        time_span = 10 * 60
+        time_span = 60 * 60
         end_time = now
         begin_time = end_time - time_span
-        cur = self._tweet_interface.rangeQuery(period=[begin_time, end_time], field='text')
-        return cur
+        cur = self._tweet_interface.rangeQuery(period=[begin_time, end_time], fields=['text'])
+
+        users = {}
+        twitter_username_re = re.compile(r'(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9]+)')
+        for tweet in cur:
+            text = tweet['text']
+            mentions = twitter_username_re.findall(text)
+            for mention in mentions:
+                count = users.get(mention, 0) + 1
+                users[mention] = count
+
+        users = sorted(users.iteritems(), key=operator.itemgetter(1), reverse=True)
+        res = []
+        for key, value in users:
+            res.append([key, value])
+            if len(res) >= 10:
+                break
+        return res
+
+    def _extractMostPopularTweet(self):
+        ti = TweetInterface(collection=TwitterConfig.extended_tweet_collection)
+        tweets = {}
+        most_popular_tweet = ''
+        max_retweet_count = -1
+        user_name = ''
+
+        # 60 minutes
+        now = int(getCurrentStampUTC())
+        time_span = 60 * 60
+        end_time = now
+        begin_time = end_time - time_span
+
+        for tweet in ti.rangeQuery(period=[begin_time, end_time], fields=['text', 'user.screen_name']):
+            text = tweet['text']
+            count = tweets.get(text, 0) + 1
+            tweets[text] = count
+            if count > max_retweet_count:
+                max_retweet_count = count
+                most_popular_tweet = text
+                user_name = tweet['user']['screen_name']
+
+        print user_name
+        print most_popular_tweet
+        print max_retweet_count
+        print len(tweets)
 
 def main():
     stats = Stats()
@@ -96,4 +143,7 @@ def main():
     twitter_stats_interface.saveDocument(twitter_stats)
 
 if __name__ == '__main__':
-    main()
+    #main()
+    stats = Stats()
+    # print stats._extractTweetTopMentions()
+    print stats._extractMostPopularTweet()

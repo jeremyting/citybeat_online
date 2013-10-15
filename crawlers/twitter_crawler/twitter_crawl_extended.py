@@ -44,7 +44,6 @@ class CustomStreamListener(tweepy.StreamListener):
     def save_to_mongo(self,tweet):
         tweet = json.loads(tweet.json)
         tweet['_id'] = tweet['id']
-        print type(tweet)
         self.ti.saveDocument(tweet, must_have_geo_tag=False)
 
     def on_status(self, status):
@@ -69,7 +68,7 @@ class CustomStreamListener(tweepy.StreamListener):
 def main():
     print 'in'
     auth = tweepy_auth()
-    streaming_api = tweepy.streaming.Stream(auth, CustomStreamListener(collection='extended_tweets'), timeout=60)
+    streaming_api = tweepy.streaming.Stream(auth, CustomStreamListener(collection=TwitterConfig.extended_tweet_collection), timeout=60)
     terms = ['ny', 'nyc', 'new york', 'new york city']
     streaming_api.filter(track=terms)
 

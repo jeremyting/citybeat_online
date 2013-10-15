@@ -8,6 +8,7 @@
 import types
 import pymongo
 import config
+import types
 
 
 class MongoDBInterface(object):
@@ -52,9 +53,17 @@ class MongoDBInterface(object):
             IDs.append(ID['_id'])
         return IDs
 
-    def getAllFields(self, field, condition={}, limit=0):
+    def getAllFields(self, fields, condition={}, limit=0):
         # field should be a string, this method cannot be run on get _id
-        return self._collection.find(condition, {field: 1, '_id': False}, limit=limit)
+        filtered_fields = {'_id': False}
+        if type(fields) is types.StringTypes:
+            filtered_fields[fields] = True
+        else:
+            assert type(fields) is types.ListType
+            for field in fields:
+                filtered_fields[field] = True
+
+        return self._collection.find(condition, filtered_fields, limit=limit)
 
 
 if __name__ == '__main__':

@@ -5,16 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/tweet_interface.py" afterPath="$PROJECT_DIR$/utility/tweet_interface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/config.py" afterPath="$PROJECT_DIR$/utility/config.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/element_interface.py" afterPath="$PROJECT_DIR$/utility/element_interface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/mongodb_interface.py" afterPath="$PROJECT_DIR$/utility/mongodb_interface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stats/stats.py" afterPath="$PROJECT_DIR$/stats/stats.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/test5.py" afterPath="$PROJECT_DIR$/utility/test5.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py" afterPath="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381781244367" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381782289232" ignored="false" />
     <file path="/twitter_crawl.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381701510244" ignored="false" />
-    <file path="/twitter_crawl_extended.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381782282916" ignored="false" />
+    <file path="/twitter_crawl_extended.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381800710361" ignored="false" />
     <file path="/tweet_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381782208349" ignored="false" />
+    <file path="/test.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381800580234" ignored="false" />
+    <file path="/test5.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381808576833" ignored="false" />
+    <file path="/config.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381800697766" ignored="false" />
+    <file path="/stats.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381811500414" ignored="false" />
+    <file path="/mongodb_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381811866200" ignored="false" />
+    <file path="/element_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381811620089" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +47,7 @@
       <file leaf-file-name="config.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="71" column="0" selection-start="2125" selection-end="2125" vertical-scroll-proportion="0.0">
+            <state line="64" column="29" selection-start="1974" selection-end="1999" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -46,8 +56,28 @@
       <file leaf-file-name="stats.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stats/stats.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="26" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0">
+            <state line="115" column="21" selection-start="4357" selection-end="4357" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="element_interface.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/element_interface.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="31" selection-start="1807" selection-end="1807" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mongodb_interface.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="59" column="42" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.46954316">
+              <folding>
+                <element signature="e#170#182#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,25 +85,7 @@
       <file leaf-file-name="test.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stats/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="11" selection-start="96" selection-end="96" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="event.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/event.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="0" selection-start="1449" selection-end="1449" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="event_server.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="31" selection-start="4274" selection-end="4274" vertical-scroll-proportion="0.0">
+            <state line="5" column="11" selection-start="85" selection-end="96" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -82,25 +94,18 @@
       <file leaf-file-name="test5.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/test5.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="34" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="37" column="4" selection-start="1048" selection-end="1091" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="twitter_crawl.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
+      <file leaf-file-name="photo_interface.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/photo_interface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="28" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="twitter_crawl_extended.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="59" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.41192412">
+            <state line="53" column="13" selection-start="1651" selection-end="1651" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -109,7 +114,16 @@
       <file leaf-file-name="tweet_interface.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/tweet_interface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="51" selection-start="648" selection-end="665" vertical-scroll-proportion="0.0">
+            <state line="135" column="13" selection-start="4115" selection-end="4115" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="twitter_crawl_extended.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="70" column="88" selection-start="2325" selection-end="2325" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -134,22 +148,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/status_pipeline/stats_interfaces.py" />
-        <option value="$PROJECT_DIR$/status_pipeline/status.py" />
-        <option value="$PROJECT_DIR$/stats/status.py" />
         <option value="$PROJECT_DIR$/utility/event.py" />
         <option value="$PROJECT_DIR$/utility/base_event.py" />
         <option value="$PROJECT_DIR$/utility/test4.py" />
         <option value="$PROJECT_DIR$/utility/photo.py" />
         <option value="$PROJECT_DIR$/distributed_gp/stats_server.py" />
         <option value="$PROJECT_DIR$/distributed_gp/event_server.py" />
-        <option value="$PROJECT_DIR$/utility/config.py" />
-        <option value="$PROJECT_DIR$/stats/stats.py" />
         <option value="$PROJECT_DIR$/stats/test.py" />
-        <option value="$PROJECT_DIR$/utility/test5.py" />
         <option value="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py" />
         <option value="$PROJECT_DIR$/utility/tweet_interface.py" />
+        <option value="$PROJECT_DIR$/crawlers/twitter_crawler/test.py" />
+        <option value="$PROJECT_DIR$/utility/config.py" />
         <option value="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py" />
+        <option value="$PROJECT_DIR$/utility/test5.py" />
+        <option value="$PROJECT_DIR$/stats/stats.py" />
+        <option value="$PROJECT_DIR$/utility/element_interface.py" />
+        <option value="$PROJECT_DIR$/utility/mongodb_interface.py" />
       </list>
     </option>
   </component>
@@ -200,6 +214,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utility" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -269,7 +297,7 @@
       <recent name="$PROJECT_DIR$/distributed_gp/matlab" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.twitter_crawl">
+  <component name="RunManager" selected="Python.stats">
     <configuration default="false" name="event_server" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -501,10 +529,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.twitter_crawl" />
+        <item index="0" class="java.lang.String" itemvalue="Python.stats" />
         <item index="1" class="java.lang.String" itemvalue="Python.test5" />
         <item index="2" class="java.lang.String" itemvalue="Python.test" />
-        <item index="3" class="java.lang.String" itemvalue="Python.stats" />
+        <item index="3" class="java.lang.String" itemvalue="Python.twitter_crawl" />
         <item index="4" class="java.lang.String" itemvalue="Python.event_server" />
       </list>
     </recent_temporary>
@@ -781,7 +809,11 @@
       <created>1381781245837</created>
       <updated>1381781245837</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="add crawler to nyc, ny, new york city">
+      <created>1381782290633</created>
+      <updated>1381782290633</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -920,20 +952,10 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="10" />
+      <option name="time" value="11" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/stats/stats_config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="22" selection-start="77" selection-end="77" vertical-scroll-proportion="0.22157435" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/distributed_gp/event_classifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="20" selection-start="1765" selection-end="1765" vertical-scroll-proportion="0.055393588" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utility/test4.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="0.0">
@@ -962,73 +984,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/event.py">
+    <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="1449" selection-end="1449" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stats/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="11" selection-start="96" selection-end="96" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stats/stats.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="26" selection-start="430" selection-end="430" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="31" selection-start="4274" selection-end="4274" vertical-scroll-proportion="0.0">
+        <state line="53" column="28" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.66497463">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utility/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="0" selection-start="2125" selection-end="2125" vertical-scroll-proportion="0.0">
+        <state line="64" column="29" selection-start="1974" selection-end="1999" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/test5.py">
+    <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="34" selection-start="488" selection-end="488" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/element_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="6" selection-start="247" selection-end="247" vertical-scroll-proportion="-0.43401015">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="28" selection-start="1635" selection-end="1635" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/tweet_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="51" selection-start="648" selection-end="665" vertical-scroll-proportion="0.0">
+        <state line="124" column="31" selection-start="4274" selection-end="4274" vertical-scroll-proportion="4.4302883">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="59" selection-start="1504" selection-end="1504" vertical-scroll-proportion="0.41192412">
+        <state line="70" column="88" selection-start="2325" selection-end="2325" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/event.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="0" selection-start="1449" selection-end="1449" vertical-scroll-proportion="0.8226744">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stats/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="11" selection-start="85" selection-end="96" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/test5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="4" selection-start="1048" selection-end="1091" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stats/stats.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="21" selection-start="4357" selection-end="4357" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/photo_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="13" selection-start="1651" selection-end="1651" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/tweet_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="135" column="13" selection-start="4115" selection-end="4115" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/element_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="31" selection-start="1807" selection-end="1807" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="42" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.46954316">
+          <folding>
+            <element signature="e#170#182#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
