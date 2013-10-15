@@ -16,8 +16,7 @@ from utility.event_interface import EventInterface
 from utility.event import Event
 from utility.config import InstagramConfig
 from utility.tool import getCurrentStampUTC
-from stats.stats_interfaces import InstagramStatsInterface
-from stats.stats_interfaces import TwitterStatsInterface
+from stats.stats_interface import StatsInterface
 
 #from utility.representor import Representor
 
@@ -30,8 +29,7 @@ class Root:
         #self.representor = Representor(db='citybeat_production', collection='instagram_front_end_events')
         
         self.ei.setCollection(InstagramConfig.front_end_events)
-        self.instagram_stats_interface = InstagramStatsInterface()
-        self.twitter_stats_interface = TwitterStatsInterface()
+        self.stats_interface = StatsInterface()
 
     def getAllEvents(self):
         event_cursor = self.ei.getAllDocuments()
@@ -96,17 +94,11 @@ class Root:
         self.ei.updateDocument( event )
     #setLabel.exposed = True
 
-    def getLatestInstagramCountStats(self):
+    def getLatestStats(self):
         now = int(getCurrentStampUTC()) - 5 * 60
         condition = {'created_time': {"$gte": str(now)}}
-        return self.instagram_stats_interface.getAllDocuments(condition=condition).sort('created_time', -1)[0]
-    getLatestInstagramCountStats.exposed = True
-
-    def getLatestTwitterCountStats(self):
-        now = int(getCurrentStampUTC()) - 5 * 60
-        condition = {'created_time': {"$gte": str(now)}}
-        return self.twitter_stats_interface.getAllDocuments(condition=condition).sort('created_time', -1)[0]
-    getLatestTwitterCountStats.exposed = True
+        return self.stats_interface.getAllDocuments(condition=condition).sort('created_time', -1)[0]
+    getLatestStats.exposed = True
 
 global_conf = {
         'global':{'server.environment': 'production',
