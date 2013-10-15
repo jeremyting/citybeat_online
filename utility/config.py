@@ -66,8 +66,7 @@ class TwitterConfig(BaseConfig):
     # grand : res ; joust : grad
 
 class StatsConfig(object):
-    instagram_collection = 'instagram_stats'
-    twitter_collection = 'twitter_stats'
+    collection = 'front_end_stats'
 
 if __name__ == '__main__':
     print BaseConfig.getRegionListPath()

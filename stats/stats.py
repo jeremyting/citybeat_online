@@ -12,8 +12,7 @@ from utility.tweet import Tweet
 from utility.config import TwitterConfig
 
 import stats_config
-from stats_interfaces import InstagramStatsInterface
-from stats_interfaces import TwitterStatsInterface
+from stats_interface import StatsInterface
 
 import re
 import operator
@@ -25,31 +24,49 @@ class Stats(object):
         self._tweet_interface = TweetInterface()
         self._photo_interface = PhotoInterface()
 
-    def getCurrentCountStats(self, type):
+    def getTweetAndPhotoStats(self):
+        stats = {}
+        tweet_basic_count = {}
+        photo_basic_count = {}
+
+        photo_basic_count['last_minute'] = self._getCurrentCountStats('photos')
+        photo_basic_count['last_24_hour'] = self._get24HoursCountStats('photos')
+
+        tweet_basic_count['last_minute'] = self._getCurrentCountStats('tweets')
+        tweet_basic_count['last_24_hour'] = self._get24HoursCountStats('tweets')
+
+        res = self._extractMostPopularTweet()
+        stats['photo_basic_count'] = photo_basic_count
+        stats['tweet_basic_count'] = tweet_basic_count
+        stats['created_time'] = str(getCurrentStampUTC())
+        stats['tweet_top_mentions'] = self._extractTweetTopMentions()
+        stats['most_popular_tweet'] = res[0]
+        stats['tweet_vs_retweet'] = res[1]
+        return stats
+
+    def _getCurrentCountStats(self, type):
         assert type in ['photos', 'tweets']
         stats = {}
         if type == 'photos':
             res = self._extractPhotoCount()
         else:
             res = self._extractTweetCount()
-        stats['current_count_per_minute'] = res[0]
+        stats['count'] = res[0]
         stats['delta'] = res[1]
-        stats['created_time'] = str(getCurrentStampUTC())
         return stats
 
-    def get24HoursCountStats(self, type):
+    def _get24HoursCountStats(self, type):
         assert type in ['photos', 'tweets']
         stats = {}
-        stats['current_24_hours_counts'] = self._extract24HoursCountsStats(type=type)
-        stats['past_week_24_hours_counts'] = self._extract24HoursCountsStats(past_week=True, type=type)
-        stats['created_time'] = str(getCurrentStampUTC())
+        stats['current_count'] = self._extract24HoursCountsStats(type=type)
+        stats['last_week_count'] = self._extract24HoursCountsStats(past_week=True, type=type)
         return stats
 
     def _extractTweetCount(self):
         now = int(getCurrentStampUTC())
         # 5 seconds as the latency
         current_count = self._tweet_interface.rangeQuery(period=[now - 65, now - 5]).count()
-        baseline_count = self._tweet_interface.rangeQuery(period=[now - 65 - 600, now - 65]).count() / 10.0
+        baseline_count = self._tweet_interface.rangeQuery(period=[now - 65 - 60 * 20, now - 65]).count() / 20.0
         if baseline_count == 0.0:
             return [current_count, stats_config.NO_BASE_LINE]
         else:
@@ -57,8 +74,9 @@ class Stats(object):
 
     def _extractPhotoCount(self):
         now = int(getCurrentStampUTC())
-        current_count = int(self._photo_interface.rangeQuery(period=[now - 600, now]).count() / 10.0 + 0.5)
-        baseline_count = self._photo_interface.rangeQuery(period=[now - 60 * 21, now - 60]).count() / 20.0
+        offset = 4 * 60
+        current_count = self._photo_interface.rangeQuery(period=[now - offset - 60, now - offset]).count()
+        baseline_count = self._photo_interface.rangeQuery(period=[now - 60 * 21 - offset, now - offset - 60]).count() / 20.0
         if baseline_count == 0.0:
             return [current_count, stats_config.NO_BASE_LINE]
         else:
@@ -71,7 +89,7 @@ class Stats(object):
             offset = 7 * 24
         count_during_past_24_hours = []
         for hour in xrange(24):
-            end_time = now - 3600 * hour - offset
+            end_time = now - 3600 * (hour + offset)
             begin_time = end_time - 3600
             if type == 'tweets':
                 count_during_past_24_hours.append(self._tweet_interface.rangeQuery(period=[begin_time, end_time]).count())
@@ -88,7 +106,7 @@ class Stats(object):
         cur = self._tweet_interface.rangeQuery(period=[begin_time, end_time], fields=['text'])
 
         users = {}
-        twitter_username_re = re.compile(r'(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9]+)')
+        twitter_username_re = re.compile(r'(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9_-]+)')
         for tweet in cur:
             text = tweet['text']
             mentions = twitter_username_re.findall(text)
@@ -99,7 +117,10 @@ class Stats(object):
         users = sorted(users.iteritems(), key=operator.itemgetter(1), reverse=True)
         res = []
         for key, value in users:
-            res.append([key, value])
+            res_pair = {}
+            res_pair['user_name'] = key
+            res_pair['count'] = value
+            res.append(res_pair)
             if len(res) >= 10:
                 break
         return res
@@ -107,7 +128,7 @@ class Stats(object):
     def _extractMostPopularTweet(self):
         ti = TweetInterface(collection=TwitterConfig.extended_tweet_collection)
         tweets = {}
-        most_popular_tweet = ''
+        most_popular_tweet_text = ''
         max_retweet_count = -1
         user_name = ''
 
@@ -123,7 +144,7 @@ class Stats(object):
             tweets[text] = count
             if count > max_retweet_count:
                 max_retweet_count = count
-                most_popular_tweet = text
+                most_popular_tweet_text = text
                 user_name = tweet['user']['screen_name']
 
         single_tweet_count = 0
@@ -134,27 +155,21 @@ class Stats(object):
             else:
                 retweet_count += value
 
-        print 1.0 * single_tweet_count / (single_tweet_count + retweet_count)
-        print 1.0 * retweet_count / (single_tweet_count + retweet_count)
+        most_popular_tweet = {}
+        most_popular_tweet['user_name'] = user_name
+        most_popular_tweet['text'] = most_popular_tweet_text
+        most_popular_tweet['count'] = max_retweet_count
 
-        print user_name
-        print most_popular_tweet
-        print max_retweet_count
-        print len(tweets)
+        tweets_count = {}
+        tweets_count['tweet_percentage'] = 1.0 * single_tweet_count / (single_tweet_count + retweet_count)
+        tweets_count['retweet_percentage'] = 1.0 * retweet_count / (single_tweet_count + retweet_count)
+
+        return [most_popular_tweet, tweets_count]
 
 def main():
     stats = Stats()
-
-    instagram_stats_interface = InstagramStatsInterface()
-    instagram_stats = stats.getCurrentCountStats('photos')
-    instagram_stats_interface.saveDocument(instagram_stats)
-
-    twitter_stats_interface = TwitterStatsInterface()
-    twitter_stats = stats.getCurrentCountStats('tweets')
-    twitter_stats_interface.saveDocument(twitter_stats)
+    si = StatsInterface()
+    si.saveDocument(stats.getTweetAndPhotoStats())
 
 if __name__ == '__main__':
-    #main()
-    stats = Stats()
-    # print stats._extractTweetTopMentions()
-    print stats._extractMostPopularTweet()
+    main()
