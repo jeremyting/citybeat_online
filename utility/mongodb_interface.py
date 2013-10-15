@@ -56,7 +56,7 @@ class MongoDBInterface(object):
     def getAllFields(self, fields, condition={}, limit=0):
         # field should be a string, this method cannot be run on get _id
         filtered_fields = {'_id': False}
-        if type(fields) is types.StringTypes:
+        if type(fields) is types.StringType:
             filtered_fields[fields] = True
         else:
             assert type(fields) is types.ListType

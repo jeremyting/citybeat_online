@@ -35,7 +35,7 @@ def testWithExtendedTweets():
     tweets = {}
     most_popular_tweet = ''
     max_retweet_count = -1
-    for tweet in ti.getAllFields(field='text'):
+    for tweet in ti.getAllFields(fields='text'):
         text = tweet['text']
         count = tweets.get(text, 0)
         count += 1
@@ -47,7 +47,7 @@ def testWithExtendedTweets():
     print most_popular_tweet, max_retweet_count
     print len(tweets)
 
-#testWithExtendedTweets()
+testWithExtendedTweets()
 import re
 twitter_username_re = re.compile(r'(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9]+)')
 mentions = twitter_username_re.findall('fsdg @fucasg @sdfg!! 154@163.com @xia!!')

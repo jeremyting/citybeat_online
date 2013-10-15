@@ -5,19 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/mongodb_interface.py" afterPath="$PROJECT_DIR$/utility/mongodb_interface.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utility/test5.py" afterPath="$PROJECT_DIR$/utility/test5.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381811930615" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381812143681" ignored="false" />
     <file path="/twitter_crawl.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381701510244" ignored="false" />
     <file path="/twitter_crawl_extended.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381800710361" ignored="false" />
     <file path="/tweet_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381782208349" ignored="false" />
     <file path="/test.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381800580234" ignored="false" />
-    <file path="/test5.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381808576833" ignored="false" />
+    <file path="/test5.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381812180870" ignored="false" />
     <file path="/config.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381800697766" ignored="false" />
     <file path="/stats.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381811500414" ignored="false" />
-    <file path="/mongodb_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381811866200" ignored="false" />
+    <file path="/mongodb_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381812260101" ignored="false" />
     <file path="/element_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381811620089" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,37 +58,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="region.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/utility/region.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="111" column="26" selection-start="4163" selection-end="4163" vertical-scroll-proportion="0.043147206">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mongodb_interface.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="20" selection-start="1919" selection-end="1919" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#170#182#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="corpus.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utility/corpus.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="13" selection-start="613" selection-end="613" vertical-scroll-proportion="-3.56">
-              <folding>
-                <element signature="e#0#59#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="test.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stats/test.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -96,12 +67,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test5.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="test5.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utility/test5.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="4" selection-start="1048" selection-end="1091" vertical-scroll-proportion="0.0">
+            <state line="37" column="44" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.28197673">
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mongodb_interface.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="58" column="43" selection-start="1896" selection-end="1896" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#170#182#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -165,9 +147,9 @@
         <option value="$PROJECT_DIR$/crawlers/twitter_crawler/test.py" />
         <option value="$PROJECT_DIR$/utility/config.py" />
         <option value="$PROJECT_DIR$/crawlers/twitter_crawler/twitter_crawl_extended.py" />
-        <option value="$PROJECT_DIR$/utility/test5.py" />
         <option value="$PROJECT_DIR$/stats/stats.py" />
         <option value="$PROJECT_DIR$/utility/element_interface.py" />
+        <option value="$PROJECT_DIR$/utility/test5.py" />
         <option value="$PROJECT_DIR$/utility/mongodb_interface.py" />
       </list>
     </option>
@@ -302,7 +284,7 @@
       <recent name="$PROJECT_DIR$/distributed_gp/matlab" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.stats">
+  <component name="RunManager" selected="Python.test5">
     <configuration default="false" name="event_server" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -534,8 +516,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.stats" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test5" />
+        <item index="0" class="java.lang.String" itemvalue="Python.test5" />
+        <item index="1" class="java.lang.String" itemvalue="Python.stats" />
         <item index="2" class="java.lang.String" itemvalue="Python.test" />
         <item index="3" class="java.lang.String" itemvalue="Python.twitter_crawl" />
         <item index="4" class="java.lang.String" itemvalue="Python.event_server" />
@@ -822,7 +804,11 @@
       <created>1381811934068</created>
       <updated>1381811934068</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="modify stats and interface&#10;">
+      <created>1381812144804</created>
+      <updated>1381812144804</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -852,14 +838,14 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24013722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24013722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32575756" sideWeight="0.432247" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32575756" sideWeight="0.38421956" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32575756" sideWeight="0.32590052" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32575756" sideWeight="0.28987992" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32590052" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32590052" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32246998" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1014,22 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stats/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="11" selection-start="85" selection-end="96" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/test5.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="4" selection-start="1048" selection-end="1091" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stats/stats.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="115" column="21" selection-start="4357" selection-end="4357" vertical-scroll-proportion="0.0">
@@ -1044,28 +1014,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
+    <entry file="file://$PROJECT_DIR$/utility/photo_interface.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="20" selection-start="1919" selection-end="1919" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#170#182#0" expanded="true" />
-          </folding>
+        <state line="8" column="36" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/region.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="26" selection-start="4163" selection-end="4163" vertical-scroll-proportion="-0.8248731">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utility/corpus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="613" selection-end="613" vertical-scroll-proportion="-3.56">
+        <state line="18" column="13" selection-start="613" selection-end="613" vertical-scroll-proportion="0.24119242">
           <folding>
             <element signature="e#0#59#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utility/photo_interface.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="36" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1076,10 +1044,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/region.py">
+    <entry file="file://$PROJECT_DIR$/stats/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="26" selection-start="4163" selection-end="4163" vertical-scroll-proportion="0.043147206">
+        <state line="5" column="11" selection-start="85" selection-end="96" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/mongodb_interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="43" selection-start="1896" selection-end="1896" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#170#182#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utility/test5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="44" selection-start="1088" selection-end="1088" vertical-scroll-proportion="0.28197673">
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
