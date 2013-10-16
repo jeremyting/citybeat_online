@@ -1,12 +1,48 @@
 #!/usr/bin/python
-import smtplib, os
+
+import smtplib
+import os, sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+
+from utility.event_interface import EventInterface
+from utility.config import InstagramConfig
+from utility.tool import getCurrentStampUTC
+
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEBase import MIMEBase
 from email.MIMEText import MIMEText
 from email.Utils import COMMASPACE, formatdate
 from email import Encoders
 
-def send_email():
+csv_file = 'all_classified_events.csv'
+
+def findLast24HourEvents():
+    ei = EventInterface()
+    ei.setCollection(InstagramConfig.front_end_events)
+
+    now = int(getCurrentStampUTC())
+    # for merge reason, delay one hour
+    offset = 60 * 60
+    end_time = now - offset
+    begin_time = end_time - 24 * 3600
+
+    conditions = {'created_time':{'$gte':str(begin_time), '$lte':str(end_time)}}
+    fields = ['_id']
+    cur = ei.getAllFields(fields=fields, condition=conditions)
+
+    event_count = 0
+    with open(csv_file, 'wb') as csvfile:
+        event_writer = csv.writer(csvfile, delimiter=',')
+        events = []
+        for event in cur:
+            url = 'http://ec2-23-22-67-45.compute-1.amazonaws.com/cb/event/' + str(event['_id'])
+            events.append([url])
+            event_count += 1
+        event_writer.writerows(events)
+
+    return event_count
+
+def send_email(count):
     #user = "xieke.buaa"
     #pw = "yjxkk131415"
     sender = 'xieke.buaa@gmail.com'
@@ -18,17 +54,16 @@ def send_email():
     msg['Date'] = formatdate(localtime=True)
     msg['Subject'] = 'event list'
 
-    #message = msg
-    msg.attach( MIMEText('Please see attachment') )
+    text = 'This is an automatic email, please do not reply. ' \
+           'You may wish to contact cx28@eden.rutgers.edu for some issues. ' \
+           'The attachment includes %d events during the past 24 hours' % (count)
+    msg.attach(MIMEText(text))
 
-    file = 'monitor.sh'
     part = MIMEBase('application', "octet-stream")
-    part.set_payload( open(file,"rb").read() )
+    part.set_payload( open(csv_file,"rb").read() )
     Encoders.encode_base64(part)
-    part.add_header('Content-Disposition', 'attachment; filename="%s"' % os.path.basename(file))
+    part.add_header('Content-Disposition', 'attachment; filename="%s"' % os.path.basename(csv_file))
     msg.attach(part)
-
-    print 'ok'
 
     try:
     #smtpObj = smtplib.SMTP('localhost')
@@ -44,4 +79,6 @@ def send_email():
         print str(e)
 
 
-send_email()
+if __name__ == '__main__':
+    count = findLast24HourEvents()
+    send_email(count)
