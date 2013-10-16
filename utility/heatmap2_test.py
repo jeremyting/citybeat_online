@@ -10,4 +10,4 @@ if __name__ == "__main__":
 
     hm = heatmap.Heatmap()
     img = hm.heatmap(pts)
-    img.save("classic.png")
+    img.save("classic.png")+
