@@ -46,7 +46,7 @@ def send_email(count):
     #user = "xieke.buaa"
     #pw = "yjxkk131415"
     sender = 'xieke.buaa@gmail.com'
-    receivers = ['cx28@cs.rutgers.edu', 'cx28eden.rutgers.edu']# ., 'aak2128@columbia.edu', 'raz.schwartz@cornell.edu']
+    receivers = ['cx28@cs.rutgers.edu', 'cx28@eden.rutgers.edu']# ., 'aak2128@columbia.edu', 'raz.schwartz@cornell.edu']
 
     msg = MIMEMultipart()
     msg['From'] = sender
