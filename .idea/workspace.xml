@@ -10,7 +10,7 @@
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381958563353" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381959386350" ignored="false" />
     <file path="/twitter_crawl.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381701510244" ignored="false" />
     <file path="/twitter_crawl_extended.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381800710361" ignored="false" />
     <file path="/tweet_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381782208349" ignored="false" />
@@ -23,7 +23,7 @@
     <file path="/event_classifier.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381856089666" ignored="false" />
     <file path="/stats_interfaces.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381873743922" ignored="false" />
     <file path="/event_server.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381876696444" ignored="false" />
-    <file path="/event_daily_notification.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381958276636" ignored="false" />
+    <file path="/event_daily_notification.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381959671176" ignored="false" />
     <file path="/rt_send_daily_event_email.sh" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381958546106" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +47,7 @@
       <file leaf-file-name="event_daily_notification.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/system_monitor/event_daily_notification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="25" selection-start="1564" selection-end="1564" vertical-scroll-proportion="0.57103825">
+            <state line="48" column="62" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.57103825">
               <folding>
                 <element signature="e#18#28#0" expanded="true" />
               </folding>
@@ -759,7 +759,11 @@
       <created>1381958564928</created>
       <updated>1381958564928</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="add notification via email, add script">
+      <created>1381959387301</created>
+      <updated>1381959387301</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -791,7 +795,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33636364" sideWeight="0.38250428" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33636364" sideWeight="0.38250428" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39965695" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33636364" sideWeight="0.28987992" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1008,7 +1012,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/system_monitor/event_daily_notification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="25" selection-start="1564" selection-end="1564" vertical-scroll-proportion="0.57103825">
+        <state line="48" column="62" selection-start="1508" selection-end="1508" vertical-scroll-proportion="0.57103825">
           <folding>
             <element signature="e#18#28#0" expanded="true" />
           </folding>
