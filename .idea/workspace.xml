@@ -10,7 +10,7 @@
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381959784389" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381959934853" ignored="false" />
     <file path="/twitter_crawl.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381701510244" ignored="false" />
     <file path="/twitter_crawl_extended.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381800710361" ignored="false" />
     <file path="/tweet_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381782208349" ignored="false" />
@@ -23,7 +23,7 @@
     <file path="/event_classifier.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381856089666" ignored="false" />
     <file path="/stats_interfaces.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381873743922" ignored="false" />
     <file path="/event_server.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381876696444" ignored="false" />
-    <file path="/event_daily_notification.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381959920872" ignored="false" />
+    <file path="/event_daily_notification.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381960099438" ignored="false" />
     <file path="/rt_send_daily_event_email.sh" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381958546106" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +47,7 @@
       <file leaf-file-name="event_daily_notification.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/system_monitor/event_daily_notification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="25" selection-start="1591" selection-end="1591" vertical-scroll-proportion="0.36338797">
+            <state line="49" column="58" selection-start="1588" selection-end="1588" vertical-scroll-proportion="0.3114754">
               <folding>
                 <element signature="e#18#28#0" expanded="true" />
               </folding>
@@ -771,7 +771,11 @@
       <created>1381959785073</created>
       <updated>1381959785073</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="add notification via email, add script">
+      <created>1381959935367</created>
+      <updated>1381959935367</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1020,7 +1024,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/system_monitor/event_daily_notification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="25" selection-start="1591" selection-end="1591" vertical-scroll-proportion="0.36338797">
+        <state line="49" column="58" selection-start="1588" selection-end="1588" vertical-scroll-proportion="0.3114754">
           <folding>
             <element signature="e#18#28#0" expanded="true" />
           </folding>
