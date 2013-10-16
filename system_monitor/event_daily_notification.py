@@ -55,8 +55,8 @@ def send_email(count):
     msg['Subject'] = 'event list'
 
     text = 'This is an automatic email, please do not reply. ' \
-           'You may wish to contact cx28@eden.rutgers.edu for some issues. ' \
-           'The attachment includes %d events during the past 24 hours' % (count)
+           'You may wish to contact cx28@eden.rutgers.edu for any issue. ' \
+           'The attachment includes %d events during the past 24 hours.' % (count)
     msg.attach(MIMEText(text))
 
     part = MIMEBase('application', "octet-stream")
@@ -76,7 +76,7 @@ def send_email(count):
         smtp.sendmail(sender, receivers, msg.as_string())
         print "Successfully sent email"
     except Exception, e:
-        print str(e)
+        print 'Unable to send this email' + str(e)
 
 
 if __name__ == '__main__':
