@@ -10,7 +10,7 @@
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381956521965" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381957823497" ignored="false" />
     <file path="/twitter_crawl.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381701510244" ignored="false" />
     <file path="/twitter_crawl_extended.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381800710361" ignored="false" />
     <file path="/tweet_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381782208349" ignored="false" />
@@ -23,7 +23,7 @@
     <file path="/event_classifier.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381856089666" ignored="false" />
     <file path="/stats_interfaces.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381873743922" ignored="false" />
     <file path="/event_server.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381876696444" ignored="false" />
-    <file path="/event_daily_notification.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381957808812" ignored="false" />
+    <file path="/event_daily_notification.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381957885501" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,9 +46,9 @@
       <file leaf-file-name="event_daily_notification.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/system_monitor/event_daily_notification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="30" selection-start="1907" selection-end="1907" vertical-scroll-proportion="1.0">
+            <state line="66" column="0" selection-start="2176" selection-end="2176" vertical-scroll-proportion="0.5191257">
               <folding>
-                <element signature="e#19#33#0" expanded="true" />
+                <element signature="e#18#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,10 +57,8 @@
       <file leaf-file-name="test5.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utility/test5.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="0" selection-start="1464" selection-end="2067" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
+            <state line="5" column="0" selection-start="204" selection-end="214" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,15 +67,6 @@
         <entry file="file://$PROJECT_DIR$/system_monitor/send_email.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="8" column="41" selection-start="180" selection-end="180" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="event_server.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="199" selection-end="276" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -799,7 +788,11 @@
       <created>1381956524558</created>
       <updated>1381956524559</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="add notification via email">
+      <created>1381957824275</created>
+      <updated>1381957824275</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -831,11 +824,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33636364" sideWeight="0.38250428" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33636364" sideWeight="0.38250428" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39965695" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33636364" sideWeight="0.28987992" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32590052" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32590052" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32136753" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1021,18 +1014,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utility/test5.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="1464" selection-end="2067" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="199" selection-end="276" vertical-scroll-proportion="0.0">
+        <state line="12" column="0" selection-start="199" selection-end="276" vertical-scroll-proportion="0.36338797">
           <folding />
         </state>
       </provider>
@@ -1044,11 +1028,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/utility/test5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="204" selection-end="214" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/system_monitor/event_daily_notification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="30" selection-start="1907" selection-end="1907" vertical-scroll-proportion="1.0">
+        <state line="66" column="0" selection-start="2176" selection-end="2176" vertical-scroll-proportion="0.5191257">
           <folding>
-            <element signature="e#19#33#0" expanded="true" />
+            <element signature="e#18#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
