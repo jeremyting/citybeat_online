@@ -3,8 +3,6 @@
 
 # the name of this file is mis-leading, it actually provides the stats data
 
-import cherrypy
-import foursquare
 import json
 import time
 import sys
@@ -104,19 +102,6 @@ class Root:
         return json.dumps(most_recent_stats)
     getLatestStats.exposed = True
 
-global_conf = {
-        'global':{'server.environment': 'production',
-            'engine.autoreload_on': True,
-            'engine.autoreload_frequency':5,
-            'server.socket_host': '0.0.0.0',
-            'server.socket_port':7887,
-            }
-        }
-
-'''
 e = Root()
-print e.getLatestInstagramCountStats()
-print e.getLatestTwitterCountStats()
-'''
-cherrypy.config.update(global_conf)
-cherrypy.quickstart(Root(), '/', global_conf)
+print e.getLatestStats()
+
