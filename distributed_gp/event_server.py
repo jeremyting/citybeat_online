@@ -33,7 +33,7 @@ class Root:
 
     def getAllEvents(self):
         now = int(getCurrentStampUTC())
-        two_days_before = now - 2 * 24 * 3600
+        two_days_before = now - 7 * 24 * 3600
         event_cursor = self.ei.getAllDocuments({'created_time':{'$gte':str(two_days_before)}})
         events = []
         for e in event_cursor:
