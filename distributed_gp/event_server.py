@@ -120,3 +120,5 @@ print e.getLatestTwitterCountStats()
 '''
 cherrypy.config.update(global_conf)
 cherrypy.quickstart(Root(), '/', global_conf)
+cherrypy.response.header["Access-Control-Allow-Origin"] = "*"
+cherrypy.response.header["Access-Control-Allow-Headers"] = "X-Requested-With"
