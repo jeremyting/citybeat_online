@@ -45,7 +45,8 @@ def findLast24HourEvents():
 def send_email(count):
     #user = "xieke.buaa"
     #pw = "yjxkk131415"
-    sender = 'xieke.buaa@gmail.com'
+    sender = 'xiachaolun12345@gmail.com'
+    #receivers = ['cx28@cs.rutgers.edu']
     receivers = ['cx28@cs.rutgers.edu', 'raziku@gmail.com', 'aak2128@columbia.edu']
     #, 'aak2128@columbia.edu', 'raz.schwartz@cornell.edu']
 
@@ -73,7 +74,7 @@ def send_email(count):
         smtp.ehlo()
         smtp.starttls()
         smtp.ehlo
-        smtp.login('oeddyo@gmail.com', 'yueyue-0105&love')
+        smtp.login('xiachaolun12345@gmail.com', 'qweasdzxc1234')
         smtp.sendmail(sender, receivers, msg.as_string())
         print "Successfully sent email"
     except Exception, e:
