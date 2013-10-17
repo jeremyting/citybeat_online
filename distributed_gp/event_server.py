@@ -32,7 +32,9 @@ class Root:
         self.stats_interface = StatsInterface()
 
     def getAllEvents(self):
-        event_cursor = self.ei.getAllDocuments()
+        now = int(getCurrentStampUTC())
+        two_days_before = now - 2 * 24 * 3600
+        event_cursor = self.ei.getAllDocuments({'created_time':{'$gte':str(two_days_before)}})
         events = []
         for e in event_cursor:
             #representor

@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system_monitor/event_daily_notification.py" afterPath="$PROJECT_DIR$/system_monitor/event_daily_notification.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system_monitor/all_classified_events.csv" afterPath="$PROJECT_DIR$/system_monitor/all_classified_events.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/distributed_gp/event_server.py" afterPath="$PROJECT_DIR$/distributed_gp/event_server.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="citybeat_online.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381959934853" ignored="false" />
+    <file path="/Dummy.txt" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381960112860" ignored="false" />
     <file path="/twitter_crawl.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381701510244" ignored="false" />
     <file path="/twitter_crawl_extended.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381800710361" ignored="false" />
     <file path="/tweet_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381782208349" ignored="false" />
@@ -22,8 +23,8 @@
     <file path="/element_interface.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381811620089" ignored="false" />
     <file path="/event_classifier.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381856089666" ignored="false" />
     <file path="/stats_interfaces.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381873743922" ignored="false" />
-    <file path="/event_server.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381876696444" ignored="false" />
-    <file path="/event_daily_notification.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381960099438" ignored="false" />
+    <file path="/event_server.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1382039485721" ignored="false" />
+    <file path="/event_daily_notification.py" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1382031979586" ignored="false" />
     <file path="/rt_send_daily_event_email.sh" changelist="5e2438ca-e222-451b-ac6a-1f849d3a5d7d" time="1381958546106" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,13 +45,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="event_daily_notification.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="event_daily_notification.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/system_monitor/event_daily_notification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="58" selection-start="1588" selection-end="1588" vertical-scroll-proportion="0.3114754">
+            <state line="46" column="23" selection-start="1409" selection-end="1409" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#18#28#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stats.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stats/stats.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="87" column="21" selection-start="3284" selection-end="3284" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="send_email.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/system_monitor/send_email.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="40" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="event_server.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="30" selection-start="1136" selection-end="1167" vertical-scroll-proportion="0.69827586">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,18 +114,18 @@
         <option value="$PROJECT_DIR$/utility/config.py" />
         <option value="$PROJECT_DIR$/stats/stats.py" />
         <option value="$PROJECT_DIR$/routine/rt_extract_stats.sh" />
-        <option value="$PROJECT_DIR$/distributed_gp/event_server.py" />
         <option value="$PROJECT_DIR$/utility/heatmap2_test.py" />
         <option value="$PROJECT_DIR$/routine/rt_send_daily_event_email.sh" />
         <option value="$PROJECT_DIR$/system_monitor/event_daily_notification.py" />
+        <option value="$PROJECT_DIR$/distributed_gp/event_server.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="x" value="1" />
+    <option name="y" value="1" />
+    <option name="width" value="1364" />
+    <option name="height" value="726" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -141,6 +169,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="citybeat_online" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="distributed_gp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -775,7 +817,11 @@
       <created>1381959935367</created>
       <updated>1381959935367</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="add notification via email, add script">
+      <created>1381960113457</created>
+      <updated>1381960113457</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -799,20 +845,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="1" y="1" width="1364" height="726" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32920355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33636364" sideWeight="0.38250428" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34101382" sideWeight="0.37699115" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39965695" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33636364" sideWeight="0.28987992" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34101382" sideWeight="0.28495574" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32933104" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32590052" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32136753" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33628318" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32035398" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -921,18 +967,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/utility/config.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="28" selection-start="2109" selection-end="2109" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stats/stats.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="41" selection-start="3816" selection-end="3816" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routine/rt_alarm.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -987,13 +1021,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="199" selection-end="276" vertical-scroll-proportion="0.36338797">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routine/rt_send_daily_event_email.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="0" selection-start="249" selection-end="249" vertical-scroll-proportion="0.21529745">
@@ -1015,19 +1042,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/system_monitor/all_classified_events.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.2352941">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/system_monitor/send_email.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="41" selection-start="180" selection-end="180" vertical-scroll-proportion="0.25956285">
+        <state line="12" column="40" selection-start="294" selection-end="294" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stats/stats.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="21" selection-start="3284" selection-end="3284" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/system_monitor/event_daily_notification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="58" selection-start="1588" selection-end="1588" vertical-scroll-proportion="0.3114754">
+        <state line="46" column="23" selection-start="1409" selection-end="1409" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#18#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/distributed_gp/event_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="30" selection-start="1136" selection-end="1167" vertical-scroll-proportion="0.69827586">
+          <folding />
         </state>
       </provider>
     </entry>
