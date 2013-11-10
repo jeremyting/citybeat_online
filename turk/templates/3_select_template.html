@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mech Turk Task #3</title>
+    </head>
+    <body>
+        <p>Select all the photos that capture the following event(s): {{event_types}}</p> <br>
+        <form>
+        <table>
+        	{% for row in photo_urls %}
+        		<tr>
+        			{% for image_url in row %}
+                    <td style="background:#ccc;"><input type="checkbox" value="cbox1" id = "chk1"></td>
+        			<td style="background:#ccc;"><img src={{image_url}} height="100" width="100"></td>
+        			{% endfor %}
+        		</tr>
+        	{% endfor %}
+        </table>
+        <br>
+        <input type="submit" value="Submit">
+        </form>
+        <br>
+    </body>
+</html>

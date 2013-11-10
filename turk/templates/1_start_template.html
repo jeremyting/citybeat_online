@@ -1,0 +1,33 @@
+<HTMLQuestion xmlns="[the HTMLQuestion schema URL]">
+<HTMLContent><![CDATA[
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mech Turk Task #1</title>
+    </head>
+    <body>
+        <table>
+        	{% for row in photo_urls %}
+        		<tr>
+        			{% for image_url in row %}
+        			<td><img src={{image_url}} height="100" width="100"></td>
+        			{% endfor %}
+        		</tr>
+        	{% endfor %}
+        </table>
+        <br>
+        <form name='mturk_form' method='post' id='mturk_form' action='https://www.mturk.com/mturk/externalSubmit'>
+	        <p>1. Is there a common event occuring in some (if not most) of these photos?</p>
+	        <input type="radio" name="emergency" value="yes">Yes
+			<input type="radio" name="emergency" value="no">No<br><br>
+			<p>1. If you selected yes from above, is this an emergency event (eg. fire, suicide attempt,etc.)?</p>
+            <input type="radio" name="emergency" value="yes">Yes
+            <input type="radio" name="emergency" value="no">No<br><br>
+            <input type="submit" value="Submit">
+     	</form>
+    </body>
+</html>
+]]>
+</HTMLContent>
+<FrameHeight>500</FrameHeight>
+</HTMLQuestion>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mech Turk Task #2</title>
+    </head>
+    <body>
+        <table>
+        	{% for row in photo_urls %}
+        		<tr>
+        			{% for image_url in row %}
+        			<td><img src={{image_url}} height="100" width="100"></td>
+        			{% endfor %}
+        		</tr>
+        	{% endfor %}
+        </table>
+        <br>
+        <form>
+	        <p>1. Is an event occuring in these photos?</p>
+	        <input type="radio" name="answer" value="yes">Yes
+			<input type="radio" name="answer" value="no">No<br><br>
+			<p>2. If yes. What type of event is it?</p>
+            <select name="event_types">
+                <option value="not" selected>Not an event</option>
+                <option value="sports">Sports</option>
+                <option value="concert">Concert</option>
+                <option value="art">Art</option>
+                <option value="other">Other</option>
+            </select> <br><br>
+            <input type="submit" value="Submit">
+     	  </form>
+    </body>
+</html>
