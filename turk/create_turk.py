@@ -9,7 +9,7 @@ mtc = MTurkConnection(aws_access_key_id=ACCESS_KEY,
                       aws_secret_access_key=SECRET_KEY,
                       host=SANDBOX)
 
-title = 'Give your opinion about a website'
+title = 'final_external5'
 description = ('Visit a website and give us your opinion about'
                ' the design and also some personal comments')
 keywords = 'website, rating, opinions'
@@ -17,7 +17,7 @@ keywords = 'website, rating, opinions'
 
 
 #--------------- BUILD THE QUESTION FORM -------------------
-question_form = ExternalQuestion("https://s3-us-west-2.amazonaws.com/turk-html/test.html",500)
+question_form = ExternalQuestion("https://s3-us-west-2.amazonaws.com/turk-html/index2.html",500)
 
 
 #--------------- CREATE THE HIT -------------------
